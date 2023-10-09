@@ -1,5 +1,6 @@
 package ch.mycomp.onboarding.utilities;
 
+import ch.mycomp.onboarding.pages.LoginPage;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -14,10 +15,19 @@ import java.util.List;
 
 public class BrowserUtils {
 
-    /**
-     * Switches to new window by the exact title. Returns to original window if target title not found
-     * @param targetTitle
-     */
+   // static LoginPage loginpage = new LoginPage();
+
+
+
+
+
+
+
+
+        /**
+         * Switches to new window by the exact title. Returns to original window if target title not found
+         * @param targetTitle
+         */
     public static void switchToWindow(String targetTitle) {
         String origin = Driver.get().getWindowHandle();
         for (String handle : Driver.get().getWindowHandles()) {
@@ -28,6 +38,16 @@ public class BrowserUtils {
         }
         Driver.get().switchTo().window(origin);
     }
+
+
+
+    public static void toastMessage(){
+        Driver.get().get(ConfigurationReader.get("myCompSignin"));
+
+
+    }
+
+
 
     /**
      * Moves the mouse to given element
