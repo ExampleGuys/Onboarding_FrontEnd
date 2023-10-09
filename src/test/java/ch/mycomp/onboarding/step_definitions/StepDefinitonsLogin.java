@@ -18,13 +18,19 @@ public class StepDefinitonsLogin extends BrowserUtils {
     @Given("The user goes to myCompSignin")
     public void theUserGoesToMyCompSignin() {
         Driver.get().get(ConfigurationReader.get("myCompSignin"));
-        BrowserUtils.waitFor(3);
+
     }
 
     @Then("the user verifies that the login screen visible after clicking on the login button.")
     public void theUserVerifiesThatTheLoginScreenVisibleAfterClickingOnTheLoginButton() {
-       loginPage.signInFieldText.click();
+       BrowserUtils.waitForVisibility(loginPage.signInFieldText,30);
+       loginPage.signInFieldText.isEnabled();
     }
 
+    @Then("the user verifies that all-login elements visible on the login box")
+    public void theUserVerifiesThatAllLoginElementsVisibleOnTheLoginBox() {
+        loginPage.signInFieldText.isDisplayed();
 
-}
+    }
+
+    }
