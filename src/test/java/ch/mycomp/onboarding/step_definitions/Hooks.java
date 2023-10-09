@@ -1,5 +1,6 @@
 package ch.mycomp.onboarding.step_definitions;
 
+import ch.mycomp.onboarding.utilities.BrowserUtils;
 import ch.mycomp.onboarding.utilities.Driver;
 import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
@@ -32,6 +33,7 @@ public class Hooks {
             scenario.attach(screenshot,"image/png","screenshot");
         }
 
+        BrowserUtils.waitFor(3);
         Driver.closeDriver();
         System.out.println("Scenario is = " + scenario.getStatus());
     }
