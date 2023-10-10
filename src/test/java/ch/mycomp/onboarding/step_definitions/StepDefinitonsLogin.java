@@ -7,6 +7,7 @@ import ch.mycomp.onboarding.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import net.bytebuddy.asm.Advice;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
@@ -33,4 +34,6 @@ public class StepDefinitonsLogin extends BrowserUtils {
 
     }
 
-    }
+
+
+}
