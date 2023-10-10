@@ -19,6 +19,10 @@ Feature: Login Screen Test
    Given The user goes to myCompSignin
    Then The user should click on the E-mail text field
 
+@ONB2-247
+Scenario: TC Password text field should be clickable on the Sign In page
+  Given The user goes to myCompSignin
+  Then The user should click on Password text field
 
 
 

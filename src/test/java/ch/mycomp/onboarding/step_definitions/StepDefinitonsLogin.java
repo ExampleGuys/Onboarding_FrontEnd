@@ -38,6 +38,11 @@ public class StepDefinitonsLogin extends BrowserUtils {
         loginPage.email.isEnabled();
     }
 
+    @Then("The user should click on Password text field")
+    public void theUserShouldClickOnPasswordTextField() {
+        loginPage.passwordInput.isEnabled();
+    }
+
 
 
 
