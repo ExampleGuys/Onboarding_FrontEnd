@@ -50,6 +50,7 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//*[@id=\"root\"]/div[2]/main/div/div[2]/form/a[1]")
     public WebElement forgotLink;
 
+
     // Forgot Password page
     @FindBy(xpath ="//*[@id=\"root\"]/div[2]/main/div/div[1]/div/div")
     public WebElement forgotPasswordPage;
@@ -58,6 +59,7 @@ public class LoginPage extends BasePage {
     //Forgot Page Email
     @FindBy(id = "//div[@class='ant-col ant-form-item-control css-14bavl3']")
     public WebElement ForgotPageEmail;
+
 
     // Reset Password button
     @FindBy(xpath = "//span[normalize-space()='Reset Password']")
@@ -134,9 +136,8 @@ public class LoginPage extends BasePage {
 
     }
     public void toastMessagesInvalidEmail(String email, String password){
-
         emailInput.sendKeys(email);
-       passwordInput.sendKeys(password);
+        passwordInput.sendKeys(password);
         String invalidEmailMessage = "Email must be a valid email";
 
 
@@ -144,7 +145,7 @@ public class LoginPage extends BasePage {
 
     public void toastMessagesWrongPassword() {
 
-       emailInput.sendKeys(ConfigurationReader.get("emailAhmet"));
+        emailInput.sendKeys(ConfigurationReader.get("emailAhmet"));
         passwordInput.sendKeys("12345678");
         String wrongPasswordMessage = "Credentials did not match";
 
