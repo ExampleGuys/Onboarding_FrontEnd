@@ -14,6 +14,10 @@ Feature: Login Screen Test
     Then the user verifies that all-login elements visible on the login box
 
 
+ @ONB2-244
+ Scenario: TC OBN2-244 E-mail text field should be clickable on the Sign In page
+   Given The user goes to myCompSignin
+   Then The user should click on the E-mail text field
 
 
 
