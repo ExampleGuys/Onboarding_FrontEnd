@@ -64,9 +64,28 @@ Feature: Login Screen Test
     Then the user clicks on forgot password on the  Sign In Page
     And the user verifies that the Forget Password page is open
 
+    ##
 
+## @ONB2-371
+ ## Scenario Outline: TC ONB2-276,278,279,280,282,371,373,374,376,The user should not be able to log in with mismatched credentials "<email>" "<password>"
 
+ ##  Given The user goes to myCompSignin
+ ##  Then the user writes an email "<email>"
+ ##  Then the user writes a password "<password>"
+  ## Then the user clicks sign in button
+ ##  And the user should verify "<toastMessage>"
 
+ ##  Examples:
+  ##   |email                        | password        | toastMessage                                 |
+   ##  |ahmet.bicakci@testtechno.com | 123456678       |Credentials did not match                     |
+    ## |ahmet.bicakcitesttechno.com  | Nail&nail.23    |Email must be a valid email                   |
+   ##  |                             | Nail&nail.23    |Please fill out all required fields correctly |
+  ##   |ahmet.bicakcitesttechno.com  | 12345678        |Email must be a valid email                   |
+ ##    |ahmet.bicakci@testtechno.com |                 |Please fill out all required fields correctly |
+   ##  |                             |                 |Please fill out all
+
+##
+##
 
 
 

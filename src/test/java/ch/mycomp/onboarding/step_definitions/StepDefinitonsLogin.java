@@ -134,4 +134,38 @@ public class StepDefinitonsLogin extends BrowserUtils {
         loginPage.forgotLink.isEnabled();
 
     }
+
+    @Then("the user writes an email {string}")
+    public void theUserWritesAnEmail(String userName) {
+
+
+        loginPage.emailInput.sendKeys(userName);
+      //  passwordInput.sendKeys(ConfigurationReader.get("passwordAhmet"));
+     //   signInButton.click();
+
+
+
+
+    }
+
+    @Then("the user writes a password {string}")
+    public void theUserWritesAPassword(String password) {
+        loginPage.passwordInput.sendKeys(password);
+
+
+
+    }
+
+    @Then("the user clicks sign in button")
+    public void theUserClicksSignInButton() {
+        loginPage.signInButton.click();
+
+    }
+
+    @And("the user should verify {string}")
+    public void theUserShouldVerify(String arg0) {
+     assert loginPage.invalidEmailWrongPasswordToastMessage.getText().contains("Credentials did not match");
+
+
+    }
 }
