@@ -112,3 +112,11 @@ Feature: Orders Tests
     And Click on the "Orders" section in the Navigation Menu
     And The user click on the "New Order" button.
     And The user select the date from datapicker
+
+  @ONB2-226
+  Scenario: The user should be able to chooses an option from Priority drop down menü.
+    Given The user goes to the sign-in page
+    When user logs in with the valid credentials
+    And Click on the "Orders" section in the Navigation Menu
+    And The user click on the "New Order" button.
+    Then The user select the priority from the ddm
