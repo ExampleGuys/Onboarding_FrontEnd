@@ -104,3 +104,11 @@ Feature: Orders Tests
     And user fills in all required fields properly
     And The user click on the "OK" button.
     And The user should be able to see a warning message as "User successfully created"
+
+  @ONB2-224
+  Scenario: The user should be able to choose a date from the "Preferred Delivery Date" field.
+    Given The user goes to the sign-in page
+    When user logs in with the valid credentials
+    And Click on the "Orders" section in the Navigation Menu
+    And The user click on the "New Order" button.
+    And The user select the date from datapicker
