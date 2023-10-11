@@ -8,9 +8,6 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import net.bytebuddy.asm.Advice;
-import org.junit.Assert;
-import org.openqa.selenium.Keys;
 
 public class StepDefinitonsLogin extends BrowserUtils {
 
@@ -18,12 +15,12 @@ public class StepDefinitonsLogin extends BrowserUtils {
 
     @Given("The user goes to myCompSignin")
     public void theUserGoesToMyCompSignin() {
-        Driver.get().get(ConfigurationReader.get("myCompSignin"));
+        Driver.get().get(ConfigurationReader.get("myCompStagingSignin"));
 
     }
     @When("the user enters valid requester {string} and {string}")
     public void theUserEntersValidRequesterAnd(String email, String password) {
-        email = ConfigurationReader.get("requester_email");
+        email = ConfigurationReader.get("requesterUser");
         password = ConfigurationReader.get("requester_password");
         loginPage.emailInput.sendKeys(email);
         loginPage.passwordInput.sendKeys(password);
@@ -64,14 +61,14 @@ public class StepDefinitonsLogin extends BrowserUtils {
         loginPage.login();
 
     }
-
+    @Then("The user enters with user {string} and user {string}")
+    public void theUserEntersWithUserAndUser(String email, String password) {
+        loginPage.login(email,password);
+    }
 
     @And("the user should sign in successfully")
     public void theUserShouldSignInSuccessfully() {
-        assert (loginPage.toastMessages.getText().equalsIgnoreCase("You've successfully signed in"));
-        BrowserUtils.waitFor(3);
-
-
+        loginPage.checkLoginSuccessToastMessage();
     }
 
 
@@ -149,4 +146,6 @@ public class StepDefinitonsLogin extends BrowserUtils {
         loginPage.forgotLink.isEnabled();
 
     }
+
+
 }

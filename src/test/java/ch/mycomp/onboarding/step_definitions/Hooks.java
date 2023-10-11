@@ -22,8 +22,8 @@ public class Hooks {
     }
 
     @AfterStep
-    public void step(Scenario scenario) {
-        System.out.println(scenario.getName()+"Step is " + scenario.getStatus());
+    public void step(Scenario step) {
+        System.out.println("Step is " + step.getStatus());
 
     }
     @After

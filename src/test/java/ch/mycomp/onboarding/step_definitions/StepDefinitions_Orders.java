@@ -37,8 +37,7 @@ public class StepDefinitions_Orders extends BrowserUtils {
         // signInPage.emailSaid.sendKeys(ConfigReader.getProperty("email));
         //  signInPage.passwordInput.sendKeys(ConfigReader.getProperty("password"));
 
-        loginPage.login(ConfigurationReader.get("emailSaid"), ConfigurationReader.get("passwordSaid"));
-        loginPage.signInButton.click();
+        loginPage.login("emailSaid", "passwordSaid");
         BrowserUtils.waitFor(3);
 
     }

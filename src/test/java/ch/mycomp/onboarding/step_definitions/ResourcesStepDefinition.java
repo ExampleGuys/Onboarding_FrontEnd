@@ -24,7 +24,7 @@ public class ResourcesStepDefinition extends BasePage {
     ResourcesPage resourcesPage=new ResourcesPage();
     @Given("The user goes to the sign-in page")
     public void theUserGoesToTheSignInPage() {
-        Driver.get().get(ConfigurationReader.get("myCompSignin"));
+        Driver.get().get(ConfigurationReader.get("myCompStagingSignin"));
     }
 
     @When("The user enters valid logon credentials")

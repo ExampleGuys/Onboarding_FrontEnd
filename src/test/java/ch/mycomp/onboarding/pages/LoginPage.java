@@ -1,21 +1,15 @@
 package ch.mycomp.onboarding.pages;
 
 import ch.mycomp.onboarding.utilities.ConfigurationReader;
-import ch.mycomp.onboarding.utilities.Driver;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
-import static java.sql.DriverManager.getDriver;
+import static org.junit.Assert.*;
 
 public class LoginPage extends BasePage {
 
 
-
-
-        //  String passwordInUnencrypted;
-
+    //  String passwordInUnencrypted;
 
 
     // MyComp SignIn page
@@ -52,7 +46,7 @@ public class LoginPage extends BasePage {
 
 
     // Forgot Password page
-    @FindBy(xpath ="//*[@id=\"root\"]/div[2]/main/div/div[1]/div/div")
+    @FindBy(xpath = "//*[@id=\"root\"]/div[2]/main/div/div[1]/div/div")
     public WebElement forgotPasswordPage;
 
 
@@ -108,38 +102,38 @@ public class LoginPage extends BasePage {
     //  Unencrypted password
 
     @FindBy(xpath = "(//div[@class='ant-form-item-control-input'])[2]")
-    public WebElement  passwordInUnencrypted;
+    public WebElement passwordInUnencrypted;
 
 
-
-
-    public  void login() {
+    public void login() {
         // loginpage.email.sendKeys("ahmet.bicakci@testtechno.com");
         // loginpage.passwordInput.sendKeys("Nail&nail.23");
         //  loginpage.signInButton.click();
 
-        emailInput.sendKeys(ConfigurationReader.get("emailAhmet"));
-        passwordInput.sendKeys(ConfigurationReader.get("passwordAhmet"));
+        emailInput.sendKeys(ConfigurationReader.get("superAdminUser"));
+        passwordInput.sendKeys(ConfigurationReader.get("superAdmin_password"));
         signInButton.click();
 
 
     }
-    public void login(String email,String password){
-        emailInput.sendKeys(email);
-        passwordInput.sendKeys(password);
-    }
 
-
-
-    public void toastMessagesSuccesfullySignedIn(){
-
-        emailInput.sendKeys(ConfigurationReader.get("emailAhmet"));
-        passwordInput.sendKeys(ConfigurationReader.get("passwordAhmet"));
+    public void login(String email, String password) {
+        emailInput.sendKeys(ConfigurationReader.get(email));
+        passwordInput.sendKeys(ConfigurationReader.get(password));
         signInButton.click();
-        String succesfullySignedIn ="You've successfully signed in";
+    }
+
+
+    public void toastMessagesSuccesfullySignedIn() {
+
+        emailInput.sendKeys(ConfigurationReader.get("superAdminUser"));
+        passwordInput.sendKeys(ConfigurationReader.get("superAdmin_password"));
+        signInButton.click();
+        String succesfullySignedIn = "You've successfully signed in";
 
     }
-    public void toastMessagesInvalidEmail(String email, String password){
+
+    public void toastMessagesInvalidEmail(String email, String password) {
         emailInput.sendKeys(email);
         passwordInput.sendKeys(password);
         String invalidEmailMessage = "Email must be a valid email";
@@ -149,7 +143,7 @@ public class LoginPage extends BasePage {
 
     public void toastMessagesWrongPassword() {
 
-        emailInput.sendKeys(ConfigurationReader.get("emailAhmet"));
+        emailInput.sendKeys(ConfigurationReader.get("superAdminUser"));
         passwordInput.sendKeys("12345678");
         String wrongPasswordMessage = "Credentials did not match";
 
@@ -159,7 +153,7 @@ public class LoginPage extends BasePage {
     public void emptyEmailTextField() {
 
         // loginpage.emailInput.sendKeys(ConfigurationReader.get("emailAhmet"));
-        passwordInput.sendKeys(ConfigurationReader.get("passwordAhmet"));
+        passwordInput.sendKeys(ConfigurationReader.get("superAdmin_password"));
         String emptyEmailTextFieldMessage = "Please fill out all required fields correctly";
 
 
@@ -167,7 +161,7 @@ public class LoginPage extends BasePage {
 
     public void emptyPasswordTextField() {
 
-        emailInput.sendKeys(ConfigurationReader.get("emailAhmet"));
+        emailInput.sendKeys(ConfigurationReader.get("superAdminUser"));
         // loginpage.passwordInput.sendKeys(ConfigurationReader.get("passwordAhmet"));
         String emptyPasswordTextFieldMessage = "Please fill out all required fields correctly";
 
@@ -175,11 +169,15 @@ public class LoginPage extends BasePage {
     }
 
 
+    public void checkLoginSuccessToastMessage() {
+        String actualToastMessage = toastMessageText();
+        String expectedToastMessage = "You've successfully signed in";
 
+        System.out.println("actualToastMessage = " + actualToastMessage);
+        System.out.println("expectedToastMessage = " + expectedToastMessage);
 
+        assertEquals(expectedToastMessage,actualToastMessage);
 
-
-
-
-
+//        assert (toastMessages.getText().equalsIgnoreCase("You've successfully signed in"));
+    }
 }
