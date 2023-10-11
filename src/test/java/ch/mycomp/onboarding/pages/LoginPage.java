@@ -124,6 +124,10 @@ public class LoginPage extends BasePage {
 
 
     }
+    public void login(String email,String password){
+        emailInput.sendKeys(email);
+        passwordInput.sendKeys(password);
+    }
 
 
 
