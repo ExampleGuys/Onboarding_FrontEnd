@@ -4,15 +4,8 @@ import ch.mycomp.onboarding.utilities.BrowserUtils;
 import ch.mycomp.onboarding.utilities.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
-import java.util.List;
 
 public abstract class BasePage {
 
@@ -20,5 +13,24 @@ public abstract class BasePage {
         PageFactory.initElements(Driver.get(), this);
     }
 
+    @FindBy(xpath = "//div[@class='go3958317564']")
+    public WebElement message;
+
+    public String getSectionName(String sectionName) {
+        WebElement section = Driver.get().findElement(By.xpath("//label[text()='" + sectionName + "']"));
+        return section.getText();
+    }
+
+    public String getHeaderText(String headerText) {
+        WebElement headerName = Driver.get().findElement(By.xpath("//thead/tr/th[text()='" + headerText + "']"));
+        BrowserUtils.waitForVisibility(headerName,5);
+        return headerName.getText();
+    }
+
+    public String toastMessageText() {
+
+        BrowserUtils.waitForVisibility(message, 3);
+        return message.getText();
+    }
 
 }

@@ -53,3 +53,4 @@ Scenario:TC: ONB2-365 On the New Resource page, verify that the "+ Add resource"
     And The user should be seen the Multiple Selection title
 
 
+

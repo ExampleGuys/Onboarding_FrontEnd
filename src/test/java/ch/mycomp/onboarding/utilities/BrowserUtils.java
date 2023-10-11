@@ -1,6 +1,7 @@
 package ch.mycomp.onboarding.utilities;
 
 import ch.mycomp.onboarding.pages.LoginPage;
+import com.github.javafaker.Faker;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -423,6 +424,38 @@ public class BrowserUtils {
         Alert alert = Driver.get().switchTo().alert();
         // Dismiss the alert
         alert.dismiss();
+    }
+
+    public static void clickHamburgerIcon() {
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) Driver.get();
+        WebElement shadowRoot = (WebElement) jsExecutor.executeScript("return document.querySelector('hamburger-menu').shadowRoot.querySelector('.hamburger-menu')");
+        ((JavascriptExecutor)Driver.get()).executeScript("arguments[0].click()",shadowRoot);
+    }
+    public static void clickProfilerIcon() {
+        JavascriptExecutor jsExecutor = (JavascriptExecutor)Driver.get();
+        WebElement shadowRoot = (WebElement) jsExecutor.executeScript("return document.querySelector('customer-widget').shadowRoot.querySelector('.customer-widget')");
+        ((JavascriptExecutor)Driver.get()).executeScript("arguments[0].click()",shadowRoot);
+    }
+    public Boolean isExist(WebElement element) {
+        return element != null;
+    }
+
+    public static String getTextWithJS(WebDriver driver, WebElement element) {
+        return ((JavascriptExecutor) driver).executeScript("return arguments[0].innerText;", element).toString();
+    }
+
+    public static String fakeName(){
+        return new Faker().harryPotter().character();
+    }
+
+    public static String fakeEmailAdress(){
+        return new Faker().internet().emailAddress();
+    }
+
+    public static String fakeComments500() {
+        return new  Faker().lorem().characters(510);
+
+
     }
 
 
