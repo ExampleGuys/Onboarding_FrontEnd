@@ -44,4 +44,5 @@ Feature: Contacts test
     When the user enters valid requester "email" and "password"
     And the user clicks the sign in button
     And Click on the "Contacts" section in the Navigation Menu
-    Then user should be able to see "Email" column in the Contacts page
+    Then user should be able to see "Full Name / Company" column in the Contacts page
+
