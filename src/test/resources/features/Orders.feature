@@ -52,3 +52,17 @@ Feature: Orders Tests
     And The user should be able to see a warning message as "Company successfully created"
 
 
+  @ONB2-183
+  Scenario: User should not be able to create a contact
+    Given The user goes to the sign-in page
+    When user logs in with the valid credentials
+    And Click on the "Orders" section in the Navigation Menu
+    And The user click on the "New Order" button.
+    And The user select the company from ddm
+    #And The user select an option to "Select the company" from ddm as "Test Techno".
+    And The user clicks the "Contact" icon.
+    And The user should be able to add data to "Enter full name or company"
+    And The user should be able to add Email adress to "Enter email"
+    And The user click on the "OK" button.
+    And The user should be able to see a warning message as "Contact successfully created"
+

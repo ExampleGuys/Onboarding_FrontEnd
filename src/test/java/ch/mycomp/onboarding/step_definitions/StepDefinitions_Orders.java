@@ -144,6 +144,16 @@ public class StepDefinitions_Orders extends BrowserUtils {
         assertEquals(orderPage.boxName(placeHolder).getAttribute("value"), fakeDataInfo);
 
     }
+    @And("The user should be able to add Email adress to {string}")
+    public void theUserShouldBeAbleToAddEmailAdressTo(String placeHolder) {
+        String fakeEmailInfo = fakeEmailAdress();
+        orderPage.boxName(placeHolder).sendKeys(fakeEmailInfo);
+
+        BrowserUtils.waitFor(1);
+        assertEquals(orderPage.boxName(placeHolder).getAttribute("value"), fakeEmailInfo);
+
+    }
+
 
 
 }
