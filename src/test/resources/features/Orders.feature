@@ -66,3 +66,13 @@ Feature: Orders Tests
     And The user click on the "OK" button.
     And The user should be able to see a warning message as "Contact successfully created"
 
+  @ONB2-196
+  Scenario: Then the user should be able write a comment in the comment box.
+    Given The user goes to the sign-in page
+    When user logs in with the valid credentials
+    And Click on the "Orders" section in the Navigation Menu
+    And The user click on the "New Order" button.
+    And The user should be able to add data to "Enter a comment"
+
+
+
