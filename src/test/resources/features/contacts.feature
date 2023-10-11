@@ -55,7 +55,7 @@ Feature: Contacts test
     And Click on the "Contacts" section in the Navigation Menu
     Then user should be able to see "Email" column in the Contacts page
 
-  @ONB2-166
+  @ONB2-167
   Scenario: TC: ONB2-167 Last Change column should be visible in the Contacts page
 
     Given The user goes to myCompSignin
