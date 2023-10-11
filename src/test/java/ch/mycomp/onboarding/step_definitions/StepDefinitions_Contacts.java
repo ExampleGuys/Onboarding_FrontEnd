@@ -24,6 +24,19 @@ public class StepDefinitions_Contacts extends BrowserUtils {
 
     @Then("user should be able to see {string} section in the New Contact page")
     public void userShouldBeAbleToSeeSectionInTheNewContactPage(String sectionName) {
-        assertEquals("Column names did not match",contactsPage.getSectionName(sectionName),sectionName);
+        assertEquals("Column names did not match", contactsPage.getSectionName(sectionName), sectionName);
+    }
+
+    @Then("user should be able to see {string} column in the Contacts page")
+    public void userShouldBeAbleToSeeColumnInThePage(String fullNameCompanyColumn) {
+        assertEquals("Header names did not match", contactsPage.getHeaderText(fullNameCompanyColumn), fullNameCompanyColumn);
+
+    }
+
+    @Then("user should be able to see {string} message")
+    public void userShouldBeAbleToSeeMessage(String message1) {
+        assertEquals("Messages did not match", contactsPage.toastMessageText(), message1);
+
+
     }
 }

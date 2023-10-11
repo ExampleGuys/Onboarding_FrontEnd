@@ -26,3 +26,62 @@ Feature: Contacts test
     And Click on the "Contacts" section in the Navigation Menu
     And The user click on the "New Contact" button.
     Then user should be able to see "Full Name / Company" section in the New Contact page
+
+  @ONB2-164
+  Scenario: TC: ONB2-164 Email section should be visible in the New Contact page
+
+    Given The user goes to myCompSignin
+    When the user enters valid requester "email" and "password"
+    And the user clicks the sign in button
+    And Click on the "Contacts" section in the Navigation Menu
+    And The user click on the "New Contact" button.
+    Then user should be able to see "Email" section in the New Contact page
+
+  @ONB2-165
+  Scenario: TC: ONB2-165 Full Name / Company column should be visible in the Contacts page
+
+    Given The user goes to myCompSignin
+    When the user enters valid requester "email" and "password"
+    And the user clicks the sign in button
+    And Click on the "Contacts" section in the Navigation Menu
+    Then user should be able to see "Full Name / Company" column in the Contacts page
+
+  @ONB2-166
+  Scenario: TC: ONB2-166 Email column should be visible in the Contacts page
+
+    Given The user goes to myCompSignin
+    When the user enters valid requester "email" and "password"
+    And the user clicks the sign in button
+    And Click on the "Contacts" section in the Navigation Menu
+    Then user should be able to see "Email" column in the Contacts page
+
+  @ONB2-167
+  Scenario: TC: ONB2-167 Last Change column should be visible in the Contacts page
+
+    Given The user goes to myCompSignin
+    When the user enters valid requester "email" and "password"
+    And the user clicks the sign in button
+    And Click on the "Contacts" section in the Navigation Menu
+    Then user should be able to see "Last Change" column in the Contacts page
+
+  @ONB2-168
+  Scenario: TC: ONB2-168 Created By column should be visible in the Contacts page
+
+    Given The user goes to myCompSignin
+    When the user enters valid requester "email" and "password"
+    And the user clicks the sign in button
+    And Click on the "Contacts" section in the Navigation Menu
+    Then user should be able to see "Created By" column in the Contacts page
+
+    @ONB2-292
+    Scenario: TC: ONB2-292 Verify that the warning message should be seen when creating a contact without a data
+
+      Given The user goes to myCompSignin
+      When the user enters valid requester "email" and "password"
+      And the user clicks the sign in button
+      And Click on the "Contacts" section in the Navigation Menu
+      And The user click on the "New Contact" button.
+      And The user click on the "Create" button.
+      Then user should be able to see "Please fill out all required fields correctly." message
+
+
