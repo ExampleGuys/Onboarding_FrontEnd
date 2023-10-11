@@ -129,6 +129,21 @@ public class StepDefinitions_Orders extends BrowserUtils {
         BrowserUtils.waitFor(5);
         button2.sendKeys("gpt" + Keys.ENTER);
     }
+    @And("The user clicks the {string} icon.")
+    public void theUserClicksTheIcon(String iconName) {
+        orderPage.clickPlusAccordingToOptionName(iconName);
+        BrowserUtils.waitFor(1);
+
+    }
+    @And("The user should be able to add data to {string}")
+    public void theUserShouldBeAbleToAddDataTo(String placeHolder) {
+        String fakeDataInfo = fakeName();
+        orderPage.boxName(placeHolder).sendKeys(fakeDataInfo);
+
+        BrowserUtils.waitFor(1);
+        assertEquals(orderPage.boxName(placeHolder).getAttribute("value"), fakeDataInfo);
+
+    }
 
 
 }

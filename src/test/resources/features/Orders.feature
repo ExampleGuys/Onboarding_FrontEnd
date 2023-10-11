@@ -38,3 +38,17 @@ Feature: Orders Tests
     And The user select the contact from the ddm
     And The user click on the "Create" button.
     And The user should be able to see a warning message as "Order successfully created"
+
+
+  @ONB2-180
+  Scenario: ONB2-180 The user should be able to create the new Company on "New Order" page.
+    Given The user goes to the sign-in page
+    When user logs in with the valid credentials
+    And Click on the "Orders" section in the Navigation Menu
+    And The user click on the "New Order" button.
+    And The user clicks the "Company" icon.
+    And The user should be able to add data to "Enter Company Name"
+    And The user click on the "OK" button.
+    And The user should be able to see a warning message as "Company successfully created"
+
+
