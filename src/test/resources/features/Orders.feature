@@ -74,5 +74,13 @@ Feature: Orders Tests
     And The user click on the "New Order" button.
     And The user should be able to add data to "Enter a comment"
 
+  @ONB2-186
+  Scenario: ONB2 -186 The back button on the "New orders" page should work properly
+    Given The user goes to the sign-in page
+    When user logs in with the valid credentials
+    And Click on the "Orders" section in the Navigation Menu
+    And The user click on the "New Order" button.
+    And The user click on the "Back" button.
+    Then the user should be able to redirect back to the List of Orders page again.
 
 

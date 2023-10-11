@@ -82,6 +82,7 @@ public class StepDefinitions_Orders extends BrowserUtils {
 
 
     }
+
     @And("The user select the shipping adress from ddm")
     public void theUserSelectTheShippingAdressFromDdm() {
         WebElement button2 = Driver.get().findElement(By.cssSelector("#Order_delivery_address"));
@@ -92,6 +93,7 @@ public class StepDefinitions_Orders extends BrowserUtils {
 
 
     }
+
     @And("The user select the date from datapicker")
     public void theUserSelectTheDateFromDatapicker() {
         WebElement button2 = Driver.get().findElement(By.cssSelector("#Order_delivery_date"));
@@ -102,6 +104,7 @@ public class StepDefinitions_Orders extends BrowserUtils {
 
 
     }
+
     @And("The user select the priority from the ddm")
     public void theUserSelectThePriorityFromTheDdm() {
         WebElement button2 = Driver.get().findElement(By.cssSelector("#Order_priority"));
@@ -111,6 +114,7 @@ public class StepDefinitions_Orders extends BrowserUtils {
         assertTrue(orderPage.priorityDdm.isEnabled());
 
     }
+
     @And("The user select the approver from the ddm")
     public void theUserSelectTheApproverFromTheDdm() {
 
@@ -121,6 +125,7 @@ public class StepDefinitions_Orders extends BrowserUtils {
 
 
     }
+
     @And("The user select the contact from the ddm")
     public void theUserSelectTheContactFromTheDdm() {
 
@@ -129,12 +134,14 @@ public class StepDefinitions_Orders extends BrowserUtils {
         BrowserUtils.waitFor(5);
         button2.sendKeys("gpt" + Keys.ENTER);
     }
+
     @And("The user clicks the {string} icon.")
     public void theUserClicksTheIcon(String iconName) {
         orderPage.clickPlusAccordingToOptionName(iconName);
         BrowserUtils.waitFor(1);
 
     }
+
     @And("The user should be able to add data to {string}")
     public void theUserShouldBeAbleToAddDataTo(String placeHolder) {
         String fakeDataInfo = fakeName();
@@ -144,6 +151,7 @@ public class StepDefinitions_Orders extends BrowserUtils {
         assertEquals(orderPage.boxName(placeHolder).getAttribute("value"), fakeDataInfo);
 
     }
+
     @And("The user should be able to add Email adress to {string}")
     public void theUserShouldBeAbleToAddEmailAdressTo(String placeHolder) {
         String fakeEmailInfo = fakeEmailAdress();
@@ -154,6 +162,11 @@ public class StepDefinitions_Orders extends BrowserUtils {
 
     }
 
+    @Then("the user should be able to redirect back to the List of Orders page again.")
+    public void theUserShouldBeAbleToRedirectBackToTheListOfOrdersPageAgain() {
+        assertTrue(Driver.get().getCurrentUrl().contains("order"));
+
+    }
 
 
 }
