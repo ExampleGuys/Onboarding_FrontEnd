@@ -8,3 +8,4 @@ Scenario:TC: ONB2-365 On the New Resource page, verify that the "+ Add resource"
   Then The user clicks on the "Add resource" button
   And The user should be seen the new recources item opened
 
+
