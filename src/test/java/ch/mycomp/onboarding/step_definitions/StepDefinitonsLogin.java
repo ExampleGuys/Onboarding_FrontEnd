@@ -7,6 +7,7 @@ import ch.mycomp.onboarding.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import net.bytebuddy.asm.Advice;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
@@ -18,6 +19,20 @@ public class StepDefinitonsLogin extends BrowserUtils {
     @Given("The user goes to myCompSignin")
     public void theUserGoesToMyCompSignin() {
         Driver.get().get(ConfigurationReader.get("myCompSignin"));
+
+    }
+    @When("the user enters valid requester {string} and {string}")
+    public void theUserEntersValidRequesterAnd(String email, String password) {
+        email = ConfigurationReader.get("requester_email");
+        password = ConfigurationReader.get("requester_password");
+        loginPage.emailInput.sendKeys(email);
+        loginPage.passwordInput.sendKeys(password);
+
+    }
+
+    @And("the user clicks the sign in button")
+    public void theUserClicksTheSignInButton() {
+        loginPage.signInButton.click();
 
     }
 
