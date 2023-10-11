@@ -26,3 +26,13 @@ Feature: Contacts test
     And Click on the "Contacts" section in the Navigation Menu
     And The user click on the "New Contact" button.
     Then user should be able to see "Full Name / Company" section in the New Contact page
+
+  @ONB2-164
+  Scenario: TC: ONB2-164 Email section should be visible in the New Contact page
+
+    Given The user goes to myCompSignin
+    When the user enters valid requester "email" and "password"
+    And the user clicks the sign in button
+    And Click on the "Contacts" section in the Navigation Menu
+    And The user click on the "New Contact" button.
+    Then user should be able to see "Email" section in the New Contact page

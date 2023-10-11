@@ -56,6 +56,7 @@ public class StepDefinitions_Orders extends BrowserUtils {
     public void theUserClickOnTheButton(String buttonName) {
         WebElement button = Driver.get().findElement(By.xpath("//span[text()='" + buttonName + "']"));
         BrowserUtils.clickWithJS(button);
+        BrowserUtils.waitFor(4);
 
     }
 
