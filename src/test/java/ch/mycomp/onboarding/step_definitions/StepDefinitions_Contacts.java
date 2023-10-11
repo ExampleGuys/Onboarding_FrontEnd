@@ -26,4 +26,9 @@ public class StepDefinitions_Contacts extends BrowserUtils {
     public void userShouldBeAbleToSeeSectionInTheNewContactPage(String sectionName) {
         assertEquals("Column names did not match",contactsPage.getSectionName(sectionName),sectionName);
     }
+    @Then("user should be able to see {string} column in the Contacts page")
+    public void userShouldBeAbleToSeeColumnInThePage(String fullNameCompanyColumn) {
+        assertEquals("Header names did not match", contactsPage.getHeaderText(fullNameCompanyColumn),fullNameCompanyColumn);
+
+    }
 }
