@@ -15,8 +15,8 @@ Feature: Login Screen Test
 
   @ONB2-244
   Scenario: TC OBN2-244 E-mail text field should be clickable on the Sign In page
-   Given The user goes to myCompSignin
-   Then The user should click on the E-mail text field
+    Given The user goes to myCompSignin
+    Then The user should click on the E-mail text field
 
   @ONB2-247
   Scenario: TC ONB2-247 Password text field should be clickable on the Sign In page
@@ -58,7 +58,7 @@ Feature: Login Screen Test
 
 
   @ONB@-337
-    Scenario: TC ONB2-337 The email field should be visible on the forget password page to recover the password.
+  Scenario: TC ONB2-337 The email field should be visible on the forget password page to recover the password.
 
     Given The user goes to myCompSignin
     Then the user clicks on forgot password on the  Sign In Page
