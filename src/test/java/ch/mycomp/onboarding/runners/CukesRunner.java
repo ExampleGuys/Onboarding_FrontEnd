@@ -13,7 +13,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "ch/mycomp/onboarding/step_definitions",
         dryRun = false,
-        tags = ""
+        tags = "@ONB2-175"
 )
 public class CukesRunner {
 }
