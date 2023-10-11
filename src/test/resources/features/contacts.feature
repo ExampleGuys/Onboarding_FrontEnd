@@ -8,3 +8,11 @@ Feature: Contacts test
     And the user clicks the sign in button
     And Click on the "Contacts" section in the Navigation Menu
     Then user should be able to view "New Contact" button
+
+    @ONB2-152
+    Scenario: TC: ONB2-152 New Contact button should be clickable
+      Given The user goes to myCompSignin
+      When the user enters valid requester "email" and "password"
+      And the user clicks the sign in button
+      And Click on the "Contacts" section in the Navigation Menu
+      Then user verifies that "New Contact" button is clickable
