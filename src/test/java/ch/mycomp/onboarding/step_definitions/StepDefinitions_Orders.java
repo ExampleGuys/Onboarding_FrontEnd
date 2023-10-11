@@ -9,6 +9,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
 import java.lang.module.Configuration;
@@ -71,4 +72,63 @@ public class StepDefinitions_Orders extends BrowserUtils {
 
 
     }
+
+    @And("The user select the company from ddm")
+    public void theUserSelectTheCompanyFromDdm() {
+        WebElement button2 = Driver.get().findElement(By.cssSelector("#Order_company"));
+        BrowserUtils.clickWithJS(button2);
+        BrowserUtils.waitFor(1);
+        button2.sendKeys("Test Techno Consultant" + Keys.ENTER);
+
+
+    }
+    @And("The user select the shipping adress from ddm")
+    public void theUserSelectTheShippingAdressFromDdm() {
+        WebElement button2 = Driver.get().findElement(By.cssSelector("#Order_delivery_address"));
+        BrowserUtils.clickWithJS(button2);
+        BrowserUtils.waitFor(2);
+        button2.sendKeys("Avcilar" + Keys.ENTER);
+        assertTrue(button2.isDisplayed());
+
+
+    }
+    @And("The user select the date from datapicker")
+    public void theUserSelectTheDateFromDatapicker() {
+        WebElement button2 = Driver.get().findElement(By.cssSelector("#Order_delivery_date"));
+        BrowserUtils.clickWithJS(button2);
+        BrowserUtils.waitFor(1);
+        button2.sendKeys("31-10-2023" + Keys.ENTER);
+        assertTrue(orderPage.datapicker.isEnabled());
+
+
+    }
+    @And("The user select the priority from the ddm")
+    public void theUserSelectThePriorityFromTheDdm() {
+        WebElement button2 = Driver.get().findElement(By.cssSelector("#Order_priority"));
+        BrowserUtils.clickWithJS(button2);
+        BrowserUtils.waitFor(1);
+        button2.sendKeys("Normal" + Keys.ENTER);
+        assertTrue(orderPage.priorityDdm.isEnabled());
+
+    }
+    @And("The user select the approver from the ddm")
+    public void theUserSelectTheApproverFromTheDdm() {
+
+        WebElement button2 = Driver.get().findElement(By.cssSelector("#Order_approver"));
+        BrowserUtils.clickWithJS(button2);
+        BrowserUtils.waitFor(1);
+        button2.sendKeys("test@yopmail.com - Test Tester" + Keys.ENTER);
+
+
+    }
+    @And("The user select the contact from the ddm")
+    public void theUserSelectTheContactFromTheDdm() {
+
+        WebElement button2 = Driver.get().findElement(By.cssSelector("#Order_contactUser"));
+        BrowserUtils.clickWithJS(button2);
+        BrowserUtils.waitFor(5);
+        button2.sendKeys("gpt" + Keys.ENTER);
+    }
+
+
 }
