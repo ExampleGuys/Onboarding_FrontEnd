@@ -55,4 +55,13 @@ Feature: Contacts test
     And Click on the "Contacts" section in the Navigation Menu
     Then user should be able to see "Email" column in the Contacts page
 
+  @ONB2-166
+  Scenario: TC: ONB2-167 Last Change column should be visible in the Contacts page
+
+    Given The user goes to myCompSignin
+    When the user enters valid requester "email" and "password"
+    And the user clicks the sign in button
+    And Click on the "Contacts" section in the Navigation Menu
+    Then user should be able to see "Last Change" column in the Contacts page
+
 
