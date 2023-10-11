@@ -13,7 +13,7 @@ public class StepDefinitions_Onboarding {
 
     LoginPage loginPage = new LoginPage();
 
-    OnboardingPage onboardingPage=new OnboardingPage();
+    OnboardingPage onboardingPage = new OnboardingPage();
 
     @Given("The user goes to staging url")
     public void the_user_goes_to_staging_url() {
@@ -22,7 +22,7 @@ public class StepDefinitions_Onboarding {
 
     @And("User logs into the web application with the given test data as a requester")
     public void userLogsIntoTheWebApplicationWithTheGivenTestDataAsARequester() {
-    loginPage.login();
+        loginPage.login();
     }
 
     @And("The User click on the {string} section in the Navigation Menu")
@@ -41,5 +41,10 @@ public class StepDefinitions_Onboarding {
     @Then("the user should seen Personal Information section")
     public void theUserShouldSeenPersonalInformationSection() {
         assert (onboardingPage.headlinePersonalInformation.isDisplayed());
+    }
+
+    @Then("the user should seen Company Registration section")
+    public void theUserShouldSeenCompanyRegistrationSection() {
+        assert (onboardingPage.headlineCompanyRegistration.isDisplayed());
     }
 }
