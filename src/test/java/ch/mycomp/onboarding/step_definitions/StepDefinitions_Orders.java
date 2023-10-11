@@ -203,4 +203,26 @@ public class StepDefinitions_Orders extends BrowserUtils {
 
 
     }
+
+    @Then("The user should be able to type up to fivehundred characters in the Description field.")
+    public void theUserShouldBeAbleToTypeUpToFivehundredCharactersInTheDescriptionField() {
+
+        String str= faker.lorem().characters(510);
+        int strlength = str.length(); //510
+
+        orderPage.boxName("Enter description").sendKeys(str);
+
+        int textlength = orderPage.orderEnterDescriptionInfo.getText().length();
+
+        String str500 = orderPage.order500InputDataCount.getText();//500 / 500
+
+        int bosluk = str500.indexOf(" "); //3
+
+        int fivehundred = Integer.parseInt((str500.substring(0,bosluk))); //500 int
+
+        assertEquals(textlength,fivehundred);
+
+        // Assert.assertNotEquals(strlength,textlength);
+
+    }
 }

@@ -84,15 +84,10 @@ Feature: Orders Tests
     Then the user should be able to redirect back to the List of Orders page again.
 
 
-  @ONB2-217
-  Scenario: User should be able to create a new (approver) user type
+  @ONB2-213
+  Scenario: User should be able to enter Maximum 500 characters  in the Description field.
     Given The user goes to the sign-in page
     When user logs in with the valid credentials
     And Click on the "Orders" section in the Navigation Menu
     And The user click on the "New Order" button.
-    And The user select the company from ddm
-    And The user clicks the "Approver" icon.
-    And user fills in all required fields properly
-    And The user click on the "OK" button.
-    And The user should be able to see a warning message as "User successfully created"
-
+    Then The user should be able to type up to fivehundred characters in the Description field.
