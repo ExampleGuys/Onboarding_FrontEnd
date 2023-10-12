@@ -61,4 +61,8 @@ public class StepDefinitions_Onboarding {
     }
 
 
+    @Then("The User verify that “Show Logs” button in the Action section is visible")
+    public void theUserVerifyThatShowLogsButtonInTheActionSectionIsVisible() {
+        onboardingPage.assertionForShowLogsIcon();
+    }
 }
