@@ -100,4 +100,9 @@ public class OnboardingStepDefs {
     public void theUserVerifyThatCompletionDateAtTheLatestSectionShouldBeVisible() {
         onboardingPage.assertionForCompletionDateAtTheLatestHeadlineIsVisible();
     }
+
+    @Then("The User verify that Comments section should be visible")
+    public void theUserVerifyThatCommentsSectionShouldBeVisible() {
+        onboardingPage.assertionForCommentsIsVisible();
+    }
 }
