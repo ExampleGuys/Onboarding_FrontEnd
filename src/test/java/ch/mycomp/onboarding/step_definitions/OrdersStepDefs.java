@@ -3,25 +3,20 @@ package ch.mycomp.onboarding.step_definitions;
 import ch.mycomp.onboarding.pages.LoginPage;
 import ch.mycomp.onboarding.pages.OrderPage;
 import ch.mycomp.onboarding.utilities.BrowserUtils;
-import ch.mycomp.onboarding.utilities.ConfigurationReader;
 import ch.mycomp.onboarding.utilities.Driver;
 import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.cucumber.java.en_old.Ac;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
-import javax.swing.*;
-import java.lang.module.Configuration;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class StepDefinitions_Orders extends BrowserUtils {
+public class OrdersStepDefs extends BrowserUtils {
 
     LoginPage loginPage = new LoginPage();
 
@@ -37,8 +32,7 @@ public class StepDefinitions_Orders extends BrowserUtils {
         // signInPage.emailSaid.sendKeys(ConfigReader.getProperty("email));
         //  signInPage.passwordInput.sendKeys(ConfigReader.getProperty("password"));
 
-        loginPage.login(ConfigurationReader.get("emailSaid"), ConfigurationReader.get("passwordSaid"));
-        loginPage.signInButton.click();
+        loginPage.login("emailSaid", "passwordSaid");
         BrowserUtils.waitFor(3);
 
     }

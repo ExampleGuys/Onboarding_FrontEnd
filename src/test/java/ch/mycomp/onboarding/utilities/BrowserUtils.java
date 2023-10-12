@@ -1,6 +1,5 @@
 package ch.mycomp.onboarding.utilities;
 
-import ch.mycomp.onboarding.pages.LoginPage;
 import com.github.javafaker.Faker;
 import org.junit.Assert;
 import org.openqa.selenium.*;
@@ -15,15 +14,6 @@ import java.util.List;
 
 
 public class BrowserUtils {
-
-   // static LoginPage loginpage = new LoginPage();
-
-
-
-
-
-
-
 
         /**
          * Switches to new window by the exact title. Returns to original window if target title not found
@@ -43,7 +33,7 @@ public class BrowserUtils {
 
 
     public static void toastMessage(){
-        Driver.get().get(ConfigurationReader.get("myCompSignin"));
+        Driver.get().get(ConfigurationReader.get("myCompStagingSignin"));
 
 
     }
@@ -330,6 +320,12 @@ public class BrowserUtils {
                 waitFor(1);
             }
         }
+    }
+
+    public static void clickElement(WebElement element, int timeout) {
+        waitForPageToLoad(timeout);
+        waitForClickability(element, timeout);
+        element.click();
     }
 
     /**

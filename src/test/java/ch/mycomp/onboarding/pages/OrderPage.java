@@ -29,7 +29,6 @@ public class OrderPage extends BasePage{
         String message = BrowserUtils.getTextWithJS(Driver.get(), popUpElement);
 
         return message;
-
     }
 
     public WebElement boxName(String boxNameInfo) {

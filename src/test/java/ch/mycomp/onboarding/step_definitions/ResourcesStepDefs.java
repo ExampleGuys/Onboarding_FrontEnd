@@ -1,6 +1,5 @@
 package ch.mycomp.onboarding.step_definitions;
 
-
 import ch.mycomp.onboarding.pages.BasePage;
 import ch.mycomp.onboarding.pages.LoginPage;
 import ch.mycomp.onboarding.pages.ResourcesPage;
@@ -21,7 +20,7 @@ import org.openqa.selenium.interactions.Actions;
 
 import static ch.mycomp.onboarding.utilities.Driver.driver;
 
-public class ResourcesStepDefinition extends BasePage {
+public class ResourcesStepDefs extends BasePage {
     LoginPage loginPage = new LoginPage();
 
     static Actions actions = new Actions(Driver.get());
@@ -31,7 +30,7 @@ public class ResourcesStepDefinition extends BasePage {
 
     @Given("The user goes to the sign-in page")
     public void theUserGoesToTheSignInPage() {
-        Driver.get().get(ConfigurationReader.get("myCompSignin"));
+        Driver.get().get(ConfigurationReader.get("myCompStagingSignin"));
     }
 
     @When("The user enters valid logon credentials")
