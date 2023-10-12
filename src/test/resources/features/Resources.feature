@@ -102,3 +102,11 @@ Feature: Resources
     Then The user should be seen the Manual title
     And The user clicks on the Manual button
     And The user should be seen the Auto-add title
+
+  @ONB2-327
+  Scenario:TC: ONB2-327 On the New Resource page, verify that the "Resources" title is visible
+    Given The user goes to the sign-in page
+    When The user enters valid logon credentials
+    Then The user clicks on the "Resources" category
+    Then The user clicks on the "New Resource" button
+    And The user should be seen the Resources title

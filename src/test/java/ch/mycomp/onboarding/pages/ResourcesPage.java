@@ -91,6 +91,9 @@ public class ResourcesPage extends BasePage {
     @FindBy(xpath = ("//span[text()='Manual']"))
     public WebElement manualTitle;
 
+    //Resources >resourcesTitle
+    @FindBy(xpath = ("//h2[text()='Resources']"))
+    public WebElement resourcesTitle;
 
     //Resources >Auto-add Title
     @FindBy(xpath = ("//span[text()='Auto-add']"))

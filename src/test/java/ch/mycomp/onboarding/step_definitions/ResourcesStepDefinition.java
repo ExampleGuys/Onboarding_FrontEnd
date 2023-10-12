@@ -177,4 +177,9 @@ public class ResourcesStepDefinition extends BasePage {
     public void theUserClicksOnTheManualButton() {
         resourcesPage.autoAddtoOnboardingTitleSwitch.click();
     }
+
+    @And("The user should be seen the Resources title")
+    public void theUserShouldBeSeenTheResourcesTitle() {
+        Assert.assertTrue(resourcesPage.resourcesTitle.isDisplayed());
+    }
 }
