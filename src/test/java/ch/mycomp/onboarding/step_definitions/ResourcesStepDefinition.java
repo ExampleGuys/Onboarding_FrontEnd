@@ -88,4 +88,9 @@ public class ResourcesStepDefinition extends BasePage {
     public void theUserClicksOnTheSingleSelectionButton() {
         resourcesPage.selectionTypeSwitch.click();
     }
+
+    @And("The user should be seen the {string} page")
+    public void theUserShouldBeSeenThePage(String arg0) {
+        Assert.assertTrue(resourcesPage.resourcesSite.isDisplayed());
+    }
 }

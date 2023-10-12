@@ -8,6 +8,11 @@ Feature: Resources
     Then The user clicks on the "Add resource" button
     And The user should be seen the new recources item opened
 
+  Scenario:TC: ONB2-307 Verify that the Resources category is visible and clickable on the Home Page.
+    Given The user goes to the sign-in page
+    When The user enters valid logon credentials
+    Then The user clicks on the "Resources" category
+    And The user should be seen the "Resources" page
   Scenario:TC: ONB2-314 On the Resources page, verify that the "New Resorces" button is visible and clickable.
     Given The user goes to the sign-in page
     When The user enters valid logon credentials
