@@ -25,6 +25,7 @@ public class ResourcesStepDefinition extends BasePage {
     LoginPage loginPage = new LoginPage();
 
     static Actions actions = new Actions(Driver.get());
+
     static Faker faker = new Faker();
     ResourcesPage resourcesPage=new ResourcesPage();
 
