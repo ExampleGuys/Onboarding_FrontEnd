@@ -90,4 +90,9 @@ public class OnboardingStepDefs {
     public void theUserVerifyThatPersonelInformationSectionShouldBeVisible() {
         onboardingPage.assertionForPersonalInformationHeadlineIsVisible();
     }
+
+    @Then("The User verify that Resources section should be visible")
+    public void theUserVerifyThatResourcesSectionShouldBeVisible() {
+        onboardingPage.assertionForResourcesHeadlineIsVisible();
+    }
 }
