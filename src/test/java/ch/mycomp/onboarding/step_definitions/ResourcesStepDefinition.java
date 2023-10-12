@@ -135,4 +135,9 @@ public class ResourcesStepDefinition extends BasePage {
     public void theUserShouldBeSeenTheNewResourcePage() {
         Assert.assertTrue(resourcesPage.newResourcesPage.isDisplayed());
     }
+
+    @And("The user should be seen the Quantity Selection title")
+    public void theUserShouldBeSeenTheQuantitySelectionTitle() {
+        Assert.assertTrue(resourcesPage.quantitySelectionTitle.isDisplayed());
+    }
 }
