@@ -20,5 +20,8 @@ Scenario:TC: ONB2-198 On the Home Page of the "Sites" category can appear and cl
 
   @ONB2-201
   Scenario:TC: ONB2-201 Verify that the "List of Sites" title is visible on the "Sites" page.
-    And The user should seen the List of Sites title
+    And The user should be seen the List of Sites title
 
+  @ONB2-202
+  Scenario:TC: ONB2-202 Verify that the "Site" title is visible on the "Sites" page.
+        And The user should be seen the Site title

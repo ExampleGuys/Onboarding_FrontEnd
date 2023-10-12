@@ -9,6 +9,7 @@ import ch.mycomp.onboarding.utilities.Driver;
 import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import org.junit.Assert;
 import org.openqa.selenium.interactions.Actions;
 
 public class SitesStepDefs {
@@ -31,9 +32,14 @@ public class SitesStepDefs {
         sitesPage.sitesLink2.click();
     }
 
-    @And("The user should seen the List of Sites title")
-    public void theUserShouldSeenTheListOfSitesTitle() {
+    @And("The user should be seen the List of Sites title")
+    public void theUserShouldBeSeenTheListOfSitesTitle() {
         resourcesPage.listOf_.isDisplayed();
 
+    }
+
+    @And("The user should be seen the Site title")
+    public void theUserShouldBeSeenTheSiteTitle() {
+        Assert.assertTrue(sitesPage.siteTitle.isDisplayed());
     }
 }
