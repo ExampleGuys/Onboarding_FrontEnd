@@ -1,5 +1,6 @@
 package ch.mycomp.onboarding.step_definitions;
 
+
 import ch.mycomp.onboarding.pages.BasePage;
 import ch.mycomp.onboarding.pages.LoginPage;
 import ch.mycomp.onboarding.pages.ResourcesPage;
@@ -22,6 +23,7 @@ public class ResourcesStepDefinition extends BasePage {
     static Actions actions = new Actions(Driver.get());
     static Faker faker = new Faker();
     ResourcesPage resourcesPage=new ResourcesPage();
+
     @Given("The user goes to the sign-in page")
     public void theUserGoesToTheSignInPage() {
         Driver.get().get(ConfigurationReader.get("myCompSignin"));
@@ -51,7 +53,7 @@ public class ResourcesStepDefinition extends BasePage {
         Assert.assertTrue(resourcesPage.addResourcesFirstLine.isDisplayed());
     }
 
-    @And("The user should be seen the {string} page")
+    @And("The user should be seen the New Rwsources Page {string} page")
     public void theUserShouldBeSeenThePage(String arg0) {
         Assert.assertTrue(resourcesPage.newResourcesPage.isDisplayed());
     }
@@ -89,8 +91,38 @@ public class ResourcesStepDefinition extends BasePage {
         resourcesPage.selectionTypeSwitch.click();
     }
 
-    @And("The user should be seen the {string} page")
-    public void theUserShouldBeSeenThePage(String arg0) {
-        Assert.assertTrue(resourcesPage.resourcesSite.isDisplayed());
+    @And("The user should be seen the Resources Page {string} page")
+    public void theUserShouldBeSeenTheResourcesPage(String arg0) {
+        Assert.assertTrue(resourcesPage.listOfResourcesTitleText.isDisplayed());
+
+    }
+
+    @And("The user should be the {string} title on the {string} page")
+    public void theUserShouldBeTheTitleOnThePage(String arg0, String arg1) {
+      //  Assert.assertTrue(commonPage.listOf_Title.isDisplayed());
+    }
+
+
+    @And("The user should be the {string} {string} {string} {string} title")
+    public void theUserShouldBeTheTitle(String arg0, String arg1, String arg2, String arg3) {
+
+  //        Assert.assertTrue(commonPage.listOf_Title.isDisplayed());
+  //        Assert.assertTrue(commonPage.createdAtTitle.isDisplayed());
+  //        Assert.assertTrue(commonPage.createdByTitle.isDisplayed());
+  //        Assert.assertTrue(resourcesPage.categoryNameTitle.isDisplayed());
+       // BrowserUtils.waitForVisibility(commonPage.listOf_Title,20);
+
+     //   String actualResultlistOf_Title = commonPage.listOf_Title.getText();
+        String expectedResult = arg0;
+      //  Assert.assertEquals(expectedResult,actualResultlistOf_Title);
+    }
+    @Then("The user clicks on the Search by name search box")
+    public void theUserClicksOnTheSearchByNameSearchBox() {
+      //  commonPage.searchBoxButton.click();
+    }
+    @And("User searches in the search box")
+    public void userSearchesInTheSearchBox() {
+       // commonPage.searchBoxButton.getText();
+        Assert.assertTrue(resourcesPage.searchBoxFirstLine.isDisplayed());
     }
 }
