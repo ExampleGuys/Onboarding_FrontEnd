@@ -1,11 +1,13 @@
 package ch.mycomp.onboarding.step_definitions;
 
 
+import ch.mycomp.onboarding.pages.BasePage;
 import ch.mycomp.onboarding.pages.LoginPage;
 import ch.mycomp.onboarding.pages.ResourcesPage;
 import ch.mycomp.onboarding.utilities.BrowserUtils;
 import ch.mycomp.onboarding.utilities.ConfigurationReader;
 import ch.mycomp.onboarding.utilities.Driver;
+import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -13,11 +15,14 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
-public class ResourcesStepDefinition {
+public class ResourcesStepDefinition extends BasePage {
     LoginPage loginPage = new LoginPage();
     ResourcesPage resourcesPage = new ResourcesPage();
 
+    static Actions actions = new Actions(Driver.get());
+    static Faker faker = new Faker();
 
     //CommonPage commonPage=new CommonPage();
     @Given("The user goes to the sign-in page")
@@ -46,8 +51,53 @@ public class ResourcesStepDefinition {
 
     @And("The user should be seen the new recources item opened")
     public void theUserShouldBeSeenTheNewRecourcesItemOpened() {
-        Assert.assertTrue(resourcesPage.resourcesSite.isDisplayed());
+        Assert.assertTrue(resourcesPage.addResourcesFirstLine.isDisplayed());
     }
+
+    @Then("The user clicks on the {string} link")
+    public void theUserClicksOnTheLink(String arg0) {
+        resourcesPage.resourcesLink.click();
+    }
+
+    @And("The user should be seen the {string} title")
+    public void theUserShouldBeSeenTheTitle(String arg0) {
+        Assert.assertTrue(resourcesPage.categoryNameTitleNewResourcesSeit.isDisplayed());
+
+    }
+
+    @And("The user should be seen the selection type title")
+    public void theUserShouldBeSeenTheSelectionTypeTitle() {
+        Assert.assertTrue(resourcesPage.selectionTypeTitle.isDisplayed());
+    }
+
+    @And("The user should be seen the Single Selection title")
+    public void theUserShouldBeSeenTheSingleSelectionTitle() {
+        Assert.assertTrue(resourcesPage.singleSelectionType.isDisplayed());
+
+    }
+
+    @And("The user should be seen the Multiple Selection title")
+    public void theUserShouldBeSeenTheMultipleSelectionTitle() {
+        Assert.assertTrue(resourcesPage.multipleSelectionTitle.isDisplayed());
+
+    }
+
+    @And("The user clicks on the Single Selection button")
+    public void theUserClicksOnTheSingleSelectionButton() {
+        resourcesPage.selectionTypeSwitch.click();
+    }
+
+    @And("The user should be seen the Resources Page {string} page")
+    public void theUserShouldBeSeenTheResourcesPage(String arg0) {
+        Assert.assertTrue(resourcesPage.listOfResourcesTitleText.isDisplayed());
+
+    }
+
+    @And("The user should be the {string} title on the {string} page")
+    public void theUserShouldBeTheTitleOnThePage(String arg0, String arg1) {
+      //  Assert.assertTrue(commonPage.listOf_Title.isDisplayed());
+    }
+
 
     @And("The user should be the {string} {string} {string} {string} title")
     public void theUserShouldBeTheTitle(String arg0, String arg1, String arg2, String arg3) {
@@ -75,15 +125,24 @@ public class ResourcesStepDefinition {
 
     }
 
-    @And("The user should be the {string} title on the {string} page")
-    public void theUserShouldBeTheTitleOnThePage(String arg0, String arg1) {
-        //  Assert.assertTrue(commonPage.listOf_Title.isDisplayed());
-    }
-
-
     @Then("The user clicks on the Search by name search box")
     public void theUserClicksOnTheSearchByNameSearchBox() {
         //    commonPage.searchBoxButton.click();
     }
 
+
+    @And("The user should be seen the Resources page")
+    public void theUserShouldBeSeenTheResourcesPage() {
+        Assert.assertTrue(resourcesPage.resourcesSite.isDisplayed());
+    }
+
+    @And("The user should be seen the New Resource page")
+    public void theUserShouldBeSeenTheNewResourcePage() {
+        Assert.assertTrue(resourcesPage.newResourcesPage.isDisplayed());
+    }
+
+    @And("The user should be seen the Quantity Selection title")
+    public void theUserShouldBeSeenTheQuantitySelectionTitle() {
+        Assert.assertTrue(resourcesPage.quantitySelectionTitle.isDisplayed());
+    }
 }
