@@ -16,7 +16,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
-public class ResourcesStepDefinition extends BasePage {
+public class ResourcesStepDefs extends BasePage {
     LoginPage loginPage = new LoginPage();
 
     static Actions actions = new Actions(Driver.get());

@@ -322,6 +322,12 @@ public class BrowserUtils {
         }
     }
 
+    public static void clickElement(WebElement element, int timeout) {
+        waitForPageToLoad(timeout);
+        waitForClickability(element, timeout);
+        element.click();
+    }
+
     /**
      * executes the given JavaScript command on given web element
      *

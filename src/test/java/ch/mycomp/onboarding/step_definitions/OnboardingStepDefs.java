@@ -8,7 +8,7 @@ import io.cucumber.java.en.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-public class StepDefinitions_Onboarding {
+public class OnboardingStepDefs {
 
 
 
@@ -61,4 +61,8 @@ public class StepDefinitions_Onboarding {
     }
 
 
+    @Then("The User verify that “Show Logs” button in the Action section is visible")
+    public void theUserVerifyThatShowLogsButtonInTheActionSectionIsVisible() {
+        onboardingPage.assertionForShowLogsIcon();
+    }
 }
