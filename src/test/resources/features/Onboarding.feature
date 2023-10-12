@@ -28,3 +28,11 @@
       And The User click on the "Onboarding" section in the Navigation Menu
       And The user click on the "New Onboarding" button top right corner of the page
       Then the user should seen Completion Date at The Latest section
+
+    Scenario: TC ONB2-111 Comments section in the new onboarding page should be visible
+      Given The user goes to staging url
+      And The user enters with user "<email>" and user "<password>"
+      And The User click on the "Onboarding" section in the Navigation Menu
+      And The user click on the "New Onboarding" button top right corner of the page
+      Then the user should seen Comments section
+

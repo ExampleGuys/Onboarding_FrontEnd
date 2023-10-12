@@ -31,4 +31,10 @@ public class OnboardingPage extends BasePage{
     public void assertionForCompletionDateAtTheLatestHeadlineIsVisible(){
         assert(headlineCompletionDateAtTheLatest.isDisplayed());
     }
+    @FindBy(xpath = "//h2[text()='Comments']")
+    public WebElement headlineComments;
+
+    public void assertionForCommentsIsVisible(){
+        assert(headlineComments.isDisplayed());
+    }
 }

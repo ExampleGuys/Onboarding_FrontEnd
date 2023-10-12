@@ -54,4 +54,11 @@ public class StepDefinitions_Onboarding {
     public void theUserShouldSeenCompletionDateAtTheLatestSection() {
         onboardingPage.assertionForCompletionDateAtTheLatestHeadlineIsVisible();
     }
+
+    @Then("the user should seen Comments section")
+    public void theUserShouldSeenCommentsSection() {
+    onboardingPage.assertionForCommentsIsVisible();
+    }
+
+
 }
