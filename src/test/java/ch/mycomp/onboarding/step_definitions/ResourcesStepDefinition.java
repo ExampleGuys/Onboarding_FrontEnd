@@ -14,9 +14,12 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+
+import static ch.mycomp.onboarding.utilities.Driver.driver;
 
 public class ResourcesStepDefinition extends BasePage {
     LoginPage loginPage = new LoginPage();
@@ -192,5 +195,30 @@ public class ResourcesStepDefinition extends BasePage {
     @And("The user should be seen the Contacts + title")
     public void theUserShouldBeSeenTheContactsTitle() {
         Assert.assertTrue(resourcesPage.newResourcescontactsTitle.isDisplayed());
+    }
+
+    @And("The user clicks the + button")
+    public void theUserClicksTheButton() {
+        resourcesPage.newResourcesContactsButton.click();
+    }
+
+    @And("The user should be seen the Create Contact page")
+    public void theUserShouldBeSeenTheCreateContactPage() {
+        Assert.assertTrue(resourcesPage.newResourcesCreateContactsPage.isDisplayed());
+    }
+
+    @Then("The user hovers over the + button next to the Contacts title, the Create Contact alert appears")
+    public void theUserHoversOverTheButtonNextToTheContactsTitleTheCreateContactAlertAppears() {
+        WebElement alert =driver.findElement(By.xpath("//button[@type='submit']"));
+        actions.moveToElement(alert).build().perform();
+        if ( alert.isDisplayed()){
+            System.out.println("Create Contact Alert is Displayed");
+
+        }else {
+            System.out.println("Create Contact Alert could not be displayed");
+        }
+
+
+
     }
 }

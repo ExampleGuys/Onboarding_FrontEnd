@@ -126,3 +126,14 @@ Feature: Resources
     Then The user clicks on the "Resources" category
     Then The user clicks on the "New Resource" button
     And The user should be seen the Contacts + title
+
+  @ONB2-331
+  Scenario:TC: ONB2-331 On the New Resource page, the "+" button appears next to the "Contacts" title  and verify that it is clickable.
+    Given The user goes to the sign-in page
+    When The user enters valid logon credentials
+    Then The user clicks on the "Resources" category
+    Then The user clicks on the "New Resource" button
+    And The user should be seen the Contacts + title
+    Then The user hovers over the + button next to the Contacts title, the Create Contact alert appears
+    And The user clicks the + button
+    And The user should be seen the Create Contact page

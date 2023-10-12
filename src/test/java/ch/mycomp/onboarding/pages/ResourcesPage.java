@@ -306,5 +306,11 @@ public class ResourcesPage extends BasePage {
     @FindBy(xpath = "//div[@'class='go3958317564']")
     public WebElement new_CreateErrorMesage;
 
+    //Sites/Resources > createContactAlert2]
+    @FindBy(xpath = "//div=[text()='Create Contact']")
+    public WebElement createContactAlert2;
 
+    //Sites/Resources > createContactAlert1]
+    @FindBy(xpath = "//div=[@class='ant-tooltip css-14bavl3 ant-tooltip-placement-top']")
+    public WebElement createContactAlert1;
 }
