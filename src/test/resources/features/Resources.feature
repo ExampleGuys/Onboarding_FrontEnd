@@ -150,3 +150,15 @@ Feature: Resources
     And The user clicks the + button
     And The user clicks on the "Cancel" button
     And The user should be seen the New Resource page
+
+  @ONB2-336
+  Scenario:TC: ONB2-336 On the Create Contact page, verify that the "X" button is visible and clickable in the upper-right corner
+    Given The user goes to the sign-in page
+    When The user enters valid logon credentials
+    Then The user clicks on the "Resources" category
+    Then The user clicks on the "New Resource" button
+    And The user should be seen the Contacts + title
+    Then The user hovers over the + button next to the Contacts title, the Create Contact alert appears
+    And The user clicks the + button
+    Then The user clicks the "x" button
+    And The user should be seen the New Resource page

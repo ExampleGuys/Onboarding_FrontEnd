@@ -221,4 +221,9 @@ public class ResourcesStepDefinition extends BasePage {
 
 
     }
+
+    @Then("The user clicks the {string} button")
+    public void theUserClicksTheButton(String arg0) {
+        resourcesPage.newResourcesCreateContactsPageXButton.click();
+    }
 }
