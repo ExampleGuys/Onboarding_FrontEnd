@@ -74,5 +74,6 @@ Feature: Resources
     Then The user should be seen the New Resource page
     And The user should be seen the Quantity Selection title
 
+    
 
 
