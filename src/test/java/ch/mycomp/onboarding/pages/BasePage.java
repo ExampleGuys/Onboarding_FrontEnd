@@ -33,4 +33,8 @@ public abstract class BasePage {
         return message.getText();
     }
 
+    // Total Page amounts bottom of the page
+    @FindBy (xpath = "//li[@class='ant-pagination-total-text']")
+    public WebElement totalNumber;
+
 }

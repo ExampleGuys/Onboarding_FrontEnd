@@ -65,4 +65,9 @@ public class OnboardingStepDefs {
     public void theUserVerifyThatShowLogsButtonInTheActionSectionIsVisible() {
         onboardingPage.assertionForShowLogsIcon();
     }
+
+    @Then("The User verify that total number of elements in the List of Onboardings is visible")
+    public void theUserVerifyThatTotalNumberOfElementsInTheListOfOnboardingsIsVisible() {
+        onboardingPage.assertionForTotalAmountOfPage();
+    }
 }

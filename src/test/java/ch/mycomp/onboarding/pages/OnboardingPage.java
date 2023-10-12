@@ -47,5 +47,9 @@ public class OnboardingPage extends BasePage{
         assert(buttonShowLogs.isDisplayed());
     }
 
+    public void assertionForTotalAmountOfPage(){
+        assert(totalNumber.isDisplayed());
+    }
+
 
 }
