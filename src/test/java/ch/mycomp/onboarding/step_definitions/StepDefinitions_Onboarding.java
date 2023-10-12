@@ -50,4 +50,9 @@ public class StepDefinitions_Onboarding {
     public void theUserShouldSeenResourcesSection() {
         onboardingPage.assertionForResourcesHeadlineIsVisible();
     }
+
+    @Then("the user should seen Completion Date at The Latest section")
+    public void theUserShouldSeenCompletionDateAtTheLatestSection() {
+        onboardingPage.assertionForCompletionDateAtTheLatestHeadlineIsVisible();
+    }
 }

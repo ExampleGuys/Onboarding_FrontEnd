@@ -25,4 +25,10 @@ public class OnboardingPage extends BasePage{
     public void assertionForResourcesHeadlineIsVisible(){
         assert(headlineResources.isDisplayed());
     }
+    @FindBy(xpath = "//h2[text()='Completion Date at The Latest']")
+    public WebElement headlineCompletionDateAtTheLatest;
+
+    public void assertionForCompletionDateAtTheLatestHeadlineIsVisible(){
+        assert(headlineCompletionDateAtTheLatest.isDisplayed());
+    }
 }
