@@ -4,6 +4,7 @@ import ch.mycomp.onboarding.pages.BasePage;
 import ch.mycomp.onboarding.pages.LoginPage;
 import ch.mycomp.onboarding.pages.ResourcesPage;
 import ch.mycomp.onboarding.pages.SitesPage;
+import ch.mycomp.onboarding.utilities.BrowserUtils;
 import ch.mycomp.onboarding.utilities.ConfigurationReader;
 import ch.mycomp.onboarding.utilities.Driver;
 import com.github.javafaker.Faker;
@@ -61,5 +62,6 @@ public class SitesStepDefs {
     @And("The user should be seen the Ant-Popover should appear")
     public void theUserShouldBeSeenTheAntPopoverShouldAppear() {
         Assert.assertTrue(resourcesPage.deletePopconfirm.isDisplayed());
+        BrowserUtils.waitFor(3);
     }
 }
