@@ -11,7 +11,7 @@ import org.openqa.selenium.WebElement;
 
 public class StepDefinitions_Onboarding {
 
-    LoginPage loginPage = new LoginPage();
+
 
     OnboardingPage onboardingPage = new OnboardingPage();
 
