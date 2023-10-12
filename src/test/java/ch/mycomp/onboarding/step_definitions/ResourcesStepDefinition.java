@@ -209,9 +209,9 @@ public class ResourcesStepDefinition extends BasePage {
 
     @Then("The user hovers over the + button next to the Contacts title, the Create Contact alert appears")
     public void theUserHoversOverTheButtonNextToTheContactsTitleTheCreateContactAlertAppears() {
-        WebElement alert =driver.findElement(By.xpath("//button[@type='submit']"));
-        actions.moveToElement(alert).build().perform();
-        if ( alert.isDisplayed()){
+        WebElement hover =driver.findElement(By.xpath("//button[@type='submit']"));
+        actions.moveToElement(hover).build().perform();
+        if ( hover.isDisplayed()){
             System.out.println("Create Contact Alert is Displayed");
 
         }else {

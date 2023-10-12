@@ -137,3 +137,16 @@ Feature: Resources
     Then The user hovers over the + button next to the Contacts title, the Create Contact alert appears
     And The user clicks the + button
     And The user should be seen the Create Contact page
+
+  @ONB2-334
+  Scenario:TC: ONB2-334 On the New Resource page, next to the "Contacts" heading, click on the "+" button Verify that
+               the error message appears and is active when incorrect information is entered on the "Create Contact" page.
+    Given The user goes to the sign-in page
+    When The user enters valid logon credentials
+    Then The user clicks on the "Resources" category
+    Then The user clicks on the "New Resource" button
+    And The user should be seen the Contacts + title
+    Then The user hovers over the + button next to the Contacts title, the Create Contact alert appears
+    And The user clicks the + button
+    And The user clicks on the "Cancel" button
+    And The user should be seen the New Resource page
