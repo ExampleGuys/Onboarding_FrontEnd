@@ -25,3 +25,7 @@ Scenario:TC: ONB2-198 On the Home Page of the "Sites" category can appear and cl
   @ONB2-202
   Scenario:TC: ONB2-202 Verify that the "Site" title is visible on the "Sites" page.
         And The user should be seen the Site title
+
+  @ONB2-203
+  Scenario:TC: ONB2-203 Verify that the "Created By" title is visible on the "Sites" page.
+    And The user should be seen the Created By title
