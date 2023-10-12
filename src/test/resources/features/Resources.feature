@@ -84,3 +84,10 @@ Feature: Resources
     And The user clicks on the Selection button
     And User should be seen No Selection title
 
+  @ONB2-324
+  Scenario:TC: ONB2-324 Verify that "Auto Add to Onboarding" is visible on the New Resource page.
+    Given The user goes to the sign-in page
+    When The user enters valid logon credentials
+    Then The user clicks on the "Resources" category
+    Then The user clicks on the "New Resource" button
+    And The user should be seen the Auto Add to Onboarding title

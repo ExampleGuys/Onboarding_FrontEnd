@@ -155,4 +155,9 @@ public class ResourcesStepDefinition extends BasePage {
     public void theUserClicksOnTheSelectionButton() {
         resourcesPage.selectionTypeSwitch.click();
     }
+
+    @And("The user should be seen the Auto Add to Onboarding title")
+    public void theUserShouldBeSeenTheAutoAddToOnboardingTitle() {
+        Assert.assertTrue(resourcesPage.autoAddtoOnboardingTitle.isDisplayed());
+    }
 }
