@@ -42,9 +42,8 @@ Feature: Resources
     When The user enters valid logon credentials
     Then The user clicks on the "Resources" category
     Then The user clicks on the "New Resource" button
-    And The user should be seen the selection type title
     And The user should be seen the Single Selection title
-    And The user clicks on the "Single Selection" button
+    And The user clicks on the Single Selection button
     And The user should be seen the Multiple Selection title
 
 

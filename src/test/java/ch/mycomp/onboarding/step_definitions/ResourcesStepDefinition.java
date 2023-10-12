@@ -71,4 +71,21 @@ public class ResourcesStepDefinition extends BasePage {
     public void theUserShouldBeSeenTheSelectionTypeTitle() {
         Assert.assertTrue(resourcesPage.selectionTypeTitle.isDisplayed());
     }
+
+    @And("The user should be seen the Single Selection title")
+    public void theUserShouldBeSeenTheSingleSelectionTitle() {
+        Assert.assertTrue(resourcesPage.singleSelectionType.isDisplayed());
+
+    }
+
+    @And("The user should be seen the Multiple Selection title")
+    public void theUserShouldBeSeenTheMultipleSelectionTitle() {
+        Assert.assertTrue(resourcesPage.multipleSelectionTitle.isDisplayed());
+
+    }
+
+    @And("The user clicks on the Single Selection button")
+    public void theUserClicksOnTheSingleSelectionButton() {
+        resourcesPage.selectionTypeSwitch.click();
+    }
 }
