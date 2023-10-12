@@ -1,5 +1,6 @@
 package ch.mycomp.onboarding.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -47,5 +48,18 @@ public class OnboardingPage extends BasePage{
         assert(buttonShowLogs.isDisplayed());
     }
 
+    @FindBy(xpath = "//div[text()='Drafts']")
+    public WebElement draftsTab;
 
+    public void clickOnDraftsTab(){
+        draftsTab.click();
+    }
+
+    @FindBy (xpath = "(//tbody[@class='ant-table-tbody']//tr[1]/td[9]//button)[2]")
+    public WebElement editIconInTheTableFirstRowInTheActionSection;
+
+    public void clickEditIconInTheTable(){
+       editIconInTheTableFirstRowInTheActionSection.click();
+
+    }
 }

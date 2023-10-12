@@ -1,10 +1,12 @@
 package ch.mycomp.onboarding.step_definitions;
 
 import ch.mycomp.onboarding.pages.OnboardingPage;
+import ch.mycomp.onboarding.pages.OrderPage;
 import ch.mycomp.onboarding.utilities.BrowserUtils;
 import ch.mycomp.onboarding.utilities.ConfigurationReader;
 import ch.mycomp.onboarding.utilities.Driver;
 import io.cucumber.java.en.*;
+import org.apache.logging.log4j.message.ReusableMessage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -13,6 +15,7 @@ public class OnboardingStepDefs {
 
 
     OnboardingPage onboardingPage = new OnboardingPage();
+    OrderPage orderPage = new OrderPage();
 
     @Given("The user goes to staging url")
     public void the_user_goes_to_staging_url() {
@@ -64,5 +67,42 @@ public class OnboardingStepDefs {
     @Then("The User verify that “Show Logs” button in the Action section is visible")
     public void theUserVerifyThatShowLogsButtonInTheActionSectionIsVisible() {
         onboardingPage.assertionForShowLogsIcon();
+    }
+
+    @And("The User click on {string} tab under the List of Onboardings headline")
+    public void theUserClickOnTabUnderTheListOfOnboardingsHeadline(String tabName) {
+        onboardingPage.clickOnDraftsTab();
+
+    }
+
+    @Then("The User verify that edit icon in the Actions section of first element of list should be visible")
+    public void theUserVerifyThatEditIconInTheActionsSectionOfFirstElementOfListShouldBeVisible() {
+        onboardingPage.assertionForShowLogsIcon();
+    }
+
+    @And("And The User click on edit icon in the Actions section of first element of list")
+    public void andTheUserClickOnEditIconInTheActionsSectionOfFirstElementOfList() {
+        onboardingPage.clickEditIconInTheTable();
+
+    }
+
+    @Then("The User verify that Personel Information section should be visible")
+    public void theUserVerifyThatPersonelInformationSectionShouldBeVisible() {
+        onboardingPage.assertionForPersonalInformationHeadlineIsVisible();
+    }
+
+    @Then("The User verify that Resources section should be visible")
+    public void theUserVerifyThatResourcesSectionShouldBeVisible() {
+        onboardingPage.assertionForResourcesHeadlineIsVisible();
+    }
+
+    @Then("The User verify that Completion Date At The Latest section should be visible")
+    public void theUserVerifyThatCompletionDateAtTheLatestSectionShouldBeVisible() {
+        onboardingPage.assertionForCompletionDateAtTheLatestHeadlineIsVisible();
+    }
+
+    @Then("The User verify that Comments section should be visible")
+    public void theUserVerifyThatCommentsSectionShouldBeVisible() {
+        onboardingPage.assertionForCommentsIsVisible();
     }
 }
