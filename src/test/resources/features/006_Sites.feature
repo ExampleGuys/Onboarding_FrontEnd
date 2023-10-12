@@ -33,3 +33,7 @@ Scenario:TC: ONB2-198 On the Home Page of the "Sites" category can appear and cl
   @ONB2-204
   Scenario:TC: ONB2-204 Verify that the "Created At" title is visible on the "Sites" page.
     And The user should be seen the Created At title
+
+  @ONB2-207
+  Scenario:TC: ONB2-207 Verify that the "Delete" button is visible and active on the "Sites" page.
+    And The user clicks on the Delete button

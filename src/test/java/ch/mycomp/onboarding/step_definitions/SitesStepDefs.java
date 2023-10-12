@@ -52,4 +52,9 @@ public class SitesStepDefs {
     public void theUserShouldBeSeenTheCreatedAtTitle() {
         Assert.assertTrue(resourcesPage.createdAt.isDisplayed());
     }
+
+    @And("The user clicks on the Delete button")
+    public void theUserClicksOnTheDeleteButton() {
+        resourcesPage.deleteButton.click();
+    }
 }
