@@ -79,4 +79,15 @@ public class OnboardingStepDefs {
     public void theUserVerifyThatEditIconInTheActionsSectionOfFirstElementOfListShouldBeVisible() {
         onboardingPage.assertionForShowLogsIcon();
     }
+
+    @And("And The User click on edit icon in the Actions section of first element of list")
+    public void andTheUserClickOnEditIconInTheActionsSectionOfFirstElementOfList() {
+        onboardingPage.clickEditIconInTheTable();
+
+    }
+
+    @Then("The User verify that Personel Information section should be visible")
+    public void theUserVerifyThatPersonelInformationSectionShouldBeVisible() {
+        onboardingPage.assertionForPersonalInformationHeadlineIsVisible();
+    }
 }
