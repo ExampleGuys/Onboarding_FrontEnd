@@ -47,4 +47,9 @@ public class SitesStepDefs {
     public void theUserShouldBeSeenTheCreatedByTitle() {
         Assert.assertTrue(resourcesPage.createdBy_.isDisplayed());
     }
+
+    @And("The user should be seen the Created At title")
+    public void theUserShouldBeSeenTheCreatedAtTitle() {
+        Assert.assertTrue(resourcesPage.createdAt.isDisplayed());
+    }
 }

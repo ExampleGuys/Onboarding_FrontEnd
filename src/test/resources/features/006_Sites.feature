@@ -29,3 +29,7 @@ Scenario:TC: ONB2-198 On the Home Page of the "Sites" category can appear and cl
   @ONB2-203
   Scenario:TC: ONB2-203 Verify that the "Created By" title is visible on the "Sites" page.
     And The user should be seen the Created By title
+
+  @ONB2-204
+  Scenario:TC: ONB2-204 Verify that the "Created At" title is visible on the "Sites" page.
+    And The user should be seen the Created At title
