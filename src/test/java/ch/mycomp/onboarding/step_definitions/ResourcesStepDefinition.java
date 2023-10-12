@@ -125,4 +125,14 @@ public class ResourcesStepDefinition extends BasePage {
        // commonPage.searchBoxButton.getText();
         Assert.assertTrue(resourcesPage.searchBoxFirstLine.isDisplayed());
     }
+
+    @And("The user should be seen the Resources page")
+    public void theUserShouldBeSeenTheResourcesPage() {
+        Assert.assertTrue(resourcesPage.resourcesSite.isDisplayed());
+    }
+
+    @And("The user should be seen the New Resource page")
+    public void theUserShouldBeSeenTheNewResourcePage() {
+        Assert.assertTrue(resourcesPage.newResourcesPage.isDisplayed());
+    }
 }
