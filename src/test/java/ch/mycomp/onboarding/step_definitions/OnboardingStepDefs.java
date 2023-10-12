@@ -1,10 +1,12 @@
 package ch.mycomp.onboarding.step_definitions;
 
 import ch.mycomp.onboarding.pages.OnboardingPage;
+import ch.mycomp.onboarding.pages.OrderPage;
 import ch.mycomp.onboarding.utilities.BrowserUtils;
 import ch.mycomp.onboarding.utilities.ConfigurationReader;
 import ch.mycomp.onboarding.utilities.Driver;
 import io.cucumber.java.en.*;
+import org.apache.logging.log4j.message.ReusableMessage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -13,6 +15,7 @@ public class OnboardingStepDefs {
 
 
     OnboardingPage onboardingPage = new OnboardingPage();
+    OrderPage orderPage = new OrderPage();
 
     @Given("The user goes to staging url")
     public void the_user_goes_to_staging_url() {
