@@ -8,7 +8,7 @@ import io.cucumber.java.en.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-public class StepDefinitions_Onboarding {
+public class OnboardingStepDefs {
 
 
 
