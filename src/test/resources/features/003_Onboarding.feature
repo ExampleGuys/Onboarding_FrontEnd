@@ -44,5 +44,7 @@
 
     Scenario: TC ONB2-140 Edit icon in the Ongoing Elements of Onboardings List should be visible
       Given The user goes to staging url
-      And The user enters with user "<requesterUser>" and user "<requester_password>"
+      And The user enters with user "requesterUser" and user "requester_password"
       And The User click on the "Onboarding" section in the Navigation Menu
+      And The User click on "Drafts" tab under the List of Onboardings headline
+      Then The User verify that edit icon in the Actions section of first element of list should be visible

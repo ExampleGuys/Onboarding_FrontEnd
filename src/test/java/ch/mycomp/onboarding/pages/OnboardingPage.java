@@ -47,5 +47,10 @@ public class OnboardingPage extends BasePage{
         assert(buttonShowLogs.isDisplayed());
     }
 
+    @FindBy(xpath = "//div[text()='Drafts']")
+    public WebElement draftsTab;
 
+    public void clickOnDraftsTab(){
+        draftsTab.click();
+    }
 }
