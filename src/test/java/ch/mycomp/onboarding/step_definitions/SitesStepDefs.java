@@ -2,6 +2,7 @@ package ch.mycomp.onboarding.step_definitions;
 
 import ch.mycomp.onboarding.pages.BasePage;
 import ch.mycomp.onboarding.pages.LoginPage;
+import ch.mycomp.onboarding.pages.ResourcesPage;
 import ch.mycomp.onboarding.pages.SitesPage;
 import ch.mycomp.onboarding.utilities.ConfigurationReader;
 import ch.mycomp.onboarding.utilities.Driver;
@@ -18,6 +19,7 @@ public class SitesStepDefs {
 
     static Faker faker = new Faker();
 
+    ResourcesPage resourcesPage=new ResourcesPage();
     SitesPage sitesPage=new SitesPage();
 
     @And("The user should be seen the Sites page")
@@ -27,5 +29,11 @@ public class SitesStepDefs {
     @And("The user must be able to click on the Sites link")
     public void theUserMustBeAbleToClickOnTheSitesLink() {
         sitesPage.sitesLink2.click();
+    }
+
+    @And("The user should seen the List of Sites title")
+    public void theUserShouldSeenTheListOfSitesTitle() {
+        resourcesPage.listOf_.isDisplayed();
+
     }
 }

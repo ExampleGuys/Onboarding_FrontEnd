@@ -17,3 +17,8 @@ Scenario:TC: ONB2-198 On the Home Page of the "Sites" category can appear and cl
   @ONB2-200
   Scenario:TC: ONB2-200 Verify that the "Sites" link is visible and clickable on the "Sites" page.
         And The user must be able to click on the Sites link
+
+  @ONB2-201
+  Scenario:TC: ONB2-201 Verify that the "List of Sites" title is visible on the "Sites" page.
+    And The user should seen the List of Sites title
+
