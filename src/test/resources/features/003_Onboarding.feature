@@ -65,7 +65,7 @@
         And And The User click on edit icon in the Actions section of first element of list
         Then The User verify that Resources section should be visible
 
-        Scenario: TC ONB2-144 TC ONB2-143 Completion Date At The Latest section in the Edit Onboarding page should be visible
+        Scenario: TC ONB2-144 Completion Date At The Latest section in the Edit Onboarding page should be visible
           Given The user goes to staging url
           And The user enters with user "requesterUser" and user "requester_password"
           And The User click on the "Onboarding" section in the Navigation Menu
