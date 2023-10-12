@@ -67,8 +67,12 @@ public class ResourcesPage extends BasePage {
     @FindBy(xpath = ("//span[text()='Single Selection']"))
     public WebElement singleSelectionType;
 
-    //Resources >selectionTypeSwitch
+    //Resources >singleSelectionTypeSwitch
     @FindBy(xpath = ("(//span[@class='ant-switch-inner'])[1]"))
+    public WebElement singleSelectionTypeSwitch;
+
+    //Resources >SelectionTypeSwitch
+    @FindBy(xpath = ("(//span[@class='ant-switch-inner'])[2]"))
     public WebElement selectionTypeSwitch;
 
     //Resources >Multiple Selection Title

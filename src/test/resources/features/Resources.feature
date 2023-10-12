@@ -74,6 +74,13 @@ Feature: Resources
     Then The user should be seen the New Resource page
     And The user should be seen the Quantity Selection title
 
-    
-
+  @ONB2-323
+  Scenario:TC: ONB2-323 On the New Resource page, verify that the "No Selection" button is visible and clickable.
+    Given The user goes to the sign-in page
+    When The user enters valid logon credentials
+    Then The user clicks on the "Resources" category
+    Then The user clicks on the "New Resource" button
+    Then The user should be seen the Selection title
+    And The user clicks on the Selection button
+    And User should be seen No Selection title
 

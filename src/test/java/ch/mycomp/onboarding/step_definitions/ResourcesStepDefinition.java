@@ -88,7 +88,7 @@ public class ResourcesStepDefinition extends BasePage {
 
     @And("The user clicks on the Single Selection button")
     public void theUserClicksOnTheSingleSelectionButton() {
-        resourcesPage.selectionTypeSwitch.click();
+        resourcesPage.singleSelectionTypeSwitch.click();
     }
 
     @And("The user should be seen the Resources Page {string} page")
@@ -139,5 +139,20 @@ public class ResourcesStepDefinition extends BasePage {
     @And("The user should be seen the Quantity Selection title")
     public void theUserShouldBeSeenTheQuantitySelectionTitle() {
         Assert.assertTrue(resourcesPage.quantitySelectionTitle.isDisplayed());
+    }
+
+    @Then("The user should be seen the Selection title")
+    public void theUserShouldBeSeenTheSelectionTitle() {
+        Assert.assertTrue(resourcesPage.selectionTitle.isDisplayed());
+    }
+
+    @And("User should be seen No Selection title")
+    public void userShouldBeSeenNoSelectionTitle() {
+        Assert.assertTrue(resourcesPage.noSelectionTitle.isDisplayed());
+    }
+
+    @And("The user clicks on the Selection button")
+    public void theUserClicksOnTheSelectionButton() {
+        resourcesPage.selectionTypeSwitch.click();
     }
 }
