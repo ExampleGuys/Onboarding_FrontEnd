@@ -188,4 +188,9 @@ public class ResourcesStepDefinition extends BasePage {
     public void theUserShouldBeTheSeenRecourcesNameTitle() {
         Assert.assertTrue(resourcesPage.resourcesNameTitle.isDisplayed());
     }
+
+    @And("The user should be seen the Contacts + title")
+    public void theUserShouldBeSeenTheContactsTitle() {
+        Assert.assertTrue(resourcesPage.newResourcescontactsTitle.isDisplayed());
+    }
 }
