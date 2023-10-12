@@ -65,7 +65,7 @@ Feature: Resources
     And The user clicks on the Single Selection button
     And The user should be seen the Multiple Selection title
 
-  @ONB2-320
+  @ONB2-321
   Scenario:TC: ONB2-321 Verify that "Quantity Selection" is visible on the New Resource page.
     Given The user goes to the sign-in page
     When The user enters valid logon credentials
