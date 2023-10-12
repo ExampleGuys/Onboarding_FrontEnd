@@ -95,4 +95,9 @@ public class OnboardingStepDefs {
     public void theUserVerifyThatResourcesSectionShouldBeVisible() {
         onboardingPage.assertionForResourcesHeadlineIsVisible();
     }
+
+    @Then("The User verify that Completion Date At The Latest section should be visible")
+    public void theUserVerifyThatCompletionDateAtTheLatestSectionShouldBeVisible() {
+        onboardingPage.assertionForCompletionDateAtTheLatestHeadlineIsVisible();
+    }
 }
