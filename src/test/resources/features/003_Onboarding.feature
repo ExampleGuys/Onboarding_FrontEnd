@@ -42,3 +42,7 @@
       And The User click on the "Onboarding" section in the Navigation Menu
       Then The User verify that “Show Logs” button in the Action section is visible
 
+    Scenario: TC ONB2-140 Edit icon in the Ongoing Elements of Onboardings List should be visible
+      Given The user goes to staging url
+      And The user enters with user "<requesterUser>" and user "<requester_password>"
+      And The User click on the "Onboarding" section in the Navigation Menu
