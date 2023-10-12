@@ -65,6 +65,7 @@ public class ResourcesStepDefinition extends BasePage {
 
     @And("The user should be seen the {string} title")
     public void theUserShouldBeSeenTheTitle(String arg0) {
+        getSectionName(arg0);
         Assert.assertTrue(resourcesPage.categoryNameTitleNewResourcesSeit.isDisplayed());
 
     }
@@ -159,5 +160,21 @@ public class ResourcesStepDefinition extends BasePage {
     @And("The user should be seen the Auto Add to Onboarding title")
     public void theUserShouldBeSeenTheAutoAddToOnboardingTitle() {
         Assert.assertTrue(resourcesPage.autoAddtoOnboardingTitle.isDisplayed());
+    }
+
+    @Then("The user should be seen the Manual title")
+    public void theUserShouldBeSeenTheManualTitle() {
+        Assert.assertTrue(resourcesPage.manualTitle.isDisplayed());
+
+    }
+
+    @And("The user should be seen the Auto-add title")
+    public void theUserShouldBeSeenTheAutoAddTitle() {
+        Assert.assertTrue(resourcesPage.autoAddTitle.isDisplayed());
+    }
+
+    @And("The user clicks on the Manual button")
+    public void theUserClicksOnTheManualButton() {
+        resourcesPage.autoAddtoOnboardingTitleSwitch.click();
     }
 }

@@ -1,4 +1,5 @@
 Feature: Resources
+
   @ONB2-365
   Scenario:TC: ONB2-365 On the New Resource page, verify that the "+ Add resource" button is visible and clickable.
     Given The user goes to the sign-in page
@@ -45,7 +46,7 @@ Feature: Resources
     When The user enters valid logon credentials
     Then The user clicks on the "Resources" category
     Then The user clicks on the "New Resource" button
-    And The user should be seen the "category name" title
+    And The user should be seen the "Category Name" title
 
   @ONB2-319
   Scenario:TC: ONB2-319 Verify that the "Selection Type" title is visible on the New Resource page.
@@ -90,4 +91,14 @@ Feature: Resources
     When The user enters valid logon credentials
     Then The user clicks on the "Resources" category
     Then The user clicks on the "New Resource" button
-    And The user should be seen the Auto Add to Onboarding title
+    And The user should be seen the "Auto Add to Onboarding" title
+
+  @ONB2-325
+  Scenario:TC: ONB2-325 On the New Resource page, verify that the "Manual" button is visible and clickable.Given The user goes to the sign-in page
+    Given The user goes to the sign-in page
+    When The user enters valid logon credentials
+    Then The user clicks on the "Resources" category
+    Then The user clicks on the "New Resource" button
+    Then The user should be seen the Manual title
+    And The user clicks on the Manual button
+    And The user should be seen the Auto-add title
