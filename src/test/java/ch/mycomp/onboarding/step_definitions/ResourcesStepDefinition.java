@@ -44,4 +44,9 @@ public class ResourcesStepDefinition {
     public void theUserShouldBeSeenTheNewRecourcesItemOpened() {
         Assert.assertTrue(resourcesPage.resourcesSite.isDisplayed());
     }
+
+    @And("The user should be seen the {string} page")
+    public void theUserShouldBeSeenThePage(String arg0) {
+        Assert.assertTrue(resourcesPage.resourcesSite.isDisplayed());
+    }
 }
