@@ -49,4 +49,10 @@ public class ResourcesStepDefinition {
     public void theUserShouldBeSeenThePage(String arg0) {
         Assert.assertTrue(resourcesPage.resourcesSite.isDisplayed());
     }
+
+    @And("The user should be the {string} title on the {string} page")
+    public void theUserShouldBeTheTitleOnThePage(String arg0, String arg1) {
+        Assert.assertTrue(resourcesPage.listOfResourcesTitleText.isDisplayed());
+
+    }
 }

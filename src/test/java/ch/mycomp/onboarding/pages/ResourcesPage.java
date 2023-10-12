@@ -9,4 +9,8 @@ public class ResourcesPage extends BasePage{
     @FindBy(xpath = "(//div[@class='ant-row css-14bavl3'])[1]")
     public WebElement resourcesSite;
 
+    //Resources >listOfResourcesTitleText
+    @FindBy(xpath = "//div[text()='List of Resources']")
+    public WebElement listOfResourcesTitleText;
+
 }

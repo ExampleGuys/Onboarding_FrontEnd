@@ -12,3 +12,9 @@ Scenario:TC: ONB2-365 On the New Resource page, verify that the "+ Add resource"
     When The user enters valid logon credentials
     Then The user clicks on the "Resources" category
     And The user should be seen the "Resources" page
+
+  Scenario:TC: ONB2-308 Verify that the "List of Resources" heading appears on the Resources page.
+    Given The user goes to the sign-in page
+    When The user enters valid logon credentials
+    Then The user clicks on the "Resources" category
+    And The user should be the "List of Resources" title on the "Resources" page
