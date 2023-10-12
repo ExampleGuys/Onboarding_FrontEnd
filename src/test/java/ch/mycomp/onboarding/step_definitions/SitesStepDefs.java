@@ -57,4 +57,9 @@ public class SitesStepDefs {
     public void theUserClicksOnTheDeleteButton() {
         resourcesPage.deleteButton.click();
     }
+
+    @And("The user should be seen the Ant-Popover should appear")
+    public void theUserShouldBeSeenTheAntPopoverShouldAppear() {
+        Assert.assertTrue(resourcesPage.deletePopconfirm.isDisplayed());
+    }
 }
