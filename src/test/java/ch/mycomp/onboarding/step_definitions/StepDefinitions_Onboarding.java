@@ -1,6 +1,5 @@
 package ch.mycomp.onboarding.step_definitions;
 
-import ch.mycomp.onboarding.pages.LoginPage;
 import ch.mycomp.onboarding.pages.OnboardingPage;
 import ch.mycomp.onboarding.utilities.BrowserUtils;
 import ch.mycomp.onboarding.utilities.ConfigurationReader;
@@ -11,7 +10,7 @@ import org.openqa.selenium.WebElement;
 
 public class StepDefinitions_Onboarding {
 
-    LoginPage loginPage = new LoginPage();
+
 
     OnboardingPage onboardingPage = new OnboardingPage();
 
@@ -20,10 +19,7 @@ public class StepDefinitions_Onboarding {
         Driver.get().get(ConfigurationReader.get("url"));
     }
 
-    @And("User logs into the web application with the given test data as a requester")
-    public void userLogsIntoTheWebApplicationWithTheGivenTestDataAsARequester() {
-        loginPage.login();
-    }
+
 
     @And("The User click on the {string} section in the Navigation Menu")
     public void theUserClickOnTheSectionInTheNavigationMenu(String navigationName) {
@@ -40,11 +36,33 @@ public class StepDefinitions_Onboarding {
 
     @Then("the user should seen Personal Information section")
     public void theUserShouldSeenPersonalInformationSection() {
-        assert (onboardingPage.headlinePersonalInformation.isDisplayed());
+        onboardingPage.assertionForPersonalInformationHeadlineIsVisible();
     }
 
     @Then("the user should seen Company Registration section")
     public void theUserShouldSeenCompanyRegistrationSection() {
-        assert (onboardingPage.headlineCompanyRegistration.isDisplayed());
+        onboardingPage.assertionForCompanyRegistrationHeadlineIsVisible();
+
+    }
+
+    @Then("the user should seen Resources section")
+    public void theUserShouldSeenResourcesSection() {
+        onboardingPage.assertionForResourcesHeadlineIsVisible();
+    }
+
+    @Then("the user should seen Completion Date at The Latest section")
+    public void theUserShouldSeenCompletionDateAtTheLatestSection() {
+        onboardingPage.assertionForCompletionDateAtTheLatestHeadlineIsVisible();
+    }
+
+    @Then("the user should seen Comments section")
+    public void theUserShouldSeenCommentsSection() {
+    onboardingPage.assertionForCommentsIsVisible();
+    }
+
+
+    @Then("The User verify that “Show Logs” button in the Action section is visible")
+    public void theUserVerifyThatShowLogsButtonInTheActionSectionIsVisible() {
+        onboardingPage.assertionForShowLogsIcon();
     }
 }
