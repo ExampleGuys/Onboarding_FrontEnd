@@ -54,3 +54,7 @@ Scenario:TC: ONB2-198 On the Home Page of the "Sites" category can appear and cl
     And The user clicks on the Delete button
     And The user should be seen the Ant-Popover should appear
     And The user clicks on the "Cancel" button
+
+  @ONB2-236
+  Scenario:TC: ONB2-236 On the "Sites" page, verify that the "New Site" button is visible and clickable.
+    And The user clicks on the "New Site" button
