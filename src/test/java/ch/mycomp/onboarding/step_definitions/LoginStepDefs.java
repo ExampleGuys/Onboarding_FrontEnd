@@ -9,7 +9,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class StepDefinitonsLogin extends BrowserUtils {
+public class LoginStepDefs extends BrowserUtils {
 
     LoginPage loginPage = new LoginPage();
 
