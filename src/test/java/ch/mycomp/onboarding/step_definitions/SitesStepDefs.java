@@ -24,4 +24,8 @@ public class SitesStepDefs {
     public void theUserShouldBeSeenTheSitesPage() {
     }
 
+    @And("The user must be able to click on the Sites link")
+    public void theUserMustBeAbleToClickOnTheSitesLink() {
+        sitesPage.sitesLink2.click();
+    }
 }
