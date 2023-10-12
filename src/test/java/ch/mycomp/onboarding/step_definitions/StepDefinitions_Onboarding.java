@@ -1,6 +1,5 @@
 package ch.mycomp.onboarding.step_definitions;
 
-import ch.mycomp.onboarding.pages.LoginPage;
 import ch.mycomp.onboarding.pages.OnboardingPage;
 import ch.mycomp.onboarding.utilities.BrowserUtils;
 import ch.mycomp.onboarding.utilities.ConfigurationReader;
