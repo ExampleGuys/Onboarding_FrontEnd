@@ -48,3 +48,9 @@ Scenario:TC: ONB2-198 On the Home Page of the "Sites" category can appear and cl
     And The user clicks on the Delete button
     And The user should be seen the Ant-Popover should appear
     And The user clicks on the Delete button
+
+  @ONB2-211
+  Scenario:TC: ONB2-211 Verify that the "Cancel" button is active when clicking the "Delete" button on the "Sites" page.
+    And The user clicks on the Delete button
+    And The user should be seen the Ant-Popover should appear
+    And The user clicks on the "Cancel" button
