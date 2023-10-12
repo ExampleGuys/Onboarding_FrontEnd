@@ -180,6 +180,10 @@ public class ResourcesPage extends BasePage {
   // @FindBy(xpath = "//label[@title='Category Name']")
   // public WebElement categoryNameTitle;
 
+    //Resources > resourcesNameTitle
+     @FindBy(xpath = "//label[@title='Resource Name']")
+     public WebElement resourcesNameTitle;
+
     //Resources > List of Resources altindaki ilk sütun/searchBoxFirstLine
     @FindBy(xpath = "(//tr[@class='ant-table-row ant-table-row-level-0'])[1]")
     public WebElement searchBoxFirstLine;

@@ -110,3 +110,11 @@ Feature: Resources
     Then The user clicks on the "Resources" category
     Then The user clicks on the "New Resource" button
     And The user should be seen the Resources title
+
+  @ONB2-328
+  Scenario:TC: ONB2-328 On the New Resource page, verify that the "Resource Name" title is visible.
+    Given The user goes to the sign-in page
+    When The user enters valid logon credentials
+    Then The user clicks on the "Resources" category
+    Then The user clicks on the "New Resource" button
+    And The user should be the seen Recources Name title

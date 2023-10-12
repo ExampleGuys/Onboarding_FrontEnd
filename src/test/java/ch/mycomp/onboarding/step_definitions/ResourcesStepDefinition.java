@@ -8,6 +8,7 @@ import ch.mycomp.onboarding.utilities.BrowserUtils;
 import ch.mycomp.onboarding.utilities.ConfigurationReader;
 import ch.mycomp.onboarding.utilities.Driver;
 import com.github.javafaker.Faker;
+import io.cucumber.java.bs.A;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -181,5 +182,10 @@ public class ResourcesStepDefinition extends BasePage {
     @And("The user should be seen the Resources title")
     public void theUserShouldBeSeenTheResourcesTitle() {
         Assert.assertTrue(resourcesPage.resourcesTitle.isDisplayed());
+    }
+
+    @And("The user should be the seen Recources Name title")
+    public void theUserShouldBeTheSeenRecourcesNameTitle() {
+        Assert.assertTrue(resourcesPage.resourcesNameTitle.isDisplayed());
     }
 }
