@@ -162,3 +162,12 @@ Feature: Resources
     And The user clicks the + button
     Then The user clicks the "x" button
     And The user should be seen the New Resource page
+
+  @ONB2-366
+  Scenario:TC: ONB2-366 On the New Resource page, verify that the "Back" button is visible and clickable.
+    Given The user goes to the sign-in page
+    When The user enters valid logon credentials
+    Then The user clicks on the "Resources" category
+    Then The user clicks on the "New Resource" button
+    Then The user clicks the Back button
+    And The user should be seen the Resources page

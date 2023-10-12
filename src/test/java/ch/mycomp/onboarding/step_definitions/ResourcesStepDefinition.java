@@ -218,12 +218,15 @@ public class ResourcesStepDefinition extends BasePage {
             System.out.println("Create Contact Alert could not be displayed");
         }
 
-
-
     }
 
     @Then("The user clicks the {string} button")
     public void theUserClicksTheButton(String arg0) {
         resourcesPage.newResourcesCreateContactsPageXButton.click();
+    }
+
+    @Then("The user clicks the Back button")
+    public void theUserClicksTheBackButton() {
+        resourcesPage.new_BackButton.click();
     }
 }
