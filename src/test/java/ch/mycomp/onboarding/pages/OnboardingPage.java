@@ -76,4 +76,9 @@ public class OnboardingPage extends BasePage{
     public void assertionAttachmentUploadButton(){
         assert (attahmentUpload.isDisplayed());
     }
+    @FindBy(xpath = "//tbody[@class='ant-table-tbody']//tr[1]")
+    public WebElement firstRowinTheListOfOnboardingTable;
+    public void assertionFirstRowOOnboardingList(){
+        assert firstRowinTheListOfOnboardingTable.isDisplayed();
+    }
 }

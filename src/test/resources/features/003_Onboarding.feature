@@ -93,3 +93,9 @@ Feature: Onboarding Create Tests
     And The User click on the "Onboarding" section in the Navigation Menu
     And The user click on the "New Onboarding" button top right corner of the page
     Then the user should seen “Select File” button in the Attachments section
+
+  Scenario: TC ONB2-19 List of Onboarding should be displayed properly
+    Given The user goes to staging url
+    And The user enters with user "requesterUser" and user "requester_password"
+    And The User click on the "Onboarding" section in the Navigation Menu
+    Then User should be able to view previously created onboarding item
