@@ -99,3 +99,11 @@ Feature: Onboarding Create Tests
     And The user enters with user "requesterUser" and user "requester_password"
     And The User click on the "Onboarding" section in the Navigation Menu
     Then User should be able to view previously created onboarding item
+
+  Scenario: TC ONB2-102 Clicking on the "Onboardings" link at the top left of the page redirects the page to the 'All onboardings list page'
+    Given The user goes to staging url
+    And The user enters with user "requesterUser" and user "requester_password"
+    And The User click on the "Onboarding" section in the Navigation Menu
+    And The user click on the "New Onboarding" button top right corner of the page
+    And The User click on the 'Onboardings' link top left on the page
+    Then The User verify that links redirected to the page

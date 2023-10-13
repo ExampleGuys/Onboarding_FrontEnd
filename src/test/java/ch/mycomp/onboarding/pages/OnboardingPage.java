@@ -1,8 +1,12 @@
 package ch.mycomp.onboarding.pages;
 
+import ch.mycomp.onboarding.utilities.BrowserUtils;
+import ch.mycomp.onboarding.utilities.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
+import static org.junit.Assert.assertEquals;
 
 public class OnboardingPage extends BasePage{
 
@@ -80,5 +84,18 @@ public class OnboardingPage extends BasePage{
     public WebElement firstRowinTheListOfOnboardingTable;
     public void assertionFirstRowOOnboardingList(){
         assert firstRowinTheListOfOnboardingTable.isDisplayed();
+    }
+
+    @FindBy(xpath = "//a[text()='Onboardings']")
+    public WebElement linkOfOnboardings;
+
+    public void clickOnLinkOfOnboardings(){
+        BrowserUtils.clickElement(linkOfOnboardings,20);    }
+    public void assertionLinkOfOnboardings(){
+        BrowserUtils.clickElement(linkOfOnboardings,20);
+        String expectedUrl = "https://staging.onboarding.mycomp.ch/onboarding";
+        String actualUrl=Driver.get().getCurrentUrl();
+        assertEquals(expectedUrl,actualUrl);
+
     }
 }
