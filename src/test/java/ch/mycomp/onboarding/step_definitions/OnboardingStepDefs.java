@@ -105,4 +105,9 @@ public class OnboardingStepDefs {
     public void theUserVerifyThatCommentsSectionShouldBeVisible() {
         onboardingPage.assertionForCommentsIsVisible();
     }
+
+    @Then("The user should seen Attachments section")
+    public void theUserShouldSeenAttachmentsSection() {
+        onboardingPage.assertionForAttechmentsHeadlineIsVisible();
+    }
 }

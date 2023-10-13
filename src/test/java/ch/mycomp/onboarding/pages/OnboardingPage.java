@@ -62,4 +62,11 @@ public class OnboardingPage extends BasePage{
        editIconInTheTableFirstRowInTheActionSection.click();
 
     }
+
+    @FindBy(xpath = "//h2[text()='Attachments']")
+    public WebElement headlineAttechmentsSection;
+
+    public void assertionForAttechmentsHeadlineIsVisible(){
+        assert(headlineAttechmentsSection.isDisplayed());
+    }
 }
