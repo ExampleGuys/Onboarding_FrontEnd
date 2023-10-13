@@ -194,4 +194,14 @@ public class OnboardingStepDefs {
     public void thenUserVerifyThatDraftOnboardingProcessesShouldShownInTheDraftsTab() {
         onboardingPage.assertionDraftOnboardingsVisible();
     }
+
+    @And("The User click on Completed tab under the List of Onboardings headline")
+    public void theUserClickOnCompletedTabUnderTheListOfOnboardingsHeadline() {
+        onboardingPage.clickOnCompletedTab();
+    }
+
+    @Then("Then user verify that Completed onboarding processes should shown in the Drafts tab")
+    public void thenUserVerifyThatCompletedOnboardingProcessesShouldShownInTheDraftsTab() {
+        onboardingPage.assertionCompletedOnboardingsVisible();
+    }
 }
