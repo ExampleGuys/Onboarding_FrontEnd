@@ -155,4 +155,22 @@ public class OnboardingStepDefs {
     public void theUserVerifyThatCompanyRegistrationSectionIsVisible() {
         onboardingPage.assertionForCompanyRegistrationHeadlineIsVisible();
     }
+
+    @And("The user click on the delete icon in the Actions section of a first element of onboarding list")
+    public void theUserClickOnTheDeleteIconInTheActionsSectionOfAFirstElementOfOnboardingList() {
+        onboardingPage.clickDeleteIconOfTeFirstElementOfOnboardingList();
+
+    }
+    @And("The User Click on {string} button on the ant-popover")
+    public void theUserClickOnButtonOnTheAntPopover(String buttonName) {
+        WebElement button = Driver.get().findElement(By.xpath("//span[text()='" + buttonName + "']"));
+        BrowserUtils.clickWithJS(button);
+
+    }
+
+    @Then("The User verify that {string} button is working properly")
+    public void theUserVerifyThatButtonIsWorkingProperly(String buttonName) {
+        WebElement button = Driver.get().findElement(By.xpath("//span[text()='" + buttonName + "']"));
+        assert (!(button.isDisplayed()));
+    }
 }

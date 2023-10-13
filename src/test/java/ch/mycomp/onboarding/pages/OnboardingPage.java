@@ -127,4 +127,19 @@ public class OnboardingPage extends BasePage{
     public void assertionShowLogsModal(){
         assert (modalShowLogs.isDisplayed());
     }
+
+    @FindBy(xpath = "(//tbody[@class='ant-table-tbody']//tr[1]/td[9]//button)[3]")
+    WebElement deleteIconOfTheFirstElementOfOnboardingList;
+
+    public void clickDeleteIconOfTeFirstElementOfOnboardingList(){
+        BrowserUtils.clickElement(deleteIconOfTheFirstElementOfOnboardingList,20);
+    }
+
+    @FindBy(xpath = "//*[text()='Cancel']")
+    WebElement buttonCancel;
+
+    public void clickOnCancelButtonInThePopUp(){
+        BrowserUtils.clickElement(buttonCancel,20);
+    }
+
 }

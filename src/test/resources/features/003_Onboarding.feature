@@ -130,3 +130,10 @@ Feature: Onboarding Create Tests
     And And The User click on edit icon in the Actions section of first element of list
     Then the User verify that Company Registration section is visible
 
+Scenario: TC ONB2-103 Cancel button in the ant-popover should be clickable
+  Given The user goes to staging url
+  And The user enters with user "requesterUser" and user "requester_password"
+  And The User click on the "Onboarding" section in the Navigation Menu
+  And The user click on the delete icon in the Actions section of a first element of onboarding list
+  And The User Click on "Cancel" button on the ant-popover
+  Then The User verify that "Cancel" button is working properly
