@@ -127,4 +127,52 @@ public class OnboardingPage extends BasePage{
     public void assertionShowLogsModal(){
         assert (modalShowLogs.isDisplayed());
     }
+
+    @FindBy(xpath = "(//tbody[@class='ant-table-tbody']//tr[1]/td[9]//button)[3]")
+    WebElement deleteIconOfTheFirstElementOfOnboardingList;
+
+    public void clickDeleteIconOfTeFirstElementOfOnboardingList(){
+        BrowserUtils.clickElement(deleteIconOfTheFirstElementOfOnboardingList,20);
+    }
+
+    @FindBy(xpath = "//*[text()='Cancel']")
+    WebElement buttonCancel;
+
+    public void clickOnCancelButtonInThePopUp(){
+        BrowserUtils.clickElement(buttonCancel,20);
+    }
+    public void assertionRedirectToNewOnboardingPage(){
+        String expectedUrl="https://staging.onboarding.mycomp.ch/onboarding/create";
+        String actualUrl=Driver.get().getCurrentUrl();
+        assertEquals(expectedUrl,actualUrl);
+    }
+
+    @FindBy(xpath = "//div[text()='All']")
+    public WebElement AllTab;
+
+    public void clickOnAllTab(){
+        AllTab.click();
+    }
+
+    public void assertionAllOnboardingsVisible() {
+        String expectedUrl="https://staging.onboarding.mycomp.ch/onboarding?page=&isCompleted=";
+        String actualUrl=Driver.get().getCurrentUrl();
+        assertEquals(expectedUrl,actualUrl);
+    }
+    public void assertionDraftOnboardingsVisible() {
+        String expectedUrl="https://staging.onboarding.mycomp.ch/onboarding?page=&isCompleted=false";
+        String actualUrl=Driver.get().getCurrentUrl();
+        assertEquals(expectedUrl,actualUrl);
+    }
+    @FindBy(xpath = "//div[text()='Completed Requests']")
+    public WebElement CompletedTab;
+
+    public void clickOnCompletedTab(){
+        CompletedTab.click();
+    }
+    public void assertionCompletedOnboardingsVisible() {
+        String expectedUrl="https://staging.onboarding.mycomp.ch/onboarding?page=&isCompleted=true";
+        String actualUrl=Driver.get().getCurrentUrl();
+        assertEquals(expectedUrl,actualUrl);
+    }
 }

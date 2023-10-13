@@ -155,4 +155,53 @@ public class OnboardingStepDefs {
     public void theUserVerifyThatCompanyRegistrationSectionIsVisible() {
         onboardingPage.assertionForCompanyRegistrationHeadlineIsVisible();
     }
+
+    @And("The user click on the delete icon in the Actions section of a first element of onboarding list")
+    public void theUserClickOnTheDeleteIconInTheActionsSectionOfAFirstElementOfOnboardingList() {
+        onboardingPage.clickDeleteIconOfTeFirstElementOfOnboardingList();
+
+    }
+    @And("The User Click on {string} button on the ant-popover")
+    public void theUserClickOnButtonOnTheAntPopover(String buttonName) {
+        WebElement button = Driver.get().findElement(By.xpath("//span[text()='" + buttonName + "']"));
+        BrowserUtils.clickWithJS(button);
+
+    }
+
+    @Then("The User verify that {string} button is working properly")
+    public void theUserVerifyThatButtonIsWorkingProperly(String buttonName) {
+        WebElement button = Driver.get().findElement(By.xpath("//span[text()='" + buttonName + "']"));
+        assert (!(button.isDisplayed()));
+    }
+
+    @Then("The User verify that redirected to new onboarding create page")
+    public void theUserVerifyThatRedirectedToNewOnboardingCreatePage() {
+        onboardingPage.assertionRedirectToNewOnboardingPage();
+    }
+
+    @And("The User click on All tab under the List of Onboardings headline")
+    public void theUserClickOnAllTabUnderTheListOfOnboardingsHeadline() {
+        onboardingPage.clickOnDraftsTab();
+        onboardingPage.clickOnAllTab();
+    }
+
+    @Then("Then user verify that All onboarding processes should shown in the All tab")
+    public void thenUserVerifyThatAllOnboardingProcessesShouldShownInTheAllTab() {
+        onboardingPage.assertionAllOnboardingsVisible();
+    }
+
+    @Then("Then user verify that Draft onboarding processes should shown in the Drafts tab")
+    public void thenUserVerifyThatDraftOnboardingProcessesShouldShownInTheDraftsTab() {
+        onboardingPage.assertionDraftOnboardingsVisible();
+    }
+
+    @And("The User click on Completed tab under the List of Onboardings headline")
+    public void theUserClickOnCompletedTabUnderTheListOfOnboardingsHeadline() {
+        onboardingPage.clickOnCompletedTab();
+    }
+
+    @Then("Then user verify that Completed onboarding processes should shown in the Drafts tab")
+    public void thenUserVerifyThatCompletedOnboardingProcessesShouldShownInTheDraftsTab() {
+        onboardingPage.assertionCompletedOnboardingsVisible();
+    }
 }
