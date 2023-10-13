@@ -144,3 +144,11 @@ Feature: Onboarding Create Tests
     And The User click on the "Onboarding" section in the Navigation Menu
     And The user click on the "New Onboarding" button top right corner of the page
     Then The User verify that redirected to new onboarding create page
+
+
+  Scenario: TC ONB2-78 'All' tab should show all onboarding processes
+    Given The user goes to staging url
+    And The user enters with user "requesterUser" and user "requester_password"
+    And The User click on the "Onboarding" section in the Navigation Menu
+    And The User click on All tab under the List of Onboardings headline
+    Then Then user verify that All onboarding processes should shown in the All tab

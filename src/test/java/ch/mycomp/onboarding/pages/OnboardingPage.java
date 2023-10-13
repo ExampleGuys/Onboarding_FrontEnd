@@ -146,4 +146,17 @@ public class OnboardingPage extends BasePage{
         String actualUrl=Driver.get().getCurrentUrl();
         assertEquals(expectedUrl,actualUrl);
     }
+
+    @FindBy(xpath = "//div[text()='All']")
+    public WebElement AllTab;
+
+    public void clickOnAllTab(){
+        AllTab.click();
+    }
+
+    public void assertionAllOnboardingsVisible() {
+        String expectedUrl="https://staging.onboarding.mycomp.ch/onboarding?page=&isCompleted=";
+        String actualUrl=Driver.get().getCurrentUrl();
+        assertEquals(expectedUrl,actualUrl);
+    }
 }

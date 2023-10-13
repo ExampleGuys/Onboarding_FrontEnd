@@ -178,4 +178,15 @@ public class OnboardingStepDefs {
     public void theUserVerifyThatRedirectedToNewOnboardingCreatePage() {
         onboardingPage.assertionRedirectToNewOnboardingPage();
     }
+
+    @And("The User click on All tab under the List of Onboardings headline")
+    public void theUserClickOnAllTabUnderTheListOfOnboardingsHeadline() {
+        onboardingPage.clickOnDraftsTab();
+        onboardingPage.clickOnAllTab();
+    }
+
+    @Then("Then user verify that All onboarding processes should shown in the All tab")
+    public void thenUserVerifyThatAllOnboardingProcessesShouldShownInTheAllTab() {
+        onboardingPage.assertionAllOnboardingsVisible();
+    }
 }
