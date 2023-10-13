@@ -40,19 +40,19 @@ public class ContactsPage extends BasePage {
 
     }
 
-    public void writeEmailIsInTheTextBox(String placeHolder) {
+    public void writeEmailInTheTextBox(String placeHolder) {
         orderPage.boxName(placeHolder).sendKeys(fakeEmail);
 
     }
 
     public void checkContactNames() {
-        assertTrue(lastCreatedContactName.getText().contains(fakeContactName));
+        assertTrue(lastCreatedContactName.getText().equals(fakeContactName));
         System.out.println("lastCreatedContactName = " + lastCreatedContactName.getText());
         System.out.println("fakeContactName = " + fakeContactName);
     }
 
     public void checkEmailAddresses() {
-        assertTrue(lastCreatedEmail.getText().contains(fakeEmail));
+        assertTrue(lastCreatedEmail.getText().equals(fakeEmail));
         System.out.println("lastCreatedEmail = " + lastCreatedEmail.getText());
         System.out.println("fakeEmail = " + fakeEmail);
     }

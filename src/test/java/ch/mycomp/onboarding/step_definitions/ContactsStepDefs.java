@@ -49,7 +49,7 @@ public class ContactsStepDefs extends BrowserUtils {
 
     @And("the user writes Email address in {string} text area")
     public void theUserWritesEmailAddressInTextArea(String placeHolder) {
-        contactsPage.writeEmailIsInTheTextBox(placeHolder);
+        contactsPage.writeEmailInTheTextBox(placeHolder);
     }
 
     @Then("user should be able to verify that new contact is in the contacts' list")
@@ -58,6 +58,11 @@ public class ContactsStepDefs extends BrowserUtils {
         contactsPage.checkContactNames();
         contactsPage.checkEmailAddresses();
 
+    }
+
+    @Then("user should be able to verify that user should not be able create a contact")
+    public void userShouldBeAbleToVerifyThatUserShouldNotBeAbleCreateAContact() {
+        assertTrue(contactsPage.toastMessageText().equals("Please fill out all required fields correctly."));
     }
 }
 

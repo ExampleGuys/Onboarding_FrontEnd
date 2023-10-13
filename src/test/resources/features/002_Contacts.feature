@@ -97,4 +97,18 @@ Feature: Contacts test
     And The user click on the "Create" button.
     Then user should be able to verify that new contact is in the contacts' list
 
+    @ONB2-119
+    Scenario: TC: @ONB2-119 Create a contact without filling the email text field
+
+      Given The user goes to myCompSignin
+      When the user enters valid requester "email" and "password"
+      And the user clicks the sign in button
+      And Click on the "Contacts" section in the Navigation Menu
+      And The user click on the "New Contact" button.
+      And the user writes a contact name in "Enter full name or company" text area
+      And The user click on the "Create" button.
+      Then user should be able to verify that user should not be able create a contact
+
+
+
 
