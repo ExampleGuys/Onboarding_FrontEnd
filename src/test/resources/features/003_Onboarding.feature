@@ -105,5 +105,6 @@ Feature: Onboarding Create Tests
     And The user enters with user "requesterUser" and user "requester_password"
     And The User click on the "Onboarding" section in the Navigation Menu
     And The user click on the "New Onboarding" button top right corner of the page
-    And The User click on the 'Onboardings' link top left on the page
+    And The User click on the Onboardings link top left on the page
     Then The User verify that links redirected to the page
+

@@ -120,9 +120,9 @@ public class OnboardingStepDefs {
     public void userShouldBeAbleToViewPreviouslyCreatedOnboardingItem() {
         onboardingPage.assertionFirstRowOOnboardingList();
     }
-
-    @And("The User click on the {string} link top left on the page")
+    @And("The User click on the Onboardings link top left on the page")
     public void theUserClickOnTheOnboardingsLinkTopLeftOnThePage() {
+
         onboardingPage.clickOnLinkOfOnboardings();
     }
 
@@ -130,4 +130,6 @@ public class OnboardingStepDefs {
     public void theUserVerifyThatLinksRedirectedToThePage() {
         onboardingPage.assertionLinkOfOnboardings();
     }
+
+
 }
