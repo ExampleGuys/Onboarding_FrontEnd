@@ -141,5 +141,9 @@ public class OnboardingPage extends BasePage{
     public void clickOnCancelButtonInThePopUp(){
         BrowserUtils.clickElement(buttonCancel,20);
     }
-
+    public void assertionRedirectToNewOnboardingPage(){
+        String expectedUrl="https://staging.onboarding.mycomp.ch/onboarding/create";
+        String actualUrl=Driver.get().getCurrentUrl();
+        assertEquals(expectedUrl,actualUrl);
+    }
 }

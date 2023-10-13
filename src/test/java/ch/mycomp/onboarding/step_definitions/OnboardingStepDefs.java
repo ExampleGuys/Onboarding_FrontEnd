@@ -173,4 +173,9 @@ public class OnboardingStepDefs {
         WebElement button = Driver.get().findElement(By.xpath("//span[text()='" + buttonName + "']"));
         assert (!(button.isDisplayed()));
     }
+
+    @Then("The User verify that redirected to new onboarding create page")
+    public void theUserVerifyThatRedirectedToNewOnboardingCreatePage() {
+        onboardingPage.assertionRedirectToNewOnboardingPage();
+    }
 }
