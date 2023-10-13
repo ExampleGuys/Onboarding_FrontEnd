@@ -69,4 +69,11 @@ public class OnboardingPage extends BasePage{
     public void assertionForAttechmentsHeadlineIsVisible(){
         assert(headlineAttechmentsSection.isDisplayed());
     }
+
+    @FindBy (xpath = "//span[@aria-label='upload']")
+    public WebElement attahmentUpload;
+
+    public void assertionAttachmentUploadButton(){
+        assert (attahmentUpload.isDisplayed());
+    }
 }

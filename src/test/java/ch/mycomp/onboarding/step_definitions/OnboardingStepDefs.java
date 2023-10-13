@@ -110,4 +110,9 @@ public class OnboardingStepDefs {
     public void theUserShouldSeenAttachmentsSection() {
         onboardingPage.assertionForAttechmentsHeadlineIsVisible();
     }
+
+    @Then("the user should seen “Select File” button in the Attachments section")
+    public void theUserShouldSeenSelectFileButtonInTheAttachmentsSection() {
+        onboardingPage.assertionAttachmentUploadButton();
+    }
 }
