@@ -150,4 +150,9 @@ public class OnboardingStepDefs {
     public void theUserVerifyThatShowLogsModalOpened() {
         onboardingPage.assertionShowLogsModal();
     }
+
+    @Then("the User verify that Company Registration section is visible")
+    public void theUserVerifyThatCompanyRegistrationSectionIsVisible() {
+        onboardingPage.assertionForCompanyRegistrationHeadlineIsVisible();
+    }
 }

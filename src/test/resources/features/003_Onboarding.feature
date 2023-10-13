@@ -121,3 +121,12 @@ Feature: Onboarding Create Tests
     And The User click on the "Onboarding" section in the Navigation Menu
     And The User Click on the show logs button of First Onboarding List Element
     Then The User Verify that show logs modal opened
+
+  Scenario: TC ONB2-142 Company Registration section in the Edit Onboarding page should be visible
+    Given The user goes to staging url
+    And The user enters with user "requesterUser" and user "requester_password"
+    And The User click on the "Onboarding" section in the Navigation Menu
+    And The User click on "Drafts" tab under the List of Onboardings headline
+    And And The User click on edit icon in the Actions section of first element of list
+    Then the User verify that Company Registration section is visible
+
