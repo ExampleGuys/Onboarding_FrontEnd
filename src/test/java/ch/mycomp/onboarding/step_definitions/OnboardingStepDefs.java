@@ -120,4 +120,39 @@ public class OnboardingStepDefs {
     public void userShouldBeAbleToViewPreviouslyCreatedOnboardingItem() {
         onboardingPage.assertionFirstRowOOnboardingList();
     }
+
+    @And("The User click on the {string} link top left on the page")
+    public void theUserClickOnTheOnboardingsLinkTopLeftOnThePage() {
+        onboardingPage.clickOnLinkOfOnboardings();
+    }
+
+    @Then("The User verify that links redirected to the page")
+    public void theUserVerifyThatLinksRedirectedToThePage() {
+        onboardingPage.assertionLinkOfOnboardings();
+    }
+
+    @And("Click on the View More button in the Action part of the element which has complated status")
+    public void clickOnTheViewMoreButtonInTheActionPartOfTheElementWhichHasComplatedStatus() {
+        onboardingPage.clickOnViewMoreIcon();
+    }
+
+    @Then("The user verify that the page redirect to Edit Onboarding Page")
+    public void theUserVerifyThatThePageRedirectToEditOnboardingPage() {
+        onboardingPage.assertionRedirectToEditOnboardingPage();
+    }
+
+    @And("The User Click on the show logs button of First Onboarding List Element")
+    public void theUserClickOnTheShowLogsButtonOfFirstOnboardingListElement() {
+        onboardingPage.clickOnShowLogIcon();
+    }
+
+    @Then("The User Verify that show logs modal opened")
+    public void theUserVerifyThatShowLogsModalOpened() {
+        onboardingPage.assertionShowLogsModal();
+    }
+
+    @Then("the User verify that Company Registration section is visible")
+    public void theUserVerifyThatCompanyRegistrationSectionIsVisible() {
+        onboardingPage.assertionForCompanyRegistrationHeadlineIsVisible();
+    }
 }
