@@ -114,3 +114,10 @@ Feature: Onboarding Create Tests
     And The User click on the "Onboarding" section in the Navigation Menu
     And Click on the View More button in the Action part of the element which has complated status
     Then The user verify that the page redirect to Edit Onboarding Page
+
+  Scenario: TC ONB2-100 When Click on the "show logs" button in the "Action" part of the first onboarding element, the logs should be shown
+    Given The user goes to staging url
+    And The user enters with user "requesterUser" and user "requester_password"
+    And The User click on the "Onboarding" section in the Navigation Menu
+    And The User Click on the show logs button of First Onboarding List Element
+    Then The User Verify that show logs modal opened

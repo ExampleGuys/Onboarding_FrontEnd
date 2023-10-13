@@ -118,4 +118,13 @@ public class OnboardingPage extends BasePage{
         assertionForPersonalInformationHeadlineIsVisible();
        }
 
+    public void clickOnShowLogIcon(){
+        BrowserUtils.clickElement(buttonShowLogs,20);
+    }
+    @FindBy(xpath = "//*[@class='ant-modal-content']")
+    WebElement modalShowLogs;
+
+    public void assertionShowLogsModal(){
+        assert (modalShowLogs.isDisplayed());
+    }
 }

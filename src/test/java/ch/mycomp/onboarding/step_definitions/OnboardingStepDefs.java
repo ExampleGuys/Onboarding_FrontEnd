@@ -140,4 +140,14 @@ public class OnboardingStepDefs {
     public void theUserVerifyThatThePageRedirectToEditOnboardingPage() {
         onboardingPage.assertionRedirectToEditOnboardingPage();
     }
+
+    @And("The User Click on the show logs button of First Onboarding List Element")
+    public void theUserClickOnTheShowLogsButtonOfFirstOnboardingListElement() {
+        onboardingPage.clickOnShowLogIcon();
+    }
+
+    @Then("The User Verify that show logs modal opened")
+    public void theUserVerifyThatShowLogsModalOpened() {
+        onboardingPage.assertionShowLogsModal();
+    }
 }
