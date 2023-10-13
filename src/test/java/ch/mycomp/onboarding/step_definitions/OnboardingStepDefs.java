@@ -130,4 +130,14 @@ public class OnboardingStepDefs {
     public void theUserVerifyThatLinksRedirectedToThePage() {
         onboardingPage.assertionLinkOfOnboardings();
     }
+
+    @And("Click on the View More button in the Action part of the element which has complated status")
+    public void clickOnTheViewMoreButtonInTheActionPartOfTheElementWhichHasComplatedStatus() {
+        onboardingPage.clickOnViewMoreIcon();
+    }
+
+    @Then("The user verify that the page redirect to Edit Onboarding Page")
+    public void theUserVerifyThatThePageRedirectToEditOnboardingPage() {
+        onboardingPage.assertionRedirectToEditOnboardingPage();
+    }
 }

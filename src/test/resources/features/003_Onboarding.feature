@@ -107,3 +107,10 @@ Feature: Onboarding Create Tests
     And The user click on the "New Onboarding" button top right corner of the page
     And The User click on the 'Onboardings' link top left on the page
     Then The User verify that links redirected to the page
+
+  Scenario: TC ONB2-101 Clicking the "View More" button in the "Action" section of the completed items redirects to the relevant page
+    Given The user goes to staging url
+    And The user enters with user "requesterUser" and user "requester_password"
+    And The User click on the "Onboarding" section in the Navigation Menu
+    And Click on the View More button in the Action part of the element which has complated status
+    Then The user verify that the page redirect to Edit Onboarding Page

@@ -98,4 +98,24 @@ public class OnboardingPage extends BasePage{
         assertEquals(expectedUrl,actualUrl);
 
     }
+
+    @FindBy(xpath = "//div[text()='Completed Requests']")
+    public WebElement completedRequestsTab;
+
+    public void clickOnCompletedRequestsTab(){
+        BrowserUtils.clickElement(completedRequestsTab,20);
+    }
+    @FindBy(xpath = "(//tbody[@class='ant-table-tbody']//tr[1]/td[9]//button)[2]")
+    public WebElement iconViewMoreFirstRowofTable;
+    public void clickOnViewMoreIcon(){
+        clickOnCompletedRequestsTab();
+        BrowserUtils.waitForPageToLoad(3);
+        BrowserUtils.clickWithJS(iconViewMoreFirstRowofTable);
+
+    }
+    public void assertionRedirectToEditOnboardingPage(){
+        BrowserUtils.waitForPageToLoad(3);
+        assertionForPersonalInformationHeadlineIsVisible();
+       }
+
 }
