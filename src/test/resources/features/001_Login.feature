@@ -61,6 +61,25 @@ Feature: Login Screen Test
     Then the user clicks on forgot password on the  Sign In Page
     And the user verifies that the Forget Password page is open
 
+  @ONB-398
+  Scenario Outline: TC ONB2-398 The User should NOT log in unmatched credentials, invalid email and wrong password
+    Then the user enters with user "<Email>", user "<Password>", and "<warningMessage>"
+
+
+
+
+    Examples:
+
+      | Email          | Password            | warningMessage                |
+      | superAdminUser | wrongPassword       | wrongPasswordMessage          |
+      | superAdminUser | emptyPassword       | emptyPasswordTextFieldMessage |
+      | inValidEmail   | superAdmin_password | invalidEmailMessage           |
+      | inValidEmail   | wrongPassword       | invalidEmailMessage           |
+      | incorrectEmail | superAdmin_password | incorrectEmailMessage         |
+      | emptyEmail     | emptyPassword       | emptyEmailTextFieldMessage    |
+
+
+
 
 
 

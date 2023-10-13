@@ -68,6 +68,7 @@ public class LoginStepDefs extends BrowserUtils {
 
     @And("the user should sign in successfully")
     public void theUserShouldSignInSuccessfully() {
+
         loginPage.checkLoginSuccessToastMessage();
     }
 
@@ -148,4 +149,11 @@ public class LoginStepDefs extends BrowserUtils {
     }
 
 
+    @Then("the user enters with user {string}, user {string}, and {string}")
+    public void theUserEntersWithUserUserAnd(String email , String password, String warningMessage ) {
+
+        loginPage.negativeLoginsCheck( email,  password, warningMessage);
+
+
+    }
 }

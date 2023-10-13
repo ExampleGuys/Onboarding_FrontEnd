@@ -1,5 +1,6 @@
 package ch.mycomp.onboarding.pages;
 
+import ch.mycomp.onboarding.utilities.BrowserUtils;
 import ch.mycomp.onboarding.utilities.ConfigurationReader;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -168,7 +169,6 @@ public class LoginPage extends BasePage {
 
     }
 
-
     public void checkLoginSuccessToastMessage() {
         String actualToastMessage = toastMessageText();
         String expectedToastMessage = "You've successfully signed in";
@@ -178,6 +178,24 @@ public class LoginPage extends BasePage {
 
         assertEquals(expectedToastMessage,actualToastMessage);
 
-//        assert (toastMessages.getText().equalsIgnoreCase("You've successfully signed in"));
+   //   assert (toastMessages.getText().equalsIgnoreCase("You've successfully signed in"));
+
     }
+    public void negativeLoginsCheck (String email , String password, String warningMessage){
+        String  Email = ConfigurationReader.get(email);
+        String  Password= ConfigurationReader.get(password);
+
+        System.out.println("Email = " + Email);
+        System.out.println("Password = " + Password);
+
+        emailInput.sendKeys(Email);
+        passwordInput.sendKeys(Password);
+        BrowserUtils.clickElement(signInButton,20);
+        BrowserUtils.waitForVisibility(toastMessages,20);
+
+        assert(toastMessageText().equalsIgnoreCase(warningMessage));
+
+    }
+
+
 }
