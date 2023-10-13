@@ -105,4 +105,19 @@ public class OnboardingStepDefs {
     public void theUserVerifyThatCommentsSectionShouldBeVisible() {
         onboardingPage.assertionForCommentsIsVisible();
     }
+
+    @Then("The user should seen Attachments section")
+    public void theUserShouldSeenAttachmentsSection() {
+        onboardingPage.assertionForAttechmentsHeadlineIsVisible();
+    }
+
+    @Then("the user should seen “Select File” button in the Attachments section")
+    public void theUserShouldSeenSelectFileButtonInTheAttachmentsSection() {
+        onboardingPage.assertionAttachmentUploadButton();
+    }
+
+    @Then("User should be able to view previously created onboarding item")
+    public void userShouldBeAbleToViewPreviouslyCreatedOnboardingItem() {
+        onboardingPage.assertionFirstRowOOnboardingList();
+    }
 }

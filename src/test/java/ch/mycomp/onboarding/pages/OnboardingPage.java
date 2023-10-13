@@ -62,4 +62,23 @@ public class OnboardingPage extends BasePage{
        editIconInTheTableFirstRowInTheActionSection.click();
 
     }
+
+    @FindBy(xpath = "//h2[text()='Attachments']")
+    public WebElement headlineAttechmentsSection;
+
+    public void assertionForAttechmentsHeadlineIsVisible(){
+        assert(headlineAttechmentsSection.isDisplayed());
+    }
+
+    @FindBy (xpath = "//span[@aria-label='upload']")
+    public WebElement attahmentUpload;
+
+    public void assertionAttachmentUploadButton(){
+        assert (attahmentUpload.isDisplayed());
+    }
+    @FindBy(xpath = "//tbody[@class='ant-table-tbody']//tr[1]")
+    public WebElement firstRowinTheListOfOnboardingTable;
+    public void assertionFirstRowOOnboardingList(){
+        assert firstRowinTheListOfOnboardingTable.isDisplayed();
+    }
 }
