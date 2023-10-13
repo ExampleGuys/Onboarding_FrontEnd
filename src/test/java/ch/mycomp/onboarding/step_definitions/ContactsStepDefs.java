@@ -59,6 +59,11 @@ public class ContactsStepDefs extends BrowserUtils {
         contactsPage.checkEmailAddresses();
 
     }
+
+    @Then("user should be able to verify that user should not be able create a contact")
+    public void userShouldBeAbleToVerifyThatUserShouldNotBeAbleCreateAContact() {
+        assertTrue(contactsPage.toastMessageText().equals("Please fill out all required fields correctly."));
+    }
 }
 
 
