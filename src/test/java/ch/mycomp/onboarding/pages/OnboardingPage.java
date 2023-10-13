@@ -159,4 +159,9 @@ public class OnboardingPage extends BasePage{
         String actualUrl=Driver.get().getCurrentUrl();
         assertEquals(expectedUrl,actualUrl);
     }
+    public void assertionDraftOnboardingsVisible() {
+        String expectedUrl="https://staging.onboarding.mycomp.ch/onboarding?page=&isCompleted=false";
+        String actualUrl=Driver.get().getCurrentUrl();
+        assertEquals(expectedUrl,actualUrl);
+    }
 }

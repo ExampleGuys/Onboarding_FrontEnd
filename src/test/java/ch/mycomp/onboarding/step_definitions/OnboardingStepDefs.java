@@ -189,4 +189,9 @@ public class OnboardingStepDefs {
     public void thenUserVerifyThatAllOnboardingProcessesShouldShownInTheAllTab() {
         onboardingPage.assertionAllOnboardingsVisible();
     }
+
+    @Then("Then user verify that Draft onboarding processes should shown in the Drafts tab")
+    public void thenUserVerifyThatDraftOnboardingProcessesShouldShownInTheDraftsTab() {
+        onboardingPage.assertionDraftOnboardingsVisible();
+    }
 }

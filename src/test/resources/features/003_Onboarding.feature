@@ -152,3 +152,10 @@ Feature: Onboarding Create Tests
     And The User click on the "Onboarding" section in the Navigation Menu
     And The User click on All tab under the List of Onboardings headline
     Then Then user verify that All onboarding processes should shown in the All tab
+
+    Scenario: TC ONB2-79 'Ongoing' tab should show ongoing onboarding processes
+      Given The user goes to staging url
+      And The user enters with user "requesterUser" and user "requester_password"
+      And The User click on the "Onboarding" section in the Navigation Menu
+      And The User click on "Drafts" tab under the List of Onboardings headline
+      Then Then user verify that Draft onboarding processes should shown in the Drafts tab
