@@ -261,6 +261,21 @@ public class ResourcesStepDefs extends BasePage {
             BrowserUtils.waitForVisibility(itemName,3);
             return itemName.getText();
     }
+
+    @Then("The user clicks on the Enter resource name text box")
+    public void theUserClicksOnTheEnterResourceNameTextBox() {
+        resourcesPage.newResourcesEnterResourcesName.click();
+    }
+
+    @Then("Relevant information into the enter Enter resource name text box")
+    public void relevantInformationIntoTheEnterEnterResourceNameTextBox() {
+        WebElement enterResourceName = orderPage.boxName("Enter resource name");
+        actions.click(enterResourceName).
+                sendKeys(faker.options().toString()).
+                perform();
+
+        BrowserUtils.waitFor(2);
+    }
 }
 
 

@@ -142,3 +142,10 @@ Feature: Resources Tests
     Then The user clicks on the Enter category name item
     And  Relevant information into the enter "Enter category" name text box
     And Sees the error message "Please enter name"
+
+  @ONB2-329
+  Scenario:TC: ONB2-329 On the New Resource page, verify that the "Enter resource name" text box appears and is clickable
+    Then The user clicks on the "New Resource" button
+    Then The user should be seen the "Resource Name" title
+    Then The user clicks on the Enter resource name text box
+    Then Relevant information into the enter Enter resource name text box
