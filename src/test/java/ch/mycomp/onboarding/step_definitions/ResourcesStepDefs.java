@@ -19,6 +19,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
 import static ch.mycomp.onboarding.utilities.Driver.driver;
+import static org.junit.Assert.assertEquals;
 
 public class ResourcesStepDefs extends BasePage {
     LoginPage loginPage = new LoginPage();
@@ -229,4 +230,10 @@ public class ResourcesStepDefs extends BasePage {
     public void theUserClicksTheBackButton() {
         resourcesPage.new_BackButton.click();
     }
+
+    @Then("The user should be seen the Full Name \\/ Company title")
+    public void theUserShouldBeSeenTheFullNameCompanyTitle() {
+
+    }
 }
+
