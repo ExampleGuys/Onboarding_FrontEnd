@@ -55,6 +55,10 @@ public class ResourcesPage extends BasePage {
     @FindBy(xpath = "//input[@id='resource_resources_0_name']")
     public WebElement newResourcesEnterResourcesName;
 
+    //Resources >Select responsible people
+    @FindBy(xpath = "//div[@class='ant-select-selection-overflow']")
+    public WebElement selectResponsiblePeople;
+
     //Resources > page10]
     @FindBy(xpath = "//span[@title='10 / page']")
     public WebElement page10;

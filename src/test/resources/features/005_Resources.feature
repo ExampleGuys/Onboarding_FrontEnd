@@ -149,3 +149,11 @@ Feature: Resources Tests
     Then The user should be seen the "Resource Name" title
     Then The user clicks on the Enter resource name text box
     Then Relevant information into the enter Enter resource name text box
+
+  @ONB2-338
+  Scenario:TC: ONB2-338 On the New Resource page, under the Contact heading, click
+          "Select responsible people" Verify that the text box is visible and active.
+    Then The user clicks on the "New Resource" button
+    Then The user should be seen the Contacts + title
+    Then The user clicks on the Select responsible people text box
+    And  Relevant information into the enter Select responsible people text box
