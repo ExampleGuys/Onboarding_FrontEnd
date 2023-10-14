@@ -123,16 +123,22 @@ Feature: Resources Tests
   @ONB2-333
   Scenario:TC:BUG ONB2-333 The New Resource page, next to the "Contacts" title, click on the "+"
             button Verify that the "Create Contact" page is visible and active.
- #  Then The user clicks on the "New Resource" button
- #  Then The user hovers over the + button next to the Contacts title, the Create Contact alert appears
- #  And The user clicks the + button
- #  And The user should be seen the "Full Name / Company" title
- #  Then The user clicks on the "Enter full name or company" button
- #  Then The user enters the relevant information in the "Enter full name or company" text box
- #  Then The user clicks on the "Enter email" text box
- #  Then The user enters the relevant information in the "Enter email" text box
- #  Then The user clicks the "Ok" button
- #  And The user enters valid information and sees the confirmation message
+# Then The user clicks on the "New Resource" button
+# Then The user hovers over the + button next to the Contacts title, the Create Contact alert appears
+# And The user clicks the + button
+# And The user should be seen the "Full Name / Company" title
+# Then The user clicks on the "Enter full name or company" button
+# Then The user enters the relevant information in the "Enter full name or company" text box
+# Then The user clicks on the "Enter email" text box
+# Then The user enters the relevant information in the "Enter email" text box
+# Then The user clicks the "Ok" button
+# And The user enters valid information and sees the confirmation message
 
   @ONB2-317
-  Scenario:TC: ONB2-317
+  Scenario:TC: ONB2-317 On the New Source page, verify that the "Enter category name" text box is visible and clickable.
+    Then The user clicks on the "New Resource" button
+    Then The user should be seen the "Category Name" title
+    Then The user should be the seen Enter category name text box
+    Then The user clicks on the Enter category name item
+    And  Relevant information into the enter "Enter category" name text box
+    And Sees the error message "Please enter name"

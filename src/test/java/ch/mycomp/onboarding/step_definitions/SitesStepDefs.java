@@ -24,11 +24,7 @@ public class SitesStepDefs {
     ResourcesPage resourcesPage=new ResourcesPage();
     SitesPage sitesPage=new SitesPage();
 
-    @And("The user should be seen the Sites page")
-    public void theUserShouldBeSeenTheSitesPage() {
-    }
-
-    @And("The user must be able to click on the Sites link")
+       @And("The user must be able to click on the Sites link")
     public void theUserMustBeAbleToClickOnTheSitesLink() {
         sitesPage.sitesLink2.click();
     }
@@ -38,7 +34,6 @@ public class SitesStepDefs {
         resourcesPage.listOf_.isDisplayed();
 
     }
-
     @And("The user should be seen the Site title")
     public void theUserShouldBeSeenTheSiteTitle() {
         Assert.assertTrue(sitesPage.siteTitle.isDisplayed());

@@ -2,24 +2,24 @@ package ch.mycomp.onboarding.step_definitions;
 
 import ch.mycomp.onboarding.pages.BasePage;
 import ch.mycomp.onboarding.pages.LoginPage;
+import ch.mycomp.onboarding.pages.OrderPage;
 import ch.mycomp.onboarding.pages.ResourcesPage;
 import ch.mycomp.onboarding.utilities.BrowserUtils;
 import ch.mycomp.onboarding.utilities.ConfigurationReader;
 import ch.mycomp.onboarding.utilities.Driver;
 import com.github.javafaker.Faker;
-import io.cucumber.java.bs.A;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
 import static ch.mycomp.onboarding.utilities.Driver.driver;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class ResourcesStepDefs extends BasePage {
     LoginPage loginPage = new LoginPage();
@@ -28,6 +28,7 @@ public class ResourcesStepDefs extends BasePage {
 
     static Faker faker = new Faker();
     ResourcesPage resourcesPage=new ResourcesPage();
+    OrderPage orderPage =new OrderPage();
 
     @Given("The user goes to the sign-in page")
     public void theUserGoesToTheSignInPage() {
@@ -231,9 +232,35 @@ public class ResourcesStepDefs extends BasePage {
         resourcesPage.new_BackButton.click();
     }
 
-    @Then("The user should be seen the Full Name \\/ Company title")
-    public void theUserShouldBeSeenTheFullNameCompanyTitle() {
+
+    @Then("The user clicks on the Enter category name item")
+    public void theUserClicksOnTheEnterCategoryNameItem() {
+        resourcesPage.categoryNameTitleNewResourcesSeit.click();
+    }
+
+    @Then("The user should be the seen Enter category name text box")
+    public void theUserShouldBeTheSeenEnterCategoryNameTextBox() {
+        Assert.assertTrue(resourcesPage.categoryNameTitleNewResourcesSeit.isDisplayed());
+    }
+
+    @And("Relevant information into the enter {string} name text box")
+    public void relevantInformationIntoTheEnterNameTextBox(String arg0) {
+        WebElement enterCategoryName = orderPage.boxName("Enter category name");
+        actions.click(enterCategoryName).
+                sendKeys(faker.options().toString()).
+                perform();
+
+        BrowserUtils.waitFor(2);
 
     }
+
+    @And("Sees the error message {string}")
+    public String seesTheErrorMessage(String itemErorMessageText) {
+
+            WebElement itemName =Driver.get().findElement(By.xpath("//div[text()='" + itemErorMessageText + "']"));
+            BrowserUtils.waitForVisibility(itemName,3);
+            return itemName.getText();
+    }
 }
+
 
