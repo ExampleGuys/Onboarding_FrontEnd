@@ -120,3 +120,16 @@ Feature: Orders Tests
     And Click on the "Orders" section in the Navigation Menu
     And The user click on the "New Order" button.
     Then The user select the priority from the ddm
+
+  @ONB2-226
+  Scenario: The user should be able to create the new Site in "New Order" page.
+    Given The user goes to the sign-in page
+    When user logs in with the valid credentials
+    And Click on the "Orders" section in the Navigation Menu
+    And The user click on the "New Order" button.
+    And The user select the company from ddm
+    And The user clicks the "Shipping Address" icon.
+    #And user fill in all required fields
+    #Then user should be able to create the new Site in "New Order" page.
+
+
