@@ -14,9 +14,11 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
+import static ch.mycomp.onboarding.utilities.BrowserUtils.fakeName;
 import static ch.mycomp.onboarding.utilities.Driver.driver;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -276,6 +278,54 @@ public class ResourcesStepDefs extends BasePage {
 
         BrowserUtils.waitFor(2);
     }
+
+    @Then("The user schould be the confirmation message")
+    public String theUserSchouldBeTheConfirmationMessage() {
+        toastMessageText();
+            BrowserUtils.waitForVisibility(message, 3);
+            return message.getText();
+    }
+
+    @Then("The User should be able to add data to {string} with {string}")
+    public void theUserShouldBeAbleToAddDataToWith(String placeHolder, String companyNAme) {
+        String fakeDataInfo = fakeName();
+        orderPage.boxName(placeHolder).sendKeys(companyNAme);
+        BrowserUtils.waitFor(1);
+        assertEquals(orderPage.boxName(placeHolder).getAttribute("value"), companyNAme);
+    }
+
+    @Then("The user select the Company from ddm")
+    public void theUserSelectTheCompanyFromDdm() {
+        WebElement button1 = Driver.get().findElement(By.cssSelector("#Resources_newResource_company"));
+        BrowserUtils.clickWithJS(button1);
+        BrowserUtils.waitFor(1);
+        button1.sendKeys("CompanyName" + Keys.ENTER);
+    }
+
+    @Then("The user select the Category Name from ddm")
+    public void theUserSelectTheCategoryNameFromDdm() {
+        WebElement button2 = Driver.get().findElement(By.id("resource_name"));
+        BrowserUtils.clickWithJS(button2);
+        BrowserUtils.waitFor(1);
+        button2.sendKeys("Yemek" + Keys.ENTER);
+    }
+
+    @Then("The user select the Resources Name from ddm")
+    public void theUserSelectTheResourcesNameFromDdm() {
+        WebElement button3 = Driver.get().findElement(By.id("resource_resources_0_name"));
+        BrowserUtils.clickWithJS(button3);
+        BrowserUtils.waitFor(1);
+        button3.sendKeys("Yusuf Köfte" + Keys.ENTER);
+    }
+
+    @Then("The user select the Contacts from ddm")
+    public void theUserSelectTheContactsFromDdm() {
+        WebElement button4 = Driver.get().findElement(By.xpath("//div[@class='ant-select-selection-overflow']"));
+        BrowserUtils.clickWithJS(button4);
+        BrowserUtils.waitFor(1);
+        button4.sendKeys("requester.test@yopmail.com" + Keys.ENTER);
+    }
 }
+
 
 

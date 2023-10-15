@@ -149,3 +149,13 @@ Feature: Resources Tests
     Then The user should be seen the "Resource Name" title
     Then The user clicks on the Enter resource name text box
     Then Relevant information into the enter Enter resource name text box
+
+  @ONB2-367
+  Scenario:TC: ONB2-367 On the New Resource page, verify that the "Create" button is visible and clickable.
+    Then The user clicks on the "New Resource" button
+ #   Then  The user select the Company from ddm
+ #   Then  The user select the Category Name from ddm
+    Then  The user select the Resources Name from ddm
+    Then  The user select the Contacts from ddm
+    Then The user clicks the "+Create" button
+    Then The user schould be the confirmation message
