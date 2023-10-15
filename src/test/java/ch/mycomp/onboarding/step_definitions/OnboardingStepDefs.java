@@ -226,4 +226,15 @@ public class OnboardingStepDefs {
     public void theUserVerifyThatTheButtonIsClickable(String buttonName) {
         onboardingPage.assertionXXXButtonClickable(buttonName);
     }
+
+
+    @And("the User Click on the {string} button")
+    public void theUserClicksOnTheButton(String buttonName) {
+        onboardingPage.clickTheButton(buttonName);
+    }
+
+    @Then("The User verify that the Delete Comment button is clickable")
+    public void theUserVerifyThatTheDeleteCommentButtonIsClickable() {
+        onboardingPage.assertionDeleteIconIsClickable();
+    }
 }

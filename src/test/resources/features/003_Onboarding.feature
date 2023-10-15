@@ -189,3 +189,12 @@ Feature: Onboarding Create Tests
     And The user click on the "New Onboarding" button top right corner of the page
     And The user write a comment in the comment section bottom of the page
     Then The User verify that the "Add comment" button is clickable
+
+  Scenario: TC ONB2-114 Delete Comment (icon) button in the new onboarding page should be clickable
+    Given The user goes to staging url
+    And The user enters with user "requesterUser" and user "requester_password"
+    And The User click on the "Onboarding" section in the Navigation Menu
+    And The user click on the "New Onboarding" button top right corner of the page
+    And The user write a comment in the comment section bottom of the page
+    And the User Click on the "Add comment" button
+    Then The User verify that the Delete Comment button is clickable
