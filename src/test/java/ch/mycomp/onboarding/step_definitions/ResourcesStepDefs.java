@@ -329,6 +329,11 @@ public class ResourcesStepDefs extends BasePage {
         BrowserUtils.waitFor(1);
         button4.sendKeys("requester.test@yopmail.com" + Keys.ENTER);
     }
+
+    @And("The user should be the entered information in a list")
+    public void theUserShouldBeTheEnteredInformationInAList() {
+        Assert.assertTrue(resourcesPage.searchBoxFirstLine.isDisplayed());
+    }
 }
 
 

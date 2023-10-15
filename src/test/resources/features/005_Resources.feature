@@ -165,3 +165,13 @@ Feature: Resources Tests
     Then The user should be the "Created At" heading on the "Resources" page
     Then The user enters the relevant information on the "New Resources" page
     And Under the "Created At" heading, the user sees what time they logged in
+
+  @ONB2-372
+  Scenario:TC: ONB2-380 On the Resources page, verify that the records entered under the "List of Resources" heading are visible.
+    Then The user clicks on the "New Resource" button
+    Then  The user select the Company from ddm
+    Then  The user select the Category Name from ddm
+    Then  The user select the Resources Name from ddm
+    Then  The user select the Contacts from ddm
+    Then The user clicks the "+Create" button
+    And The user should be the entered information in a list
