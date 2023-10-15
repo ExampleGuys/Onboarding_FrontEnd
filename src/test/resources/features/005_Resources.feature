@@ -159,3 +159,9 @@ Feature: Resources Tests
     Then  The user select the Contacts from ddm
     Then The user clicks the "+Create" button
     Then The user should be the confirmation message
+
+  @ONB2-372
+  Scenario:TC: BUG ONB2-372 On the Resources page, verify that the "Created At" heading is visible and active.
+    Then The user should be the "Created At" heading on the "Resources" page
+    Then The user enters the relevant information on the "New Resources" page
+    And Under the "Created At" heading, the user sees what time they logged in
