@@ -26,16 +26,14 @@ public class OnboardingStepDefs {
 
     @And("The User click on the {string} section in the Navigation Menu")
     public void theUserClickOnTheSectionInTheNavigationMenu(String navigationName) {
-        WebElement sidebar = Driver.get().findElement(By.xpath("//span[text()='" + navigationName + "']"));
-        BrowserUtils.clickWithJS(sidebar);
+        onboardingPage.clickTheButton(navigationName);
 
 
     }
 
     @And("The user click on the {string} button top right corner of the page")
     public void theUserClickOnTheButton(String buttonName) {
-        WebElement button = Driver.get().findElement(By.xpath("//span[text()='" + buttonName + "']"));
-        BrowserUtils.clickWithJS(button);
+       onboardingPage.clickTheButton(buttonName);
 
     }
 
@@ -165,15 +163,15 @@ public class OnboardingStepDefs {
     }
     @And("The User Click on {string} button on the ant-popover")
     public void theUserClickOnButtonOnTheAntPopover(String buttonName) {
-        WebElement button = Driver.get().findElement(By.xpath("//span[text()='" + buttonName + "']"));
-        BrowserUtils.clickWithJS(button);
+       onboardingPage.clickTheButton(buttonName);
 
     }
 
     @Then("The User verify that {string} button is working properly")
     public void theUserVerifyThatButtonIsWorkingProperly(String buttonName) {
-        WebElement button = Driver.get().findElement(By.xpath("//span[text()='" + buttonName + "']"));
-        assert (!(button.isDisplayed()));
+        onboardingPage.clickTheButton(buttonName);
+        onboardingPage.assertionCancelButtonWorkingProperly(buttonName);
+
     }
 
     @Then("The User verify that redirected to new onboarding create page")
@@ -212,5 +210,10 @@ public class OnboardingStepDefs {
     public void theUserVerifyThatCreatedOnboardingIsDeleted() {
         onboardingPage.assertionTotalOnboardingItemIsChanged();
 
+    }
+
+    @Then("The User verify that {string} button should be clickable")
+    public void theUserVerifyThatButtonShouldBeClickable(String buttonName) {
+       onboardingPage.assertionAddResourceButtonClickable(buttonName);
     }
 }

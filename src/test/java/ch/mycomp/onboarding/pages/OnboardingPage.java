@@ -141,8 +141,8 @@ public class OnboardingPage extends BasePage{
     @FindBy(xpath = "//*[text()='Cancel']")
     WebElement buttonCancel;
 
-    public void clickOnCancelButtonInThePopUp(){
-        BrowserUtils.clickElement(buttonCancel,20);
+    public void assertionCancelButtonWorkingProperly(String buttonName){
+        assert(!(buttonCancel.isDisplayed()));
     }
     public void assertionRedirectToNewOnboardingPage(){
         String expectedUrl="https://staging.onboarding.mycomp.ch/onboarding/create";
@@ -185,5 +185,15 @@ public class OnboardingPage extends BasePage{
     public void assertionTotalOnboardingItemIsChanged(){
         String totalNumberOfItemsActual = totalOnboardingSection.getText();
         Assert.assertEquals(totalNumberOfItems, totalNumberOfItemsActual);
+    }
+
+    public void clickTheButton(String buttonName) {
+        WebElement button = Driver.get().findElement(By.xpath("//span[text()='" + buttonName + "']"));
+        BrowserUtils.clickWithJS(button);
+    }
+
+    public void assertionAddResourceButtonClickable(String buttonName){
+        WebElement button = Driver.get().findElement(By.xpath("//span[text()='" + buttonName + "']"));
+        assert(button.isEnabled());
     }
 }
