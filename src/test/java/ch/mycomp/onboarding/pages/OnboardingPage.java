@@ -2,177 +2,234 @@ package ch.mycomp.onboarding.pages;
 
 import ch.mycomp.onboarding.utilities.BrowserUtils;
 import ch.mycomp.onboarding.utilities.Driver;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import static org.junit.Assert.assertEquals;
 
-public class OnboardingPage extends BasePage{
+public class OnboardingPage extends BasePage {
+    public static String totalNumberOfItems;
 
     // Onboarding>Create new Onboarding> Personal Information Headline
     @FindBy(xpath = "//h2[text()='Personal Information']")
     public WebElement headlinePersonalInformation;
-    public void assertionForPersonalInformationHeadlineIsVisible(){
-        assert(headlinePersonalInformation.isDisplayed());
+
+    public void assertionForPersonalInformationHeadlineIsVisible() {
+        assert (headlinePersonalInformation.isDisplayed());
     }
 
     // Onboarding>Create new Onboarding> Company Registration Headline
     @FindBy(xpath = "//h2[text()='Company Registration']")
     public WebElement headlineCompanyRegistration;
-    public void assertionForCompanyRegistrationHeadlineIsVisible(){
-        assert(headlineCompanyRegistration.isDisplayed());
+
+    public void assertionForCompanyRegistrationHeadlineIsVisible() {
+        assert (headlineCompanyRegistration.isDisplayed());
     }
+
     // Onboarding>Create new Onboarding> Resources Headline
     @FindBy(xpath = "//h2[text()='Resources']")
     public WebElement headlineResources;
 
-    public void assertionForResourcesHeadlineIsVisible(){
-        assert(headlineResources.isDisplayed());
+    public void assertionForResourcesHeadlineIsVisible() {
+        assert (headlineResources.isDisplayed());
     }
+
     // Onboarding>Create new Onboarding> Completion Date at Latest Headline
     @FindBy(xpath = "//h2[text()='Completion Date at The Latest']")
     public WebElement headlineCompletionDateAtTheLatest;
 
-    public void assertionForCompletionDateAtTheLatestHeadlineIsVisible(){
-        assert(headlineCompletionDateAtTheLatest.isDisplayed());
+    public void assertionForCompletionDateAtTheLatestHeadlineIsVisible() {
+        assert (headlineCompletionDateAtTheLatest.isDisplayed());
     }
+
     // Onboarding>Create new Onboarding> Comments Headline
     @FindBy(xpath = "//h2[text()='Comments']")
     public WebElement headlineComments;
 
-    public void assertionForCommentsIsVisible(){
-        assert(headlineComments.isDisplayed());
+    public void assertionForCommentsIsVisible() {
+        assert (headlineComments.isDisplayed());
     }
+
     // Onboarding> List Of OnBoarding > Show Logs button
     @FindBy(xpath = "(//*[@class='ant-space-item'])[4]")
     public WebElement buttonShowLogs;
 
-    public void assertionForShowLogsIcon(){
-        assert(buttonShowLogs.isDisplayed());
+    public void assertionForShowLogsIcon() {
+        assert (buttonShowLogs.isDisplayed());
     }
 
     @FindBy(xpath = "//div[text()='Drafts']")
     public WebElement draftsTab;
 
-    public void clickOnDraftsTab(){
+    public void clickOnDraftsTab() {
         draftsTab.click();
     }
 
-    @FindBy (xpath = "(//tbody[@class='ant-table-tbody']//tr[1]/td[9]//button)[2]")
+    @FindBy(xpath = "(//tbody[@class='ant-table-tbody']//tr[1]/td[9]//button)[2]")
     public WebElement editIconInTheTableFirstRowInTheActionSection;
 
-    public void clickEditIconInTheTable(){
-       editIconInTheTableFirstRowInTheActionSection.click();
+    public void clickEditIconInTheTable() {
+        editIconInTheTableFirstRowInTheActionSection.click();
 
     }
 
     @FindBy(xpath = "//h2[text()='Attachments']")
     public WebElement headlineAttechmentsSection;
 
-    public void assertionForAttechmentsHeadlineIsVisible(){
-        assert(headlineAttechmentsSection.isDisplayed());
+    public void assertionForAttechmentsHeadlineIsVisible() {
+        assert (headlineAttechmentsSection.isDisplayed());
     }
 
-    @FindBy (xpath = "//span[@aria-label='upload']")
+    @FindBy(xpath = "//span[@aria-label='upload']")
     public WebElement attahmentUpload;
 
-    public void assertionAttachmentUploadButton(){
+    public void assertionAttachmentUploadButton() {
         assert (attahmentUpload.isDisplayed());
     }
+
     @FindBy(xpath = "//tbody[@class='ant-table-tbody']//tr[1]")
     public WebElement firstRowinTheListOfOnboardingTable;
-    public void assertionFirstRowOOnboardingList(){
+
+    public void assertionFirstRowOOnboardingList() {
         assert firstRowinTheListOfOnboardingTable.isDisplayed();
     }
 
     @FindBy(xpath = "//a[text()='Onboardings']")
     public WebElement linkOfOnboardings;
 
-    public void clickOnLinkOfOnboardings(){
-        BrowserUtils.clickElement(linkOfOnboardings,20);    }
-    public void assertionLinkOfOnboardings(){
-        BrowserUtils.clickElement(linkOfOnboardings,20);
+    public void clickOnLinkOfOnboardings() {
+        BrowserUtils.clickElement(linkOfOnboardings, 20);
+    }
+
+    public void assertionLinkOfOnboardings() {
+        BrowserUtils.clickElement(linkOfOnboardings, 20);
         String expectedUrl = "https://staging.onboarding.mycomp.ch/onboarding";
-        String actualUrl=Driver.get().getCurrentUrl();
-        assertEquals(expectedUrl,actualUrl);
+        String actualUrl = Driver.get().getCurrentUrl();
+        assertEquals(expectedUrl, actualUrl);
 
     }
 
     @FindBy(xpath = "//div[text()='Completed Requests']")
     public WebElement completedRequestsTab;
 
-    public void clickOnCompletedRequestsTab(){
-        BrowserUtils.clickElement(completedRequestsTab,20);
+    public void clickOnCompletedRequestsTab() {
+        BrowserUtils.clickElement(completedRequestsTab, 20);
     }
+
     @FindBy(xpath = "(//tbody[@class='ant-table-tbody']//tr[1]/td[9]//button)[2]")
     public WebElement iconViewMoreFirstRowofTable;
-    public void clickOnViewMoreIcon(){
+
+    public void clickOnViewMoreIcon() {
         clickOnCompletedRequestsTab();
         BrowserUtils.waitForPageToLoad(3);
         BrowserUtils.clickWithJS(iconViewMoreFirstRowofTable);
 
     }
-    public void assertionRedirectToEditOnboardingPage(){
+
+    public void assertionRedirectToEditOnboardingPage() {
         BrowserUtils.waitForPageToLoad(3);
         assertionForPersonalInformationHeadlineIsVisible();
-       }
-
-    public void clickOnShowLogIcon(){
-        BrowserUtils.clickElement(buttonShowLogs,20);
     }
+
+    public void clickOnShowLogIcon() {
+        BrowserUtils.clickElement(buttonShowLogs, 20);
+    }
+
     @FindBy(xpath = "//*[@class='ant-modal-content']")
     WebElement modalShowLogs;
 
-    public void assertionShowLogsModal(){
+    public void assertionShowLogsModal() {
         assert (modalShowLogs.isDisplayed());
     }
 
     @FindBy(xpath = "(//tbody[@class='ant-table-tbody']//tr[1]/td[9]//button)[3]")
-    WebElement deleteIconOfTheFirstElementOfOnboardingList;
+    static WebElement deleteIconOfTheFirstElementOfOnboardingList;
 
-    public void clickDeleteIconOfTeFirstElementOfOnboardingList(){
-        BrowserUtils.clickElement(deleteIconOfTheFirstElementOfOnboardingList,20);
+    public void clickDeleteIconOfTeFirstElementOfOnboardingList() {
+        totalNumberOfItems = totalOnboardingSection.getText();
+        BrowserUtils.clickElement(deleteIconOfTheFirstElementOfOnboardingList, 20);
     }
 
     @FindBy(xpath = "//*[text()='Cancel']")
     WebElement buttonCancel;
 
-    public void clickOnCancelButtonInThePopUp(){
-        BrowserUtils.clickElement(buttonCancel,20);
+    public void assertionCancelButtonWorkingProperly(String buttonName) {
+        assert (!(buttonCancel.isDisplayed()));
     }
-    public void assertionRedirectToNewOnboardingPage(){
-        String expectedUrl="https://staging.onboarding.mycomp.ch/onboarding/create";
-        String actualUrl=Driver.get().getCurrentUrl();
-        assertEquals(expectedUrl,actualUrl);
+
+    public void assertionRedirectToNewOnboardingPage() {
+        String expectedUrl = "https://staging.onboarding.mycomp.ch/onboarding/create";
+        String actualUrl = Driver.get().getCurrentUrl();
+        assertEquals(expectedUrl, actualUrl);
     }
 
     @FindBy(xpath = "//div[text()='All']")
     public WebElement AllTab;
 
-    public void clickOnAllTab(){
+    public void clickOnAllTab() {
         AllTab.click();
     }
 
     public void assertionAllOnboardingsVisible() {
-        String expectedUrl="https://staging.onboarding.mycomp.ch/onboarding?page=&isCompleted=";
-        String actualUrl=Driver.get().getCurrentUrl();
-        assertEquals(expectedUrl,actualUrl);
+        String expectedUrl = "https://staging.onboarding.mycomp.ch/onboarding?page=&isCompleted=";
+        String actualUrl = Driver.get().getCurrentUrl();
+        assertEquals(expectedUrl, actualUrl);
     }
+
     public void assertionDraftOnboardingsVisible() {
-        String expectedUrl="https://staging.onboarding.mycomp.ch/onboarding?page=&isCompleted=false";
-        String actualUrl=Driver.get().getCurrentUrl();
-        assertEquals(expectedUrl,actualUrl);
+        String expectedUrl = "https://staging.onboarding.mycomp.ch/onboarding?page=&isCompleted=false";
+        String actualUrl = Driver.get().getCurrentUrl();
+        assertEquals(expectedUrl, actualUrl);
     }
+
     @FindBy(xpath = "//div[text()='Completed Requests']")
     public WebElement CompletedTab;
 
-    public void clickOnCompletedTab(){
+    public void clickOnCompletedTab() {
         CompletedTab.click();
     }
+
     public void assertionCompletedOnboardingsVisible() {
-        String expectedUrl="https://staging.onboarding.mycomp.ch/onboarding?page=&isCompleted=true";
-        String actualUrl=Driver.get().getCurrentUrl();
-        assertEquals(expectedUrl,actualUrl);
+        String expectedUrl = "https://staging.onboarding.mycomp.ch/onboarding?page=&isCompleted=true";
+        String actualUrl = Driver.get().getCurrentUrl();
+        assertEquals(expectedUrl, actualUrl);
     }
+
+    @FindBy(xpath = "//li[@class='ant-pagination-total-text']")
+    public static WebElement totalOnboardingSection;
+
+    public void assertionTotalOnboardingItemIsChanged() {
+        String totalNumberOfItemsActual = totalOnboardingSection.getText();
+        Assert.assertEquals(totalNumberOfItems, totalNumberOfItemsActual);
+    }
+
+    public void clickTheButton(String buttonName) {
+        WebElement button = Driver.get().findElement(By.xpath("//span[text()='" + buttonName + "']"));
+        BrowserUtils.clickWithJS(button);
+    }
+
+    public void assertionXXXButtonClickable(String buttonName) {
+        WebElement button = Driver.get().findElement(By.xpath("//span[text()='" + buttonName + "']"));
+        assert (button.isEnabled());
+    }
+
+    @FindBy(xpath = "//input[@placeholder='Enter a comment']")
+    public WebElement inputCommentArea;
+
+    public void inputCommentArea() {
+        inputCommentArea.sendKeys("Hello");
+    }
+
+    @FindBy(xpath = "(//span[@aria-label='delete'])[6]")
+    public WebElement deleteIconInTheCommentsSection;
+
+
+    public void assertionDeleteIconIsClickable(){
+        assert (deleteIconInTheCommentsSection.isEnabled());
+    }
+
+
+
 }

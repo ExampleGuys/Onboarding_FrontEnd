@@ -166,3 +166,35 @@ Feature: Onboarding Create Tests
     And The User click on the "Onboarding" section in the Navigation Menu
     And The User click on Completed tab under the List of Onboardings headline
     Then Then user verify that Completed onboarding processes should shown in the Drafts tab
+
+  Scenario: TC ONB2-46 Created onboarding should be deleted
+    Given The user goes to staging url
+    And The user enters with user "requesterUser" and user "requester_password"
+    And The User click on the "Onboarding" section in the Navigation Menu
+    And The user click on the delete icon in the Actions section of a first element of onboarding list
+    And The User Click on "Delete" button on the ant-popover
+    Then The user verify that created onboarding is deleted
+
+  Scenario: TC ONB2-112 Add Resources button in the new onboarding page should be clickable
+    Given The user goes to staging url
+    And The user enters with user "requesterUser" and user "requester_password"
+    And The User click on the "Onboarding" section in the Navigation Menu
+    And The user click on the "New Onboarding" button top right corner of the page
+    Then The User verify that "Add resource" button should be clickable
+
+  Scenario: TC ONB2-113 Add Comment button in the new onboarding page should be clickable
+    Given The user goes to staging url
+    And The user enters with user "requesterUser" and user "requester_password"
+    And The User click on the "Onboarding" section in the Navigation Menu
+    And The user click on the "New Onboarding" button top right corner of the page
+    And The user write a comment in the comment section bottom of the page
+    Then The User verify that the "Add comment" button is clickable
+
+  Scenario: TC ONB2-114 Delete Comment (icon) button in the new onboarding page should be clickable
+    Given The user goes to staging url
+    And The user enters with user "requesterUser" and user "requester_password"
+    And The User click on the "Onboarding" section in the Navigation Menu
+    And The user click on the "New Onboarding" button top right corner of the page
+    And The user write a comment in the comment section bottom of the page
+    And the User Click on the "Add comment" button
+    Then The User verify that the Delete Comment button is clickable
