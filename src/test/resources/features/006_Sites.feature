@@ -58,3 +58,10 @@ Scenario:TC: ONB2-198 On the Home Page of the "Sites" category can appear and cl
   @ONB2-236
   Scenario:TC: ONB2-236 On the "Sites" page, verify that the "New Site" button is visible and clickable.
     And The user clicks on the "New Site" button
+
+  @ONB2-263
+  Scenario:TC: ONB2-263 Verify that the number of characters entered in the "For Directions" item is visible on the New Site page.
+    Then The user clicks on the "New Sites" button
+    Then The user clicks on the "For Directions" item
+    Then The user enters required information
+    And The user should see the number of characters they entered at the bottom right
