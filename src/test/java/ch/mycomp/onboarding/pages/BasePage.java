@@ -29,7 +29,7 @@ public abstract class BasePage {
 
     public String toastMessageText() {
 
-        BrowserUtils.waitForVisibility(message, 3);
+        BrowserUtils.waitForVisibility(message, 5);
         return message.getText();
     }
 

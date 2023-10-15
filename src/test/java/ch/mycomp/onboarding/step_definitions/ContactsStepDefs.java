@@ -65,6 +65,10 @@ public class ContactsStepDefs extends BrowserUtils {
         assertTrue(contactsPage.toastMessageText().equals("Please fill out all required fields correctly."));
     }
 
+    @And("the user clicks on the {string} button")
+    public void theUserClicksOnTheButton(String buttonName) {
+        contactsPage.clickCreateButtonWithoutWait(buttonName);
+    }
 }
 
 

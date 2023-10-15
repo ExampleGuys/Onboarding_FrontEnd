@@ -57,4 +57,9 @@ public class ContactsPage extends BasePage {
         System.out.println("fakeEmail = " + fakeEmail);
     }
 
+    public void clickCreateButtonWithoutWait(String buttonName){
+        WebElement button = Driver.get().findElement(By.xpath("//span[text()='" + buttonName + "']"));
+        BrowserUtils.clickElement(button,5);
+    }
+
 }
