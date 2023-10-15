@@ -138,6 +138,7 @@ Feature: Orders Tests
     When user logs in with the valid credentials
     And Click on the "Orders" section in the Navigation Menu
     And The user click on the "New Order" button.
-    Then The user should be able to see "Preferred Delivery Date" section
+    Then The user should seen New Order Information section
+
 
 
