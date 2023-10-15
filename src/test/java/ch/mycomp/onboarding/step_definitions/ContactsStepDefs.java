@@ -47,7 +47,7 @@ public class ContactsStepDefs extends BrowserUtils {
 
     }
 
-    @And("the user writes Email address in {string} text area")
+    @And("the user writes email address in {string} text area")
     public void theUserWritesEmailAddressInTextArea(String placeHolder) {
         contactsPage.writeEmailInTheTextBox(placeHolder);
     }
@@ -64,6 +64,7 @@ public class ContactsStepDefs extends BrowserUtils {
     public void userShouldBeAbleToVerifyThatUserShouldNotBeAbleCreateAContact() {
         assertTrue(contactsPage.toastMessageText().equals("Please fill out all required fields correctly."));
     }
+
 }
 
 
