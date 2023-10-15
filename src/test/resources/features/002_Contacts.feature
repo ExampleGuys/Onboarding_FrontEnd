@@ -134,3 +134,13 @@ Feature: Contacts test
     And the user writes email address in "Enter email" text area
     And the user clicks on the "Create" button
     Then user should be able to see "Contact successfully created" message
+
+  @ONB2-176
+  Scenario: TC: ONB2-176 Contacts text should be visible at the top left of the Contacts page
+
+    Given The user goes to myCompSignin
+    When the user enters valid requester "email" and "password"
+    And the user clicks the sign in button
+    And Click on the "Contacts" section in the Navigation Menu
+    Then user should be able to view "Contacts" text at the top left of the page
+

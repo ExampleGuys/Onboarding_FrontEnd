@@ -69,6 +69,12 @@ public class ContactsStepDefs extends BrowserUtils {
     public void theUserClicksOnTheButton(String buttonName) {
         contactsPage.clickCreateButtonWithoutWait(buttonName);
     }
+
+    @Then("user should be able to view {string} text at the top left of the page")
+    public void userShouldBeAbleToViewTextAtTheTopLeftOfThePage(String textName) {
+        assertTrue("Breadcrumb links did not match",contactsPage.getBreadcrumbLink(textName).equals(textName));
+
+    }
 }
 
 
