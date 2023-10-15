@@ -153,9 +153,9 @@ Feature: Resources Tests
   @ONB2-367
   Scenario:TC: ONB2-367 On the New Resource page, verify that the "Create" button is visible and clickable.
     Then The user clicks on the "New Resource" button
- #   Then  The user select the Company from ddm
- #   Then  The user select the Category Name from ddm
+    Then  The user select the Company from ddm
+    Then  The user select the Category Name from ddm
     Then  The user select the Resources Name from ddm
     Then  The user select the Contacts from ddm
     Then The user clicks the "+Create" button
-    Then The user schould be the confirmation message
+    Then The user should be the confirmation message

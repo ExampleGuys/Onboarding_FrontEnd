@@ -17,6 +17,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 
 import static ch.mycomp.onboarding.utilities.BrowserUtils.fakeName;
 import static ch.mycomp.onboarding.utilities.Driver.driver;
@@ -31,6 +32,8 @@ public class ResourcesStepDefs extends BasePage {
     static Faker faker = new Faker();
     ResourcesPage resourcesPage=new ResourcesPage();
     OrderPage orderPage =new OrderPage();
+
+    Select select = new Select(orderPage.ddm1);
 
     @Given("The user goes to the sign-in page")
     public void theUserGoesToTheSignInPage() {
@@ -274,13 +277,14 @@ public class ResourcesStepDefs extends BasePage {
         WebElement enterResourceName = orderPage.boxName("Enter resource name");
         actions.click(enterResourceName).
                 sendKeys(faker.options().toString()).
+
                 perform();
 
         BrowserUtils.waitFor(2);
     }
 
-    @Then("The user schould be the confirmation message")
-    public String theUserSchouldBeTheConfirmationMessage() {
+    @Then("The user should be the confirmation message")
+    public String theUserShouldBeTheConfirmationMessage() {
         toastMessageText();
             BrowserUtils.waitForVisibility(message, 3);
             return message.getText();
