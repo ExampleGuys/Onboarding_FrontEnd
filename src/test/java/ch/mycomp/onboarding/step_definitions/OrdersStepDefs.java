@@ -5,9 +5,11 @@ import ch.mycomp.onboarding.pages.OrderPage;
 import ch.mycomp.onboarding.utilities.BrowserUtils;
 import ch.mycomp.onboarding.utilities.Driver;
 import com.github.javafaker.Faker;
+import io.cucumber.java.bs.A;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -218,6 +220,18 @@ public class OrdersStepDefs extends BrowserUtils {
         assertEquals(textlength,fivehundred);
 
         // Assert.assertNotEquals(strlength,textlength);
+
+    }
+
+    @Then("The user should seen New Order Information section")
+    public void theUserShouldSeenNewOrderInformationSection() {
+        Assert.assertTrue(Driver.driver.getCurrentUrl().contains("create"));
+    }
+
+    @Then("The user should be able to see {string} section")
+    public void theUserShouldBeAbleToSeeSection(String header) {
+        orderPage.headerConfirmation(header);
+
 
     }
 }

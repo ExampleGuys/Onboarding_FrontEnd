@@ -132,4 +132,12 @@ Feature: Orders Tests
     #And user fill in all required fields
     #Then user should be able to create the new Site in "New Order" page.
 
+  @ONB2-354
+  Scenario: New Order section in the new order page should be visible
+    Given The user goes to the sign-in page
+    When user logs in with the valid credentials
+    And Click on the "Orders" section in the Navigation Menu
+    And The user click on the "New Order" button.
+    Then The user should be able to see "Preferred Delivery Date" section
+
 
