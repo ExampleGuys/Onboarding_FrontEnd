@@ -14,7 +14,7 @@ public class OnboardingStepDefs {
 
 
 
-    OnboardingPage onboardingPage = new OnboardingPage();
+    static OnboardingPage onboardingPage = new OnboardingPage();
     OrderPage orderPage = new OrderPage();
 
     @Given("The user goes to staging url")
@@ -28,6 +28,8 @@ public class OnboardingStepDefs {
     public void theUserClickOnTheSectionInTheNavigationMenu(String navigationName) {
         WebElement sidebar = Driver.get().findElement(By.xpath("//span[text()='" + navigationName + "']"));
         BrowserUtils.clickWithJS(sidebar);
+
+
     }
 
     @And("The user click on the {string} button top right corner of the page")
@@ -203,5 +205,12 @@ public class OnboardingStepDefs {
     @Then("Then user verify that Completed onboarding processes should shown in the Drafts tab")
     public void thenUserVerifyThatCompletedOnboardingProcessesShouldShownInTheDraftsTab() {
         onboardingPage.assertionCompletedOnboardingsVisible();
+    }
+
+
+    @Then("The user verify that created onboarding is deleted")
+    public void theUserVerifyThatCreatedOnboardingIsDeleted() {
+        onboardingPage.assertionTotalOnboardingItemIsChanged();
+
     }
 }

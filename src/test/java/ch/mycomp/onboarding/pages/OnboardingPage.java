@@ -2,6 +2,7 @@ package ch.mycomp.onboarding.pages;
 
 import ch.mycomp.onboarding.utilities.BrowserUtils;
 import ch.mycomp.onboarding.utilities.Driver;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,6 +10,7 @@ import org.openqa.selenium.support.FindBy;
 import static org.junit.Assert.assertEquals;
 
 public class OnboardingPage extends BasePage{
+    public static String totalNumberOfItems;
 
     // Onboarding>Create new Onboarding> Personal Information Headline
     @FindBy(xpath = "//h2[text()='Personal Information']")
@@ -129,9 +131,10 @@ public class OnboardingPage extends BasePage{
     }
 
     @FindBy(xpath = "(//tbody[@class='ant-table-tbody']//tr[1]/td[9]//button)[3]")
-    WebElement deleteIconOfTheFirstElementOfOnboardingList;
+    static WebElement deleteIconOfTheFirstElementOfOnboardingList;
 
     public void clickDeleteIconOfTeFirstElementOfOnboardingList(){
+        totalNumberOfItems = totalOnboardingSection.getText();
         BrowserUtils.clickElement(deleteIconOfTheFirstElementOfOnboardingList,20);
     }
 
@@ -174,5 +177,13 @@ public class OnboardingPage extends BasePage{
         String expectedUrl="https://staging.onboarding.mycomp.ch/onboarding?page=&isCompleted=true";
         String actualUrl=Driver.get().getCurrentUrl();
         assertEquals(expectedUrl,actualUrl);
+    }
+
+    @FindBy(xpath = "//li[@class='ant-pagination-total-text']")
+    public static WebElement totalOnboardingSection;
+
+    public void assertionTotalOnboardingItemIsChanged(){
+        String totalNumberOfItemsActual = totalOnboardingSection.getText();
+        Assert.assertEquals(totalNumberOfItems, totalNumberOfItemsActual);
     }
 }
