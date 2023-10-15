@@ -164,6 +164,15 @@ Scenario: Resource section in the new order page should be visible
     And The user click on the "New Order" button.
     Then The user should be able to see "Process" section
 
+  @ONB2-358
+  Scenario: Service Provider section in the new order page should be visible
+    Given The user goes to the sign-in page
+    When user logs in with the valid credentials
+    And Click on the "Orders" section in the Navigation Menu
+    And The user click on the "New Order" button.
+    Then The user should be able to see "Service Provider" section
+
+
 
 
 
