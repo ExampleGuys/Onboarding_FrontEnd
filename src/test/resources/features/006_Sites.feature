@@ -65,3 +65,11 @@ Scenario:TC: ONB2-198 On the Home Page of the "Sites" category can appear and cl
     Then The user clicks on the "For Directions" item
     Then The user enters required information
     And The user should see the number of characters they entered at the bottom right
+
+  @ONB2-266
+  Scenario:TC: ONB2-266 When invalid / incomplete information is entered on the New Site page, click the "Create" button Verify that the error message is visible.
+    Then The user clicks on the "New Sites" button
+    Then The user enters the information overnight on the "New Site" page
+    Then The user clicks the "Create" button
+    Then The user sees the error message
+
