@@ -181,3 +181,11 @@ Feature: Onboarding Create Tests
     And The User click on the "Onboarding" section in the Navigation Menu
     And The user click on the "New Onboarding" button top right corner of the page
     Then The User verify that "Add resource" button should be clickable
+
+  Scenario: TC ONB2-113 Add Comment button in the new onboarding page should be clickable
+    Given The user goes to staging url
+    And The user enters with user "requesterUser" and user "requester_password"
+    And The User click on the "Onboarding" section in the Navigation Menu
+    And The user click on the "New Onboarding" button top right corner of the page
+    And The user write a comment in the comment section bottom of the page
+    Then The User verify that the "Add comment" button is clickable

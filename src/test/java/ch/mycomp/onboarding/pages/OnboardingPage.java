@@ -192,8 +192,15 @@ public class OnboardingPage extends BasePage{
         BrowserUtils.clickWithJS(button);
     }
 
-    public void assertionAddResourceButtonClickable(String buttonName){
+    public void assertionXXXButtonClickable(String buttonName){
         WebElement button = Driver.get().findElement(By.xpath("//span[text()='" + buttonName + "']"));
         assert(button.isEnabled());
+    }
+
+    @FindBy(xpath = "//input[@placeholder='Enter a comment']")
+    public WebElement inputCommentArea;
+
+    public void inputCommentArea(){
+        inputCommentArea.sendKeys("Hello");
     }
 }

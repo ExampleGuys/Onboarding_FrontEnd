@@ -214,6 +214,16 @@ public class OnboardingStepDefs {
 
     @Then("The User verify that {string} button should be clickable")
     public void theUserVerifyThatButtonShouldBeClickable(String buttonName) {
-       onboardingPage.assertionAddResourceButtonClickable(buttonName);
+       onboardingPage.assertionXXXButtonClickable(buttonName);
+    }
+
+    @And("The user write a comment in the comment section bottom of the page")
+    public void theUserWriteACommentInTheCommentSectionBottomOfThePage() {
+        onboardingPage.inputCommentArea();
+    }
+
+    @Then("The User verify that the {string} button is clickable")
+    public void theUserVerifyThatTheButtonIsClickable(String buttonName) {
+        onboardingPage.assertionXXXButtonClickable(buttonName);
     }
 }
