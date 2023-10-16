@@ -11,7 +11,6 @@ Feature: Users Listing Test
     And the user clicks on "Users" at the navigation menu
     And the user should see the title of "List of User" on the users page
 
-
   @ONB2-51
   Scenario: TCOBN@-51 Verification of the Access to the Users page
     Given The user goes to the sign-in page
@@ -19,8 +18,6 @@ Feature: Users Listing Test
     And the user clicks on "Users" at the navigation menu
     And the user clicks on "Users" at the navigation menu
     Then the user should see the Users page
-
-
 
   @ONB2-136
   Scenario: TC ONB2-136 The user should control the number of users from the page selection button

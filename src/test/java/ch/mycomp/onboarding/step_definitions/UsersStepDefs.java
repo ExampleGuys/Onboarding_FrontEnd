@@ -28,14 +28,6 @@ public class UsersStepDefs extends BasePage {
 
     }
 
-
-
-
-
-
-
-
-
     @And("the user clicks on {string} at the navigation menu")
     public void theUserClicksOnAtTheNavigationMenu(String navigationName) {
 
@@ -54,7 +46,6 @@ public class UsersStepDefs extends BasePage {
     @And("the user should see the title of {string} on the users page")
     public void theUserShouldSeeTheTitleOfOnTheUsersPage(String arg0) {
         usersPage.assertionForlistofUsersIsVisible();
-
     }
 
 
@@ -68,10 +59,6 @@ public class UsersStepDefs extends BasePage {
     public void theUserScrollsDownUntilTheEndOfThePage() {
 
         usersPage.scrollDown();
-
-
-
-
     }
 
     @Then("the user click on the arrow of the users page")
@@ -82,8 +69,6 @@ public class UsersStepDefs extends BasePage {
     @Then("the user should see the number of the total users")
     public void theUserShouldSeeTheNumberOfTheTotalUsers() {
         assert (usersPage.totalNumberOfUsers.isDisplayed());
-
-
 
     }
 
