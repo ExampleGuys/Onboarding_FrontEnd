@@ -3,6 +3,7 @@ package ch.mycomp.onboarding.step_definitions;
 import ch.mycomp.onboarding.pages.ContactsPage;
 import ch.mycomp.onboarding.pages.OrderPage;
 import ch.mycomp.onboarding.utilities.BrowserUtils;
+import ch.mycomp.onboarding.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 
@@ -47,6 +48,12 @@ public class ContactsStepDefs extends BrowserUtils {
 
     }
 
+    @And("the user writes a contact name in {string} text area with numbers")
+    public void theUserWritesAContactNameInTextAreaWithNumbers(String placeHolder) {
+        contactsPage.writeContactNameWithNumber(placeHolder);
+
+    }
+
     @And("the user writes email address in {string} text area")
     public void theUserWritesEmailAddressInTextArea(String placeHolder) {
         contactsPage.writeEmailInTheTextBox(placeHolder);
@@ -72,9 +79,66 @@ public class ContactsStepDefs extends BrowserUtils {
 
     @Then("user should be able to view {string} text at the top left of the page")
     public void userShouldBeAbleToViewTextAtTheTopLeftOfThePage(String textName) {
-        assertTrue("Breadcrumb links did not match",contactsPage.getBreadcrumbLink(textName).equals(textName));
+        assertTrue("Breadcrumb links did not match", contactsPage.getBreadcrumbText(textName).equals(textName));
 
     }
+
+    @Then("user should be able to see contacts information as a table")
+    public void userShouldBeAbleToSeeContactsInformationAsATable() {
+        assertTrue(contactsPage.listOfContactsTable.isDisplayed());
+    }
+
+    @Then("user should be able to verify that writes a company name by using numbers")
+    public void userShouldBeAbleToVerifyThatWritesACompanyNameByUsingNumbers() {
+        assertTrue(contactsPage.toastMessageText().contains("success"));
+    }
+
+    @Then("user should be able to view {string} breadcrumb link on the New Contact page")
+    public void userShouldBeAbleToViewBreadcrumbLinkOnThePage(String breadcrumbLink) {
+        assertTrue(contactsPage.getBreadcrumbText(breadcrumbLink).equals(breadcrumbLink));
+    }
+
+    @Then("user should be able to click {string} breadcrumb link on the New Contact page")
+    public void userShouldBeAbleToClickBreadcrumbLinkOnTheNewContactPage(String breadcrumbLink) {
+        assertTrue(contactsPage.getBreadcrumbWebElement(breadcrumbLink).isEnabled());
+
+    }
+
+    @Then("user should be able to verify that goes back to the {string} page")
+    public void userShouldBeAbleToVerifyThatGoesBackToThePage(String pageTitle) {
+        assertEquals("Page titles did not match", contactsPage.getPageTitle(pageTitle), pageTitle);
+    }
+
+    @And("user scrolls until end of the page")
+    public void userScrollsUntilEndOfThePage() {
+        BrowserUtils.scrollToElement(contactsPage.paginationTotalText);
+    }
+
+    @Then("user should be able to observe the number of total contacts correctly")
+    public void userShouldBeAbleToObserveTheNumberOfTotalContactsCorrectly() {
+        contactsPage.getTotalNumberOfThePageInformationText();
+
+    }
+
+    @And("user clicks page selection button")
+    public void userClicksPageSelectionButton() {
+        contactsPage.pageSelectOptionsDropDown.click();
+
+    }
+
+    @And("user chooses {string}")
+    public void userChooses(String numberOfPageSelection) {
+        contactsPage.selectfromPageNumberDropDown(numberOfPageSelection).click();
+
+    }
+
+    @Then("user should be able to observe {string} contacts on one page")
+    public void userShouldBeAbleToObserveOnOnePage(String tenContacts) {
+
+        int contactsInOnePage = Integer.parseInt(tenContacts);
+        assertEquals(contactsPage.countContacts(),contactsInOnePage);
+    }
+
 }
 
 
