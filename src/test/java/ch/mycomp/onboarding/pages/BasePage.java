@@ -16,6 +16,18 @@ public abstract class BasePage {
     @FindBy(xpath = "//div[@class='go3958317564']")
     public WebElement message;
 
+    @FindBy(xpath = "//li[@class='ant-pagination-total-text']")
+    public WebElement paginationTotalText;
+
+    public String getTotalNumberOfThePageInformationText() {
+
+        String[] arr = paginationTotalText.getText().split(" ");
+        String totalNumberOfPage = arr[1];
+        System.out.println("totalNumberOfPage = " + totalNumberOfPage);
+        return totalNumberOfPage;
+
+    }
+
     public String getSectionName(String sectionName) {
         WebElement section = Driver.get().findElement(By.xpath("//label[text()='" + sectionName + "']"));
         return section.getText();
@@ -23,7 +35,7 @@ public abstract class BasePage {
 
     public String getHeaderText(String headerText) {
         WebElement headerName = Driver.get().findElement(By.xpath("//thead/tr/th[text()='" + headerText + "']"));
-        BrowserUtils.waitForVisibility(headerName,5);
+        BrowserUtils.waitForVisibility(headerName, 5);
         return headerName.getText();
     }
 
@@ -32,9 +44,10 @@ public abstract class BasePage {
         BrowserUtils.waitForVisibility(message, 5);
         return message.getText();
     }
-    public String getBreadcrumbText(String breadcrumbLinkName){
+
+    public String getBreadcrumbText(String breadcrumbLinkName) {
         WebElement titleName = Driver.get().findElement(By.xpath("//a[text()='" + breadcrumbLinkName + "']"));
-        BrowserUtils.waitForVisibility(titleName,5);
+        BrowserUtils.waitForVisibility(titleName, 5);
         return titleName.getText();
     }
 
@@ -44,7 +57,7 @@ public abstract class BasePage {
         return titleName;
     }
 
-    public String getPageTitle(String pageTitle){
+    public String getPageTitle(String pageTitle) {
         return Driver.get().getTitle();
     }
 }

@@ -78,7 +78,7 @@ public class ContactsStepDefs extends BrowserUtils {
 
     @Then("user should be able to view {string} text at the top left of the page")
     public void userShouldBeAbleToViewTextAtTheTopLeftOfThePage(String textName) {
-        assertTrue("Breadcrumb links did not match",contactsPage.getBreadcrumbText(textName).equals(textName));
+        assertTrue("Breadcrumb links did not match", contactsPage.getBreadcrumbText(textName).equals(textName));
 
     }
 
@@ -106,6 +106,17 @@ public class ContactsStepDefs extends BrowserUtils {
     @Then("user should be able to verify that goes back to the {string} page")
     public void userShouldBeAbleToVerifyThatGoesBackToThePage(String pageTitle) {
         assertEquals("Page titles did not match", contactsPage.getPageTitle(pageTitle), pageTitle);
+    }
+
+    @And("user scrolls until end of the page")
+    public void userScrollsUntilEndOfThePage() {
+        BrowserUtils.scrollToElement(contactsPage.paginationTotalText);
+    }
+
+    @Then("user should be able to observe the number of total contacts correctly")
+    public void userShouldBeAbleToObserveTheNumberOfTotalContactsCorrectly() {
+        contactsPage.getTotalNumberOfThePageInformationText();
+
     }
 }
 
