@@ -58,8 +58,32 @@ Feature: Login Screen Test
 
   @ONB@-337
   Scenario: TC ONB2-337 The email field should be visible on the forget password page to recover the password.
-    Then the user clicks on forgot password on the  Sign In Page
+    Then the user clicks on forgot password link in the sign in page
     And the user verifies that the Forget Password page is open
+
+  @ONB-398
+  Scenario Outline: TC ONB2-398 The User should NOT log in unmatched credentials, invalid email and wrong password
+    Then the user enters with user "<Email>", user "<Password>", and "<warningMessage>"
+
+
+
+
+    Examples:
+
+      | Email          | Password            | warningMessage                |
+      | superAdminUser | wrongPassword       | wrongPasswordMessage          |
+      | superAdminUser | emptyPassword       | emptyPasswordTextFieldMessage |
+      | inValidEmail   | superAdmin_password | invalidEmailMessage           |
+      | inValidEmail   | wrongPassword       | invalidEmailMessage           |
+      | incorrectEmail | superAdmin_password | incorrectEmailMessage         |
+      | emptyEmail     | emptyPassword       | emptyEmailTextFieldMessage    |
+
+
+  @ONB-339
+  Scenario: TC ONB2-339 Reset Password" button should be clickable at the Forgot Password page
+    Then the user clicks on forgot password link in the sign in page
+    And the user enters a valid email on the Forgot Password page
+    And the user should click on the Reset Password link
 
 
 
