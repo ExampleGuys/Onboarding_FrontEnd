@@ -144,3 +144,12 @@ Feature: Contacts test
     And Click on the "Contacts" section in the Navigation Menu
     Then user should be able to view "Contacts" text at the top left of the page
 
+    @ONB2-34
+    Scenario: TC: ONB2-34 Contacts information should be displayed as a table
+
+      Given The user goes to myCompSignin
+      When the user enters valid requester "email" and "password"
+      And the user clicks the sign in button
+      And Click on the "Contacts" section in the Navigation Menu
+      Then user should be able to see contacts information as a table
+

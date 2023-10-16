@@ -75,6 +75,11 @@ public class ContactsStepDefs extends BrowserUtils {
         assertTrue("Breadcrumb links did not match",contactsPage.getBreadcrumbLink(textName).equals(textName));
 
     }
+
+    @Then("user should be able to see contacts information as a table")
+    public void userShouldBeAbleToSeeContactsInformationAsATable() {
+        assertTrue(contactsPage.listOfContactsTable.isDisplayed());
+    }
 }
 
 

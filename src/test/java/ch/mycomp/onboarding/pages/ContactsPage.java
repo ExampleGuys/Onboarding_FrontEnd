@@ -24,6 +24,9 @@ public class ContactsPage extends BasePage {
     @FindBy(xpath = "((//td[@class='ant-table-cell'])/span[1])[1]")
     public WebElement lastCreatedEmail;
 
+    @FindBy(xpath = "//div[@class='ant-card-body']")
+    public WebElement listOfContactsTable;
+
     public void clickItemsOnTheNavigationMenu(String navigationMenuItem) {
         WebElement sidebar = Driver.get().findElement(By.xpath("(//li[@role='menuitem'])//span[text()='" + navigationMenuItem + "']"));
         BrowserUtils.waitFor(3);
