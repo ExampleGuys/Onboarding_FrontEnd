@@ -166,4 +166,16 @@ Feature: Contacts test
     And the user clicks on the "Create" button
     Then user should be able to verify that writes a company name by using numbers
 
+  @ONB2-291
+  Scenario: TC: ONB2-291 Contacts breadcrumb link should be visible and clickable on the New Contacts page
+
+    Given The user goes to myCompSignin
+    When the user enters valid requester "email" and "password"
+    And the user clicks the sign in button
+    And Click on the "Contacts" section in the Navigation Menu
+    And The user click on the "New Contact" button.
+    Then user should be able to view "Contacts" breadcrumb link on the New Contact page
+    Then user should be able to click "Contacts" breadcrumb link on the New Contact page
+
+
 

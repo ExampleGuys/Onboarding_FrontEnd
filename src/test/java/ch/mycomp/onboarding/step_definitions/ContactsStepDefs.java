@@ -78,7 +78,7 @@ public class ContactsStepDefs extends BrowserUtils {
 
     @Then("user should be able to view {string} text at the top left of the page")
     public void userShouldBeAbleToViewTextAtTheTopLeftOfThePage(String textName) {
-        assertTrue("Breadcrumb links did not match",contactsPage.getBreadcrumbLink(textName).equals(textName));
+        assertTrue("Breadcrumb links did not match",contactsPage.getBreadcrumbText(textName).equals(textName));
 
     }
 
@@ -90,6 +90,17 @@ public class ContactsStepDefs extends BrowserUtils {
     @Then("user should be able to verify that writes a company name by using numbers")
     public void userShouldBeAbleToVerifyThatWritesACompanyNameByUsingNumbers() {
         assertTrue(contactsPage.toastMessageText().contains("success"));
+    }
+
+    @Then("user should be able to view {string} breadcrumb link on the New Contact page")
+    public void userShouldBeAbleToViewBreadcrumbLinkOnThePage(String breadcrumbLink) {
+        assertTrue(contactsPage.getBreadcrumbText(breadcrumbLink).equals(breadcrumbLink));
+    }
+
+    @Then("user should be able to click {string} breadcrumb link on the New Contact page")
+    public void userShouldBeAbleToClickBreadcrumbLinkOnTheNewContactPage(String breadcrumbLink) {
+        assertTrue(contactsPage.getBreadcrumbWebElement(breadcrumbLink).isEnabled());
+
     }
 }
 

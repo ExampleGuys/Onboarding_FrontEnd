@@ -32,10 +32,16 @@ public abstract class BasePage {
         BrowserUtils.waitForVisibility(message, 5);
         return message.getText();
     }
-    public String getBreadcrumbLink(String breadcrumbLinkName){
+    public String getBreadcrumbText(String breadcrumbLinkName){
         WebElement titleName = Driver.get().findElement(By.xpath("//a[text()='" + breadcrumbLinkName + "']"));
         BrowserUtils.waitForVisibility(titleName,5);
         return titleName.getText();
+    }
+
+    public WebElement getBreadcrumbWebElement(String breadcrumbLinkName) {
+        WebElement titleName = Driver.get().findElement(By.xpath("//a[text()='" + breadcrumbLinkName + "']"));
+        BrowserUtils.waitForVisibility(titleName, 5);
+        return titleName;
     }
 
 }
