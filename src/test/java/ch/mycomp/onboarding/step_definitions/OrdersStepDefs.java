@@ -5,6 +5,7 @@ import ch.mycomp.onboarding.pages.OrderPage;
 import ch.mycomp.onboarding.utilities.BrowserUtils;
 import ch.mycomp.onboarding.utilities.Driver;
 import com.github.javafaker.Faker;
+import io.cucumber.core.internal.com.fasterxml.jackson.databind.deser.SettableBeanProperty;
 import io.cucumber.java.bs.A;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -233,5 +234,15 @@ public class OrdersStepDefs extends BrowserUtils {
         orderPage.headerConfirmation(header);
 
 
+    }
+
+    @Then("Then user should be able to click on the Delete Comment icon")
+    public void thenUserShouldBeAbleToClickOnTheDeleteCommentIcon() {
+        orderPage.deleteIcon.click();
+        Assert.assertTrue(orderPage.deleteIcon.isEnabled());
+        WebElement deleteConfirmation = Driver.get().findElement(By.xpath("//span[text()='Delete']"));
+        BrowserUtils.clickWithJS(deleteConfirmation);
+
+       // Assert.assertFalse(orderPage.deleteIcon.isEnabled());
     }
 }

@@ -24,6 +24,10 @@ public class OrderPage extends BasePage{
     @FindBy(css="#Order_priority")
     public WebElement priorityDdm;
 
+	@FindBy(xpath = "//h4 [@class ='ant-list-item-meta-title']")
+	public WebElement CommentDeleteConfirmationInfo;
+	@FindBy(xpath = "//span [@class='anticon anticon-delete']")
+	public WebElement deleteIcon;
 
     public void clickPlusAccordingToOptionName(String optionName) {
         Driver.get().findElement(By.xpath("//span[text()='" + optionName + "']/..//button")).click();
