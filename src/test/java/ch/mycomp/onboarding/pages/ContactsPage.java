@@ -43,6 +43,10 @@ public class ContactsPage extends BasePage {
 
     }
 
+    public void writeContactNameWithNumber(String placeHolder) {
+        orderPage.boxName(placeHolder).sendKeys("123"+fakeContactName+"123");
+    }
+
     public void writeEmailInTheTextBox(String placeHolder) {
         orderPage.boxName(placeHolder).sendKeys(fakeEmail);
 

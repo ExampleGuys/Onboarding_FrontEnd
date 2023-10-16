@@ -47,6 +47,12 @@ public class ContactsStepDefs extends BrowserUtils {
 
     }
 
+    @And("the user writes a contact name in {string} text area with numbers")
+    public void theUserWritesAContactNameInTextAreaWithNumbers(String placeHolder) {
+        contactsPage.writeContactNameWithNumber(placeHolder);
+
+    }
+
     @And("the user writes email address in {string} text area")
     public void theUserWritesEmailAddressInTextArea(String placeHolder) {
         contactsPage.writeEmailInTheTextBox(placeHolder);
@@ -79,6 +85,11 @@ public class ContactsStepDefs extends BrowserUtils {
     @Then("user should be able to see contacts information as a table")
     public void userShouldBeAbleToSeeContactsInformationAsATable() {
         assertTrue(contactsPage.listOfContactsTable.isDisplayed());
+    }
+
+    @Then("user should be able to verify that writes a company name by using numbers")
+    public void userShouldBeAbleToVerifyThatWritesACompanyNameByUsingNumbers() {
+        assertTrue(contactsPage.toastMessageText().contains("success"));
     }
 }
 

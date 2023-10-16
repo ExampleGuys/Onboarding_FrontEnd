@@ -144,12 +144,26 @@ Feature: Contacts test
     And Click on the "Contacts" section in the Navigation Menu
     Then user should be able to view "Contacts" text at the top left of the page
 
-    @ONB2-34
-    Scenario: TC: ONB2-34 Contacts information should be displayed as a table
+  @ONB2-34
+  Scenario: TC: ONB2-34 Contacts information should be displayed as a table
 
-      Given The user goes to myCompSignin
-      When the user enters valid requester "email" and "password"
-      And the user clicks the sign in button
-      And Click on the "Contacts" section in the Navigation Menu
-      Then user should be able to see contacts information as a table
+    Given The user goes to myCompSignin
+    When the user enters valid requester "email" and "password"
+    And the user clicks the sign in button
+    And Click on the "Contacts" section in the Navigation Menu
+    Then user should be able to see contacts information as a table
+
+  @ONB2-148
+  Scenario: TC: ONB2-148 Create a company name by using numbers
+
+    Given The user goes to myCompSignin
+    When the user enters valid requester "email" and "password"
+    And the user clicks the sign in button
+    And Click on the "Contacts" section in the Navigation Menu
+    And The user click on the "New Contact" button.
+    And the user writes a contact name in "Enter full name or company" text area with numbers
+    And the user writes email address in "Enter email" text area
+    And the user clicks on the "Create" button
+    Then user should be able to verify that writes a company name by using numbers
+
 
