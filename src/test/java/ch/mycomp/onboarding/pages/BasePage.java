@@ -29,8 +29,13 @@ public abstract class BasePage {
 
     public String toastMessageText() {
 
-        BrowserUtils.waitForVisibility(message, 3);
+        BrowserUtils.waitForVisibility(message, 5);
         return message.getText();
+    }
+    public String getBreadcrumbLink(String breadcrumbLinkName){
+        WebElement titleName = Driver.get().findElement(By.xpath("//a[text()='" + breadcrumbLinkName + "']"));
+        BrowserUtils.waitForVisibility(titleName,5);
+        return titleName.getText();
     }
 
 }

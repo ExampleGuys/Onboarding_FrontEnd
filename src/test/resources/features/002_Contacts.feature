@@ -97,18 +97,50 @@ Feature: Contacts test
     And The user click on the "Create" button.
     Then user should be able to verify that new contact is in the contacts' list
 
-    @ONB2-119
-    Scenario: TC: @ONB2-119 Create a contact without filling the email text field
+  @ONB2-119
+  Scenario: TC: @ONB2-119 Create a contact without filling the email text field
 
-      Given The user goes to myCompSignin
-      When the user enters valid requester "email" and "password"
-      And the user clicks the sign in button
-      And Click on the "Contacts" section in the Navigation Menu
-      And The user click on the "New Contact" button.
-      And the user writes a contact name in "Enter full name or company" text area
-      And The user click on the "Create" button.
-      Then user should be able to verify that user should not be able create a contact
+    Given The user goes to myCompSignin
+    When the user enters valid requester "email" and "password"
+    And the user clicks the sign in button
+    And Click on the "Contacts" section in the Navigation Menu
+    And The user click on the "New Contact" button.
+    And the user writes a contact name in "Enter full name or company" text area
+    And The user click on the "Create" button.
+    Then user should be able to verify that user should not be able create a contact
 
 
+  @ONB2-153
+  Scenario: TC: ONB2-153 Create a contact without filling the company name text field
 
+    Given The user goes to myCompSignin
+    When the user enters valid requester "email" and "password"
+    And the user clicks the sign in button
+    And Click on the "Contacts" section in the Navigation Menu
+    And The user click on the "New Contact" button.
+    And the user writes email address in "Enter email" text area
+    And The user click on the "Create" button.
+    Then user should be able to verify that user should not be able create a contact
+
+  @ONB2-154
+  Scenario: TC: ONB2-154 Observe that new contact created message appears
+
+    Given The user goes to myCompSignin
+    When the user enters valid requester "email" and "password"
+    And the user clicks the sign in button
+    And Click on the "Contacts" section in the Navigation Menu
+    And The user click on the "New Contact" button.
+    And the user writes a contact name in "Enter full name or company" text area
+    And the user writes email address in "Enter email" text area
+    And the user clicks on the "Create" button
+    Then user should be able to see "Contact successfully created" message
+
+  @ONB2-176
+  Scenario: TC: ONB2-176 Contacts text should be visible at the top left of the Contacts page
+
+    Given The user goes to myCompSignin
+    When the user enters valid requester "email" and "password"
+    And the user clicks the sign in button
+    And Click on the "Contacts" section in the Navigation Menu
+    Then user should be able to view "Contacts" text at the top left of the page
 

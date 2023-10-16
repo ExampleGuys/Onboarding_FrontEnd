@@ -47,7 +47,7 @@ public class ContactsStepDefs extends BrowserUtils {
 
     }
 
-    @And("the user writes Email address in {string} text area")
+    @And("the user writes email address in {string} text area")
     public void theUserWritesEmailAddressInTextArea(String placeHolder) {
         contactsPage.writeEmailInTheTextBox(placeHolder);
     }
@@ -63,6 +63,17 @@ public class ContactsStepDefs extends BrowserUtils {
     @Then("user should be able to verify that user should not be able create a contact")
     public void userShouldBeAbleToVerifyThatUserShouldNotBeAbleCreateAContact() {
         assertTrue(contactsPage.toastMessageText().equals("Please fill out all required fields correctly."));
+    }
+
+    @And("the user clicks on the {string} button")
+    public void theUserClicksOnTheButton(String buttonName) {
+        contactsPage.clickCreateButtonWithoutWait(buttonName);
+    }
+
+    @Then("user should be able to view {string} text at the top left of the page")
+    public void userShouldBeAbleToViewTextAtTheTopLeftOfThePage(String textName) {
+        assertTrue("Breadcrumb links did not match",contactsPage.getBreadcrumbLink(textName).equals(textName));
+
     }
 }
 
