@@ -16,6 +16,21 @@ public abstract class BasePage {
     @FindBy(xpath = "//div[@class='go3958317564']")
     public WebElement message;
 
+    @FindBy(xpath = "//li[@class='ant-pagination-total-text']")
+    public WebElement paginationTotalText;
+
+    @FindBy(xpath = "//div[@aria-label='Page Size']")
+    public WebElement pageSelectOptionsDropDown;
+
+    public String getTotalNumberOfThePageInformationText() {
+
+        String[] arr = paginationTotalText.getText().split(" ");
+        String totalNumberOfPage = arr[1];
+        System.out.println("totalNumberOfPage = " + totalNumberOfPage);
+        return totalNumberOfPage;
+
+    }
+
     public String getSectionName(String sectionName) {
         WebElement section = Driver.get().findElement(By.xpath("//label[text()='" + sectionName + "']"));
         return section.getText();
@@ -23,14 +38,35 @@ public abstract class BasePage {
 
     public String getHeaderText(String headerText) {
         WebElement headerName = Driver.get().findElement(By.xpath("//thead/tr/th[text()='" + headerText + "']"));
-        BrowserUtils.waitForVisibility(headerName,5);
+        BrowserUtils.waitForVisibility(headerName, 5);
         return headerName.getText();
     }
 
     public String toastMessageText() {
 
-        BrowserUtils.waitForVisibility(message, 3);
+        BrowserUtils.waitForVisibility(message, 5);
         return message.getText();
     }
 
+    public String getBreadcrumbText(String breadcrumbLinkName) {
+        WebElement titleName = Driver.get().findElement(By.xpath("//a[text()='" + breadcrumbLinkName + "']"));
+        BrowserUtils.waitForVisibility(titleName, 5);
+        return titleName.getText();
+    }
+
+    public WebElement getBreadcrumbWebElement(String breadcrumbLinkName) {
+        WebElement titleName = Driver.get().findElement(By.xpath("//a[text()='" + breadcrumbLinkName + "']"));
+        BrowserUtils.waitForVisibility(titleName, 5);
+        return titleName;
+    }
+
+    public String getPageTitle(String pageTitle) {
+        return Driver.get().getTitle();
+    }
+
+    public WebElement selectfromPageNumberDropDown(String numberPerPage){
+        WebElement numberOfPageDisplay = Driver.get().findElement(By.xpath("(//div[@class='rc-virtual-list-holder-inner'])/div/div[text()='" + numberPerPage + "']"));
+        BrowserUtils.waitForVisibility(numberOfPageDisplay,5);
+        return numberOfPageDisplay;
+    }
 }
