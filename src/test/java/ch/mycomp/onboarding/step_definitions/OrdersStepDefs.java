@@ -5,9 +5,12 @@ import ch.mycomp.onboarding.pages.OrderPage;
 import ch.mycomp.onboarding.utilities.BrowserUtils;
 import ch.mycomp.onboarding.utilities.Driver;
 import com.github.javafaker.Faker;
+import io.cucumber.core.internal.com.fasterxml.jackson.databind.deser.SettableBeanProperty;
+import io.cucumber.java.bs.A;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -219,5 +222,27 @@ public class OrdersStepDefs extends BrowserUtils {
 
         // Assert.assertNotEquals(strlength,textlength);
 
+    }
+
+    @Then("The user should seen New Order Information section")
+    public void theUserShouldSeenNewOrderInformationSection() {
+        Assert.assertTrue(Driver.driver.getCurrentUrl().contains("create"));
+    }
+
+    @Then("The user should be able to see {string} section")
+    public void theUserShouldBeAbleToSeeSection(String header) {
+        orderPage.headerConfirmation(header);
+
+
+    }
+
+    @Then("Then user should be able to click on the Delete Comment icon")
+    public void thenUserShouldBeAbleToClickOnTheDeleteCommentIcon() {
+        orderPage.deleteIcon.click();
+        Assert.assertTrue(orderPage.deleteIcon.isEnabled());
+        WebElement deleteConfirmation = Driver.get().findElement(By.xpath("//span[text()='Delete']"));
+        BrowserUtils.clickWithJS(deleteConfirmation);
+
+       // Assert.assertFalse(orderPage.deleteIcon.isEnabled());
     }
 }
