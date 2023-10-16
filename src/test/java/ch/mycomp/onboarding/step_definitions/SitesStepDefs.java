@@ -59,4 +59,10 @@ public class SitesStepDefs {
         Assert.assertTrue(resourcesPage.deletePopconfirm.isDisplayed());
         BrowserUtils.waitFor(3);
     }
+
+    @And("The user clicks on the Edit button")
+    public void theUserClicksOnTheEditButton() {
+           sitesPage.editSeiteTitle.click();
+        BrowserUtils.waitFor(2);
+    }
 }

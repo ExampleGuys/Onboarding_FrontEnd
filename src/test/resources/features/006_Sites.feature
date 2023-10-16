@@ -58,3 +58,21 @@ Scenario:TC: ONB2-198 On the Home Page of the "Sites" category can appear and cl
   @ONB2-236
   Scenario:TC: ONB2-236 On the "Sites" page, verify that the "New Site" button is visible and clickable.
     And The user clicks on the "New Site" button
+
+  @ONB2-263
+  Scenario:TC: ONB2-263 Verify that the number of characters entered in the "For Directions" item is visible on the New Site page.
+    Then The user clicks on the "New Sites" button
+    Then The user clicks on the "For Directions" item
+    Then The user enters required information
+    And The user should see the number of characters they entered at the bottom right
+
+  @ONB2-266
+  Scenario:TC: ONB2-266 When invalid / incomplete information is entered on the New Site page, click the "Create" button Verify that the error message is visible.
+    Then The user clicks on the "New Sites" button
+    Then The user enters the information overnight on the "New Site" page
+    Then The user clicks the "Create" button
+    Then The user sees the error message
+
+  @ONB2-268
+  Scenario:TC: ONB2-268 Verify that the "Edit" button is visible and active on the "Sites" page.
+    And The user clicks on the Edit button
