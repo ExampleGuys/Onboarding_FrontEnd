@@ -47,6 +47,11 @@ public abstract class BasePage {
         BrowserUtils.waitForVisibility(message, 5);
         return message.getText();
     }
+    public String getItemErorMessageText(String itemErorMessageText){
+        WebElement itemName =Driver.get().findElement(By.xpath("//div[text()='" + itemErorMessageText + "']"));
+        BrowserUtils.waitForVisibility(itemName,3);
+        return itemName.getText();
+    }
 
     public String getBreadcrumbText(String breadcrumbLinkName) {
         WebElement titleName = Driver.get().findElement(By.xpath("//a[text()='" + breadcrumbLinkName + "']"));

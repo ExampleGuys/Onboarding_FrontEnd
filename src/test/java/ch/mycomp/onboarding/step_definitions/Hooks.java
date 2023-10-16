@@ -13,13 +13,13 @@ import java.time.Duration;
 
 public class Hooks {
 
-    @Before
-    public void setUp(Scenario scenario){
+   @Before
+   public void setUp(Scenario scenario){
 
-        Driver.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-        Driver.get().manage().window().maximize();
-        System.out.println(scenario.getName());
-    }
+       Driver.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+       Driver.get().manage().window().maximize();
+       System.out.println(scenario.getName());
+   }
 
     @AfterStep
     public void step(Scenario step) {
