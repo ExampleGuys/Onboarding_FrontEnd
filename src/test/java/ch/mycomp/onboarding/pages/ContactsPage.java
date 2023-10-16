@@ -7,6 +7,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -26,6 +28,9 @@ public class ContactsPage extends BasePage {
 
     @FindBy(xpath = "//div[@class='ant-card-body']")
     public WebElement listOfContactsTable;
+
+    @FindBy(xpath = "(//tbody[@class='ant-table-tbody'])/tr")
+    List<WebElement> contactsListInOnePage;
 
     public void clickItemsOnTheNavigationMenu(String navigationMenuItem) {
         WebElement sidebar = Driver.get().findElement(By.xpath("(//li[@role='menuitem'])//span[text()='" + navigationMenuItem + "']"));
@@ -67,6 +72,11 @@ public class ContactsPage extends BasePage {
     public void clickCreateButtonWithoutWait(String buttonName){
         WebElement button = Driver.get().findElement(By.xpath("//span[text()='" + buttonName + "']"));
         BrowserUtils.clickElement(button,5);
+    }
+
+    public int countContacts(){
+        return contactsListInOnePage.size();
+
     }
 
 }

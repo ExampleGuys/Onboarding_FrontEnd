@@ -3,6 +3,7 @@ package ch.mycomp.onboarding.step_definitions;
 import ch.mycomp.onboarding.pages.ContactsPage;
 import ch.mycomp.onboarding.pages.OrderPage;
 import ch.mycomp.onboarding.utilities.BrowserUtils;
+import ch.mycomp.onboarding.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 
@@ -118,6 +119,26 @@ public class ContactsStepDefs extends BrowserUtils {
         contactsPage.getTotalNumberOfThePageInformationText();
 
     }
+
+    @And("user clicks page selection button")
+    public void userClicksPageSelectionButton() {
+        contactsPage.pageSelectOptionsDropDown.click();
+
+    }
+
+    @And("user chooses {string}")
+    public void userChooses(String numberOfPageSelection) {
+        contactsPage.selectfromPageNumberDropDown(numberOfPageSelection).click();
+
+    }
+
+    @Then("user should be able to observe {string} contacts on one page")
+    public void userShouldBeAbleToObserveOnOnePage(String tenContacts) {
+
+        int contactsInOnePage = Integer.parseInt(tenContacts);
+        assertEquals(contactsPage.countContacts(),contactsInOnePage);
+    }
+
 }
 
 

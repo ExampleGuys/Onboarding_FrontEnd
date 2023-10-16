@@ -19,6 +19,9 @@ public abstract class BasePage {
     @FindBy(xpath = "//li[@class='ant-pagination-total-text']")
     public WebElement paginationTotalText;
 
+    @FindBy(xpath = "//div[@aria-label='Page Size']")
+    public WebElement pageSelectOptionsDropDown;
+
     public String getTotalNumberOfThePageInformationText() {
 
         String[] arr = paginationTotalText.getText().split(" ");
@@ -59,5 +62,11 @@ public abstract class BasePage {
 
     public String getPageTitle(String pageTitle) {
         return Driver.get().getTitle();
+    }
+
+    public WebElement selectfromPageNumberDropDown(String numberPerPage){
+        WebElement numberOfPageDisplay = Driver.get().findElement(By.xpath("(//div[@class='rc-virtual-list-holder-inner'])/div/div[text()='" + numberPerPage + "']"));
+        BrowserUtils.waitForVisibility(numberOfPageDisplay,5);
+        return numberOfPageDisplay;
     }
 }
