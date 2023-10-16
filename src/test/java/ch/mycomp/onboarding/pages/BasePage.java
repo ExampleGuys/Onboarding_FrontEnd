@@ -44,4 +44,7 @@ public abstract class BasePage {
         return titleName;
     }
 
+    public String getPageTitle(String pageTitle){
+        return Driver.get().getTitle();
+    }
 }

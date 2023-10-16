@@ -102,6 +102,11 @@ public class ContactsStepDefs extends BrowserUtils {
         assertTrue(contactsPage.getBreadcrumbWebElement(breadcrumbLink).isEnabled());
 
     }
+
+    @Then("user should be able to verify that goes back to the {string} page")
+    public void userShouldBeAbleToVerifyThatGoesBackToThePage(String pageTitle) {
+        assertEquals("Page titles did not match", contactsPage.getPageTitle(pageTitle), pageTitle);
+    }
 }
 
 

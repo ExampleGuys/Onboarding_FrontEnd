@@ -177,5 +177,14 @@ Feature: Contacts test
     Then user should be able to view "Contacts" breadcrumb link on the New Contact page
     Then user should be able to click "Contacts" breadcrumb link on the New Contact page
 
+  @ONB2-231
+  Scenario: TC: ONB2-231 Verify that the back button works
 
+    Given The user goes to myCompSignin
+    When the user enters valid requester "email" and "password"
+    And the user clicks the sign in button
+    And Click on the "Contacts" section in the Navigation Menu
+    And The user click on the "New Contact" button.
+    And The user click on the "Back" button.
+    Then user should be able to verify that goes back to the "Contacts | Mycomp" page
 
