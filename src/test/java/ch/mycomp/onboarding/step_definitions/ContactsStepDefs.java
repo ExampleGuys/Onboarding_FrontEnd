@@ -139,6 +139,10 @@ public class ContactsStepDefs extends BrowserUtils {
         assertEquals(contactsPage.countContacts(),contactsInOnePage);
     }
 
+    @Then("user should be able to click pagination-next-item button")
+    public void userShouldBeAbleToClickPaginationNextItemButton() {
+        assertTrue(contactsPage.paginationItemLinkForNextPage.isEnabled());
+    }
 }
 
 

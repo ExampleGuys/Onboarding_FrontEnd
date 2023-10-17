@@ -1,6 +1,5 @@
 
-
-Feature: Users Listing Test
+Feature: Users
 
 
 
@@ -11,12 +10,19 @@ Feature: Users Listing Test
     And the user clicks on "Users" at the navigation menu
     And the user should see the title of "List of User" on the users page
 
+  @ONB2-120
+  Scenario: TC ONB2-120  The user should be able to create a new user by filling in the required information
+    Given The user goes to the sign-in page
+    When The user enters valid logon credentials
+    And the user clicks on "Users" at the navigation menu
+    Then the user clicks on "New User" button
+    Then the user writes a name in the First Name box
+    And The user should see the confirmation message
 
   @ONB2-51
   Scenario: TCOBN@-51 Verification of the Access to the Users page
     Given The user goes to the sign-in page
     When The user enters valid logon credentials
-    And the user clicks on "Users" at the navigation menu
     And the user clicks on "Users" at the navigation menu
     Then the user should see the Users page
 
