@@ -141,7 +141,7 @@ Feature: Orders Tests
     Then The user should seen New Order Information section
 
   @ONB2-355
-Scenario: Resource section in the new order page should be visible
+  Scenario: Resource section in the new order page should be visible
     Given The user goes to the sign-in page
     When user logs in with the valid credentials
     And Click on the "Orders" section in the Navigation Menu
@@ -189,7 +189,7 @@ Scenario: Resource section in the new order page should be visible
     #And user scroll to the bottom of the page.
     And The user should be able to add data to "Enter a comment"
     And The user click on the "Add comment" button.
-   Then Then user should be able to click on the Delete Comment icon
+    Then Then user should be able to click on the Delete Comment icon
 
   @ONB2-86
   Scenario: Created orders should be deleted
@@ -199,6 +199,20 @@ Scenario: Resource section in the new order page should be visible
     And The user click on the delete icon in the Actions section of a first element of orders list
     And The User Click on "Delete" button on the ant-popover
     Then The user verify that created order is deleted
+
+  @ONB2-88
+  Scenario: The user should be able to see the edit order page appears
+    Given The user goes to the sign-in page
+    When user logs in with the valid credentials
+    And Click on the "Orders" section in the Navigation Menu
+    And And The User click on edit icon in the Actions section of first element of list
+    Then The User verify that Comments section should be visible
+
+
+
+
+
+
 
 
 

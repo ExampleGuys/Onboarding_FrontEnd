@@ -154,6 +154,7 @@ public class OrdersStepDefs extends BrowserUtils {
     @And("The user should be able to add data to {string}")
     public void theUserShouldBeAbleToAddDataTo(String placeHolder) {
         String fakeDataInfo = fakeName();
+        orderPage.boxName(placeHolder).clear();
         orderPage.boxName(placeHolder).sendKeys(fakeDataInfo);
 
         BrowserUtils.waitFor(1);
@@ -257,5 +258,16 @@ public class OrdersStepDefs extends BrowserUtils {
     @Then("The user verify that created order is deleted")
     public void theUserVerifyThatCreatedOrderIsDeleted() {
         onboardingPage.assertionTotalOnboardingItemIsChanged();
+    }
+
+
+    @Then("user should be able to edit information in the {string} box")
+    public void userShouldBeAbleToEditInformationInTheBox(String placeHolder) {
+        String fakeDataInfo = fakeName();
+        orderPage.boxName(placeHolder).clear();
+        orderPage.boxName(placeHolder).sendKeys(" "+fakeDataInfo);
+
+        BrowserUtils.waitFor(1);
+        assertTrue(orderPage.boxName(placeHolder).getAttribute("value").contains(fakeDataInfo));
     }
 }
