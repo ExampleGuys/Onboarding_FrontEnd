@@ -92,6 +92,31 @@ public class UsersStepDefs extends BasePage {
     assert (usersPage.theNumberofUsers.isEnabled());
 
     }
+
+    @Then("the user clicks on {string} button")
+    public void theUserClicksOnButton(String arg0) {
+        usersPage.newUsersButton.click();
+
+    }
+
+    @Then("the user clicks on the {string} icon of the Site button")
+    public void theUserClicksOnTheIconOfTheSiteButton(String arg0) {
+
+
+        usersPage.siteButton.click();
+    }
+
+    @Then("the user verifies that only numbers can be typed in the {string} text field")
+    public void theUserVerifiesThatOnlyNumbersCanBeTypedInTheTextField(String arg0) {
+
+      usersPage.zipCodeTextField.sendKeys("12345678");
+
+
+
+
+
+
+    }
 }
 
 

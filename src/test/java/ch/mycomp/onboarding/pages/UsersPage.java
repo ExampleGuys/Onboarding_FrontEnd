@@ -37,6 +37,19 @@ public class UsersPage extends BasePage{
     public WebElement listofUsers;
 
 
+    @FindBy(xpath = "(//*[@type='button'])[2]")
+    public WebElement newUsersButton;
+
+
+    @FindBy(xpath = "(//*[@data-icon='plus'])[2]")
+    public WebElement siteButton;
+
+    @FindBy(xpath ="//*[@class='ant-input-number-input']")
+    public WebElement zipCodeTextField;
+
+
+
+
     public void assertionForlistofUsersIsVisible() {
         assert (listofUsers.isDisplayed());
     }
