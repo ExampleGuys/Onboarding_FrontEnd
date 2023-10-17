@@ -208,8 +208,13 @@ Feature: Orders Tests
     And And The User click on edit icon in the Actions section of first element of list
     Then The User verify that Comments section should be visible
 
-
-
+  @ONB2-89
+  Scenario: The user should be able to add information in the title box on the edit order page
+    Given The user goes to the sign-in page
+    When user logs in with the valid credentials
+    And Click on the "Orders" section in the Navigation Menu
+    And And The User click on edit icon in the Actions section of first element of list
+    Then user should be able to edit information in the "Enter order title" box
 
 
 
