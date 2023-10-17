@@ -1,6 +1,7 @@
 package ch.mycomp.onboarding.step_definitions;
 
 import ch.mycomp.onboarding.pages.LoginPage;
+import ch.mycomp.onboarding.pages.OnboardingPage;
 import ch.mycomp.onboarding.pages.OrderPage;
 import ch.mycomp.onboarding.utilities.BrowserUtils;
 import ch.mycomp.onboarding.utilities.Driver;
@@ -28,6 +29,8 @@ public class OrdersStepDefs extends BrowserUtils {
     Actions actions = new Actions(Driver.get());
 
     Faker faker = new Faker();
+
+    OnboardingPage onboardingPage = new OnboardingPage();
 
     @When("user logs in with the valid credentials")
     public void user_logs_in_with_the_valid_credentials() {
@@ -151,6 +154,7 @@ public class OrdersStepDefs extends BrowserUtils {
     @And("The user should be able to add data to {string}")
     public void theUserShouldBeAbleToAddDataTo(String placeHolder) {
         String fakeDataInfo = fakeName();
+        orderPage.boxName(placeHolder).clear();
         orderPage.boxName(placeHolder).sendKeys(fakeDataInfo);
 
         BrowserUtils.waitFor(1);
@@ -244,5 +248,26 @@ public class OrdersStepDefs extends BrowserUtils {
         BrowserUtils.clickWithJS(deleteConfirmation);
 
        // Assert.assertFalse(orderPage.deleteIcon.isEnabled());
+    }
+
+    @And("The user click on the delete icon in the Actions section of a first element of orders list")
+    public void theUserClickOnTheDeleteIconInTheActionsSectionOfAFirstElementOfOrdersList() {
+        onboardingPage.clickDeleteIconOfTeFirstElementOfOnboardingList();
+    }
+
+    @Then("The user verify that created order is deleted")
+    public void theUserVerifyThatCreatedOrderIsDeleted() {
+        onboardingPage.assertionTotalOnboardingItemIsChanged();
+    }
+
+
+    @Then("user should be able to edit information in the {string} box")
+    public void userShouldBeAbleToEditInformationInTheBox(String placeHolder) {
+        String fakeDataInfo = fakeName();
+        orderPage.boxName(placeHolder).clear();
+        orderPage.boxName(placeHolder).sendKeys(" "+fakeDataInfo);
+
+        BrowserUtils.waitFor(1);
+        assertTrue(orderPage.boxName(placeHolder).getAttribute("value").contains(fakeDataInfo));
     }
 }
