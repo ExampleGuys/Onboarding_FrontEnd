@@ -210,6 +210,15 @@ Feature: Contacts test
     And user chooses "10 / page"
     Then user should be able to observe "10" contacts on one page
 
+  @ONB2-227
+  Scenario: TC: ONB2-227 Pagination-next-item should be clickable for the next page in the Contacts page
+
+    Given The user goes to myCompSignin
+    When the user enters valid requester "email" and "password"
+    And the user clicks the sign in button
+    And Click on the "Contacts" section in the Navigation Menu
+    And user scrolls until end of the page
+    Then user should be able to click pagination-next-item button
 
 
 

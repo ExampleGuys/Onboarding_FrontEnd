@@ -22,6 +22,12 @@ public abstract class BasePage {
     @FindBy(xpath = "//div[@aria-label='Page Size']")
     public WebElement pageSelectOptionsDropDown;
 
+    @FindBy(xpath = "(//button[@class='ant-pagination-item-link'])[1]")
+    public WebElement paginationItemLinkForPreviousPage;
+
+    @FindBy(xpath = "(//button[@class='ant-pagination-item-link'])[2]")
+    public WebElement paginationItemLinkForNextPage;
+
     public String getTotalNumberOfThePageInformationText() {
 
         String[] arr = paginationTotalText.getText().split(" ");
