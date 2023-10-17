@@ -28,6 +28,9 @@ public class UsersPage extends BasePage{
     public WebElement listofUsers;
 
 
+    @FindBy(xpath = "(//*[@type='button'])[2]")
+    public WebElement newUserButton;
+
     public void assertionForlistofUsersIsVisible() {
         assert (listofUsers.isDisplayed());
 

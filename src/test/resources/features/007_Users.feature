@@ -17,6 +17,4 @@ Feature: Users
     And the user clicks on "Users" at the navigation menu
     Then the user clicks on "New User" button
     Then the user writes a name in the First Name box
-
-
     And The user should see the confirmation message

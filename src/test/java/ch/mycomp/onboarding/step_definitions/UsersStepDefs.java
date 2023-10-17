@@ -79,6 +79,8 @@ public class UsersStepDefs extends BasePage {
 
     }
 
+    /*
+
     @Then("the user clicks on {string} button")
     public void theUserClicksOnButton(String buttonName) {
 
@@ -87,8 +89,10 @@ public class UsersStepDefs extends BasePage {
         BrowserUtils.clickWithJS(button);
 
 
+}
 
-    }
+     */
+
 
     @Then("the user writes a name in the First Name box")
     public void theUserWritesANameInTheFirstNameBox() {
@@ -176,6 +180,12 @@ public class UsersStepDefs extends BasePage {
         assert(loginPage.toastMessageText().equals("User sucessfully created"));
 
 
+    }
+
+    @Then("the user clicks on {string} button")
+    public void theUserClicksOnButton(String arg0) {
+
+        usersPage.newUserButton.click();
     }
 }
 
