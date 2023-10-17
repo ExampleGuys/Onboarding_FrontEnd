@@ -130,3 +130,71 @@ Feature: Onboarding Create Tests
     And And The User click on edit icon in the Actions section of first element of list
     Then the User verify that Company Registration section is visible
 
+  Scenario: TC ONB2-103 Cancel button in the ant-popover should be clickable
+    Given The user goes to staging url
+    And The user enters with user "requesterUser" and user "requester_password"
+    And The User click on the "Onboarding" section in the Navigation Menu
+    And The user click on the delete icon in the Actions section of a first element of onboarding list
+    And The User Click on "Cancel" button on the ant-popover
+    Then The User verify that "Cancel" button is working properly
+
+  Scenario: TC ONB2-106 New Onboarding button top right corner of the page should be clickable
+    Given The user goes to staging url
+    And The user enters with user "requesterUser" and user "requester_password"
+    And The User click on the "Onboarding" section in the Navigation Menu
+    And The user click on the "New Onboarding" button top right corner of the page
+    Then The User verify that redirected to new onboarding create page
+
+
+  Scenario: TC ONB2-78 'All' tab should show all onboarding processes
+    Given The user goes to staging url
+    And The user enters with user "requesterUser" and user "requester_password"
+    And The User click on the "Onboarding" section in the Navigation Menu
+    And The User click on All tab under the List of Onboardings headline
+    Then Then user verify that All onboarding processes should shown in the All tab
+
+    Scenario: TC ONB2-79 'Ongoing' tab should show ongoing onboarding processes
+      Given The user goes to staging url
+      And The user enters with user "requesterUser" and user "requester_password"
+      And The User click on the "Onboarding" section in the Navigation Menu
+      And The User click on "Drafts" tab under the List of Onboardings headline
+      Then Then user verify that Draft onboarding processes should shown in the Drafts tab
+
+  Scenario: TC ONB2-80 'Complated' tab should show complated onboarding processes
+    Given The user goes to staging url
+    And The user enters with user "requesterUser" and user "requester_password"
+    And The User click on the "Onboarding" section in the Navigation Menu
+    And The User click on Completed tab under the List of Onboardings headline
+    Then Then user verify that Completed onboarding processes should shown in the Drafts tab
+
+  Scenario: TC ONB2-46 Created onboarding should be deleted
+    Given The user goes to staging url
+    And The user enters with user "requesterUser" and user "requester_password"
+    And The User click on the "Onboarding" section in the Navigation Menu
+    And The user click on the delete icon in the Actions section of a first element of onboarding list
+    And The User Click on "Delete" button on the ant-popover
+    Then The user verify that created onboarding is deleted
+
+  Scenario: TC ONB2-112 Add Resources button in the new onboarding page should be clickable
+    Given The user goes to staging url
+    And The user enters with user "requesterUser" and user "requester_password"
+    And The User click on the "Onboarding" section in the Navigation Menu
+    And The user click on the "New Onboarding" button top right corner of the page
+    Then The User verify that "Add resource" button should be clickable
+
+  Scenario: TC ONB2-113 Add Comment button in the new onboarding page should be clickable
+    Given The user goes to staging url
+    And The user enters with user "requesterUser" and user "requester_password"
+    And The User click on the "Onboarding" section in the Navigation Menu
+    And The user click on the "New Onboarding" button top right corner of the page
+    And The user write a comment in the comment section bottom of the page
+    Then The User verify that the "Add comment" button is clickable
+
+  Scenario: TC ONB2-114 Delete Comment (icon) button in the new onboarding page should be clickable
+    Given The user goes to staging url
+    And The user enters with user "requesterUser" and user "requester_password"
+    And The User click on the "Onboarding" section in the Navigation Menu
+    And The user click on the "New Onboarding" button top right corner of the page
+    And The user write a comment in the comment section bottom of the page
+    And the User Click on the "Add comment" button
+    Then The User verify that the Delete Comment button is clickable

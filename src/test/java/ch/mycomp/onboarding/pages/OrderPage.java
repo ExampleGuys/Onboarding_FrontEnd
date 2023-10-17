@@ -2,6 +2,8 @@ package ch.mycomp.onboarding.pages;
 
 import ch.mycomp.onboarding.utilities.BrowserUtils;
 import ch.mycomp.onboarding.utilities.Driver;
+import io.cucumber.java.en.Then;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -18,6 +20,14 @@ public class OrderPage extends BasePage{
 
     @FindBy(css="#Order_delivery_date")
     public WebElement datapicker;
+
+    @FindBy(css="#Order_priority")
+    public WebElement priorityDdm;
+
+	@FindBy(xpath = "//h4 [@class ='ant-list-item-meta-title']")
+	public WebElement CommentDeleteConfirmationInfo;
+	@FindBy(xpath = "//span [@class='anticon anticon-delete']")
+	public WebElement deleteIcon;
 
     public void clickPlusAccordingToOptionName(String optionName) {
         Driver.get().findElement(By.xpath("//span[text()='" + optionName + "']/..//button")).click();
@@ -43,7 +53,16 @@ public class OrderPage extends BasePage{
         return Driver.get().findElement(By.xpath("//span[text()='" + boxNameInfo2 + "']"));
 
     }
-    @FindBy(css="#Order_priority")
-    public WebElement priorityDdm;
+
+    public void headerConfirmation (String header) {
+
+        WebElement headerInfo = Driver.get().findElement(By.xpath("//*[text()='"+ header +"']"));
+        String message = BrowserUtils.getTextWithJS(Driver.get(), headerInfo);
+        Assert.assertEquals(header,message);
+        BrowserUtils.waitFor(4);
+
+
+    }
+
 
 }

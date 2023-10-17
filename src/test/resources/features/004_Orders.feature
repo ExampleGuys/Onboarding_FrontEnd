@@ -120,3 +120,89 @@ Feature: Orders Tests
     And Click on the "Orders" section in the Navigation Menu
     And The user click on the "New Order" button.
     Then The user select the priority from the ddm
+
+  @ONB2-226
+  Scenario: The user should be able to create the new Site in "New Order" page.
+    Given The user goes to the sign-in page
+    When user logs in with the valid credentials
+    And Click on the "Orders" section in the Navigation Menu
+    And The user click on the "New Order" button.
+    And The user select the company from ddm
+    And The user clicks the "Shipping Address" icon.
+    #And user fill in all required fields
+    #Then user should be able to create the new Site in "New Order" page.
+
+  @ONB2-354
+  Scenario: New Order section in the new order page should be visible
+    Given The user goes to the sign-in page
+    When user logs in with the valid credentials
+    And Click on the "Orders" section in the Navigation Menu
+    And The user click on the "New Order" button.
+    Then The user should seen New Order Information section
+
+  @ONB2-355
+Scenario: Resource section in the new order page should be visible
+    Given The user goes to the sign-in page
+    When user logs in with the valid credentials
+    And Click on the "Orders" section in the Navigation Menu
+    And The user click on the "New Order" button.
+    Then The user should be able to see "Resources" section
+
+  @ONB2-356
+  Scenario: Delivery Information section in the new order page should be visible
+    Given The user goes to the sign-in page
+    When user logs in with the valid credentials
+    And Click on the "Orders" section in the Navigation Menu
+    And The user click on the "New Order" button.
+    Then The user should be able to see "Delivery Information" section
+
+  @ONB2-357
+  Scenario: Process section in the new order page should be visible
+    Given The user goes to the sign-in page
+    When user logs in with the valid credentials
+    And Click on the "Orders" section in the Navigation Menu
+    And The user click on the "New Order" button.
+    Then The user should be able to see "Process" section
+
+  @ONB2-358
+  Scenario: Service Provider section in the new order page should be visible
+    Given The user goes to the sign-in page
+    When user logs in with the valid credentials
+    And Click on the "Orders" section in the Navigation Menu
+    And The user click on the "New Order" button.
+    Then The user should be able to see "Service Provider" section
+
+  @ONB2-359
+  Scenario: Comment section in the new order page should be visible
+    Given The user goes to the sign-in page
+    When user logs in with the valid credentials
+    And Click on the "Orders" section in the Navigation Menu
+    And The user click on the "New Order" button.
+    Then The user should be able to see "Comments" section
+
+  @ONB2-360
+  Scenario: Delete Comment icon in the new onbording page should be clickable
+    Given The user goes to the sign-in page
+    When user logs in with the valid credentials
+    And Click on the "Orders" section in the Navigation Menu
+    And The user click on the "New Order" button.
+    #And user scroll to the bottom of the page.
+    And The user should be able to add data to "Enter a comment"
+    And The user click on the "Add comment" button.
+   Then Then user should be able to click on the Delete Comment icon
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
