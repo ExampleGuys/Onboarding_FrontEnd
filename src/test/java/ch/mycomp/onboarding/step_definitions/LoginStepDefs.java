@@ -1,6 +1,5 @@
 package ch.mycomp.onboarding.step_definitions;
 
-import ch.mycomp.onboarding.pages.LoginPage;
 import ch.mycomp.onboarding.utilities.BrowserUtils;
 import ch.mycomp.onboarding.utilities.ConfigurationReader;
 import ch.mycomp.onboarding.utilities.Driver;
@@ -9,9 +8,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class LoginStepDefs extends BrowserUtils {
-
-    LoginPage loginPage = new LoginPage();
+public class LoginStepDefs extends ObjectIndex {
 
     @Given("The user goes to myCompSignin")
     public void theUserGoesToMyCompSignin() {
