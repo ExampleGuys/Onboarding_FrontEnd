@@ -13,7 +13,6 @@ public class SitesPage extends BasePage{
         public WebElement clickOnSites;
 
 
-
         //Sites > siteCategory]
         @FindBy(xpath = "(//li[@class='ant-menu-item ant-menu-item-only-child'])[9]")
         public WebElement siteCategory;
