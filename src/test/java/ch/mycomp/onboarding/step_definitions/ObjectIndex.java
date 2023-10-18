@@ -22,11 +22,10 @@ public class ObjectIndex {
 
     ContactsPage contactsPage = new ContactsPage();
 
+    RegisterPage registerPage = new RegisterPage();
     Actions actions = new Actions(Driver.get());
 
     Faker faker = new Faker();
 
-    public static void init() {
-        OnboardingPage onboardingPage = new OnboardingPage();
-    }
+
 }
