@@ -169,3 +169,8 @@ Feature: Resources Tests
     Then  User enters valid information on the "New Resource" page
     Then The user clicks on the Create button
     And The user should be the entered information in a list
+
+  @ONB2-312
+  Scenario:TC: BUG ONB2-312 On the Resources page, verify that the search badge for the "Search by name" searchbox is clickable.
+    Then The user should be able to click on the "Search by name" search box
+    And The user should be able to click on the icon next to the "Search by name" search box.

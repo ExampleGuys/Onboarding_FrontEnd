@@ -408,5 +408,15 @@ public class ResourcesStepDefs extends BasePage {
     public void underTheHeadingTheUserSeesWhatTimeTheyLoggedIn(String arg0) {
         //Steps need to be written. There is a bug.
     }
+
+    @Then("The user should be able to click on the {string} search box")
+    public void theUserShouldBeAbleToClickOnTheSearchBox(String arg0) {
+        //Steps need to be written. There is a bug.
+    }
+
+    @And("The user should be able to click on the icon next to the {string} search box.")
+    public void theUserShouldBeAbleToClickOnTheIconNextToTheSearchBox(String arg0) {
+        //Steps need to be written. There is a bug.
+    }
 }
 
