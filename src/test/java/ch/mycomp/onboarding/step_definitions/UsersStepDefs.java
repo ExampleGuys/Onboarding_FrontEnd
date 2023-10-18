@@ -4,6 +4,7 @@ import ch.mycomp.onboarding.pages.BasePage;
 import ch.mycomp.onboarding.pages.LoginPage;
 import ch.mycomp.onboarding.pages.UsersPage;
 import ch.mycomp.onboarding.utilities.BrowserUtils;
+import ch.mycomp.onboarding.utilities.ConfigurationReader;
 import ch.mycomp.onboarding.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -67,10 +68,7 @@ public class UsersStepDefs extends BasePage {
     @Then("the user scrolls down until the end of the page")
     public void theUserScrollsDownUntilTheEndOfThePage() {
 
-        usersPage.scrollDown();
-
-
-
+       BrowserUtils.scrollToElement(usersPage.endOfUsersPage);
 
     }
 
@@ -89,7 +87,7 @@ public class UsersStepDefs extends BasePage {
 
     @Then("the user should observe {string} on each page of User List")
     public void theUserShouldObserveOnEachPageOfUserList(String arg0) {
-    assert (usersPage.theNumberofUsers.isEnabled());
+    assert (usersPage.listOfTenUsers.isEnabled());
 
     }
 
@@ -103,7 +101,7 @@ public class UsersStepDefs extends BasePage {
     public void theUserClicksOnTheIconOfTheSiteButton(String arg0) {
 
 
-        usersPage.siteButton.click();
+        usersPage.newUsersSiteArrow.click();
     }
 
     @Then("the user verifies that only numbers can be typed in the {string} text field")
@@ -115,6 +113,55 @@ public class UsersStepDefs extends BasePage {
 
 
 
+
+    }
+
+    @Then("the user writes a name in the First Name box")
+    public void theUserWritesANameInTheFirstNameBox() {
+
+
+
+
+    }
+
+    @Then("the user clicks on {string} text field")
+    public void theUserClicksOnTextField(String arg0) {
+
+        BrowserUtils.clickWithJS(usersPage.newUserPasswordField);
+        BrowserUtils.waitFor(3);
+
+
+
+
+    }
+
+    @Then("the user writes no correct  {string} text field")
+    public void theUserWritesNoCorrectTextField(String arg0) {
+
+   usersPage.newUserEmailField.sendKeys("ahmetgmail.com");
+
+
+    }
+
+    @Then("the should see the message {string}")
+    public void theShouldSeeTheMessage(String arg0) {
+
+        BrowserUtils.toastMessage();
+    }
+
+    @And("the user writes inappropriately a password in {string} text field")
+    public void theUserWritesInappropriatelyAPasswordInTextField(String arg0) {
+
+       usersPage.newUserPasswordField.sendKeys("1234abc");
+
+
+    }
+
+    @Then("the user should see the relevant warning messages")
+    public void theUserShouldSeeTheRelevantWarningMessages() {
+
+        assert (usersPage.newUserPasswordWarningMessage.getText().
+                contains("Password must be between 8 and 20 characters"));
 
     }
 }
