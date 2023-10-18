@@ -17,7 +17,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.Select;
 
 import static ch.mycomp.onboarding.utilities.BrowserUtils.fakeName;
 import static ch.mycomp.onboarding.utilities.Driver.driver;
@@ -30,14 +29,14 @@ public class ResourcesStepDefs extends BasePage {
     static Actions actions = new Actions(Driver.get());
 
     static Faker faker = new Faker();
-    ResourcesPage resourcesPage=new ResourcesPage();
-    OrderPage orderPage =new OrderPage();
+    ResourcesPage resourcesPage = new ResourcesPage();
+    OrderPage orderPage = new OrderPage();
 
-    Select select = new Select(orderPage.ddm1);
 
     @Given("The user goes to the sign-in page")
     public void theUserGoesToTheSignInPage() {
         Driver.get().get(ConfigurationReader.get("myCompStagingSignin"));
+
     }
 
     @When("The user enters valid logon credentials")
@@ -112,30 +111,32 @@ public class ResourcesStepDefs extends BasePage {
 
     @And("The user should be the {string} title on the {string} page")
     public void theUserShouldBeTheTitleOnThePage(String arg0, String arg1) {
-      //  Assert.assertTrue(commonPage.listOf_Title.isDisplayed());
+        //  Assert.assertTrue(commonPage.listOf_Title.isDisplayed());
     }
 
 
     @And("The user should be the {string} {string} {string} {string} title")
     public void theUserShouldBeTheTitle(String arg0, String arg1, String arg2, String arg3) {
 
-  //        Assert.assertTrue(commonPage.listOf_Title.isDisplayed());
-  //        Assert.assertTrue(commonPage.createdAtTitle.isDisplayed());
-  //        Assert.assertTrue(commonPage.createdByTitle.isDisplayed());
-  //        Assert.assertTrue(resourcesPage.categoryNameTitle.isDisplayed());
-       // BrowserUtils.waitForVisibility(commonPage.listOf_Title,20);
+        //        Assert.assertTrue(commonPage.listOf_Title.isDisplayed());
+        //        Assert.assertTrue(commonPage.createdAtTitle.isDisplayed());
+        //        Assert.assertTrue(commonPage.createdByTitle.isDisplayed());
+        //        Assert.assertTrue(resourcesPage.categoryNameTitle.isDisplayed());
+        // BrowserUtils.waitForVisibility(commonPage.listOf_Title,20);
 
-     //   String actualResultlistOf_Title = commonPage.listOf_Title.getText();
+        //   String actualResultlistOf_Title = commonPage.listOf_Title.getText();
         String expectedResult = arg0;
-      //  Assert.assertEquals(expectedResult,actualResultlistOf_Title);
+        //  Assert.assertEquals(expectedResult,actualResultlistOf_Title);
     }
+
     @Then("The user clicks on the Search by name search box")
     public void theUserClicksOnTheSearchByNameSearchBox() {
-      //  commonPage.searchBoxButton.click();
+        //  commonPage.searchBoxButton.click();
     }
+
     @And("User searches in the search box")
     public void userSearchesInTheSearchBox() {
-       // commonPage.searchBoxButton.getText();
+        // commonPage.searchBoxButton.getText();
         Assert.assertTrue(resourcesPage.searchBoxFirstLine.isDisplayed());
     }
 
@@ -217,19 +218,18 @@ public class ResourcesStepDefs extends BasePage {
 
     @Then("The user hovers over the + button next to the Contacts title, the Create Contact alert appears")
     public void theUserHoversOverTheButtonNextToTheContactsTitleTheCreateContactAlertAppears() {
-        WebElement hover =driver.findElement(By.xpath("//button[@type='submit']"));
+        WebElement hover = driver.findElement(By.xpath("//button[@type='submit']"));
         actions.moveToElement(hover).build().perform();
-        if ( hover.isDisplayed()){
+        if (hover.isDisplayed()) {
             System.out.println("Create Contact Alert is Displayed");
 
-        }else {
+        } else {
             System.out.println("Create Contact Alert could not be displayed");
         }
-
     }
 
-    @Then("The user clicks the {string} button")
-    public void theUserClicksTheButton(String arg0) {
+    @Then("The user clicks the x button")
+    public void theUserClicksTheXButton() {
         resourcesPage.newResourcesCreateContactsPageXButton.click();
     }
 
@@ -249,23 +249,16 @@ public class ResourcesStepDefs extends BasePage {
         Assert.assertTrue(resourcesPage.categoryNameTitleNewResourcesSeit.isDisplayed());
     }
 
-    @And("Relevant information into the enter {string} name text box")
-    public void relevantInformationIntoTheEnterNameTextBox(String arg0) {
+    @And("The user only write in {string} text box")
+    public void theUserOnlyWriteInTextBox(String arg0) {
         WebElement enterCategoryName = orderPage.boxName("Enter category name");
         actions.click(enterCategoryName).
                 sendKeys(faker.options().toString()).
+                sendKeys(Keys.ENTER).
                 perform();
 
         BrowserUtils.waitFor(2);
 
-    }
-
-    @And("Sees the error message {string}")
-    public String seesTheErrorMessage(String itemErorMessageText) {
-
-            WebElement itemName =Driver.get().findElement(By.xpath("//div[text()='" + itemErorMessageText + "']"));
-            BrowserUtils.waitForVisibility(itemName,3);
-            return itemName.getText();
     }
 
     @Then("The user clicks on the Enter resource name text box")
@@ -278,16 +271,18 @@ public class ResourcesStepDefs extends BasePage {
         WebElement enterResourceName = orderPage.boxName("Enter resource name");
         actions.click(enterResourceName).
                 sendKeys(faker.options().toString()).
+
                 perform();
 
         BrowserUtils.waitFor(2);
     }
 
+
     @Then("The user should be the confirmation message")
     public String theUserShouldBeTheConfirmationMessage() {
         toastMessageText();
-            BrowserUtils.waitForVisibility(message, 3);
-            return message.getText();
+        BrowserUtils.waitForVisibility(message, 3);
+        return resourcesPage.message.getText();
     }
 
     @Then("The User should be able to add data to {string} with {string}")
@@ -352,11 +347,66 @@ public class ResourcesStepDefs extends BasePage {
 
     @Then("The user should be seen the Resource Name title")
     public void theUserShouldBeSeenTheResourceNameTitle( String arg0) {
-       getSectionName(arg0);
+        getSectionName(arg0);
         Assert.assertTrue(resourcesPage.resourcesNameTitle.isDisplayed());
 
     }
 
-}
+    @And("The user should see the error message {string}")
+    public void theUserShouldSeeTheErrorMessage(String arg0) {
+        Assert.assertTrue(resourcesPage.categoryNameErrorMessage.getText().contains("Please fill out all required fields correctly."));
+    }
 
+    @Then("User enters valid information on the {string} page")
+    public void userEntersValidInformationOnThePage(String arg0) {
+        BrowserUtils.clickWithJS(resourcesPage.selectTheCompany);
+        resourcesPage.selectTheCompany.sendKeys("Test Techno Consultant", Keys.ENTER);
+        BrowserUtils.waitFor(2);
+        WebElement startBox = orderPage.boxName("Enter category name");
+        actions.click(startBox).
+                sendKeys("Telefon").
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                sendKeys("Apple").
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                sendKeys("nokia@gmail.com - nokia", Keys.ENTER).
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                perform();
+        BrowserUtils.waitFor(2);
+
+    }
+
+    @Then("The user should see the message {string}")
+    public void theUserShouldSeeTheMessage(String arg0) {
+        Assert.assertTrue(resourcesPage.message.getText().contains("Resource successfully created"));
+
+    }
+
+    @Then("The user clicks on the Create button")
+    public void theUserClicksOnTheCreateButton() {
+        resourcesPage.new_CreateButton2.click();
+        BrowserUtils.waitFor(2);
+    }
+
+    @Then("The user should be the {string} heading on the {string} page")
+    public void theUserShouldBeTheHeadingOnThePage(String arg0, String arg1) {
+      //  Steps need to be written. There is a bug.
+    }
+
+    @Then("The user enters the relevant information on the {string} page")
+    public void theUserEntersTheRelevantInformationOnThePage(String arg0) {
+      //  Steps need to be written. There is a bug.
+    }
+
+    @And("Under the {string} heading, the user sees what time they logged in")
+    public void underTheHeadingTheUserSeesWhatTimeTheyLoggedIn(String arg0) {
+        //Steps need to be written. There is a bug.
+    }
+}
 
