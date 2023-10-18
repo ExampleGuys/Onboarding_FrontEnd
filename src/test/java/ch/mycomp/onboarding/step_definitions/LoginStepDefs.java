@@ -68,6 +68,7 @@ public class LoginStepDefs extends BrowserUtils {
 
     @And("the user should sign in successfully")
     public void theUserShouldSignInSuccessfully() {
+
         loginPage.checkLoginSuccessToastMessage();
     }
 
@@ -134,17 +135,22 @@ public class LoginStepDefs extends BrowserUtils {
     }
 
 
-    @Then("the user clicks on {string} link")
-    public void theUserClicksOnLink(String arg0) {
+    @Then("the user enters with user {string}, user {string}, and {string}")
+    public void theUserEntersWithUserUserAnd(String email , String password, String warningMessage ) {
 
-        loginPage.ForgotPageEmail.isEnabled();
+    //    loginPage.negativeLoginsCheck( email,  password, warningMessage);
+
+
     }
 
-    @Then("the user clicks on forgot password on the  Sign In Page")
-    public void theUserClicksOnForgotPasswordOnTheSignInPage() {
+    @And("the user enters a valid email on the Forgot Password page")
+    public void theUserEntersAValidEmailOnTheForgotPasswordPage() {
+    }
 
-        loginPage.forgotLink.isEnabled();
+    @Then("the user clicks on forgot password link in the sign in page")
+    public void theUserClicksOnForgotPasswordLinkInTheSignInPage() {
 
+        BrowserUtils.clickWithJS(loginPage.forgotPasswordLink);
     }
 
 

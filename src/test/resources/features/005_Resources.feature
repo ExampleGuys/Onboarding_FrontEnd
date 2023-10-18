@@ -12,7 +12,7 @@ Feature: Resources Tests
     And The user should be seen the new recources item opened
 
   @ONB2-307
-  Scenario:TC: ONB2-307 Verify that the Resources category is visible and clickable on the Home Page.
+  Scenario: TC : ONB2-307 Verify that the Resources category is visible and clickable on the Home Page.
     And The user should be seen the Resources page
 
   @ONB2-308
@@ -20,7 +20,7 @@ Feature: Resources Tests
     And The user should be the "List of Resources" title on the "Resources" page
 
   @ONB2-314
-  Scenario:TC: ONB2-314 On the Resources page, verify that the "New Resorces" button is visible and clickable.
+  Scenario: TC : ONB2-314 On the Resources page, verify that the "New Resorces" button is visible and clickable.
     Then The user clicks on the "New Resource" button
     And The user should be seen the New Resource page
 
@@ -111,7 +111,7 @@ Feature: Resources Tests
     And The user should be seen the Contacts + title
     Then The user hovers over the + button next to the Contacts title, the Create Contact alert appears
     And The user clicks the + button
-    Then The user clicks the "x" button
+    Then The user clicks the x button
     And The user should be seen the New Resource page
 
   @ONB2-366
@@ -140,8 +140,8 @@ Feature: Resources Tests
     Then The user should be seen the "Category Name" title
     Then The user should be the seen Enter category name text box
     Then The user clicks on the Enter category name item
-    And  Relevant information into the enter "Enter category" name text box
-    And Sees the error message "Please enter name"
+    And  The user only write in "Enter category" text box
+    And The user should see the error message "Please fill out all required fields correctly."
 
   @ONB2-329
   Scenario:TC: ONB2-329 On the New Resource page, verify that the "Enter resource name" text box appears and is clickable
@@ -153,12 +153,9 @@ Feature: Resources Tests
   @ONB2-367
   Scenario:TC: ONB2-367 On the New Resource page, verify that the "Create" button is visible and clickable.
     Then The user clicks on the "New Resource" button
-    Then  The user select the Company from ddm
-    Then  The user select the Category Name from ddm
-    Then  The user select the Resources Name from ddm
-    Then  The user select the Contacts from ddm
-    Then The user clicks the "+Create" button
-    Then The user should be the confirmation message
+    Then  User enters valid information on the "New Resource" page
+    Then The user clicks on the Create button
+    Then  The user should see the message "Resource successfully created"
 
   @ONB2-372
   Scenario:TC: BUG ONB2-372 On the Resources page, verify that the "Created At" heading is visible and active.
@@ -166,12 +163,9 @@ Feature: Resources Tests
     Then The user enters the relevant information on the "New Resources" page
     And Under the "Created At" heading, the user sees what time they logged in
 
-  @ONB2-372
+  @ONB2-380
   Scenario:TC: ONB2-380 On the Resources page, verify that the records entered under the "List of Resources" heading are visible.
     Then The user clicks on the "New Resource" button
-    Then  The user select the Company from ddm
-    Then  The user select the Category Name from ddm
-    Then  The user select the Resources Name from ddm
-    Then  The user select the Contacts from ddm
-    Then The user clicks the "+Create" button
+    Then  User enters valid information on the "New Resource" page
+    Then The user clicks on the Create button
     And The user should be the entered information in a list

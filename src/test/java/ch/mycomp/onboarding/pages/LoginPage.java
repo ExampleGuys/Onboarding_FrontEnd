@@ -1,6 +1,7 @@
 package ch.mycomp.onboarding.pages;
 
 import ch.mycomp.onboarding.utilities.ConfigurationReader;
+//import jdk.internal.event.Event;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -51,8 +52,8 @@ public class LoginPage extends BasePage {
 
 
     //Forgot Page Email
-    @FindBy(id = "//div[@class='ant-col ant-form-item-control css-14bavl3']")
-    public WebElement ForgotPageEmail;
+    @FindBy(id = "//a[text()='Forgot password']")
+    public WebElement ForgotPasswordLink;
 
 
     // Reset Password button
@@ -103,6 +104,19 @@ public class LoginPage extends BasePage {
 
     @FindBy(xpath = "(//div[@class='ant-form-item-control-input'])[2]")
     public WebElement passwordInUnencrypted;
+
+
+    @FindBy(xpath = "(//a[@class='link-desc'])[1]")
+    public WebElement forgotPasswordLink;
+
+
+
+
+
+
+
+
+
 
 
     public void login() {

@@ -77,6 +77,7 @@ public class ResourcesStepDefs extends BasePage {
     @And("The user should be seen the {string} title")
     public void theUserShouldBeSeenTheTitle(String arg0) {
         getSectionName(arg0);
+        BrowserUtils.waitFor(2);
         Assert.assertTrue(resourcesPage.categoryNameTitleNewResourcesSeit.isDisplayed());
 
     }
@@ -277,7 +278,6 @@ public class ResourcesStepDefs extends BasePage {
         WebElement enterResourceName = orderPage.boxName("Enter resource name");
         actions.click(enterResourceName).
                 sendKeys(faker.options().toString()).
-
                 perform();
 
         BrowserUtils.waitFor(2);
@@ -334,7 +334,29 @@ public class ResourcesStepDefs extends BasePage {
     public void theUserShouldBeTheEnteredInformationInAList() {
         Assert.assertTrue(resourcesPage.searchBoxFirstLine.isDisplayed());
     }
-}
 
+    @Then("The user clicks on the Select responsible people text box")
+    public void theUserClicksOnTheSelectResponsiblePeopleTextBox() {
+        resourcesPage.selectResponsiblePeople.click();
+    }
+
+    @And("Relevant information into the enter Select responsible people text box")
+    public void relevantInformationIntoTheEnterSelectResponsiblePeopleTextBox() {
+        WebElement selectResponsiblePeople = orderPage.boxName("Select responsible people");
+        actions.click(selectResponsiblePeople).
+                sendKeys(faker.options().toString()).
+                perform();
+
+        BrowserUtils.waitFor(2);
+    }
+
+    @Then("The user should be seen the Resource Name title")
+    public void theUserShouldBeSeenTheResourceNameTitle( String arg0) {
+       getSectionName(arg0);
+        Assert.assertTrue(resourcesPage.resourcesNameTitle.isDisplayed());
+
+    }
+
+}
 
 

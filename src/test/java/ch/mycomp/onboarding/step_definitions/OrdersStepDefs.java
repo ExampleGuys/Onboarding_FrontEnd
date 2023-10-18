@@ -5,9 +5,12 @@ import ch.mycomp.onboarding.pages.OrderPage;
 import ch.mycomp.onboarding.utilities.BrowserUtils;
 import ch.mycomp.onboarding.utilities.Driver;
 import com.github.javafaker.Faker;
+import io.cucumber.core.internal.com.fasterxml.jackson.databind.deser.SettableBeanProperty;
+import io.cucumber.java.bs.A;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -200,24 +203,46 @@ public class OrdersStepDefs extends BrowserUtils {
     }
 
     @Then("The user should be able to type up to fivehundred characters in the Description field.")
-    public void theUserShouldBeAbleToTypeUpToFivehundredCharactersInTheDescriptionField() {
+        public void theUserShouldBeAbleToTypeUpToFivehundredCharactersInTheDescriptionField() {
 
-        String str= faker.lorem().characters(510);
-        int strlength = str.length(); //510
+            String str= faker.lorem().characters(510);
+            int strlength = str.length(); //510
 
-        orderPage.boxName("Enter description").sendKeys(str);
+            orderPage.boxName("Enter description").sendKeys(str);
 
-        int textlength = orderPage.orderEnterDescriptionInfo.getText().length();
+            int textlength = orderPage.orderEnterDescriptionInfo.getText().length();
 
-        String str500 = orderPage.order500InputDataCount.getText();//500 / 500
+            String str500 = orderPage.order500InputDataCount.getText();//500 / 500
 
-        int bosluk = str500.indexOf(" "); //3
+            int bosluk = str500.indexOf(" "); //3
 
-        int fivehundred = Integer.parseInt((str500.substring(0,bosluk))); //500 int
+            int fivehundred = Integer.parseInt((str500.substring(0,bosluk))); //500 int
 
-        assertEquals(textlength,fivehundred);
+            assertEquals(textlength,fivehundred);
 
         // Assert.assertNotEquals(strlength,textlength);
 
+    }
+
+    @Then("The user should seen New Order Information section")
+    public void theUserShouldSeenNewOrderInformationSection() {
+        Assert.assertTrue(Driver.driver.getCurrentUrl().contains("create"));
+    }
+
+    @Then("The user should be able to see {string} section")
+    public void theUserShouldBeAbleToSeeSection(String header) {
+        orderPage.headerConfirmation(header);
+
+
+    }
+
+    @Then("Then user should be able to click on the Delete Comment icon")
+    public void thenUserShouldBeAbleToClickOnTheDeleteCommentIcon() {
+        orderPage.deleteIcon.click();
+        Assert.assertTrue(orderPage.deleteIcon.isEnabled());
+        WebElement deleteConfirmation = Driver.get().findElement(By.xpath("//span[text()='Delete']"));
+        BrowserUtils.clickWithJS(deleteConfirmation);
+
+       // Assert.assertFalse(orderPage.deleteIcon.isEnabled());
     }
 }

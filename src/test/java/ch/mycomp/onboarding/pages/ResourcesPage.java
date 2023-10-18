@@ -55,6 +55,10 @@ public class ResourcesPage extends BasePage {
     @FindBy(xpath = "//input[@id='resource_resources_0_name']")
     public WebElement newResourcesEnterResourcesName;
 
+    //Resources >Select responsible people
+    @FindBy(xpath = "//div[@class='ant-select-selection-overflow']")
+    public WebElement selectResponsiblePeople;
+
     //Resources > page10]
     @FindBy(xpath = "//span[@title='10 / page']")
     public WebElement page10;
@@ -184,6 +188,10 @@ public class ResourcesPage extends BasePage {
      @FindBy(xpath = "//label[@title='Resource Name']")
      public WebElement resourcesNameTitle;
 
+    //Resources > categoryNameErrorMessage
+    @FindBy(xpath = "//div[text()='Please fill out all required fields correctly.']")
+    public WebElement categoryNameErrorMessage;
+
     //Resources > List of Resources altindaki ilk sütun/searchBoxFirstLine
     @FindBy(xpath = "(//tr[@class='ant-table-row ant-table-row-level-0'])[1]")
     public WebElement searchBoxFirstLine;
@@ -278,8 +286,16 @@ public class ResourcesPage extends BasePage {
     @FindBy(xpath = "(//button[@type='button'])[1]")
     public WebElement new_CompanyButton;
 
+    //Sites/Resources > saveButton]
+    @FindBy(xpath = "//span[@aria-label='save']")
+    public WebElement saveButton;
+
+    //Sites/Resources > message]
+    @FindBy(xpath = "//div[@class='go3958317564']")
+    public WebElement message;
+
     //Sites/Resources > selectTheCompany]
-    @FindBy(xpath = "//input[@id='Site_company']")
+    @FindBy(xpath = "//input[@id='resource_company']")
     public WebElement selectTheCompany;
 
     //Sites/Resources > deleteButtonDelete]
@@ -300,7 +316,11 @@ public class ResourcesPage extends BasePage {
 
     //Sites/Resources > new_CreateButton]
     @FindBy(xpath = "//button[@type='submit']")
-    public WebElement new_CreateButton;
+    public WebElement new_CreateButton;//span[text()='Create']
+
+    //Sites/Resources > new_CreateButton2
+    @FindBy(xpath = "//span[text()='Create']")
+    public WebElement new_CreateButton2;
 
     //Sites/Resources > new_CreateErrorMesage]
     @FindBy(xpath = "//div[@'class='go3958317564']")
