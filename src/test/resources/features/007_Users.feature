@@ -54,3 +54,13 @@ Feature: Users
     Then the user clicks on "New User" button
     Then the user clicks on the "+" icon of the Site button
     Then the user verifies that only numbers can be typed in the "Zip Code" text field
+
+  @ONB2-157
+    Scenario: TC ONB2-157 An alert message should appear if the email is not filled in correctly.
+    Given The user goes to the sign-in page
+    When The user enters valid logon credentials
+    And the user clicks on "Users" at the navigation menu
+    Then the user clicks on "New User" button
+    Then the user clicks on "Personal Email" text field
+    Then the user writes no correct  "Personal Email" text field
+    Then the should see the message "Please enter a valid email"
