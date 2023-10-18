@@ -10,31 +10,22 @@ import org.apache.logging.log4j.message.ReusableMessage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-public class OnboardingStepDefs {
+public class OnboardingStepDefs extends ObjectIndex{
 
-
-
-    static OnboardingPage onboardingPage = new OnboardingPage();
-    OrderPage orderPage = new OrderPage();
 
     @Given("The user goes to staging url")
     public void the_user_goes_to_staging_url() {
         Driver.get().get(ConfigurationReader.get("url"));
     }
 
-
-
     @And("The User click on the {string} section in the Navigation Menu")
     public void theUserClickOnTheSectionInTheNavigationMenu(String navigationName) {
         onboardingPage.clickTheButton(navigationName);
-
-
     }
 
     @And("The user click on the {string} button top right corner of the page")
     public void theUserClickOnTheButton(String buttonName) {
        onboardingPage.clickTheButton(buttonName);
-
     }
 
     @Then("the user should seen Personal Information section")
@@ -236,5 +227,10 @@ public class OnboardingStepDefs {
     @Then("The User verify that the Delete Comment button is clickable")
     public void theUserVerifyThatTheDeleteCommentButtonIsClickable() {
         onboardingPage.assertionDeleteIconIsClickable();
+    }
+
+    @Then("The customize column button at the top right of the page must be clickable")
+    public void theCustomizeColumnButtonAtTheTopRightOfThePageMustBeClickable() {
+        onboardingPage.isClickableCustomizationColumns();
     }
 }

@@ -35,7 +35,6 @@ public class BrowserUtils {
     public static void toastMessage(){
         Driver.get().get(ConfigurationReader.get("myCompStagingSignin"));
 
-
     }
 
 
