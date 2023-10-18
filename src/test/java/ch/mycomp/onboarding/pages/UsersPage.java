@@ -1,7 +1,6 @@
 package ch.mycomp.onboarding.pages;
 
 import ch.mycomp.onboarding.utilities.Driver;
-import com.github.javafaker.Animal;
 import com.github.javafaker.Faker;
 import com.github.javafaker.Faker;
 import org.junit.Assert;
@@ -16,15 +15,26 @@ import java.net.PortUnreachableException;
 
 import static ch.mycomp.onboarding.utilities.Driver.driver;
 
-public class UsersPage extends BasePage{
+public class UsersPage extends BasePage {
 
-    Faker faker = new Faker();
 
-    static Actions actions = new Actions(Driver.get());
+    Actions actions = new Actions(driver);
 
-    String newUserFakeName = faker.name().fullName();
 
-    String newUserFakeEmail = faker.internet().emailAddress();
+    public void scrolldownPage() {
+
+        WebElement downPage = driver.findElement(By.xpath("//*[@id=\"root\"]/section/section/main/div[2]/div[2]/div/div[2]/div/div/div/ul"));
+
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
+        jse.executeScript("arguments[0].scrollIntoView();", downPage);
+        jse.executeScript("arguments[0].click();", downPage);
+
+
+    }
+
+
+    @FindBy(xpath = "//*[text()='List of Users']")
+    public WebElement titleofUsers;
 
     @FindBy(xpath = "//*[@id=\"root\"]/section/aside/div[1]/ul/li[4]/span")
     public WebElement usersElement;
@@ -32,90 +42,66 @@ public class UsersPage extends BasePage{
     @FindBy(xpath = "(//div[@class='ant-row css-14bavl3'])[1]")
     public WebElement listofUsers;
 
+    public void assertionForlistofUsersIsVisible() {
+        assert (listofUsers.isDisplayed());
 
-    @FindBy(xpath = "(//*[@type='button'])[2]")
-    public WebElement newUserButton;
+    }
 
-    @FindBy(xpath = "//span[@class='ant-breadcrumb-link']")
-    public WebElement titleofUsers;
 
-    @FindBy(xpath = "//span[@class='ant-select-arrow']")
+    @FindBy(xpath = "//*[@class='ant-select-arrow'] ")
     public WebElement usersPageArrow;
 
-    @FindBy(xpath = "//*[@id='root']/section/section/main")
-    public WebElement tenUsers;
+
+    @FindBy(xpath = "//*[@id=\"root\"]/section/aside/div[1]/ul/li[4]/span")
+    public WebElement tenUsersChosen;
+
+    public void actionsUsers() {
+
+        WebElement usersList = driver.findElement(By.xpath("(//span[@role='img'])[38]\""));
+        actions.contextClick(usersList).perform();
+
+
+    }
+
+
+    @FindBy(xpath = "(//*[@type='button'])[2]")
+    public WebElement newUsersButton;
+
+    @FindBy(xpath = "//*[@rel='nofollow'])[1]")
+    public WebElement listOfTenUsers;
+
+    public void assertionListOfTenUsersIsDisplayed() {
+        assert (listOfTenUsers.isDisplayed());
+
+    }
 
     @FindBy(xpath = "//li[@class='ant-pagination-total-text']")
     public WebElement totalNumberOfUsers;
 
-    @FindBy(xpath = "(//a[@rel='nofollow'])[1]")
-    public WebElement theNumberofUsers;
+    @FindBy(xpath = "//*[@id=\"User\"]/div/div[1]/div/div[7]/div/div/div[1]/label/div/button/span")
+    public WebElement newUsersSiteArrow;
+
+
+    @FindBy(xpath = "//*[@id=\"contact_zipCode\"]")
+    public WebElement zipCodeTextField;
+
+
+    @FindBy(xpath = "//*[@id=\"root\"]/section/section/main/div[2]/div[2]/div/div[2]/div/div/div/ul")
+    public WebElement endOfUsersPage;
+
+    //*[@placeholder='Enter first name']
 
     @FindBy(xpath = "//*[@placeholder='Enter first name']")
-    public WebElement newUserFirstName;
-
-    @FindBy(xpath = "//*[@placeholder='Enter last name']")
-    public WebElement newUserLastName;
-
-    @FindBy(xpath = "//*[@placeholder='Enter personal email']")
-    public WebElement newUserPersonelEmail;
-
-    @FindBy(xpath = "//*[@id=\"User_role\"]")
-    public WebElement newUserRole;
-
-    @FindBy(xpath = "//*[@aria-controls='User_company_list']")
-    public WebElement newUserCompany;
-
-    @FindBy(xpath = "//*[@id=\"User_firstName\"]")
-    public WebElement newUserSite;
-
-    @FindBy(xpath = "//*[@id=\"User_firstName\"]")
-    public WebElement newUserPassword;
-
-    @FindBy(xpath = "//*[@id=\"User_firstName\"]")
-    public WebElement newUserPasswordAgain;
-
-    @FindBy(xpath = "//*[@id=\"User_firstName\"]")
-    public WebElement newUserCreatButton;
-
-    public void assertionForlistofUsersIsVisible() {
-        assert (listofUsers.isDisplayed());
-    }
-
-    public WebElement firstNameNewUser(String firstNameNewUser) {
-        return Driver.get().findElement(By.xpath("//*[@placeholder='" + firstNameNewUser + "']"));
-    }
-
-    public WebElement lastNameNewUser(String lastNameNewUser) {
-        return Driver.get().findElement(By.xpath("//*[@placeholder='" + lastNameNewUser + "']"));
-    }
-
-    public WebElement personalEmailNewUser(String personalEmailNewUser) {
-        return Driver.get().findElement(By.xpath("//*[@placeholder='" + personalEmailNewUser + "']"));
-    }
+    public WebElement newUserEmailField;
 
 
-    public WebElement roleNewUser(String roleNewUser) {
-        return Driver.get().findElement(By.xpath("//*[@placeholder='" + roleNewUser + "']"));
-    }
 
-    public WebElement companyNewUser(String companyNewUser) {
-        return Driver.get().findElement(By.xpath("//*[@placeholder='" + companyNewUser + "']"));
-    }
+    @FindBy(xpath = "//input[@placeholder='Enter password']")
+    public WebElement newUserPasswordField;
 
-    public WebElement passwordNewUser(String passwordNewUser) {
-        return Driver.get().findElement(By.xpath("//*[@placeholder='" + passwordNewUser + "']"));
 
-    }
 
-    public WebElement passwordAgainNewUser(String passwordAgainNewUser) {
-        return Driver.get().findElement(By.xpath("//*[@placeholder='" + passwordAgainNewUser + "']"));
-
-    }
-
-    public WebElement roleNewUserddm(String roleNewUserddm) {
-        return Driver.get().findElement(By.xpath("//*[text()='Select the role']"));
-    }
-
+    @FindBy(xpath = "//*[text()='Password must be between 8 and 20 characters']")
+    public WebElement newUserPasswordWarningMessage;
 
 }
