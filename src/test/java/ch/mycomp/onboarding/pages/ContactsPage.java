@@ -2,6 +2,7 @@ package ch.mycomp.onboarding.pages;
 
 import ch.mycomp.onboarding.utilities.BrowserUtils;
 import ch.mycomp.onboarding.utilities.Driver;
+
 import com.github.javafaker.Faker;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
