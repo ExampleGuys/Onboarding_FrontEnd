@@ -267,4 +267,11 @@ public class OrdersStepDefs extends ObjectIndex {
         Assert.assertTrue(orderPage.selectCategoryDdm.isEnabled());
 
     }
+
+    @Then("the user should be able to choose an option from Resource drop dowm menü on the edit order page.")
+    public void theUserShouldBeAbleToChooseAnOptionFromResourceDropDowmMenüOnTheEditOrderPage() {
+
+        orderPage.resourcesQuantityDdm.sendKeys("5");
+        Assert.assertTrue(orderPage.resourcesQuantityDdm.isEnabled());
+    }
 }

@@ -233,17 +233,14 @@ Feature: Orders Tests
     Then the user should be able to choose an option as catagory ddm on the edit order page.
 
 
-
-
-
-
-
-
-
-
-
-
-
+  @ONB2-92
+  Scenario: The user should be able to choose an option from "Resource" drop dowm menü on the edit order page.
+    Given The user goes to the sign-in page
+    When user logs in with the valid credentials
+    And Click on the "Orders" section in the Navigation Menu
+    And And The User click on edit icon in the Actions section of first element of list
+    Then the user should be able to choose an option as catagory ddm on the edit order page.
+    Then the user should be able to choose an option from Resource drop dowm menü on the edit order page.
 
 
 
