@@ -186,3 +186,11 @@ Feature: Resources Tests
   Scenario:TC: BUG ONB2-312 On the Resources page, verify that the search badge for the "Search by name" searchbox is clickable.
     Then The user should be able to click on the "Search by name" search box
     And The user should be able to click on the icon next to the "Search by name" search box.
+
+  @ONB2-364
+  Scenario:TC: ONB2-364 On the New Resource page, verify that the "Delete Resource" button is visible and clickable
+    Then The user clicks on the "New Resource" button
+    And The user should be seen the Ant-Popover should appear.
+    And The user clicks on the New Resources Delete button
+    And The user clicks on the New Resources Resource Delete button
+    And Verify appear that the Add resource line has been deleted.

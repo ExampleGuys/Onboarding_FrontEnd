@@ -111,7 +111,7 @@ public class ResourcesStepDefs extends BasePage {
 
     @And("The user should be the {string} title on the {string} page")
     public void theUserShouldBeTheTitleOnThePage(String arg0, String arg1) {
-        //  Assert.assertTrue(commonPage.listOf_Title.isDisplayed());
+          Assert.assertTrue(resourcesPage.listOf_.isDisplayed());
     }
 
 
@@ -131,12 +131,12 @@ public class ResourcesStepDefs extends BasePage {
 
     @Then("The user clicks on the Search by name search box")
     public void theUserClicksOnTheSearchByNameSearchBox() {
-        //  commonPage.searchBoxButton.click();
+        resourcesPage.searchBoxButton.click();
     }
 
     @And("User searches in the search box")
     public void userSearchesInTheSearchBox() {
-        // commonPage.searchBoxButton.getText();
+        resourcesPage.searchBoxButton.getText();
         Assert.assertTrue(resourcesPage.searchBoxFirstLine.isDisplayed());
     }
 
@@ -417,6 +417,37 @@ public class ResourcesStepDefs extends BasePage {
     @And("The user should be able to click on the icon next to the {string} search box.")
     public void theUserShouldBeAbleToClickOnTheIconNextToTheSearchBox(String arg0) {
         //Steps need to be written. There is a bug.
+    }
+
+    @And("The user clicks on the New Resources Delete button")
+    public void theUserClicksOnTheNewResourcesDeleteButton() {
+        resourcesPage.resourceDeletButton.click();
+        BrowserUtils.waitFor(2);
+
+    }
+
+    @And("The user should be seen the Ant-Popover should appear.")
+    public void theUserShouldBeSeenTheAntPopoverShouldAppear() {
+        WebElement hover = driver.findElement(By.xpath("(//button[@type='button'])[6]"));
+        actions.moveToElement(hover).build().perform();
+        if (hover.isDisplayed()) {
+            System.out.println("Create Contact Alert is Displayed");
+
+        } else {
+            System.out.println("Create Contact Alert could not be displayed");
+        }
+    }
+
+    @And("Verify appear that the Add resource line has been deleted.")
+    public void verifyAppearThatTheAddResourceLineHasBeenDeleted() {
+        Assert.assertTrue(resourcesPage.addResourcesDeleteLine.isDisplayed());
+        BrowserUtils.waitFor(2);
+
+    }
+
+    @And("The user clicks on the New Resources Resource Delete button")
+    public void theUserClicksOnTheNewResourcesResourceDeleteButton() {
+        resourcesPage.deleteButtonDelete.click();
     }
 }
 
