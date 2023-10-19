@@ -1,9 +1,5 @@
 package ch.mycomp.onboarding.step_definitions;
 
-import ch.mycomp.onboarding.pages.BasePage;
-import ch.mycomp.onboarding.pages.LoginPage;
-import ch.mycomp.onboarding.pages.OrderPage;
-import ch.mycomp.onboarding.pages.ResourcesPage;
 import ch.mycomp.onboarding.utilities.BrowserUtils;
 import ch.mycomp.onboarding.utilities.ConfigurationReader;
 import ch.mycomp.onboarding.utilities.Driver;
@@ -23,20 +19,13 @@ import static ch.mycomp.onboarding.utilities.Driver.driver;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class ResourcesStepDefs extends BasePage {
-    LoginPage loginPage = new LoginPage();
+public class ResourcesStepDefs extends ObjectIndex {
 
-    static Actions actions = new Actions(Driver.get());
-
-    static Faker faker = new Faker();
-    ResourcesPage resourcesPage = new ResourcesPage();
-    OrderPage orderPage = new OrderPage();
 
 
     @Given("The user goes to the sign-in page")
     public void theUserGoesToTheSignInPage() {
         Driver.get().get(ConfigurationReader.get("myCompStagingSignin"));
-
     }
 
     @When("The user enters valid logon credentials")
@@ -75,7 +64,7 @@ public class ResourcesStepDefs extends BasePage {
 
     @And("The user should be seen the {string} title")
     public void theUserShouldBeSeenTheTitle(String arg0) {
-        getSectionName(arg0);
+        resourcesPage.getSectionName(arg0);
         BrowserUtils.waitFor(2);
         Assert.assertTrue(resourcesPage.categoryNameTitleNewResourcesSeit.isDisplayed());
 
@@ -220,10 +209,10 @@ public class ResourcesStepDefs extends BasePage {
     public void theUserHoversOverTheButtonNextToTheContactsTitleTheCreateContactAlertAppears() {
         WebElement hover = driver.findElement(By.xpath("//button[@type='submit']"));
         actions.moveToElement(hover).build().perform();
-        if (hover.isDisplayed()) {
+        if ( hover.isDisplayed()){
             System.out.println("Create Contact Alert is Displayed");
 
-        } else {
+        }else {
             System.out.println("Create Contact Alert could not be displayed");
         }
     }
@@ -261,6 +250,14 @@ public class ResourcesStepDefs extends BasePage {
 
     }
 
+    @And("Sees the error message {string}")
+    public String seesTheErrorMessage(String itemErorMessageText) {
+
+            WebElement itemName =Driver.get().findElement(By.xpath("//div[text()='" + itemErorMessageText + "']"));
+            BrowserUtils.waitForVisibility(itemName,3);
+            return itemName.getText();
+    }
+
     @Then("The user clicks on the Enter resource name text box")
     public void theUserClicksOnTheEnterResourceNameTextBox() {
         resourcesPage.newResourcesEnterResourcesName.click();
@@ -271,7 +268,6 @@ public class ResourcesStepDefs extends BasePage {
         WebElement enterResourceName = orderPage.boxName("Enter resource name");
         actions.click(enterResourceName).
                 sendKeys(faker.options().toString()).
-
                 perform();
 
         BrowserUtils.waitFor(2);
@@ -347,7 +343,7 @@ public class ResourcesStepDefs extends BasePage {
 
     @Then("The user should be seen the Resource Name title")
     public void theUserShouldBeSeenTheResourceNameTitle( String arg0) {
-        getSectionName(arg0);
+       resourcesPage.getSectionName(arg0);
         Assert.assertTrue(resourcesPage.resourcesNameTitle.isDisplayed());
 
     }
