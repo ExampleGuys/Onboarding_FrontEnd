@@ -2,6 +2,7 @@ package ch.mycomp.onboarding.step_definitions;
 
 import ch.mycomp.onboarding.utilities.BrowserUtils;
 import ch.mycomp.onboarding.utilities.Driver;
+import io.cucumber.java.bs.A;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -253,5 +254,24 @@ public class OrdersStepDefs extends ObjectIndex {
 
         BrowserUtils.waitFor(1);
         assertTrue(orderPage.boxName(placeHolder).getAttribute("value").contains(fakeDataInfo));
+    }
+
+    @Then("the user should be able to choose an option as catagory ddm on the edit order page.")
+    public void theUserShouldBeAbleToChooseAnOptionAsCatagoryDdmOnTheEditOrderPage() {
+        resourcesPage.newResourcesAddResourcesButton.click();
+        BrowserUtils.waitFor(2);
+           orderPage.selectCategoryDdm.click();
+        BrowserUtils.waitFor(2);
+      //  BrowserUtils.waitForVisibility(orderPage.clickDdm("Select Category"),10);
+        orderPage.selectCategoryDdm.sendKeys("Telefon"+Keys.ENTER);
+        Assert.assertTrue(orderPage.selectCategoryDdm.isEnabled());
+
+    }
+
+    @Then("the user should be able to choose an option from Resource drop dowm menü on the edit order page.")
+    public void theUserShouldBeAbleToChooseAnOptionFromResourceDropDowmMenüOnTheEditOrderPage() {
+
+        orderPage.resourcesQuantityDdm.sendKeys("5");
+        Assert.assertTrue(orderPage.resourcesQuantityDdm.isEnabled());
     }
 }

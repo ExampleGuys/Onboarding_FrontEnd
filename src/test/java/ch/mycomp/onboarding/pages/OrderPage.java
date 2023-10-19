@@ -29,6 +29,15 @@ public class OrderPage extends BasePage{
 	@FindBy(xpath = "//span [@class='anticon anticon-delete']")
 	public WebElement deleteIcon;
 
+	@FindBy(css="#Order_resources_0_resourceCategory")
+	public WebElement selectCategoryDdm;
+
+    @FindBy(css="#Order_resources_0_quantity")
+    public WebElement resourcesQuantityDdm;
+
+
+
+
     public void clickPlusAccordingToOptionName(String optionName) {
         Driver.get().findElement(By.xpath("//span[text()='" + optionName + "']/..//button")).click();
 
@@ -62,6 +71,10 @@ public class OrderPage extends BasePage{
         BrowserUtils.waitFor(4);
 
 
+    }
+
+    public WebElement clickDdm(String ddNAme){
+        return Driver.get().findElement(By.xpath("//span[text()='"+ ddNAme+"']"));
     }
 
 
