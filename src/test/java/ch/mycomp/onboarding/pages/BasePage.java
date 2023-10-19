@@ -36,6 +36,9 @@ public abstract class BasePage {
     @FindBy(xpath = "(//button//span[@aria-label='delete'])[1]")
     public WebElement deleteIconForFirstRow;
 
+    @FindBy(xpath = "(//button//span[@aria-label='edit'])[1]")
+    public WebElement editIconForFirstRow;
+
     @FindBy(xpath = "//button[@type='button']//span[text()='Delete']")
     public WebElement deleteButtonAntPopOver;
 

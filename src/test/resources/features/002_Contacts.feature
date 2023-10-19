@@ -131,3 +131,7 @@ Feature: Contacts test
   @ONB2-171
   Scenario: TC: ONB2-171 Delete icon should be visible in the Contacts page
     Then user should be able to view Delete icon in the Contacts page
+
+  @ONB2-169
+  Scenario: TC: ONB2-169 Edit icon should be visible in the Contacts page
+    Then user should be able to view Edit icon in the Contacts page
