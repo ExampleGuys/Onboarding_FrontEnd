@@ -524,5 +524,10 @@ public class ResourcesStepDefs extends ObjectIndex {
                 perform();
         BrowserUtils.waitFor(2);
     }
+
+    @And("The user must be able to search in the {string} search box")
+    public void theUserMustBeAbleToSearchInTheSearchBox(String arg0) {
+        //Search box Test
+    }
 }
 
