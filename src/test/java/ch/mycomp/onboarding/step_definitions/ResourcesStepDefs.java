@@ -1,13 +1,8 @@
 package ch.mycomp.onboarding.step_definitions;
 
-import ch.mycomp.onboarding.pages.BasePage;
-import ch.mycomp.onboarding.pages.LoginPage;
-import ch.mycomp.onboarding.pages.OrderPage;
-import ch.mycomp.onboarding.pages.ResourcesPage;
 import ch.mycomp.onboarding.utilities.BrowserUtils;
 import ch.mycomp.onboarding.utilities.ConfigurationReader;
 import ch.mycomp.onboarding.utilities.Driver;
-import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -15,20 +10,13 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 
 import static ch.mycomp.onboarding.utilities.Driver.driver;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class ResourcesStepDefs extends BasePage {
-    LoginPage loginPage = new LoginPage();
+public class ResourcesStepDefs extends ObjectIndex {
 
-    static Actions actions = new Actions(Driver.get());
-
-    static Faker faker = new Faker();
-    ResourcesPage resourcesPage=new ResourcesPage();
-    OrderPage orderPage =new OrderPage();
 
     @Given("The user goes to the sign-in page")
     public void theUserGoesToTheSignInPage() {
@@ -71,7 +59,7 @@ public class ResourcesStepDefs extends BasePage {
 
     @And("The user should be seen the {string} title")
     public void theUserShouldBeSeenTheTitle(String arg0) {
-        getSectionName(arg0);
+        resourcesPage.getSectionName(arg0);
         BrowserUtils.waitFor(2);
         Assert.assertTrue(resourcesPage.categoryNameTitleNewResourcesSeit.isDisplayed());
 
@@ -295,7 +283,7 @@ public class ResourcesStepDefs extends BasePage {
 
     @Then("The user should be seen the Resource Name title")
     public void theUserShouldBeSeenTheResourceNameTitle( String arg0) {
-       getSectionName(arg0);
+       resourcesPage.getSectionName(arg0);
         Assert.assertTrue(resourcesPage.resourcesNameTitle.isDisplayed());
 
     }

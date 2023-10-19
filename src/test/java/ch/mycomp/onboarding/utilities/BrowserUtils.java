@@ -35,7 +35,6 @@ public class BrowserUtils {
     public static void toastMessage(){
         Driver.get().get(ConfigurationReader.get("myCompStagingSignin"));
 
-
     }
 
 
@@ -452,6 +451,16 @@ public class BrowserUtils {
         return new  Faker().lorem().characters(510);
 
 
+    }
+
+    public static void verifyElementNotDisplayed(WebElement element) {
+        try {
+            Assert.assertFalse("Element not visible: " + element, element.isDisplayed());
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+            Assert.fail("Element not found: " + element);
+
+        }
     }
 
 
