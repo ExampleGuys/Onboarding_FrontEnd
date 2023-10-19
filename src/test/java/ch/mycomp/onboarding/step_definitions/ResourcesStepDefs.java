@@ -475,5 +475,22 @@ public class ResourcesStepDefs extends ObjectIndex {
     public void theUserShouldSeeTheMessagee(String arg0) {
         Assert.assertTrue(resourcesPage.message.getText().contains("Please fill out all required fields correctly."));
     }
+
+    @Then("The user clicks on the Resources Resource Delete button")
+    public void theUserClicksOnTheResourcesResourceDeleteButton() {
+        resourcesPage.deleteButtonDelete.click();
+    }
+
+    @And("The user should see the delete messagee {string}")
+    public void theUserShouldSeeTheDeleteMessagee(String arg0) {
+        Assert.assertTrue(resourcesPage.message.getText().contains("Field option category successfully deleted"));
+        BrowserUtils.waitFor(3);
+    }
+
+    @And("The user clicks on the Resources Delete button")
+    public void theUserClicksOnTheResourcesDeleteButton() {
+        resourcesPage.resourceDeletButton.click();
+        BrowserUtils.waitFor(2);
+    }
 }
 
