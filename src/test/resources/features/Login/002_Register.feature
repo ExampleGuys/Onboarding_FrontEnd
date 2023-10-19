@@ -5,3 +5,14 @@ Feature: Register
     Given The user goes to staging url
     When Dont have an account sign up link
     Then the user should see Sign Up button
+
+  Scenario: TC ONB2-129 The new user should enter their own password
+    Given The user goes to the sign-in page
+    When The user enters valid logon credentials
+    And the user clicks on "Users" at the navigation menu
+    Then the user clicks on "New User" button
+    Then the user clicks on the password text field
+    Then the user enters a password for the new user
+    Then the user enters again a password for the new user
+    Then the user clicks on "Create" button
+    Then the user verifies that the new user is created with the new password
