@@ -82,13 +82,16 @@ public class OnboardingPage extends BasePage {
     @FindBy(xpath = "(//span[@aria-label='delete'])[6]")
     public WebElement deleteIconInTheCommentsSection;
 
+    @FindBy(xpath = "//h4[@class='ant-list-item-meta-title']")
+    public WebElement addedCommentList;
+
 
     public void assertionDeleteIconIsClickable(){
         assert (deleteIconInTheCommentsSection.isEnabled());
     }
 
     public void assertionForPersonalInformationHeadlineIsVisible() {
-        assert (headlinePersonalInformation.isDisplayed());
+        assert(headlinePersonalInformation.isDisplayed());
     }
     public void assertionForCompanyRegistrationHeadlineIsVisible() {
         Assert.assertTrue(headlineCompanyRegistration.isDisplayed());
@@ -204,4 +207,18 @@ public class OnboardingPage extends BasePage {
     }
 
 
+    public void assertionShowLogsIconIsClickable() {
+        assert (buttonShowLogs.isEnabled());
+    }
+
+    public void assertionNewCommentHasBeenAdded() {
+        assert (addedCommentList.isDisplayed());
+    }
+    public void clickOnDeleteIcon(){
+        BrowserUtils.clickElement(deleteIconInTheCommentsSection,20);
+    }
+
+    public void assertionCommentsNotVisible() {
+        assert(!(addedCommentList.isDisplayed()));
+    }
 }

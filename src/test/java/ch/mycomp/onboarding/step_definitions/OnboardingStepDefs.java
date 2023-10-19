@@ -1,14 +1,8 @@
 package ch.mycomp.onboarding.step_definitions;
 
-import ch.mycomp.onboarding.pages.OnboardingPage;
-import ch.mycomp.onboarding.pages.OrderPage;
-import ch.mycomp.onboarding.utilities.BrowserUtils;
 import ch.mycomp.onboarding.utilities.ConfigurationReader;
 import ch.mycomp.onboarding.utilities.Driver;
 import io.cucumber.java.en.*;
-import org.apache.logging.log4j.message.ReusableMessage;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
 public class OnboardingStepDefs extends ObjectIndex{
 
@@ -233,4 +227,30 @@ public class OnboardingStepDefs extends ObjectIndex{
     public void theCustomizeColumnButtonAtTheTopRightOfThePageMustBeClickable() {
         onboardingPage.isClickableCustomizationColumns();
     }
+    @Then("The {string} button at the top right of the page should be clickable")
+    public void theButtonAtTheTopRightOfThePageShouldBeClickable(String buttonName) {
+        onboardingPage.assertionXXXButtonClickable(buttonName);
+    }
+
+    @Then("The User verify that “Show Logs” button in the Action section is clickable")
+    public void theUserVerifyThatShowLogsButtonInTheActionSectionIsClickable() {
+        onboardingPage.assertionShowLogsIconIsClickable();
+    }
+
+    @Then("The user verify that the addition of a new comment")
+    public void theUserVerifyThatTheAdditionOfANewComment() {
+        onboardingPage.assertionNewCommentHasBeenAdded();
+    }
+    @And("The user click on the {string} icon-button")
+    public void theUserClickOnTheIconButton(String buttonName) {
+        onboardingPage.clickOnDeleteIcon();
+        onboardingPage.clickTheButton(buttonName);
+    }
+
+    @Then("The User verify that the new comment has been deleted")
+    public void theUserVerifyThatTheNewCommentHasBeenDeleted() {
+        onboardingPage.assertionCommentsNotVisible();
+    }
+
+
 }

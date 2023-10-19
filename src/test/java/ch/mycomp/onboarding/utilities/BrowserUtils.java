@@ -453,5 +453,15 @@ public class BrowserUtils {
 
     }
 
+    public static void verifyElementNotDisplayed(WebElement element) {
+        try {
+            Assert.assertFalse("Element not visible: " + element, element.isDisplayed());
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+            Assert.fail("Element not found: " + element);
+
+        }
+    }
+
 
 }

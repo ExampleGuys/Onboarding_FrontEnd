@@ -94,5 +94,4 @@ public abstract class BasePage {
         BrowserUtils.waitForVisibility(customizationColumnSelectButton,20);
         assertTrue(customizationColumnSelectButton.isEnabled());
     }
-    
 }
