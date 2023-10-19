@@ -159,6 +159,11 @@ public class ContactsStepDefs extends ObjectIndex {
     public void userShouldBeAbleToViewDeleteIconInTheContactsPage() {
         assertTrue(contactsPage.deleteIconForFirstRow.isDisplayed());
     }
+
+    @Then("user should be able to view Edit icon in the Contacts page")
+    public void userShouldBeAbleToViewEditIconInTheContactsPage() {
+        assertTrue(contactsPage.editIconForFirstRow.isDisplayed());
+    }
 }
 
 
