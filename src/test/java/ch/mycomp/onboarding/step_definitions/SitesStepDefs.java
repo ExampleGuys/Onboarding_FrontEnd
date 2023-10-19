@@ -2,7 +2,10 @@ package ch.mycomp.onboarding.step_definitions;
 
 import ch.mycomp.onboarding.utilities.BrowserUtils;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Then;
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 
 public class SitesStepDefs extends ObjectIndex {
 
