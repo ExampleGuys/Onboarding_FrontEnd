@@ -167,3 +167,12 @@ Feature: Onboarding Create Tests
     And The user write a comment in the comment section bottom of the page
     And the User Click on the "Add comment" button
     Then The user verify that the addition of a new comment
+
+  @ONB2-117
+  Scenario: TC ONB2-117 New Comment should be deleted in the new onboarding page
+    And The user click on the "New Onboarding" button top right corner of the page
+    And The user write a comment in the comment section bottom of the page
+    And the User Click on the "Add comment" button
+    Then The user verify that the addition of a new comment
+    And The user click on the "Delete" icon-button
+    Then The User verify that the new comment has been deleted

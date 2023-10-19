@@ -214,4 +214,11 @@ public class OnboardingPage extends BasePage {
     public void assertionNewCommentHasBeenAdded() {
         assert (addedCommentList.isDisplayed());
     }
+    public void clickOnDeleteIcon(){
+        BrowserUtils.clickElement(deleteIconInTheCommentsSection,20);
+    }
+
+    public void assertionCommentsNotVisible() {
+        assert(!(addedCommentList.isDisplayed()));
+    }
 }

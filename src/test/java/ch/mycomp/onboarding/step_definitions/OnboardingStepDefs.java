@@ -241,4 +241,16 @@ public class OnboardingStepDefs extends ObjectIndex{
     public void theUserVerifyThatTheAdditionOfANewComment() {
         onboardingPage.assertionNewCommentHasBeenAdded();
     }
+    @And("The user click on the {string} icon-button")
+    public void theUserClickOnTheIconButton(String buttonName) {
+        onboardingPage.clickOnDeleteIcon();
+        onboardingPage.clickTheButton(buttonName);
+    }
+
+    @Then("The User verify that the new comment has been deleted")
+    public void theUserVerifyThatTheNewCommentHasBeenDeleted() {
+        onboardingPage.assertionCommentsNotVisible();
+    }
+
+
 }
