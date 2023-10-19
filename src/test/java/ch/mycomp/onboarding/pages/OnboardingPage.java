@@ -82,6 +82,9 @@ public class OnboardingPage extends BasePage {
     @FindBy(xpath = "(//span[@aria-label='delete'])[6]")
     public WebElement deleteIconInTheCommentsSection;
 
+    @FindBy(xpath = "//h4[@class='ant-list-item-meta-title']")
+    public WebElement addedCommentList;
+
 
     public void assertionDeleteIconIsClickable(){
         assert (deleteIconInTheCommentsSection.isEnabled());
@@ -206,5 +209,9 @@ public class OnboardingPage extends BasePage {
 
     public void assertionShowLogsIconIsClickable() {
         assert (buttonShowLogs.isEnabled());
+    }
+
+    public void assertionNewCommentHasBeenAdded() {
+        assert (addedCommentList.isDisplayed());
     }
 }

@@ -236,4 +236,9 @@ public class OnboardingStepDefs extends ObjectIndex{
     public void theUserVerifyThatShowLogsButtonInTheActionSectionIsClickable() {
         onboardingPage.assertionShowLogsIconIsClickable();
     }
+
+    @Then("The user verify that the addition of a new comment")
+    public void theUserVerifyThatTheAdditionOfANewComment() {
+        onboardingPage.assertionNewCommentHasBeenAdded();
+    }
 }

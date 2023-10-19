@@ -160,3 +160,10 @@ Feature: Onboarding Create Tests
   @ONB2-138
   Scenario: TC ONB2-138 Show logs button in the Action section of first element of Onboarding list should be clickable
     Then The User verify that “Show Logs” button in the Action section is clickable
+
+  @ONB2-115
+  Scenario: TC ONB2-115 New Comment should be added in the new onboarding page
+    And The user click on the "New Onboarding" button top right corner of the page
+    And The user write a comment in the comment section bottom of the page
+    And the User Click on the "Add comment" button
+    Then The user verify that the addition of a new comment
