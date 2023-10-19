@@ -28,6 +28,12 @@ public abstract class BasePage {
     @FindBy(xpath = "(//button[@class='ant-pagination-item-link'])[2]")
     public WebElement paginationItemLinkForNextPage;
 
+    @FindBy(xpath = "(//button//span[@aria-label='delete'])[1]")
+    public WebElement deleteIconForFirstRow;
+
+    @FindBy(xpath = "//button[@type='button']//span[text()='Delete']")
+    public WebElement deleteButtonAntPopOver;
+
     public String getTotalNumberOfThePageInformationText() {
 
         String[] arr = paginationTotalText.getText().split(" ");
@@ -79,5 +85,10 @@ public abstract class BasePage {
         WebElement numberOfPageDisplay = Driver.get().findElement(By.xpath("(//div[@class='rc-virtual-list-holder-inner'])/div/div[text()='" + numberPerPage + "']"));
         BrowserUtils.waitForVisibility(numberOfPageDisplay,5);
         return numberOfPageDisplay;
+    }
+
+    public void clickButton(String buttonName) {
+        WebElement button = Driver.get().findElement(By.xpath("//span[text()='" + buttonName + "']"));
+        BrowserUtils.clickWithJS(button);
     }
 }

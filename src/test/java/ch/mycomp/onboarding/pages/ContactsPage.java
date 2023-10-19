@@ -9,8 +9,7 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class ContactsPage extends BasePage {
 
@@ -49,7 +48,7 @@ public class ContactsPage extends BasePage {
     }
 
     public void writeContactNameWithNumber(String placeHolder) {
-        orderPage.boxName(placeHolder).sendKeys("123"+fakeContactName+"123");
+        orderPage.boxName(placeHolder).sendKeys("123" + fakeContactName + "123");
     }
 
     public void writeEmailInTheTextBox(String placeHolder) {
@@ -69,12 +68,12 @@ public class ContactsPage extends BasePage {
         System.out.println("fakeEmail = " + fakeEmail);
     }
 
-    public void clickCreateButtonWithoutWait(String buttonName){
+    public void clickCreateButtonWithoutWait(String buttonName) {
         WebElement button = Driver.get().findElement(By.xpath("//span[text()='" + buttonName + "']"));
-        BrowserUtils.clickElement(button,5);
+        BrowserUtils.clickElement(button, 5);
     }
 
-    public int countContacts(){
+    public int countContacts() {
         return contactsListInOnePage.size();
 
     }
