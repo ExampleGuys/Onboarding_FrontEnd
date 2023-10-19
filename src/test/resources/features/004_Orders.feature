@@ -240,8 +240,17 @@ Feature: Orders Tests
     And Click on the "Orders" section in the Navigation Menu
     And And The User click on edit icon in the Actions section of first element of list
     Then the user should be able to choose an option as catagory ddm on the edit order page.
-    Then the user should be able to choose an option from Resource drop dowm menü on the edit order page.
+    Then the user should be able to choose a quantity under the Resource, on the Edit Order page
 
+
+  @ONB2-93
+  Scenario: The user should be able to choose a quantity under the "Resource", on the Edit Order page
+    Given The user goes to the sign-in page
+    When user logs in with the valid credentials
+    And Click on the "Orders" section in the Navigation Menu
+    And And The User click on edit icon in the Actions section of first element of list
+    Then the user should be able to choose an option as catagory ddm on the edit order page.
+    Then the user should be able to choose an option from Resource drop dowm menü on the edit order page.
 
 
 
