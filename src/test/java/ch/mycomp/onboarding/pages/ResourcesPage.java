@@ -175,18 +175,17 @@ public class ResourcesPage extends BasePage {
     @FindBy(xpath = ("(//div[@class='ant-form-item css-14bavl3'])[12]"))
     public WebElement newResourcesAddResourcesNewItem;
 
-
     //Resources >listOfResourcesTitleText
     @FindBy(xpath = "//div[text()='List of Resources']")
     public WebElement listOfResourcesTitleText;
 
-  // //Resources > Category Name Title
-  // @FindBy(xpath = "//label[@title='Category Name']")
-  // public WebElement categoryNameTitle;
+    // //Resources > Category Name Title
+    // @FindBy(xpath = "//label[@title='Category Name']")
+    // public WebElement categoryNameTitle;
 
     //Resources > resourcesNameTitle
-     @FindBy(xpath = "//label[@title='Resource Name']")
-     public WebElement resourcesNameTitle;
+    @FindBy(xpath = "//label[@title='Resource Name']")
+    public WebElement resourcesNameTitle;
 
     //Resources > categoryNameErrorMessage
     @FindBy(xpath = "//div[text()='Please fill out all required fields correctly.']")
@@ -199,6 +198,7 @@ public class ResourcesPage extends BasePage {
     // email
     @FindBy(id = "email")
     public WebElement emailFidan;
+
     @FindBy(xpath = "(//div[@class='ant-form-item-control-input-content'])[1]")
     public WebElement emailInput;
 
@@ -278,10 +278,6 @@ public class ResourcesPage extends BasePage {
     @FindBy(xpath = "//div[@class='ant-card-head-title']")
     public WebElement new_Title;
 
-    //Sites/Resources > new_CompanyTitle]
-    @FindBy(xpath = "//span[normalize-space()='Company']")
-    public WebElement new_Company;
-
     //Sites/Resources > new_Company+Button]
     @FindBy(xpath = "(//button[@type='button'])[1]")
     public WebElement new_CompanyButton;
@@ -298,21 +294,31 @@ public class ResourcesPage extends BasePage {
     @FindBy(xpath = "//input[@id='resource_company']")
     public WebElement selectTheCompany;
 
+
     //Sites/Resources > deleteButtonDelete]
     @FindBy(xpath = "//span[text()='Delete']")
     public WebElement deleteButtonDelete;
-
-    //Sites/Resources > deleteButtonCancel]
-    @FindBy(xpath = "//button[@class='ant-btn css-14bavl3 ant-btn-default ant-btn-sm']")
-    public WebElement deleteButtonCancel;
 
     //Sites/Resources > deletePopconfirm]
     @FindBy(xpath = "//div[@class='ant-popconfirm-inner-content']")
     public WebElement deletePopconfirm;
 
+
     //Sites/Resources > new_BackButton]
     @FindBy(xpath = "//button[@class='ant-btn css-14bavl3 ant-btn-default ant-btn-lg']")
     public WebElement new_BackButton;
+
+    //Sites/Resources > new_CompanyTitle]
+    @FindBy(xpath = "//span[normalize-space()='Company']")
+    public WebElement new_Company;
+
+    //New Resources > deletButton]
+    @FindBy(xpath = "(//button[@type='button'])[6]")
+    public WebElement deletButton;
+
+    //Sites/Resources > deleteButtonCancel]
+    @FindBy(xpath = "//button[@class='ant-btn css-14bavl3 ant-btn-default ant-btn-sm']")
+    public WebElement deleteButtonCancel;
 
     //Sites/Resources > new_CreateButton]
     @FindBy(xpath = "//button[@type='submit']")
@@ -333,4 +339,5 @@ public class ResourcesPage extends BasePage {
     //Sites/Resources > createContactAlert1]
     @FindBy(xpath = "//div=[@class='ant-tooltip css-14bavl3 ant-tooltip-placement-top']")
     public WebElement createContactAlert1;
+
 }

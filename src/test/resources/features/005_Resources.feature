@@ -19,6 +19,18 @@ Feature: Resources Tests
   Scenario:TC: ONB2-308 Verify that the "List of Resources" heading appears on the Resources page.
     And The user should be the "List of Resources" title on the "Resources" page
 
+  @ONB2-309
+  Scenario:TC: ONB2-309 On the Resources page, verify that the navigation bar appears under the "List of Resources" title.
+    Given The user goes to the sign-in page
+    When The user enters valid logon credentials
+    Then The user clicks on the "Resources" category
+    And The user should be the "List of Resources" "Category Name" "Created By" "Created At" title
+
+  @ONB2-310
+  Scenario:TC: ONB2-310 On the Resources page, verify that the "Search by name" search box is visible and active.
+    Then The user clicks on the Search by name search box
+    And User searches in the search box
+
   @ONB2-314
   Scenario: TC : ONB2-314 On the Resources page, verify that the "New Resorces" button is visible and clickable.
     Then The user clicks on the "New Resource" button
