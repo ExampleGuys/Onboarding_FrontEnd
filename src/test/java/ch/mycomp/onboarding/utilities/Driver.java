@@ -25,18 +25,17 @@ public class Driver {
             String browser = ConfigurationReader.get("browser");
             switch (browser) {
                 case "chrome":
-                    ChromeOptions options = new ChromeOptions();
-                    options.addArguments("--remote-allow-origins=*");
+
                     driver = new ChromeDriver();
                     break;
                 case "chrome-headless":
-                    driver = new ChromeDriver(new ChromeOptions().setHeadless(true));
+                 //   driver = new ChromeDriver(new ChromeOptions().setHeadless(true));
                     break;
                 case "firefox":
                     driver = new FirefoxDriver();
                     break;
                 case "firefox-headless":
-                    driver = new FirefoxDriver(new FirefoxOptions().setHeadless(true));
+                  //  driver = new FirefoxDriver(new FirefoxOptions().setHeadless(true));
                     break;
                 case "ie":
                     if (!System.getProperty("os.name").toLowerCase().contains("windows"))
@@ -67,7 +66,7 @@ public class Driver {
             driver.quit();
             driver = null;
         }
-    }
 
+   }
 
 }

@@ -118,6 +118,21 @@ public class SitesPage extends BasePage{
         @FindBy(xpath = "//th[text()='Site']") //th[normalize-space()='Site']//th[@class='ant-table-cell'])[2]
         public WebElement siteTitle;
 
+        //Sites > selectTheCompany]
+        @FindBy(id = "Site_company")
+        public WebElement selectTheCompany;
+
+        //Sites > selectTheCompanyAnkasale]
+        @FindBy(xpath = "//span[text()='Ankasale']")
+        public WebElement selectTheCompanyAnkasale;
+
+        //Sites > sitePage]
+        @FindBy(xpath = "(//div[@class='ant-row css-14bavl3'])[1]")
+        public WebElement sitePage;
+
+        //Sites > editButton]
+        @FindBy(xpath = "(//button[@class='ant-btn css-14bavl3 ant-btn-circle ant-btn-default ant-btn-icon-only'])[1]")
+        public WebElement editButton;
 
         //Sites > editSeiteTitle]
         @FindBy(xpath = "//div[@class='ant-card-head-title']")

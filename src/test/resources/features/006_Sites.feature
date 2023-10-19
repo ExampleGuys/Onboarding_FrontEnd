@@ -1,6 +1,6 @@
 Feature: Sites Tests
 
-Background:Sites Tests
+Background: Sites Tests
   Given The user goes to the sign-in page
   When The user enters valid logon credentials
   Then The user clicks on the "Sites" category
@@ -61,16 +61,15 @@ Scenario:TC: ONB2-198 On the Home Page of the "Sites" category can appear and cl
 
   @ONB2-263
   Scenario:TC: ONB2-263 Verify that the number of characters entered in the "For Directions" item is visible on the New Site page.
-    Then The user clicks on the "New Sites" button
+    Then The user clicks on the "New Site" button
     Then The user clicks on the "For Directions" item
-    Then The user enters required information
+    Then The user should be able to type up to fivehundred characters in the Description field
     And The user should see the number of characters they entered at the bottom right
 
   @ONB2-266
   Scenario:TC: ONB2-266 When invalid / incomplete information is entered on the New Site page, click the "Create" button Verify that the error message is visible.
-    Then The user clicks on the "New Sites" button
-    Then The user enters the information overnight on the "New Site" page
-    Then The user clicks the "Create" button
+    Then The user clicks on the "New Site" button
+    Then User enters invalid information on the "New Site" page
     Then The user sees the error message
 
   @ONB2-268
