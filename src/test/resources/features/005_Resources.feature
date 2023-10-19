@@ -194,3 +194,10 @@ Feature: Resources Tests
     And The user clicks on the New Resources Delete button
     And The user clicks on the New Resources Resource Delete button
     And Verify appear that the Add resource line has been deleted.
+
+  @ONB2-368
+  Scenario:TC: ONB2-368 On the New Resource page, verify that the "Create" button is visible and clickable. (Negative Senario)
+    Then The user clicks on the "New Resource" button
+    Then User enters invalid information on the New Resource page
+    Then The user clicks on the Create button
+    Then The user should see the messagee "Please fill out all required fields correctly."

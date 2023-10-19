@@ -23,13 +23,7 @@ import static ch.mycomp.onboarding.utilities.Driver.driver;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class ResourcesStepDefs extends BasePage {
-
-    static Actions actions = new Actions(Driver.get());
-
-    static Faker faker = new Faker();
-    ResourcesPage resourcesPage = new ResourcesPage();
-    OrderPage orderPage = new OrderPage();
+public class ResourcesStepDefs extends ObjectIndex {
 
 
     @Given("The user goes to the sign-in page")
@@ -39,7 +33,7 @@ public class ResourcesStepDefs extends BasePage {
 
     @When("The user enters valid logon credentials")
     public void theUserEntersValidLogonCredentials() {
-       // loginPage.login();
+        loginPage.login();
     }
 
 
@@ -268,7 +262,7 @@ public class ResourcesStepDefs extends BasePage {
     public void relevantInformationIntoTheEnterEnterResourceNameTextBox() {
         WebElement enterResourceName = orderPage.boxName("Enter resource name");
         actions.click(enterResourceName).
-                sendKeys(faker.options().toString()).
+                sendKeys(faker.name().name()).
                 perform();
 
         BrowserUtils.waitFor(2);
@@ -277,8 +271,8 @@ public class ResourcesStepDefs extends BasePage {
 
     @Then("The user should be the confirmation message")
     public String theUserShouldBeTheConfirmationMessage() {
-        toastMessageText();
-        BrowserUtils.waitForVisibility(message, 3);
+        resourcesPage.toastMessageText();
+        BrowserUtils.waitForVisibility(resourcesPage.message, 3);
         return resourcesPage.message.getText();
     }
 
@@ -344,7 +338,6 @@ public class ResourcesStepDefs extends BasePage {
 
     @Then("The user should be seen the Resource Name title")
     public void theUserShouldBeSeenTheResourceNameTitle( String arg0) {
-        getSectionName(arg0);
        resourcesPage.getSectionName(arg0);
         Assert.assertTrue(resourcesPage.resourcesNameTitle.isDisplayed());
 
@@ -446,6 +439,33 @@ public class ResourcesStepDefs extends BasePage {
     @And("The user clicks on the New Resources Resource Delete button")
     public void theUserClicksOnTheNewResourcesResourceDeleteButton() {
         resourcesPage.deleteButtonDelete.click();
+    }
+
+    @Then("User enters invalid information on the New Resource page")
+    public void userEntersInvalidInformationOnTheNewResourcePage() {
+        BrowserUtils.clickWithJS(resourcesPage.selectTheCompany);
+        resourcesPage.selectTheCompany.sendKeys("Ankasale",Keys.ENTER);
+        BrowserUtils.waitFor(2);
+        WebElement startBox = orderPage.boxName("Enter category name");
+        actions.click(startBox).
+                sendKeys("Yemek").
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                sendKeys("Yusuf Köfte").
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.ENTER).perform();
+    }
+
+    @Then("The user should see the messagee {string}")
+    public void theUserShouldSeeTheMessagee(String arg0) {
+        Assert.assertTrue(resourcesPage.message.getText().contains("Please fill out all required fields correctly."));
     }
 }
 

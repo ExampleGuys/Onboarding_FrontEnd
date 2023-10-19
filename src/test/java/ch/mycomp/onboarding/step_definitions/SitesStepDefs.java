@@ -13,7 +13,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
-public class SitesStepDefs {
+public class SitesStepDefs extends ObjectIndex{
 
     LoginPage loginPage = new LoginPage();
 
@@ -102,10 +102,10 @@ public class SitesStepDefs {
 
     @Then("User enters invalid information on the {string} page")
     public void userEntersInvalidInformationOnThePage(String arg0) {
-      //  BrowserUtils.clickWithJS(sitesPage.selectTheCompany);
-      // sitesPage.selectTheCompany.sendKeys("Ankasale",Keys.ENTER);
+        BrowserUtils.clickWithJS(sitesPage.selectTheCompany);
+       sitesPage.selectTheCompany.sendKeys("Ankasale",Keys.ENTER);
         BrowserUtils.waitFor(2);
-    /*    WebElement startBox = orderPage.boxName("Address Site");
+        WebElement startBox = orderPage.boxName("Address Site");
         actions.click(startBox).
                 sendKeys("Avcilar").
                 sendKeys(Keys.TAB).
@@ -121,7 +121,7 @@ public class SitesStepDefs {
                 sendKeys(Keys.TAB).
                 sendKeys(Keys.TAB).click().perform();
 
-    */
+
     }
     @Then("The user sees the error message")
     public void theUserSeesTheErrorMessage() {
