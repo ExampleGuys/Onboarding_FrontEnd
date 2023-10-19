@@ -1,40 +1,25 @@
 package ch.mycomp.onboarding.step_definitions;
 
-import ch.mycomp.onboarding.pages.OnboardingPage;
-import ch.mycomp.onboarding.pages.OrderPage;
-import ch.mycomp.onboarding.utilities.BrowserUtils;
 import ch.mycomp.onboarding.utilities.ConfigurationReader;
 import ch.mycomp.onboarding.utilities.Driver;
 import io.cucumber.java.en.*;
-import org.apache.logging.log4j.message.ReusableMessage;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
-public class OnboardingStepDefs {
+public class OnboardingStepDefs extends ObjectIndex{
 
-
-
-    static OnboardingPage onboardingPage = new OnboardingPage();
-    OrderPage orderPage = new OrderPage();
 
     @Given("The user goes to staging url")
     public void the_user_goes_to_staging_url() {
         Driver.get().get(ConfigurationReader.get("url"));
     }
 
-
-
     @And("The User click on the {string} section in the Navigation Menu")
     public void theUserClickOnTheSectionInTheNavigationMenu(String navigationName) {
         onboardingPage.clickTheButton(navigationName);
-
-
     }
 
     @And("The user click on the {string} button top right corner of the page")
     public void theUserClickOnTheButton(String buttonName) {
        onboardingPage.clickTheButton(buttonName);
-
     }
 
     @Then("the user should seen Personal Information section")
@@ -237,4 +222,35 @@ public class OnboardingStepDefs {
     public void theUserVerifyThatTheDeleteCommentButtonIsClickable() {
         onboardingPage.assertionDeleteIconIsClickable();
     }
+
+    @Then("The customize column button at the top right of the page must be clickable")
+    public void theCustomizeColumnButtonAtTheTopRightOfThePageMustBeClickable() {
+        onboardingPage.isClickableCustomizationColumns();
+    }
+    @Then("The {string} button at the top right of the page should be clickable")
+    public void theButtonAtTheTopRightOfThePageShouldBeClickable(String buttonName) {
+        onboardingPage.assertionXXXButtonClickable(buttonName);
+    }
+
+    @Then("The User verify that “Show Logs” button in the Action section is clickable")
+    public void theUserVerifyThatShowLogsButtonInTheActionSectionIsClickable() {
+        onboardingPage.assertionShowLogsIconIsClickable();
+    }
+
+    @Then("The user verify that the addition of a new comment")
+    public void theUserVerifyThatTheAdditionOfANewComment() {
+        onboardingPage.assertionNewCommentHasBeenAdded();
+    }
+    @And("The user click on the {string} icon-button")
+    public void theUserClickOnTheIconButton(String buttonName) {
+        onboardingPage.clickOnDeleteIcon();
+        onboardingPage.clickTheButton(buttonName);
+    }
+
+    @Then("The User verify that the new comment has been deleted")
+    public void theUserVerifyThatTheNewCommentHasBeenDeleted() {
+        onboardingPage.assertionCommentsNotVisible();
+    }
+
+
 }

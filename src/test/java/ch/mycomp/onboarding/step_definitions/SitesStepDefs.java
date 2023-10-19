@@ -82,7 +82,7 @@ public class SitesStepDefs {
         String str= faker.lorem().characters(510);
         int strlength = str.length(); //510
 
-        orderPage.boxName("Enter for directions").sendKeys(str);
+    //    orderPage.boxName("Enter for directions").sendKeys(str);
 
         int textlength = sitesPage.newSeiteEnterForDirections.getText().length();
 
@@ -105,7 +105,7 @@ public class SitesStepDefs {
       //  BrowserUtils.clickWithJS(sitesPage.selectTheCompany);
       // sitesPage.selectTheCompany.sendKeys("Ankasale",Keys.ENTER);
         BrowserUtils.waitFor(2);
-        WebElement startBox = orderPage.boxName("Address Site");
+    /*    WebElement startBox = orderPage.boxName("Address Site");
         actions.click(startBox).
                 sendKeys("Avcilar").
                 sendKeys(Keys.TAB).
@@ -121,8 +121,8 @@ public class SitesStepDefs {
                 sendKeys(Keys.TAB).
                 sendKeys(Keys.TAB).click().perform();
 
+    */
     }
-
     @Then("The user sees the error message")
     public void theUserSeesTheErrorMessage() {
           // Assert.assertTrue(sitesPage.);

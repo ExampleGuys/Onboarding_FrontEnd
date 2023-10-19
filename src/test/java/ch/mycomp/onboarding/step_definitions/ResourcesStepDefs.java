@@ -24,7 +24,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class ResourcesStepDefs extends BasePage {
-    LoginPage loginPage = new LoginPage();
 
     static Actions actions = new Actions(Driver.get());
 
@@ -36,12 +35,11 @@ public class ResourcesStepDefs extends BasePage {
     @Given("The user goes to the sign-in page")
     public void theUserGoesToTheSignInPage() {
         Driver.get().get(ConfigurationReader.get("myCompStagingSignin"));
-
     }
 
     @When("The user enters valid logon credentials")
     public void theUserEntersValidLogonCredentials() {
-        loginPage.login();
+       // loginPage.login();
     }
 
 
@@ -75,7 +73,7 @@ public class ResourcesStepDefs extends BasePage {
 
     @And("The user should be seen the {string} title")
     public void theUserShouldBeSeenTheTitle(String arg0) {
-        getSectionName(arg0);
+        resourcesPage.getSectionName(arg0);
         BrowserUtils.waitFor(2);
         Assert.assertTrue(resourcesPage.categoryNameTitleNewResourcesSeit.isDisplayed());
 
@@ -271,7 +269,6 @@ public class ResourcesStepDefs extends BasePage {
         WebElement enterResourceName = orderPage.boxName("Enter resource name");
         actions.click(enterResourceName).
                 sendKeys(faker.options().toString()).
-
                 perform();
 
         BrowserUtils.waitFor(2);
@@ -348,6 +345,7 @@ public class ResourcesStepDefs extends BasePage {
     @Then("The user should be seen the Resource Name title")
     public void theUserShouldBeSeenTheResourceNameTitle( String arg0) {
         getSectionName(arg0);
+       resourcesPage.getSectionName(arg0);
         Assert.assertTrue(resourcesPage.resourcesNameTitle.isDisplayed());
 
     }

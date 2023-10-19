@@ -1,13 +1,7 @@
 package ch.mycomp.onboarding.step_definitions;
 
-import ch.mycomp.onboarding.pages.LoginPage;
-import ch.mycomp.onboarding.pages.OnboardingPage;
-import ch.mycomp.onboarding.pages.OrderPage;
 import ch.mycomp.onboarding.utilities.BrowserUtils;
 import ch.mycomp.onboarding.utilities.Driver;
-import com.github.javafaker.Faker;
-import io.cucumber.core.internal.com.fasterxml.jackson.databind.deser.SettableBeanProperty;
-import io.cucumber.java.bs.A;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -15,22 +9,12 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class OrdersStepDefs extends BrowserUtils {
+public class OrdersStepDefs extends ObjectIndex {
 
-    LoginPage loginPage = new LoginPage();
-
-    OrderPage orderPage = new OrderPage();
-
-    Actions actions = new Actions(Driver.get());
-
-    Faker faker = new Faker();
-
-    OnboardingPage onboardingPage = new OnboardingPage();
 
     @When("user logs in with the valid credentials")
     public void user_logs_in_with_the_valid_credentials() {
@@ -68,7 +52,7 @@ public class OrdersStepDefs extends BrowserUtils {
 
     @And("The user should be able to add data to {string} with {string}")
     public void theUserShouldBeAbleToCreateNewCompany(String placeHolder, String companyNAme) {
-        String fakeDataInfo = fakeName();
+        String fakeDataInfo = BrowserUtils.fakeName();
         orderPage.boxName(placeHolder).sendKeys(companyNAme);
         BrowserUtils.waitFor(1);
         assertEquals(orderPage.boxName(placeHolder).getAttribute("value"), companyNAme);
@@ -153,7 +137,7 @@ public class OrdersStepDefs extends BrowserUtils {
 
     @And("The user should be able to add data to {string}")
     public void theUserShouldBeAbleToAddDataTo(String placeHolder) {
-        String fakeDataInfo = fakeName();
+        String fakeDataInfo = BrowserUtils.fakeName();
         orderPage.boxName(placeHolder).clear();
         orderPage.boxName(placeHolder).sendKeys(fakeDataInfo);
 
@@ -164,7 +148,7 @@ public class OrdersStepDefs extends BrowserUtils {
 
     @And("The user should be able to add Email adress to {string}")
     public void theUserShouldBeAbleToAddEmailAdressTo(String placeHolder) {
-        String fakeEmailInfo = fakeEmailAdress();
+        String fakeEmailInfo = BrowserUtils.fakeEmailAdress();
         orderPage.boxName(placeHolder).sendKeys(fakeEmailInfo);
 
         BrowserUtils.waitFor(1);
@@ -263,7 +247,7 @@ public class OrdersStepDefs extends BrowserUtils {
 
     @Then("user should be able to edit information in the {string} box")
     public void userShouldBeAbleToEditInformationInTheBox(String placeHolder) {
-        String fakeDataInfo = fakeName();
+        String fakeDataInfo = BrowserUtils.fakeName();
         orderPage.boxName(placeHolder).clear();
         orderPage.boxName(placeHolder).sendKeys(" "+fakeDataInfo);
 
