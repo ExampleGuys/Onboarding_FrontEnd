@@ -13,17 +13,8 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
-public class SitesStepDefs extends ObjectIndex{
+public class SitesStepDefs extends ObjectIndex {
 
-    LoginPage loginPage = new LoginPage();
-
-    static Actions actions = new Actions(Driver.get());
-
-    static Faker faker = new Faker();
-
-    ResourcesPage resourcesPage=new ResourcesPage();
-    SitesPage sitesPage=new SitesPage();
-    OrderPage orderPage = new OrderPage();
 
        @And("The user must be able to click on the Sites link")
     public void theUserMustBeAbleToClickOnTheSitesLink() {
@@ -121,8 +112,8 @@ public class SitesStepDefs extends ObjectIndex{
                 sendKeys(Keys.TAB).
                 sendKeys(Keys.TAB).click().perform();
 
-
     }
+
     @Then("The user sees the error message")
     public void theUserSeesTheErrorMessage() {
           // Assert.assertTrue(sitesPage.);
