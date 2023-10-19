@@ -194,3 +194,36 @@ Feature: Resources Tests
     And The user clicks on the New Resources Delete button
     And The user clicks on the New Resources Resource Delete button
     And Verify appear that the Add resource line has been deleted.
+
+  @ONB2-368
+  Scenario:TC: ONB2-368 On the New Resource page, verify that the "Create" button is visible and clickable. (Negative Senario)
+    Then The user clicks on the "New Resource" button
+    Then User enters invalid information on the New Resource page
+    Then The user clicks on the Create button
+    Then The user should see the messagee "Please fill out all required fields correctly."
+
+  @ONB2-369
+  Scenario:TC: ONB2-369 Verify that the "Delete" button is visible and active on the Resources page.
+    Then The user should be seen the Ant-Popover should appear.
+    Then The user clicks on the Resources Delete button
+    Then The user clicks on the Resources Resource Delete button
+    And The user should see the delete messagee "Field option category successfully deleted"
+
+  @ONB2-370
+  Scenario:TC: ONB2-370 In the dropdown that comes when the "Delete" button is clicked on the New Resource page Verify that the "Cancel" button is visible and clickable.
+    Then The user should be seen the Ant-Popover should appear.
+    Then The user clicks on the Resources Delete button
+    Then The user clicks on the Resources Resource Cancel button
+    And The user should be seen the Resources page
+
+  @ONB2-390
+  Scenario:TC: ONB2-390 E2E-Verify that new entries can be made on the Resources page.
+    Then The user clicks on the "New Resource" button
+    Then  User enters valid information on the New Resource page
+    Then The user clicks on the Create button
+    Then The user should be seen the Ant-Popover should appear.
+    Then The user clicks on the Resources Delete button
+    Then The user clicks on the Resources Resource Delete button
+    And The user should see the delete messagee "Field option category successfully deleted"
+
+

@@ -1,11 +1,17 @@
 package ch.mycomp.onboarding.step_definitions;
 
+import ch.mycomp.onboarding.pages.*;
 import ch.mycomp.onboarding.utilities.BrowserUtils;
+import ch.mycomp.onboarding.utilities.ConfigurationReader;
+import ch.mycomp.onboarding.utilities.Driver;
+import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 public class SitesStepDefs extends ObjectIndex {
 
@@ -87,8 +93,8 @@ public class SitesStepDefs extends ObjectIndex {
 
     @Then("User enters invalid information on the {string} page")
     public void userEntersInvalidInformationOnThePage(String arg0) {
-      //  BrowserUtils.clickWithJS(sitesPage.selectTheCompany);
-      // sitesPage.selectTheCompany.sendKeys("Ankasale",Keys.ENTER);
+        BrowserUtils.clickWithJS(sitesPage.selectTheCompany);
+       sitesPage.selectTheCompany.sendKeys("Ankasale",Keys.ENTER);
         BrowserUtils.waitFor(2);
         WebElement startBox = orderPage.boxName("Address Site");
         actions.click(startBox).

@@ -1,5 +1,9 @@
 package ch.mycomp.onboarding.step_definitions;
 
+import ch.mycomp.onboarding.pages.BasePage;
+import ch.mycomp.onboarding.pages.LoginPage;
+import ch.mycomp.onboarding.pages.OrderPage;
+import ch.mycomp.onboarding.pages.ResourcesPage;
 import ch.mycomp.onboarding.utilities.BrowserUtils;
 import ch.mycomp.onboarding.utilities.ConfigurationReader;
 import ch.mycomp.onboarding.utilities.Driver;
@@ -20,7 +24,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class ResourcesStepDefs extends ObjectIndex {
-
 
 
     @Given("The user goes to the sign-in page")
@@ -209,7 +212,7 @@ public class ResourcesStepDefs extends ObjectIndex {
     public void theUserHoversOverTheButtonNextToTheContactsTitleTheCreateContactAlertAppears() {
         WebElement hover = driver.findElement(By.xpath("//button[@type='submit']"));
         actions.moveToElement(hover).build().perform();
-        if ( hover.isDisplayed()){
+        if (hover.isDisplayed()) {
             System.out.println("Create Contact Alert is Displayed");
 
         }else {
@@ -268,7 +271,7 @@ public class ResourcesStepDefs extends ObjectIndex {
     public void relevantInformationIntoTheEnterEnterResourceNameTextBox() {
         WebElement enterResourceName = orderPage.boxName("Enter resource name");
         actions.click(enterResourceName).
-                sendKeys(faker.options().toString()).
+                sendKeys(faker.name().name()).
                 perform();
 
         BrowserUtils.waitFor(2);
@@ -445,6 +448,82 @@ public class ResourcesStepDefs extends ObjectIndex {
     @And("The user clicks on the New Resources Resource Delete button")
     public void theUserClicksOnTheNewResourcesResourceDeleteButton() {
         resourcesPage.deleteButtonDelete.click();
+    }
+
+    @Then("User enters invalid information on the New Resource page")
+    public void userEntersInvalidInformationOnTheNewResourcePage() {
+        BrowserUtils.clickWithJS(resourcesPage.selectTheCompany);
+        resourcesPage.selectTheCompany.sendKeys("Ankasale",Keys.ENTER);
+        BrowserUtils.waitFor(2);
+        WebElement startBox = orderPage.boxName("Enter category name");
+        actions.click(startBox).
+                sendKeys("Yemek").
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                sendKeys("Yusuf Köfte").
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.ENTER).perform();
+    }
+
+    @Then("The user should see the messagee {string}")
+    public void theUserShouldSeeTheMessagee(String arg0) {
+        Assert.assertTrue(resourcesPage.message.getText().contains("Please fill out all required fields correctly."));
+    }
+
+    @Then("The user clicks on the Resources Resource Delete button")
+    public void theUserClicksOnTheResourcesResourceDeleteButton() {
+        resourcesPage.deleteButtonDelete.click();
+    }
+
+    @And("The user should see the delete messagee {string}")
+    public void theUserShouldSeeTheDeleteMessagee(String arg0) {
+        Assert.assertTrue(resourcesPage.message.getText().contains("Field option category successfully deleted"));
+        BrowserUtils.waitFor(3);
+    }
+
+    @And("The user clicks on the Resources Delete button")
+    public void theUserClicksOnTheResourcesDeleteButton() {
+        resourcesPage.resourceDeletButton.click();
+        BrowserUtils.waitFor(2);
+    }
+
+    @Then("The user clicks on the Resources Resource Cancel button")
+    public void theUserClicksOnTheResourcesResourceCancelButton() {
+        resourcesPage.deleteButtonCancel.click();
+    }
+
+    @Then("User enters valid information on the New Resource page")
+    public void userEntersValidInformationOnTheNewResourcePage() {
+        BrowserUtils.clickWithJS(resourcesPage.selectTheCompany);
+        resourcesPage.selectTheCompany.sendKeys("Test Techno Consultant", Keys.ENTER);
+        BrowserUtils.waitFor(2);
+        WebElement startBox = orderPage.boxName("Enter category name");
+        actions.click(startBox).
+                sendKeys("Telefon").
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.ENTER).
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.ENTER).
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.ENTER).
+                sendKeys(Keys.TAB).
+                sendKeys("Apple").
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                sendKeys("nokia@gmail.com - nokia", Keys.ENTER).
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                perform();
+        BrowserUtils.waitFor(2);
     }
 }
 
