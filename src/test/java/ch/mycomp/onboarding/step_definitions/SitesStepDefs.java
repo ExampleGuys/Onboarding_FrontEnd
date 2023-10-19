@@ -127,4 +127,14 @@ public class SitesStepDefs extends ObjectIndex{
     public void theUserSeesTheErrorMessage() {
           // Assert.assertTrue(sitesPage.);
     }
+
+    @And("The user should be able to click on the Search by Site search box")
+    public void theUserShouldBeAbleToClickOnTheSearchBySiteSearchBox() {
+           resourcesPage.searchBoxText.click();
+    }
+
+    @And("The user must be able to search in the Search by Site search box")
+    public void theUserMustBeAbleToSearchInTheSearchBySiteSearchBox() {
+          actions.moveToElement(resourcesPage.searchBoxText).sendKeys("Avcilar").perform();
+    }
 }

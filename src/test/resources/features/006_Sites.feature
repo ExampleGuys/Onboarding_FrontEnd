@@ -77,6 +77,11 @@ Scenario:TC: ONB2-198 On the Home Page of the "Sites" category can appear and cl
     And The user clicks on the Edit button
 
   @ONB2-205
-  Scenario:TC: ONB2-205 Verify that the "Search by Site" search box is visible and active on the "Sites" page. //Search box Test
+  Scenario:TC: Bug ONB2-205 Verify that the "Search by Site" search box is visible and active on the "Sites" page. //Search box Test
     And The user should be able to click on the "Search by Site" search box
     And The user must be able to search in the "Search by Site" search box
+
+  @ONB2-206
+  Scenario:TC: ONB2-206 On the "Sites" page, the "Search by Site" searchbox appears and verify that it is active.
+    And The user should be able to click on the Search by Site search box
+    And The user must be able to search in the Search by Site search box

@@ -183,10 +183,6 @@ public class ResourcesPage extends BasePage {
     @FindBy(xpath = "//div[text()='List of Resources']")
     public WebElement listOfResourcesTitleText;
 
-    // //Resources > Category Name Title
-    // @FindBy(xpath = "//label[@title='Category Name']")
-    // public WebElement categoryNameTitle;
-
     //Resources > resourcesNameTitle
     @FindBy(xpath = "//label[@title='Resource Name']")
     public WebElement resourcesNameTitle;
@@ -298,7 +294,6 @@ public class ResourcesPage extends BasePage {
     @FindBy(xpath = "//input[@id='resource_company']")
     public WebElement selectTheCompany;
 
-
     //Sites/Resources > deleteButtonDelete]
     @FindBy(xpath = "//span[text()='Delete']")
     public WebElement deleteButtonDelete;
@@ -310,7 +305,6 @@ public class ResourcesPage extends BasePage {
     //Sites/Resources > newResorceDeletePopconfirm]
     @FindBy(xpath = "//div[text()='Delete Resource']")
     public WebElement newResorceDeletePopconfirm;
-
 
     //Sites/Resources > new_BackButton]
     @FindBy(xpath = "//button[@class='ant-btn css-14bavl3 ant-btn-default ant-btn-lg']")
@@ -347,5 +341,11 @@ public class ResourcesPage extends BasePage {
     //Sites/Resources > createContactAlert1]
     @FindBy(xpath = "//div=[@class='ant-tooltip css-14bavl3 ant-tooltip-placement-top']")
     public WebElement createContactAlert1;
+
+    //Sites/Resources > searchBoxText
+    @FindBy(xpath = "//input[@placeholder='Search by site...']")
+    public WebElement searchBoxText;
+
+
 
 }
