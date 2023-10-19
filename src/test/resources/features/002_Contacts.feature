@@ -230,3 +230,12 @@ Feature: Contacts test
     And the user clicks on the delete icon in the Actions section of a first element of contacts list
     And the user clicks on "Delete" button on the ant-popover
     Then the user should be able to verify that created contact is deleted
+
+  @ONB2-171
+  Scenario: TC: ONB2-171 Delete icon should be visible in the Contacts page
+
+    Given The user goes to myCompSignin
+    When the user enters valid requester "email" and "password"
+    And the user clicks the sign in button
+    And Click on the "Contacts" section in the Navigation Menu
+    Then user should be able to view Delete icon in the Contacts page

@@ -154,6 +154,11 @@ public class ContactsStepDefs extends ObjectIndex {
     public void theUserShouldBeAbleToVerifyThatCreatedContactIsDeleted() {
         assertTrue(contactsPage.toastMessageText().contains("success"));
     }
+
+    @Then("user should be able to view Delete icon in the Contacts page")
+    public void userShouldBeAbleToViewDeleteIconInTheContactsPage() {
+        assertTrue(contactsPage.deleteIconForFirstRow.isDisplayed());
+    }
 }
 
 
