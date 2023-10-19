@@ -209,4 +209,11 @@ Feature: Resources Tests
     Then The user clicks on the Resources Resource Delete button
     And The user should see the delete messagee "Field option category successfully deleted"
 
+  @ONB2-370
+  Scenario:TC: ONB2-370 In the dropdown that comes when the "Delete" button is clicked on the New Resource page Verify that the "Cancel" button is visible and clickable.
+    Then The user should be seen the Ant-Popover should appear.
+    Then The user clicks on the Resources Delete button
+    Then The user clicks on the Resources Resource Cancel button
+    And The user should be seen the Resources page
+
 

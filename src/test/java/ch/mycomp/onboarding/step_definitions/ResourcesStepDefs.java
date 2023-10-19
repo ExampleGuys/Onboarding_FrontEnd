@@ -492,5 +492,10 @@ public class ResourcesStepDefs extends ObjectIndex {
         resourcesPage.resourceDeletButton.click();
         BrowserUtils.waitFor(2);
     }
+
+    @Then("The user clicks on the Resources Resource Cancel button")
+    public void theUserClicksOnTheResourcesResourceCancelButton() {
+        resourcesPage.deleteButtonCancel.click();
+    }
 }
 
