@@ -497,5 +497,32 @@ public class ResourcesStepDefs extends ObjectIndex {
     public void theUserClicksOnTheResourcesResourceCancelButton() {
         resourcesPage.deleteButtonCancel.click();
     }
+
+    @Then("User enters valid information on the New Resource page")
+    public void userEntersValidInformationOnTheNewResourcePage() {
+        BrowserUtils.clickWithJS(resourcesPage.selectTheCompany);
+        resourcesPage.selectTheCompany.sendKeys("Test Techno Consultant", Keys.ENTER);
+        BrowserUtils.waitFor(2);
+        WebElement startBox = orderPage.boxName("Enter category name");
+        actions.click(startBox).
+                sendKeys("Telefon").
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.ENTER).
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.ENTER).
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.ENTER).
+                sendKeys(Keys.TAB).
+                sendKeys("Apple").
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                sendKeys("nokia@gmail.com - nokia", Keys.ENTER).
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                perform();
+        BrowserUtils.waitFor(2);
+    }
 }
 
