@@ -215,6 +215,7 @@ public class ResourcesStepDefs extends ObjectIndex {
         }else {
             System.out.println("Create Contact Alert could not be displayed");
         }
+
     }
 
     @Then("The user clicks the x button")
@@ -276,14 +277,14 @@ public class ResourcesStepDefs extends ObjectIndex {
 
     @Then("The user should be the confirmation message")
     public String theUserShouldBeTheConfirmationMessage() {
-        toastMessageText();
-        BrowserUtils.waitForVisibility(message, 3);
+        resourcesPage.toastMessageText();
+        BrowserUtils.waitForVisibility(resourcesPage.message, 3);
         return resourcesPage.message.getText();
     }
 
     @Then("The User should be able to add data to {string} with {string}")
     public void theUserShouldBeAbleToAddDataToWith(String placeHolder, String companyNAme) {
-        String fakeDataInfo = fakeName();
+        String fakeDataInfo = BrowserUtils.fakeName();
         orderPage.boxName(placeHolder).sendKeys(companyNAme);
         BrowserUtils.waitFor(1);
         assertEquals(orderPage.boxName(placeHolder).getAttribute("value"), companyNAme);
