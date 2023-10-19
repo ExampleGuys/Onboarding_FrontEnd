@@ -215,7 +215,7 @@ public class ResourcesStepDefs extends ObjectIndex {
         if (hover.isDisplayed()) {
             System.out.println("Create Contact Alert is Displayed");
 
-        } else {
+        }else {
             System.out.println("Create Contact Alert could not be displayed");
         }
     }
@@ -251,6 +251,14 @@ public class ResourcesStepDefs extends ObjectIndex {
 
         BrowserUtils.waitFor(2);
 
+    }
+
+    @And("Sees the error message {string}")
+    public String seesTheErrorMessage(String itemErorMessageText) {
+
+            WebElement itemName =Driver.get().findElement(By.xpath("//div[text()='" + itemErorMessageText + "']"));
+            BrowserUtils.waitForVisibility(itemName,3);
+            return itemName.getText();
     }
 
     @Then("The user clicks on the Enter resource name text box")

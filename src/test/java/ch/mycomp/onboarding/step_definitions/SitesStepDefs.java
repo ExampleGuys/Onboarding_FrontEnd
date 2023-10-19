@@ -82,7 +82,7 @@ public class SitesStepDefs extends ObjectIndex{
         String str= faker.lorem().characters(510);
         int strlength = str.length(); //510
 
-    //    orderPage.boxName("Enter for directions").sendKeys(str);
+        orderPage.boxName("Enter for directions").sendKeys(str);
 
         int textlength = sitesPage.newSeiteEnterForDirections.getText().length();
 
