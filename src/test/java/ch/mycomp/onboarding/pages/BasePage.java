@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import static org.junit.Assert.assertTrue;
+
 public abstract class BasePage {
 
     public BasePage() {
@@ -28,11 +30,17 @@ public abstract class BasePage {
     @FindBy(xpath = "(//button[@class='ant-pagination-item-link'])[2]")
     public WebElement paginationItemLinkForNextPage;
 
+    @FindBy(xpath = "//button//span[@aria-label='appstore-add']")
+    public WebElement customizationColumnSelectButton;
+
     @FindBy(xpath = "(//button//span[@aria-label='delete'])[1]")
     public WebElement deleteIconForFirstRow;
 
     @FindBy(xpath = "//button[@type='button']//span[text()='Delete']")
     public WebElement deleteButtonAntPopOver;
+
+
+
 
     public String getTotalNumberOfThePageInformationText() {
 
@@ -85,6 +93,11 @@ public abstract class BasePage {
         WebElement numberOfPageDisplay = Driver.get().findElement(By.xpath("(//div[@class='rc-virtual-list-holder-inner'])/div/div[text()='" + numberPerPage + "']"));
         BrowserUtils.waitForVisibility(numberOfPageDisplay,5);
         return numberOfPageDisplay;
+    }
+
+    public void isClickableCustomizationColumns() {
+        BrowserUtils.waitForVisibility(customizationColumnSelectButton,20);
+        assertTrue(customizationColumnSelectButton.isEnabled());
     }
 
     public void clickButton(String buttonName) {

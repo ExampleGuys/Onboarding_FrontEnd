@@ -191,22 +191,22 @@ public class OrdersStepDefs extends ObjectIndex {
     }
 
     @Then("The user should be able to type up to fivehundred characters in the Description field.")
-    public void theUserShouldBeAbleToTypeUpToFivehundredCharactersInTheDescriptionField() {
+        public void theUserShouldBeAbleToTypeUpToFivehundredCharactersInTheDescriptionField() {
 
-        String str= faker.lorem().characters(510);
-        int strlength = str.length(); //510
+            String str= faker.lorem().characters(510);
+            int strlength = str.length(); //510
 
-        orderPage.boxName("Enter description").sendKeys(str);
+            orderPage.boxName("Enter description").sendKeys(str);
 
-        int textlength = orderPage.orderEnterDescriptionInfo.getText().length();
+            int textlength = orderPage.orderEnterDescriptionInfo.getText().length();
 
-        String str500 = orderPage.order500InputDataCount.getText();//500 / 500
+            String str500 = orderPage.order500InputDataCount.getText();//500 / 500
 
-        int bosluk = str500.indexOf(" "); //3
+            int bosluk = str500.indexOf(" "); //3
 
-        int fivehundred = Integer.parseInt((str500.substring(0,bosluk))); //500 int
+            int fivehundred = Integer.parseInt((str500.substring(0,bosluk))); //500 int
 
-        assertEquals(textlength,fivehundred);
+            assertEquals(textlength,fivehundred);
 
         // Assert.assertNotEquals(strlength,textlength);
 

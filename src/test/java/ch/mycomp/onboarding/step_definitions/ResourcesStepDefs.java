@@ -3,19 +3,24 @@ package ch.mycomp.onboarding.step_definitions;
 import ch.mycomp.onboarding.utilities.BrowserUtils;
 import ch.mycomp.onboarding.utilities.ConfigurationReader;
 import ch.mycomp.onboarding.utilities.Driver;
+import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
+import static ch.mycomp.onboarding.utilities.BrowserUtils.fakeName;
 import static ch.mycomp.onboarding.utilities.Driver.driver;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class ResourcesStepDefs extends ObjectIndex {
+
 
 
     @Given("The user goes to the sign-in page")
@@ -95,30 +100,32 @@ public class ResourcesStepDefs extends ObjectIndex {
 
     @And("The user should be the {string} title on the {string} page")
     public void theUserShouldBeTheTitleOnThePage(String arg0, String arg1) {
-      //  Assert.assertTrue(commonPage.listOf_Title.isDisplayed());
+          Assert.assertTrue(resourcesPage.listOf_.isDisplayed());
     }
 
 
     @And("The user should be the {string} {string} {string} {string} title")
     public void theUserShouldBeTheTitle(String arg0, String arg1, String arg2, String arg3) {
 
-  //        Assert.assertTrue(commonPage.listOf_Title.isDisplayed());
-  //        Assert.assertTrue(commonPage.createdAtTitle.isDisplayed());
-  //        Assert.assertTrue(commonPage.createdByTitle.isDisplayed());
-  //        Assert.assertTrue(resourcesPage.categoryNameTitle.isDisplayed());
-       // BrowserUtils.waitForVisibility(commonPage.listOf_Title,20);
+        //        Assert.assertTrue(commonPage.listOf_Title.isDisplayed());
+        //        Assert.assertTrue(commonPage.createdAtTitle.isDisplayed());
+        //        Assert.assertTrue(commonPage.createdByTitle.isDisplayed());
+        //        Assert.assertTrue(resourcesPage.categoryNameTitle.isDisplayed());
+        // BrowserUtils.waitForVisibility(commonPage.listOf_Title,20);
 
-     //   String actualResultlistOf_Title = commonPage.listOf_Title.getText();
+        //   String actualResultlistOf_Title = commonPage.listOf_Title.getText();
         String expectedResult = arg0;
-      //  Assert.assertEquals(expectedResult,actualResultlistOf_Title);
+        //  Assert.assertEquals(expectedResult,actualResultlistOf_Title);
     }
+
     @Then("The user clicks on the Search by name search box")
     public void theUserClicksOnTheSearchByNameSearchBox() {
-      //  commonPage.searchBoxButton.click();
+        resourcesPage.searchBoxButton.click();
     }
+
     @And("User searches in the search box")
     public void userSearchesInTheSearchBox() {
-       // commonPage.searchBoxButton.getText();
+        resourcesPage.searchBoxButton.getText();
         Assert.assertTrue(resourcesPage.searchBoxFirstLine.isDisplayed());
     }
 
@@ -200,7 +207,7 @@ public class ResourcesStepDefs extends ObjectIndex {
 
     @Then("The user hovers over the + button next to the Contacts title, the Create Contact alert appears")
     public void theUserHoversOverTheButtonNextToTheContactsTitleTheCreateContactAlertAppears() {
-        WebElement hover =driver.findElement(By.xpath("//button[@type='submit']"));
+        WebElement hover = driver.findElement(By.xpath("//button[@type='submit']"));
         actions.moveToElement(hover).build().perform();
         if ( hover.isDisplayed()){
             System.out.println("Create Contact Alert is Displayed");
@@ -211,8 +218,8 @@ public class ResourcesStepDefs extends ObjectIndex {
 
     }
 
-    @Then("The user clicks the {string} button")
-    public void theUserClicksTheButton(String arg0) {
+    @Then("The user clicks the x button")
+    public void theUserClicksTheXButton() {
         resourcesPage.newResourcesCreateContactsPageXButton.click();
     }
 
@@ -232,11 +239,12 @@ public class ResourcesStepDefs extends ObjectIndex {
         Assert.assertTrue(resourcesPage.categoryNameTitleNewResourcesSeit.isDisplayed());
     }
 
-    @And("Relevant information into the enter {string} name text box")
-    public void relevantInformationIntoTheEnterNameTextBox(String arg0) {
+    @And("The user only write in {string} text box")
+    public void theUserOnlyWriteInTextBox(String arg0) {
         WebElement enterCategoryName = orderPage.boxName("Enter category name");
         actions.click(enterCategoryName).
                 sendKeys(faker.options().toString()).
+                sendKeys(Keys.ENTER).
                 perform();
 
         BrowserUtils.waitFor(2);
@@ -266,6 +274,59 @@ public class ResourcesStepDefs extends ObjectIndex {
         BrowserUtils.waitFor(2);
     }
 
+
+    @Then("The user should be the confirmation message")
+    public String theUserShouldBeTheConfirmationMessage() {
+        resourcesPage.toastMessageText();
+        BrowserUtils.waitForVisibility(resourcesPage.message, 3);
+        return resourcesPage.message.getText();
+    }
+
+    @Then("The User should be able to add data to {string} with {string}")
+    public void theUserShouldBeAbleToAddDataToWith(String placeHolder, String companyNAme) {
+        String fakeDataInfo = BrowserUtils.fakeName();
+        orderPage.boxName(placeHolder).sendKeys(companyNAme);
+        BrowserUtils.waitFor(1);
+        assertEquals(orderPage.boxName(placeHolder).getAttribute("value"), companyNAme);
+    }
+
+    @Then("The user select the Company from ddm")
+    public void theUserSelectTheCompanyFromDdm() {
+        WebElement button1 = Driver.get().findElement(By.cssSelector("#Resources_newResource_company"));
+        BrowserUtils.clickWithJS(button1);
+        BrowserUtils.waitFor(1);
+        button1.sendKeys("CompanyName" + Keys.ENTER);
+    }
+
+    @Then("The user select the Category Name from ddm")
+    public void theUserSelectTheCategoryNameFromDdm() {
+        WebElement button2 = Driver.get().findElement(By.id("resource_name"));
+        BrowserUtils.clickWithJS(button2);
+        BrowserUtils.waitFor(1);
+        button2.sendKeys("Yemek" + Keys.ENTER);
+    }
+
+    @Then("The user select the Resources Name from ddm")
+    public void theUserSelectTheResourcesNameFromDdm() {
+        WebElement button3 = Driver.get().findElement(By.id("resource_resources_0_name"));
+        BrowserUtils.clickWithJS(button3);
+        BrowserUtils.waitFor(1);
+        button3.sendKeys("Yusuf Köfte" + Keys.ENTER);
+    }
+
+    @Then("The user select the Contacts from ddm")
+    public void theUserSelectTheContactsFromDdm() {
+        WebElement button4 = Driver.get().findElement(By.xpath("//div[@class='ant-select-selection-overflow']"));
+        BrowserUtils.clickWithJS(button4);
+        BrowserUtils.waitFor(1);
+        button4.sendKeys("requester.test@yopmail.com" + Keys.ENTER);
+    }
+
+    @And("The user should be the entered information in a list")
+    public void theUserShouldBeTheEnteredInformationInAList() {
+        Assert.assertTrue(resourcesPage.searchBoxFirstLine.isDisplayed());
+    }
+
     @Then("The user clicks on the Select responsible people text box")
     public void theUserClicksOnTheSelectResponsiblePeopleTextBox() {
         resourcesPage.selectResponsiblePeople.click();
@@ -288,6 +349,102 @@ public class ResourcesStepDefs extends ObjectIndex {
 
     }
 
-}
+    @And("The user should see the error message {string}")
+    public void theUserShouldSeeTheErrorMessage(String arg0) {
+        Assert.assertTrue(resourcesPage.categoryNameErrorMessage.getText().contains("Please fill out all required fields correctly."));
+    }
 
+    @Then("User enters valid information on the {string} page")
+    public void userEntersValidInformationOnThePage(String arg0) {
+        BrowserUtils.clickWithJS(resourcesPage.selectTheCompany);
+        resourcesPage.selectTheCompany.sendKeys("Test Techno Consultant", Keys.ENTER);
+        BrowserUtils.waitFor(2);
+        WebElement startBox = orderPage.boxName("Enter category name");
+        actions.click(startBox).
+                sendKeys("Telefon").
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                sendKeys("Apple").
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                sendKeys("nokia@gmail.com - nokia", Keys.ENTER).
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                perform();
+        BrowserUtils.waitFor(2);
+
+    }
+
+    @Then("The user should see the message {string}")
+    public void theUserShouldSeeTheMessage(String arg0) {
+        Assert.assertTrue(resourcesPage.message.getText().contains("Resource successfully created"));
+
+    }
+
+    @Then("The user clicks on the Create button")
+    public void theUserClicksOnTheCreateButton() {
+        resourcesPage.new_CreateButton2.click();
+        BrowserUtils.waitFor(2);
+    }
+
+    @Then("The user should be the {string} heading on the {string} page")
+    public void theUserShouldBeTheHeadingOnThePage(String arg0, String arg1) {
+      //  Steps need to be written. There is a bug.
+    }
+
+    @Then("The user enters the relevant information on the {string} page")
+    public void theUserEntersTheRelevantInformationOnThePage(String arg0) {
+      //  Steps need to be written. There is a bug.
+    }
+
+    @And("Under the {string} heading, the user sees what time they logged in")
+    public void underTheHeadingTheUserSeesWhatTimeTheyLoggedIn(String arg0) {
+        //Steps need to be written. There is a bug.
+    }
+
+    @Then("The user should be able to click on the {string} search box")
+    public void theUserShouldBeAbleToClickOnTheSearchBox(String arg0) {
+        //Steps need to be written. There is a bug.
+    }
+
+    @And("The user should be able to click on the icon next to the {string} search box.")
+    public void theUserShouldBeAbleToClickOnTheIconNextToTheSearchBox(String arg0) {
+        //Steps need to be written. There is a bug.
+    }
+
+    @And("The user clicks on the New Resources Delete button")
+    public void theUserClicksOnTheNewResourcesDeleteButton() {
+        resourcesPage.resourceDeletButton.click();
+        BrowserUtils.waitFor(2);
+
+    }
+
+    @And("The user should be seen the Ant-Popover should appear.")
+    public void theUserShouldBeSeenTheAntPopoverShouldAppear() {
+        WebElement hover = driver.findElement(By.xpath("(//button[@type='button'])[6]"));
+        actions.moveToElement(hover).build().perform();
+        if (hover.isDisplayed()) {
+            System.out.println("Create Contact Alert is Displayed");
+
+        } else {
+            System.out.println("Create Contact Alert could not be displayed");
+        }
+    }
+
+    @And("Verify appear that the Add resource line has been deleted.")
+    public void verifyAppearThatTheAddResourceLineHasBeenDeleted() {
+        Assert.assertTrue(resourcesPage.addResourcesDeleteLine.isDisplayed());
+        BrowserUtils.waitFor(2);
+
+    }
+
+    @And("The user clicks on the New Resources Resource Delete button")
+    public void theUserClicksOnTheNewResourcesResourceDeleteButton() {
+        resourcesPage.deleteButtonDelete.click();
+    }
+}
 
