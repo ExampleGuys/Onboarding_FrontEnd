@@ -52,7 +52,7 @@ public class SitesStepDefs extends ObjectIndex{
 
     @And("The user clicks on the Delete button")
     public void theUserClicksOnTheDeleteButton() {
-        resourcesPage.deleteButton.click();
+        sitesPage.deleteButton.click();
     }
 
     @And("The user should be seen the Ant-Popover should appear")
@@ -136,5 +136,16 @@ public class SitesStepDefs extends ObjectIndex{
     @And("The user must be able to search in the Search by Site search box")
     public void theUserMustBeAbleToSearchInTheSearchBySiteSearchBox() {
           actions.moveToElement(resourcesPage.searchBoxText).sendKeys("Avcilar").perform();
+    }
+
+    @Then("The user clicks on the Sites Sites Delete button")
+    public void theUserClicksOnTheSitesSitesDeleteButton() {
+           resourcesPage.deleteButtonDelete.click();
+    }
+
+    @And("The user should see the delete messagee Site successfully deleted")
+    public void theUserShouldSeeTheDeleteMessageeSiteSuccessfullyDeleted() {
+        Assert.assertTrue(resourcesPage.message.getText().contains("Site successfully deleted"));
+        BrowserUtils.waitFor(3);
     }
 }

@@ -85,3 +85,10 @@ Scenario:TC: ONB2-198 On the Home Page of the "Sites" category can appear and cl
   Scenario:TC: ONB2-206 On the "Sites" page, the "Search by Site" searchbox appears and verify that it is active.
     And The user should be able to click on the Search by Site search box
     And The user must be able to search in the Search by Site search box
+
+  @ONB2-210
+  Scenario:TC: ONB2-210 Verify that clicking the "Delete" button on the "Sites" page has confirmed that the deletion occurred.
+    Then The user clicks on the Delete button
+    Then The user should be seen the Ant-Popover should appear
+    Then The user clicks on the Sites Sites Delete button
+    And The user should see the delete messagee Site successfully deleted
