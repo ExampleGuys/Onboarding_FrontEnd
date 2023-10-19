@@ -35,6 +35,8 @@ public class OrderPage extends BasePage{
     @FindBy(css="#Order_resources_0_quantity")
     public WebElement resourcesQuantityDdm;
 
+	@FindBy(css="#Order_resources_0_selectedResources")
+	public WebElement resourcesDdm;
 
 
 
