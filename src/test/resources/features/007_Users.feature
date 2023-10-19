@@ -74,3 +74,4 @@ Feature: Users
      And the user clicks on "Password" text field
      And the user writes inappropriately a password in "Password" text field
      Then the user should see the relevant warning messages
+
