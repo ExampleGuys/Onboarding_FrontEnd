@@ -156,3 +156,7 @@ Feature: Onboarding Create Tests
   @ONB2-76
   Scenario: TC ONB2-76 The search button on the onboarding listing page should be clickable
     Then The "Search" button at the top right of the page should be clickable
+
+  @ONB2-138
+  Scenario: TC ONB2-138 Show logs button in the Action section of first element of Onboarding list should be clickable
+    Then The User verify that “Show Logs” button in the Action section is clickable

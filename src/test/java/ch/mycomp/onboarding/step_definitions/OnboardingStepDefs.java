@@ -231,4 +231,9 @@ public class OnboardingStepDefs extends ObjectIndex{
     public void theButtonAtTheTopRightOfThePageShouldBeClickable(String buttonName) {
         onboardingPage.assertionXXXButtonClickable(buttonName);
     }
+
+    @Then("The User verify that “Show Logs” button in the Action section is clickable")
+    public void theUserVerifyThatShowLogsButtonInTheActionSectionIsClickable() {
+        onboardingPage.assertionShowLogsIconIsClickable();
+    }
 }

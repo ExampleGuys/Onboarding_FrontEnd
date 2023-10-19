@@ -204,4 +204,7 @@ public class OnboardingPage extends BasePage {
     }
 
 
+    public void assertionShowLogsIconIsClickable() {
+        assert (buttonShowLogs.isEnabled());
+    }
 }
