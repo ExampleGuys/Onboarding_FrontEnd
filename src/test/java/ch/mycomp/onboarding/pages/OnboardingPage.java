@@ -88,7 +88,7 @@ public class OnboardingPage extends BasePage {
     }
 
     public void assertionForPersonalInformationHeadlineIsVisible() {
-        assert (headlinePersonalInformation.isDisplayed());
+        assert(headlinePersonalInformation.isDisplayed());
     }
     public void assertionForCompanyRegistrationHeadlineIsVisible() {
         Assert.assertTrue(headlineCompanyRegistration.isDisplayed());

@@ -153,3 +153,6 @@ Feature: Onboarding Create Tests
   Scenario: TC ONB2-77 The customize column button on the onboarding listing page should be clickable
     Then The customize column button at the top right of the page must be clickable
 
+  @ONB2-76
+  Scenario: TC ONB2-76 The search button on the onboarding listing page should be clickable
+    Then The "Search" button at the top right of the page should be clickable
