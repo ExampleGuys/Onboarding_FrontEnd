@@ -116,9 +116,12 @@ public class UsersStepDefs extends ObjectIndex {
         BrowserUtils.waitFor(3);
 
 
-
-
     }
+
+
+
+
+
 
     @Then("the user writes no correct  {string} text field")
     public void theUserWritesNoCorrectTextField(String arg0) {

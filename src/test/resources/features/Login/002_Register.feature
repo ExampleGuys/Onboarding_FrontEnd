@@ -16,3 +16,13 @@ Feature: Register
     Then the user enters again a password for the new user
     Then the user clicks on "Create" button
     Then the user verifies that the new user is created with the new password
+
+  Scenario: TC ONB2-133 An alert message should appear if the required information is not filled in correctly.
+    Given The user goes to the sign-in page
+    When The user enters valid logon credentials
+    And the user clicks on "Users" at the navigation menu
+    Then the user clicks on "New User" button
+    Then the user clicks on "First Name" text field
+    Then the user writes nothing in "First Name" text field
+    Then the user clicks on "Create" button
+    Then the should see the message "the Please enter first name"

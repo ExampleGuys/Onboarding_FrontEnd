@@ -34,4 +34,10 @@ public class RegisterStepDefs extends ObjectIndex{
 
         assert (registerPage.toastMessageText().contains("User successfully created"));
     }
+
+    @Then("the user writes nothing in {string} text field")
+    public void theUserWritesNothingInTextField(String arg0) {
+        registerPage.firstNameTextFieldNewUser.click();
+
+    }
 }

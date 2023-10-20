@@ -23,4 +23,8 @@ public class RegisterPage extends BasePage{
     public void checkSignUpButton() {
         BrowserUtils.verifyElementDisplayed(buttonSignUp);
     }
+
+    @FindBy(xpath = ("//input[@placeholder='Enter first name']"))
+    public WebElement firstNameTextFieldNewUser;
+
 }
