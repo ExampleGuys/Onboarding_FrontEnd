@@ -1,13 +1,8 @@
 package ch.mycomp.onboarding.step_definitions;
 
-import ch.mycomp.onboarding.pages.BasePage;
-import ch.mycomp.onboarding.pages.LoginPage;
-import ch.mycomp.onboarding.pages.OrderPage;
-import ch.mycomp.onboarding.pages.ResourcesPage;
 import ch.mycomp.onboarding.utilities.BrowserUtils;
 import ch.mycomp.onboarding.utilities.ConfigurationReader;
 import ch.mycomp.onboarding.utilities.Driver;
-import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -16,12 +11,9 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 
-import static ch.mycomp.onboarding.utilities.BrowserUtils.fakeName;
 import static ch.mycomp.onboarding.utilities.Driver.driver;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 public class ResourcesStepDefs extends ObjectIndex {
 
@@ -390,8 +382,7 @@ public class ResourcesStepDefs extends ObjectIndex {
 
     @Then("The user clicks on the Create button")
     public void theUserClicksOnTheCreateButton() {
-        resourcesPage.new_CreateButton2.click();
-        BrowserUtils.waitFor(2);
+        BrowserUtils.clickElement(resourcesPage.new_CreateButton2, 20);
     }
 
     @Then("The user should be the {string} heading on the {string} page")
@@ -524,6 +515,42 @@ public class ResourcesStepDefs extends ObjectIndex {
                 sendKeys(Keys.TAB).
                 perform();
         BrowserUtils.waitFor(2);
+    }
+
+    @And("The user enters a Category Name on the new resource page")
+    public void theUserEntersACategoryNameOnTheNewResourcePage() {
+        resourcesPage.theUserEntersACategoryNameOnTheNewResourcePage();
+    }
+
+    @And("The user selects Selection Type as {string}")
+    public void theUserSelectsSelectionTypeAs(String isChecked) {
+        resourcesPage.theUserSelectsSelectionTypeAs(isChecked);
+
+    }
+
+    @And("The user selects Quantity Selection  as {string}")
+    public void theUserSelectsQuantitySelectionAs(String isChecked) {
+        resourcesPage.theUserSelectsQuantitySelectionAs(isChecked);
+    }
+
+    @And("The user selects Auto Add to Onboarding as {string}")
+    public void theUserSelectsAutoAddToOnboardingAs(String isChecked) {
+        resourcesPage.theUserSelectsAutoAddToOnboardingAs(isChecked);
+    }
+
+    @And("The user enters a Resource Name on the new resource page")
+    public void theUserEntersAResourceNameOnTheNewResourcePage() {
+        resourcesPage.theUserEntersAResourceNameOnTheNewResourcePage();
+    }
+
+    @And("The user selects a Contact from contacts dropdown {string}")
+    public void theUserSelectsAContactFromContactsDropdown(String targetListElement) {
+        resourcesPage.theUserSelectsAContactFromContactsDropdown(targetListElement);
+    }
+
+    @And("The user selects a Company from company dropdown {string}")
+    public void theUserSelectsACompanyFromCompanyDropdown(String targetListElement) {
+        resourcesPage.theUserSelectsACompanyFromCompanyDropdown(targetListElement);
     }
 }
 
