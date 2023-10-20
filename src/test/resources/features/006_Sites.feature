@@ -108,3 +108,11 @@ Scenario:TC: ONB2-198 On the Home Page of the "Sites" category can appear and cl
     And The user clicks on the "New Site" button
     And The user clicks on the Adress Site button
     And User enters valid information on the "Adress Site" item
+
+  @ONB2-245
+  Scenario:TC: ONB2-245 On the New Site page, verify that the counter buttons in the "Zip Code" item are visible and active.
+    Then The user clicks on the "New Site" button
+    Then The user clicks on the Zip Code button
+    And The user enters the information on the Zip Code item
+    And The user clicks on the counter on the "Zip Code" item
+    And The user performs the function of the counter on the "Zip Code" item

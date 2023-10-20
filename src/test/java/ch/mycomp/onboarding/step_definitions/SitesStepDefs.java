@@ -159,4 +159,23 @@ public class SitesStepDefs extends ObjectIndex {
     public void userEntersValidInformationOnTheItem(String arg0) {
            actions.moveToElement(sitesPage.newSeiteAdressSite).sendKeys("Aselsan").perform();
     }
+
+    @Then("The user clicks on the Zip Code button")
+    public void theUserClicksOnTheZipCodeButton() {
+           sitesPage.newSeiteEnterZipCode.click();
+    }
+
+    @And("The user enters the information on the Zip Code item")
+    public void theUserEntersTheInformationOnTheZipCodeItem() {
+           actions.moveToElement(sitesPage.newSeiteEnterZipCode).sendKeys("12365").perform();
+    }
+
+    @And("The user clicks on the counter on the {string} item")
+    public void theUserClicksOnTheCounterOnTheItem(String arg0) {
+
+    }
+
+    @And("The user performs the function of the counter on the {string} item")
+    public void theUserPerformsTheFunctionOfTheCounterOnTheItem(String arg0) {
+    }
 }
