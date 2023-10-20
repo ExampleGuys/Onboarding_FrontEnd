@@ -228,4 +228,14 @@ public class SitesStepDefs extends ObjectIndex {
     public void theUserShouldBeSeenTheNewSiteStreetTitle() {
            Assert.assertTrue(sitesPage.newSeiteStreetTitle.isDisplayed());
     }
+
+    @Then("The user clicks on the Street item")
+    public void theUserClicksOnTheStreetItem() {
+           sitesPage.newSeiteEnterStreet.click();
+    }
+
+    @And("The user enters the information on the Street item")
+    public void theUserEntersTheInformationOnTheStreetItem() {
+           actions.moveToElement(sitesPage.newSeiteEnterStreet).sendKeys("Ankara cad.").perform();
+    }
 }

@@ -154,3 +154,9 @@ Scenario:TC: ONB2-198 On the Home Page of the "Sites" category can appear and cl
   Scenario:TC: ONB2-259 Verify that the "Street" title is visible on the New Site page.
     Then The user clicks on the "New Site" button
     And The user should be seen the New Site, Street title
+
+  @ONB2-260
+  Scenario:TC: ONB2-260 Verify that the "Street" item is visible and active on the New Site page.
+    Then The user clicks on the "New Site" button
+    Then The user clicks on the Street item
+    And The user enters the information on the Street item
