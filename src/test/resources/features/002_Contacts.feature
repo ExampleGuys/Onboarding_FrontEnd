@@ -135,3 +135,7 @@ Feature: Contacts test
   @ONB2-169
   Scenario: TC: ONB2-169 Edit icon should be visible in the Contacts page
     Then user should be able to view Edit icon in the Contacts page
+
+  @ONB2-173
+  Scenario: TC: ONB2-173 Edit icon should be clickable in the Contacts page
+    Then user should be able to click Edit icon in the Contacts page
