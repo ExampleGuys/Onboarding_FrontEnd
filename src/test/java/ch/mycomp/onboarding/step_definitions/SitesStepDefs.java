@@ -43,7 +43,7 @@ public class SitesStepDefs extends ObjectIndex {
 
     @And("The user clicks on the Delete button")
     public void theUserClicksOnTheDeleteButton() {
-        resourcesPage.deleteButton.click();
+        sitesPage.deleteButton.click();
     }
 
     @And("The user should be seen the Ant-Popover should appear")
@@ -117,5 +117,125 @@ public class SitesStepDefs extends ObjectIndex {
     @Then("The user sees the error message")
     public void theUserSeesTheErrorMessage() {
           // Assert.assertTrue(sitesPage.);
+    }
+
+    @And("The user should be able to click on the Search by Site search box")
+    public void theUserShouldBeAbleToClickOnTheSearchBySiteSearchBox() {
+           resourcesPage.searchBoxText.click();
+    }
+
+    @And("The user must be able to search in the Search by Site search box")
+    public void theUserMustBeAbleToSearchInTheSearchBySiteSearchBox() {
+          actions.moveToElement(resourcesPage.searchBoxText).sendKeys("Avcilar").perform();
+    }
+
+    @Then("The user clicks on the Sites Sites Delete button")
+    public void theUserClicksOnTheSitesSitesDeleteButton() {
+           resourcesPage.deleteButtonDelete.click();
+    }
+
+    @And("The user should see the delete messagee Site successfully deleted")
+    public void theUserShouldSeeTheDeleteMessageeSiteSuccessfullyDeleted() {
+        Assert.assertTrue(resourcesPage.message.getText().contains("Site successfully deleted"));
+        BrowserUtils.waitFor(3);
+    }
+
+    @And("The user should be seen the New Site Site title")
+    public void theUserShouldBeSeenTheNewSiteSiteTitle() {
+           Assert.assertTrue(sitesPage.newSeiteSiteTitle.isDisplayed());
+    }
+
+    @And("The user should be seen the New Site, Zip Code title")
+    public void theUserShouldBeSeenTheNewSiteZipCodeTitle() {
+           Assert.assertTrue(sitesPage.newSeiteZipCodeTitle.isDisplayed());
+    }
+
+    @And("The user clicks on the Adress Site button")
+    public void theUserClicksOnTheAdressSiteButton() {
+           sitesPage.newSeiteAdressSite.click();
+    }
+
+    @And("User enters valid information on the {string} item")
+    public void userEntersValidInformationOnTheItem(String arg0) {
+           actions.moveToElement(sitesPage.newSeiteAdressSite).sendKeys("Aselsan").perform();
+    }
+
+    @Then("The user clicks on the Zip Code button")
+    public void theUserClicksOnTheZipCodeButton() {
+           sitesPage.newSeiteEnterZipCode.click();
+    }
+
+    @And("The user enters the information on the Zip Code item")
+    public void theUserEntersTheInformationOnTheZipCodeItem() {
+           actions.moveToElement(sitesPage.newSeiteEnterZipCode).sendKeys("12365").perform();
+    }
+
+    @And("The user clicks on the counter on the {string} item")
+    public void theUserClicksOnTheCounterOnTheItem(String arg0) {
+
+    }
+
+    @And("The user performs the function of the counter on the {string} item")
+    public void theUserPerformsTheFunctionOfTheCounterOnTheItem(String arg0) {
+    }
+
+    @And("The user should be seen the New Site, Country title")
+    public void theUserShouldBeSeenTheNewSiteCountryTitle() {
+           Assert.assertTrue(sitesPage.newSeiteCountryTitle.isDisplayed());
+    }
+
+    @And("The user clicks on the Country item")
+    public void theUserClicksOnTheCountryItem() {
+        //Steps need to be written. There is a bug.
+    }
+
+    @And("The user enters the information on the Country item")
+    public void theUserEntersTheInformationOnTheCountryItem() {
+        //Steps need to be written. There is a bug.
+    }
+
+    @And("The user should be seen the New Site, City title")
+    public void theUserShouldBeSeenTheNewSiteCityTitle() {
+           Assert.assertTrue(sitesPage.newSeiteCityTitle.isDisplayed());
+    }
+
+    @Then("The user clicks on the City item")
+    public void theUserClicksOnTheCityItem() {
+           sitesPage.newSeiteEnterCity.click();
+    }
+
+    @Then("The user enters the information on the City item")
+    public void theUserEntersTheInformationOnTheCityItem() {
+           actions.moveToElement(sitesPage.newSeiteEnterCity).sendKeys("Ankara").perform();
+    }
+
+    @And("The user should be seen the New Site, District title")
+    public void theUserShouldBeSeenTheNewSiteDistrictTitle() {
+           Assert.assertTrue(sitesPage.newSeiteDistrictTitle.isDisplayed());
+    }
+
+    @Then("The user clicks on the District item")
+    public void theUserClicksOnTheDistrictItem() {
+           sitesPage.newSeiteEnterDistrict.click();
+    }
+
+    @And("The user enters the information on the District item")
+    public void theUserEntersTheInformationOnTheDistrictItem() {
+           actions.moveToElement(sitesPage.newSeiteEnterDistrict).sendKeys("Kaiserslautern").perform();
+    }
+
+    @And("The user should be seen the New Site, Street title")
+    public void theUserShouldBeSeenTheNewSiteStreetTitle() {
+           Assert.assertTrue(sitesPage.newSeiteStreetTitle.isDisplayed());
+    }
+
+    @Then("The user clicks on the Street item")
+    public void theUserClicksOnTheStreetItem() {
+           sitesPage.newSeiteEnterStreet.click();
+    }
+
+    @And("The user enters the information on the Street item")
+    public void theUserEntersTheInformationOnTheStreetItem() {
+           actions.moveToElement(sitesPage.newSeiteEnterStreet).sendKeys("Ankara cad.").perform();
     }
 }
