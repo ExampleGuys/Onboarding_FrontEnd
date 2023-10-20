@@ -144,4 +144,9 @@ public class SitesStepDefs extends ObjectIndex {
     public void theUserShouldBeSeenTheNewSiteSiteTitle() {
            Assert.assertTrue(sitesPage.newSeiteSiteTitle.isDisplayed());
     }
+
+    @And("The user should be seen the New Site, Zip Code title")
+    public void theUserShouldBeSeenTheNewSiteZipCodeTitle() {
+           Assert.assertTrue(sitesPage.newSeiteZipCodeTitle.isDisplayed());
+    }
 }

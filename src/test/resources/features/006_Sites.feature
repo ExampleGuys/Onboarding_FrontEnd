@@ -97,3 +97,8 @@ Scenario:TC: ONB2-198 On the Home Page of the "Sites" category can appear and cl
   Scenario:TC: ONB2-239 Verify that the "Site" heading is visible on the New Site page.
     Then The user clicks on the "New Site" button
     And The user should be seen the New Site Site title
+
+  @ONB2-242
+  Scenario:TC: ONB2-242 Verify that the "Zip Code" title is visible on the New Site page.
+    Then The user clicks on the "New Site" button
+    And The user should be seen the New Site, Zip Code title
