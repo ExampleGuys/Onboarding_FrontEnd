@@ -178,4 +178,9 @@ public class SitesStepDefs extends ObjectIndex {
     @And("The user performs the function of the counter on the {string} item")
     public void theUserPerformsTheFunctionOfTheCounterOnTheItem(String arg0) {
     }
+
+    @And("The user should be seen the New Site, Country title")
+    public void theUserShouldBeSeenTheNewSiteCountryTitle() {
+           Assert.assertTrue(sitesPage.newSeiteCountryTitle.isDisplayed());
+    }
 }

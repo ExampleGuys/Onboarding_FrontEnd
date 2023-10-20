@@ -116,3 +116,8 @@ Scenario:TC: ONB2-198 On the Home Page of the "Sites" category can appear and cl
     And The user enters the information on the Zip Code item
     And The user clicks on the counter on the "Zip Code" item
     And The user performs the function of the counter on the "Zip Code" item
+
+  @ONB2-252
+  Scenario:TC: ONB2-252 On the New Site page, verify that the title  "Country" is visible.
+    Then The user clicks on the "New Site" button
+    And The user should be seen the New Site, Country title
