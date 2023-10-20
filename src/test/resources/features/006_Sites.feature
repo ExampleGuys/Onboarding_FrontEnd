@@ -92,3 +92,8 @@ Scenario:TC: ONB2-198 On the Home Page of the "Sites" category can appear and cl
     Then The user should be seen the Ant-Popover should appear
     Then The user clicks on the Sites Sites Delete button
     And The user should see the delete messagee Site successfully deleted
+
+  @ONB2-239
+  Scenario:TC: ONB2-239 Verify that the "Site" heading is visible on the New Site page.
+    Then The user clicks on the "New Site" button
+    And The user should be seen the New Site Site title

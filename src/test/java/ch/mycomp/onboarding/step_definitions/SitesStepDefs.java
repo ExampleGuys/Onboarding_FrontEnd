@@ -139,4 +139,9 @@ public class SitesStepDefs extends ObjectIndex {
         Assert.assertTrue(resourcesPage.message.getText().contains("Site successfully deleted"));
         BrowserUtils.waitFor(3);
     }
+
+    @And("The user should be seen the New Site Site title")
+    public void theUserShouldBeSeenTheNewSiteSiteTitle() {
+           Assert.assertTrue(sitesPage.newSeiteSiteTitle.isDisplayed());
+    }
 }

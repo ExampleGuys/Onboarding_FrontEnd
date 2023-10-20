@@ -385,7 +385,7 @@ public class ResourcesStepDefs extends ObjectIndex {
     @Then("The user should see the message {string}")
     public void theUserShouldSeeTheMessage(String arg0) {
         Assert.assertTrue(resourcesPage.message.getText().contains("Resource successfully created"));
-
+      //resourcesPage.categoryNameTitle.click();
     }
 
     @Then("The user clicks on the Create button")
