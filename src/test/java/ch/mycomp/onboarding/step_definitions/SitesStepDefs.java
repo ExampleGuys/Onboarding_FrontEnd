@@ -193,4 +193,9 @@ public class SitesStepDefs extends ObjectIndex {
     public void theUserEntersTheInformationOnTheCountryItem() {
         //Steps need to be written. There is a bug.
     }
+
+    @And("The user should be seen the New Site, City title")
+    public void theUserShouldBeSeenTheNewSiteCityTitle() {
+           Assert.assertTrue(sitesPage.newSeiteCityTitle.isDisplayed());
+    }
 }

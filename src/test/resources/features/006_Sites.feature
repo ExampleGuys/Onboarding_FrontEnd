@@ -127,3 +127,8 @@ Scenario:TC: ONB2-198 On the Home Page of the "Sites" category can appear and cl
     Then The user clicks on the "New Site" button
     And The user clicks on the Country item
     And  The user enters the information on the Country item
+
+  @ONB2-254
+  Scenario:TC: ONB2-254 Verify that the "State / City" title is visible on the New Site page.
+    Then The user clicks on the "New Site" button
+    And The user should be seen the New Site, City title
