@@ -198,4 +198,14 @@ public class SitesStepDefs extends ObjectIndex {
     public void theUserShouldBeSeenTheNewSiteCityTitle() {
            Assert.assertTrue(sitesPage.newSeiteCityTitle.isDisplayed());
     }
+
+    @Then("The user clicks on the City item")
+    public void theUserClicksOnTheCityItem() {
+           sitesPage.newSeiteEnterCity.click();
+    }
+
+    @Then("The user enters the information on the City item")
+    public void theUserEntersTheInformationOnTheCityItem() {
+           actions.moveToElement(sitesPage.newSeiteEnterCity).sendKeys("Ankara").perform();
+    }
 }

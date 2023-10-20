@@ -132,3 +132,9 @@ Scenario:TC: ONB2-198 On the Home Page of the "Sites" category can appear and cl
   Scenario:TC: ONB2-254 Verify that the "State / City" title is visible on the New Site page.
     Then The user clicks on the "New Site" button
     And The user should be seen the New Site, City title
+
+  @ONB2-255
+  Scenario:TC: ONB2-255 On the New Site page, verify that the item "State / City" is visible and active.
+    Then The user clicks on the "New Site" button
+    Then The user clicks on the City item
+    Then The user enters the information on the City item
