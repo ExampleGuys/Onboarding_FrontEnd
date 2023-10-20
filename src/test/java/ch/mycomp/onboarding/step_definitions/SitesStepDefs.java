@@ -149,4 +149,14 @@ public class SitesStepDefs extends ObjectIndex {
     public void theUserShouldBeSeenTheNewSiteZipCodeTitle() {
            Assert.assertTrue(sitesPage.newSeiteZipCodeTitle.isDisplayed());
     }
+
+    @And("The user clicks on the Adress Site button")
+    public void theUserClicksOnTheAdressSiteButton() {
+           sitesPage.newSeiteAdressSite.click();
+    }
+
+    @And("User enters valid information on the {string} item")
+    public void userEntersValidInformationOnTheItem(String arg0) {
+           actions.moveToElement(sitesPage.newSeiteAdressSite).sendKeys("Aselsan").perform();
+    }
 }

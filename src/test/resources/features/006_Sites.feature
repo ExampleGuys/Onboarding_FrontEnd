@@ -102,3 +102,9 @@ Scenario:TC: ONB2-198 On the Home Page of the "Sites" category can appear and cl
   Scenario:TC: ONB2-242 Verify that the "Zip Code" title is visible on the New Site page.
     Then The user clicks on the "New Site" button
     And The user should be seen the New Site, Zip Code title
+
+  @ONB2-240
+  Scenario:TC: ONB2-240 On the New Site page, verify that the "Address Site" item is visible and active
+    And The user clicks on the "New Site" button
+    And The user clicks on the Adress Site button
+    And User enters valid information on the "Adress Site" item
