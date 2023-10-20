@@ -121,3 +121,9 @@ Scenario:TC: ONB2-198 On the Home Page of the "Sites" category can appear and cl
   Scenario:TC: ONB2-252 On the New Site page, verify that the title  "Country" is visible.
     Then The user clicks on the "New Site" button
     And The user should be seen the New Site, Country title
+
+  @ONB2-253
+  Scenario: BUG TC: ONB2-253 On the New Site page, verify that the item "Country" is visible and active.
+    Then The user clicks on the "New Site" button
+    And The user clicks on the Country item
+    And  The user enters the information on the Country item

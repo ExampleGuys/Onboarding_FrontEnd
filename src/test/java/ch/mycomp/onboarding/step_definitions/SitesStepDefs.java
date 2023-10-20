@@ -183,4 +183,14 @@ public class SitesStepDefs extends ObjectIndex {
     public void theUserShouldBeSeenTheNewSiteCountryTitle() {
            Assert.assertTrue(sitesPage.newSeiteCountryTitle.isDisplayed());
     }
+
+    @And("The user clicks on the Country item")
+    public void theUserClicksOnTheCountryItem() {
+        //Steps need to be written. There is a bug.
+    }
+
+    @And("The user enters the information on the Country item")
+    public void theUserEntersTheInformationOnTheCountryItem() {
+        //Steps need to be written. There is a bug.
+    }
 }
