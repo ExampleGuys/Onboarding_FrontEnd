@@ -176,3 +176,17 @@ Feature: Onboarding Create Tests
     Then The user verify that the addition of a new comment
     And The user click on the "Delete" icon-button
     Then The User verify that the new comment has been deleted
+
+  @ONB2-220
+  Scenario: TC ONB2-220 The user should be able to create a new onboarding record by filling in all the required information
+    And The user click on the "New Onboarding" button top right corner of the page
+    And The User fills a  Personal Information Area
+    And The User fills a  Company Registration Area
+    And The User fills a  Resources Area
+    And The User select a Completion Date at The Latest
+    And the User Click on the "Save & Complete" button
+    And the User Click on the "Confirm" button
+    Then The User verify that the onboarding record has been created in the List of Onboardings
+
+
+

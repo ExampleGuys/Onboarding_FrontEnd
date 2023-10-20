@@ -1,5 +1,6 @@
 package ch.mycomp.onboarding.step_definitions;
 
+import ch.mycomp.onboarding.utilities.BrowserUtils;
 import ch.mycomp.onboarding.utilities.ConfigurationReader;
 import ch.mycomp.onboarding.utilities.Driver;
 import io.cucumber.java.en.*;
@@ -253,4 +254,30 @@ public class OnboardingStepDefs extends ObjectIndex{
     }
 
 
+    @And("The User fills a  Personal Information Area")
+    public void theUserFillsAPersonalInformationArea() {
+    onboardingPage.selectPersonalTitle();
+    onboardingPage.enterFirstNameLastNameEmail();
+    onboardingPage.selectBirthDate();
+    }
+
+    @And("The User fills a  Company Registration Area")
+    public void theUserFillsACompanyRegistrationArea() {
+        onboardingPage.fillsCompanyRegistrationArea();
+    }
+
+    @And("The User select a Completion Date at The Latest")
+    public void theUserSelectACompletionDateAtTheLatest() {
+        onboardingPage.selectCompletionDateAtLatest();
+    }
+
+    @And("The User fills a  Resources Area")
+    public void theUserFillsAResourcesArea() {
+        onboardingPage.fillsAResourcesArea();
+    }
+
+    @Then("The User verify that the onboarding record has been created in the List of Onboardings")
+    public void theUserVerifyThatTheOnboardingRecordHasBeenCreatedInTheListOfOnboardings() {
+        onboardingPage.assertionCreatedNewOnboardingIsDisplayed();
+    }
 }
