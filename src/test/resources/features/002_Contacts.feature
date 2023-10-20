@@ -135,3 +135,16 @@ Feature: Contacts test
   @ONB2-169
   Scenario: TC: ONB2-169 Edit icon should be visible in the Contacts page
     Then user should be able to view Edit icon in the Contacts page
+
+  @ONB2-173
+  Scenario: TC: ONB2-173 Edit icon should be clickable in the Contacts page
+    Then user should be able to click Edit icon in the Contacts page
+
+  @ONB2-174
+  Scenario: TC: ONB2-174 Delete icon should be clickable in the Contacts page
+    Then user should be able to click Delete icon in the Contacts page
+
+  @ONB2-179
+  Scenario: TC: ONB2-179 Cancel button should be clickable on the ant-popover in the Contacts page
+    And user clicks Delete icon
+    Then user should be able to click "Cancel" button

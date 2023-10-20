@@ -164,8 +164,27 @@ public class ContactsStepDefs extends ObjectIndex {
     public void userShouldBeAbleToViewEditIconInTheContactsPage() {
         assertTrue(contactsPage.editIconForFirstRow.isDisplayed());
     }
+
+    @Then("user should be able to click Edit icon in the Contacts page")
+    public void userShouldBeAbleToClickEditIconInTheContactsPage() {
+        assertTrue(contactsPage.editIconForFirstRow.isEnabled());
+    }
+
+    @Then("user should be able to click Delete icon in the Contacts page")
+    public void userShouldBeAbleToClickDeleteIconInTheContactsPage() {
+        assertTrue(contactsPage.deleteIconForFirstRow.isEnabled());
+    }
+
+    @And("user clicks Delete icon")
+    public void userClicksDeleteIcon() {
+        BrowserUtils.clickElement(contactsPage.deleteIconForFirstRow, 20);
+    }
+
+    @Then("user should be able to click {string} button")
+    public void userShouldBeAbleToClickButton(String cancelButton) {
+        BrowserUtils.clickElement(contactsPage.getButton(cancelButton), 20);
+        assertTrue(contactsPage.getButton(cancelButton).isEnabled());
+    }
 }
-
-
 
 
