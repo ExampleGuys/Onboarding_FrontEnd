@@ -143,3 +143,9 @@ Scenario:TC: ONB2-198 On the Home Page of the "Sites" category can appear and cl
   Scenario:TC: ONB2-257 On the New Site page, verify that the "State/County" title is visible.
     Then The user clicks on the "New Site" button
     And The user should be seen the New Site, District title
+
+  @ONB2-258
+  Scenario:TC: ONB2-258 On the New Site page, verify that the item "District" is visible and active.
+    Then The user clicks on the "New Site" button
+    Then The user clicks on the District item
+    And The user enters the information on the District item

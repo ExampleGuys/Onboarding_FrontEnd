@@ -213,4 +213,14 @@ public class SitesStepDefs extends ObjectIndex {
     public void theUserShouldBeSeenTheNewSiteDistrictTitle() {
            Assert.assertTrue(sitesPage.newSeiteDistrictTitle.isDisplayed());
     }
+
+    @Then("The user clicks on the District item")
+    public void theUserClicksOnTheDistrictItem() {
+           sitesPage.newSeiteEnterDistrict.click();
+    }
+
+    @And("The user enters the information on the District item")
+    public void theUserEntersTheInformationOnTheDistrictItem() {
+           actions.moveToElement(sitesPage.newSeiteEnterDistrict).sendKeys("Kaiserslautern").perform();
+    }
 }
