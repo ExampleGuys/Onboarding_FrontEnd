@@ -29,9 +29,7 @@ public class UsersPage extends BasePage {
         jse.executeScript("arguments[0].scrollIntoView();", downPage);
         jse.executeScript("arguments[0].click();", downPage);
 
-
     }
-
 
     @FindBy(xpath = "//*[text()='List of Users']")
     public WebElement titleofUsers;
@@ -44,13 +42,9 @@ public class UsersPage extends BasePage {
 
     public void assertionForlistofUsersIsVisible() {
         assert (listofUsers.isDisplayed());
-
     }
-
-
     @FindBy(xpath = "//*[@class='ant-select-arrow'] ")
     public WebElement usersPageArrow;
-
 
     @FindBy(xpath = "//*[@id=\"root\"]/section/aside/div[1]/ul/li[4]/span")
     public WebElement tenUsersChosen;
@@ -59,10 +53,7 @@ public class UsersPage extends BasePage {
 
         WebElement usersList = driver.findElement(By.xpath("(//span[@role='img'])[38]\""));
         actions.contextClick(usersList).perform();
-
-
     }
-
 
     @FindBy(xpath = "(//*[@type='button'])[2]")
     public WebElement newUsersButton;
@@ -72,34 +63,24 @@ public class UsersPage extends BasePage {
 
     public void assertionListOfTenUsersIsDisplayed() {
         assert (listOfTenUsers.isDisplayed());
-
     }
-
     @FindBy(xpath = "//li[@class='ant-pagination-total-text']")
     public WebElement totalNumberOfUsers;
 
     @FindBy(xpath = "//*[@id=\"User\"]/div/div[1]/div/div[7]/div/div/div[1]/label/div/button/span")
     public WebElement newUsersSiteArrow;
 
-
     @FindBy(xpath = "//*[@id=\"contact_zipCode\"]")
     public WebElement zipCodeTextField;
-
 
     @FindBy(xpath = "//*[@id=\"root\"]/section/section/main/div[2]/div[2]/div/div[2]/div/div/div/ul")
     public WebElement endOfUsersPage;
 
-    //*[@placeholder='Enter first name']
-
     @FindBy(xpath = "//*[@placeholder='Enter first name']")
     public WebElement newUserEmailField;
 
-
-
     @FindBy(xpath = "//input[@placeholder='Enter password']")
     public WebElement newUserPasswordField;
-
-
 
     @FindBy(xpath = "//*[text()='Password must be between 8 and 20 characters']")
     public WebElement newUserPasswordWarningMessage;

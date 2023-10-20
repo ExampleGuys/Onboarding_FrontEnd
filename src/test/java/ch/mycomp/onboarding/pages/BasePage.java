@@ -2,7 +2,6 @@ package ch.mycomp.onboarding.pages;
 
 import ch.mycomp.onboarding.utilities.BrowserUtils;
 import ch.mycomp.onboarding.utilities.Driver;
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -33,6 +32,15 @@ public abstract class BasePage {
 
     @FindBy(xpath = "//button//span[@aria-label='appstore-add']")
     public WebElement customizationColumnSelectButton;
+
+    @FindBy(xpath = "(//button//span[@aria-label='delete'])[1]")
+    public WebElement deleteIconForFirstRow;
+
+    @FindBy(xpath = "(//button//span[@aria-label='edit'])[1]")
+    public WebElement editIconForFirstRow;
+
+    @FindBy(xpath = "//button[@type='button']//span[text()='Delete']")
+    public WebElement deleteButtonAntPopOver;
 
 
 
@@ -93,5 +101,10 @@ public abstract class BasePage {
     public void isClickableCustomizationColumns() {
         BrowserUtils.waitForVisibility(customizationColumnSelectButton,20);
         assertTrue(customizationColumnSelectButton.isEnabled());
+    }
+
+    public void clickButton(String buttonName) {
+        WebElement button = Driver.get().findElement(By.xpath("//span[text()='" + buttonName + "']"));
+        BrowserUtils.clickWithJS(button);
     }
 }

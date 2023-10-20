@@ -26,7 +26,7 @@ public class LoginStepDefs extends ObjectIndex {
 
     @And("the user clicks the sign in button")
     public void theUserClicksTheSignInButton() {
-        loginPage.signInButton.click();
+       BrowserUtils.clickWithJS(loginPage.signInButton);
 
     }
 

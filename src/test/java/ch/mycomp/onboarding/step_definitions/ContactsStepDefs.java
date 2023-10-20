@@ -138,6 +138,32 @@ public class ContactsStepDefs extends ObjectIndex {
     public void userShouldBeAbleToClickPaginationNextItemButton() {
         assertTrue(contactsPage.paginationItemLinkForNextPage.isEnabled());
     }
+
+    @And("the user clicks on the delete icon in the Actions section of a first element of contacts list")
+    public void theUserClicksOnTheDeleteIconInTheActionsSectionOfAFirstElementOfContactsList() {
+        BrowserUtils.clickElement(contactsPage.deleteIconForFirstRow,20);
+    }
+
+    @And("the user clicks on {string} button on the ant-popover")
+    public void theUserClicksOnButtonOnTheAntPopover(String deleteButton) {
+        contactsPage.clickButton(deleteButton);
+
+    }
+
+    @Then("the user should be able to verify that created contact is deleted")
+    public void theUserShouldBeAbleToVerifyThatCreatedContactIsDeleted() {
+        assertTrue(contactsPage.toastMessageText().contains("success"));
+    }
+
+    @Then("user should be able to view Delete icon in the Contacts page")
+    public void userShouldBeAbleToViewDeleteIconInTheContactsPage() {
+        assertTrue(contactsPage.deleteIconForFirstRow.isDisplayed());
+    }
+
+    @Then("user should be able to view Edit icon in the Contacts page")
+    public void userShouldBeAbleToViewEditIconInTheContactsPage() {
+        assertTrue(contactsPage.editIconForFirstRow.isDisplayed());
+    }
 }
 
 
