@@ -1,12 +1,8 @@
 package ch.mycomp.onboarding.pages;
 
-import com.github.javafaker.Faker;
-import com.github.javafaker.Faker;
-import org.junit.Assert;
+import ch.mycomp.onboarding.utilities.BrowserUtils;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 public class ResourcesPage extends BasePage {
 
@@ -35,7 +31,7 @@ public class ResourcesPage extends BasePage {
     public WebElement categoryNameTitleNewResourcesSeit;
 
     //Resources >clickOnResources
-    @FindBy(xpath = "//a[@href='resources'])[1]")
+    @FindBy(xpath = "(//a[@href='resources'])[1]")
     public WebElement clickOnResourcesCategory;
 
 
@@ -215,7 +211,7 @@ public class ResourcesPage extends BasePage {
     @FindBy(id = "root")
     public WebElement daschboardPage;
 
-    @FindBy(xpath = "(//div[@class='ant-layout-sider-children']")
+    @FindBy(xpath = "//div[@class='ant-layout-sider-children']")
     public WebElement daschboardNavigationMenu2;
 
     @FindBy(xpath = "//button[@type='submit']")
@@ -246,7 +242,7 @@ public class ResourcesPage extends BasePage {
     public WebElement createdAt;
 
     //Sites/Resources > columns]
-    @FindBy(xpath = "//thead[@class='ant-table-thead']]") //td[@class='ant-table-cell'
+    @FindBy(xpath = "//thead[@class='ant-table-thead']") //td[@class='ant-table-cell'
     public WebElement columns;
 
     //Sites/Resources > searchBoxButton]
@@ -337,15 +333,69 @@ public class ResourcesPage extends BasePage {
     public WebElement new_CreateButton2;
 
     //Sites/Resources > new_CreateErrorMesage]
-    @FindBy(xpath = "//div[@'class='go3958317564']")
+    @FindBy(xpath = "//div[@class='go3958317564']")
     public WebElement new_CreateErrorMesage;
 
     //Sites/Resources > createContactAlert2]
-    @FindBy(xpath = "//div=[text()='Create Contact']")
+    @FindBy(xpath = "//div[text()='Create Contact']")
     public WebElement createContactAlert2;
 
     //Sites/Resources > createContactAlert1]
-    @FindBy(xpath = "//div=[@class='ant-tooltip css-14bavl3 ant-tooltip-placement-top']")
+    @FindBy(xpath = "//div[@class='ant-tooltip css-14bavl3 ant-tooltip-placement-top']")
     public WebElement createContactAlert1;
 
+    @FindBy(xpath = "//*[@id='resource_name']")
+    public WebElement inputCategoryNameTextboxLocator;
+
+    @FindBy(xpath = "//div[@id='resource_isMultiSelection']//button")
+    public WebElement buttonSelectionTypeLocator;
+
+    @FindBy(xpath = "//*[@id='resource_hasQuantity']//button")
+    public WebElement buttonQuantitySelectionLocator;
+
+    @FindBy(xpath = "//*[@id='resource_defaultOnboardingDisplay']//button")
+    public WebElement buttonAutoAddToOnboardingLocator;
+
+    @FindBy(xpath = "//*[@id='resource_resources_0_name']")
+    public WebElement inputResourcesNameNewResourceLocator;
+
+    @FindBy(id = "resource_company")
+    public WebElement inputCompanyDropdownResourcePageLocator;
+
+    @FindBy(xpath = "//div[@class='ant-select-selector'][.//*[@id='resource_resources_0_contacts']]")
+    public WebElement inputContactsDropdownResourcePageLocator;
+
+
+    public void theUserEntersACategoryNameOnTheNewResourcePage() {
+        String categoryName = "Automation_" + getEpochTime();
+        System.out.println("Category Name is = " + categoryName);
+        BrowserUtils.sendKeysMethod(inputCategoryNameTextboxLocator,categoryName,20);
+    }
+
+
+    public void theUserSelectsSelectionTypeAs(String isChecked) {
+        checkAndClickElementIfStateDiffers(buttonSelectionTypeLocator, isChecked);
+    }
+
+    public void theUserSelectsQuantitySelectionAs(String isChecked) {
+        checkAndClickElementIfStateDiffers(buttonQuantitySelectionLocator, isChecked);
+    }
+
+    public void theUserSelectsAutoAddToOnboardingAs(String isChecked) {
+        checkAndClickElementIfStateDiffers(buttonAutoAddToOnboardingLocator, isChecked);
+    }
+
+    public void theUserEntersAResourceNameOnTheNewResourcePage() {
+        String resourceName = "Automation_" + getEpochTime();
+        System.out.println("Resource Name is = " + resourceName);
+        BrowserUtils.sendKeysMethod(inputResourcesNameNewResourceLocator, resourceName, 20);
+    }
+
+    public void theUserSelectsAContactFromContactsDropdown(String targetListElement) {
+        globalSelectDropdownTargetElement(inputContactsDropdownResourcePageLocator, targetListElement);
+    }
+
+    public void theUserSelectsACompanyFromCompanyDropdown(String targetListElement) {
+        globalSelectDropdownTargetElement(inputCompanyDropdownResourcePageLocator, targetListElement);
+    }
 }

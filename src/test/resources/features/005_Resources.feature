@@ -109,7 +109,7 @@ Feature: Resources Tests
 
   @ONB2-334
   Scenario:TC: ONB2-334 On the New Resource page, next to the "Contacts" heading, click on the "+" button Verify that
-               the error message appears and is active when incorrect information is entered on the "Create Contact" page.
+  the error message appears and is active when incorrect information is entered on the "Create Contact" page.
     Then The user clicks on the "New Resource" button
     And The user should be seen the Contacts + title
     Then The user hovers over the + button next to the Contacts title, the Create Contact alert appears
@@ -134,7 +134,7 @@ Feature: Resources Tests
 
   @ONB2-333
   Scenario:TC:BUG ONB2-333 The New Resource page, next to the "Contacts" title, click on the "+"
-            button Verify that the "Create Contact" page is visible and active.
+  button Verify that the "Create Contact" page is visible and active.
 # Then The user clicks on the "New Resource" button
 # Then The user hovers over the + button next to the Contacts title, the Create Contact alert appears
 # And The user clicks the + button
@@ -177,8 +177,14 @@ Feature: Resources Tests
 
   @ONB2-380
   Scenario:TC: ONB2-380 On the Resources page, verify that the records entered under the "List of Resources" heading are visible.
-    Then The user clicks on the "New Resource" button
-    Then  User enters valid information on the "New Resource" page
+    And The user clicks on the "New Resource" button
+    And The user selects a Company from company dropdown "Test Techno Consultant"
+    And The user enters a Category Name on the new resource page
+    And The user selects Selection Type as "true"
+    And The user selects Quantity Selection  as "true"
+    And The user selects Auto Add to Onboarding as "true"
+    And The user enters a Resource Name on the new resource page
+    And The user selects a Contact from contacts dropdown "vernell.keebler@gmail.com - Tristan Hegmann"
     Then The user clicks on the Create button
     And The user should be the entered information in a list
 

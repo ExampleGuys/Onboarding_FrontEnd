@@ -3,9 +3,13 @@ package ch.mycomp.onboarding.pages;
 import ch.mycomp.onboarding.utilities.BrowserUtils;
 import ch.mycomp.onboarding.utilities.Driver;
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import java.time.Instant;
 
 import static org.junit.Assert.assertTrue;
 
@@ -39,7 +43,8 @@ public abstract class BasePage {
     @FindBy(xpath = "//button[@type='button']//span[text()='Delete']")
     public WebElement deleteButtonAntPopOver;
 
-
+    @FindBy(id = "resource_company")
+    public WebElement globalInputCompanyDropdown;
 
 
     public String getTotalNumberOfThePageInformationText() {
@@ -67,9 +72,10 @@ public abstract class BasePage {
         BrowserUtils.waitForVisibility(message, 5);
         return message.getText();
     }
-    public String getItemErorMessageText(String itemErorMessageText){
-        WebElement itemName =Driver.get().findElement(By.xpath("//div[text()='" + itemErorMessageText + "']"));
-        BrowserUtils.waitForVisibility(itemName,3);
+
+    public String getItemErorMessageText(String itemErorMessageText) {
+        WebElement itemName = Driver.get().findElement(By.xpath("//div[text()='" + itemErorMessageText + "']"));
+        BrowserUtils.waitForVisibility(itemName, 3);
         return itemName.getText();
     }
 
@@ -89,14 +95,14 @@ public abstract class BasePage {
         return Driver.get().getTitle();
     }
 
-    public WebElement selectfromPageNumberDropDown(String numberPerPage){
+    public WebElement selectfromPageNumberDropDown(String numberPerPage) {
         WebElement numberOfPageDisplay = Driver.get().findElement(By.xpath("(//div[@class='rc-virtual-list-holder-inner'])/div/div[text()='" + numberPerPage + "']"));
-        BrowserUtils.waitForVisibility(numberOfPageDisplay,5);
+        BrowserUtils.waitForVisibility(numberOfPageDisplay, 5);
         return numberOfPageDisplay;
     }
 
     public void isClickableCustomizationColumns() {
-        BrowserUtils.waitForVisibility(customizationColumnSelectButton,20);
+        BrowserUtils.waitForVisibility(customizationColumnSelectButton, 20);
         assertTrue(customizationColumnSelectButton.isEnabled());
     }
 
@@ -104,4 +110,60 @@ public abstract class BasePage {
         WebElement button = Driver.get().findElement(By.xpath("//span[text()='" + buttonName + "']"));
         BrowserUtils.clickWithJS(button);
     }
+
+    /**
+     * Returns the current epoch time in seconds.
+     *
+     * @return The current epoch time in seconds.
+     */
+    public String getEpochTime() {
+        Instant instant = Instant.now();
+        long epochTime = instant.getEpochSecond();
+        return String.valueOf(epochTime);
+    }
+
+    /**
+     * Checks the state of the given element and clicks it if the state is different from the expected state.
+     *
+     * @param element The element to check and click.
+     * @param expectedState The expected state of the element.
+     *
+     * @throws StaleElementReferenceException If the element no longer exists.
+     * ElementNotVisibleException If the element is not visible.
+     */
+    public void checkAndClickElementIfStateDiffers(WebElement element, String expectedState) {
+        String actualState = element.getAttribute("aria-checked");
+
+        if (!actualState.equals(expectedState)) {
+            element.click();
+        }
+    }
+
+    /**
+     * Selects the given target element from a global dropdown.
+     *
+     * @param inputElement The input element that triggers the dropdown.
+     * @param targetElement The target element to select from the dropdown.
+     *
+     * @throws StaleElementReferenceException If the input element or target element no longer exists.
+     * @throws TimeoutException If the target element is not visible or clickable within 20 seconds.
+     */
+    public void globalSelectDropdownTargetElement(WebElement inputElement, String targetElement) {
+        BrowserUtils.clickElement(inputElement, 20);
+        globalDropdownElementPicker(targetElement);
+    }
+
+    /**
+     * Selects the given target element from a global dropdown.
+     *
+     * @param targetElement The target element to select from the dropdown.
+     *
+     * @throws StaleElementReferenceException If the target element no longer exists.
+     * @throws TimeoutException If the target element is not visible or clickable within 20 seconds.
+     */
+    public void globalDropdownElementPicker(String targetElement) {
+        WebElement element = Driver.get().findElement(By.xpath(" //div[@title='" + targetElement + "']//div[1]"));
+        BrowserUtils.clickElement(element,20);
+    }
+
 }
