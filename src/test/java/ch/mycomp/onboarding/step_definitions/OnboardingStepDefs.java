@@ -280,4 +280,10 @@ public class OnboardingStepDefs extends ObjectIndex{
     public void theUserVerifyThatTheOnboardingRecordHasBeenCreatedInTheListOfOnboardings() {
         onboardingPage.assertionCreatedNewOnboardingIsDisplayed();
     }
+
+    @Then("The User then verify that the onboarding registration status is saved as draft")
+    public void theUserThenVerifyThatTheOnboardingRegistrationStatusIsSavedAsDraft() {
+        onboardingPage.clickOnDraftsTab();
+        onboardingPage.assertionNewOnboardingSavedInDraftsPage();
+    }
 }

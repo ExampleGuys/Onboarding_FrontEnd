@@ -346,4 +346,15 @@ public class OnboardingPage extends BasePage {
        assertNotEquals(createdTheNewOnboardingColumnAndRow.getText(),localDate);
 
     }
+
+    public void assertionNewOnboardingSavedInDraftsPage() {
+        LocalDateTime now = LocalDateTime.now();
+        String localDate= now.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        System.out.println(localDate);
+
+        String[] date= createdTheNewOnboardingColumnAndRow.getText().split(" ");
+        System.out.println(date[0]);
+        assertEquals(date[0],localDate);
+
+    }
 }
