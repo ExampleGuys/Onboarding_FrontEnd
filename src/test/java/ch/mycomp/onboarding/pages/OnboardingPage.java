@@ -357,4 +357,8 @@ public class OnboardingPage extends BasePage {
         assertEquals(date[0],localDate);
 
     }
+
+    public void assertionToastMessageHasBeenSeen() {
+        assertEquals(toastMessageText(),"Please fill out all required fields correctly.");
+    }
 }

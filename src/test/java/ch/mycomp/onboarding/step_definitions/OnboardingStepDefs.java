@@ -222,6 +222,7 @@ public class OnboardingStepDefs extends ObjectIndex{
     @Then("The User verify that the Delete Comment button is clickable")
     public void theUserVerifyThatTheDeleteCommentButtonIsClickable() {
         onboardingPage.assertionDeleteIconIsClickable();
+
     }
 
     @Then("The customize column button at the top right of the page must be clickable")
@@ -285,5 +286,17 @@ public class OnboardingStepDefs extends ObjectIndex{
     public void theUserThenVerifyThatTheOnboardingRegistrationStatusIsSavedAsDraft() {
         onboardingPage.clickOnDraftsTab();
         onboardingPage.assertionNewOnboardingSavedInDraftsPage();
+    }
+
+    @Then("The user then verifies that the toast message has been seen that the registration process did not take place")
+    public void theUserThenVerifiesThatTheToastMessageHasBeenSeenThatTheRegistrationProcessDidNotTakePlace() {
+        onboardingPage.assertionToastMessageHasBeenSeen();
+    }
+
+    @And("The user fills in all fields on the page except personal title section")
+    public void theUserFillsInAllFieldsOnThePageExceptPersonalTitleSection() {
+        onboardingPage.fillsCompanyRegistrationArea();
+        onboardingPage.fillsAResourcesArea();
+        onboardingPage.selectCompletionDateAtLatest();
     }
 }

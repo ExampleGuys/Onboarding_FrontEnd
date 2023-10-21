@@ -199,10 +199,18 @@ Feature: Onboarding Create Tests
     Then The User then verify that the onboarding registration status is saved as draft
 
   @ONB2-222
-  Scenario:The user should not be able to create a new onboarding record without filling in and saving all required information
+  Scenario: TC ONB2-222 The user should not be able to create a new onboarding record without filling in and saving all required information
     And The user click on the "New Onboarding" button top right corner of the page
     And The User fills a  Personal Information Area
     And The User fills a  Company Registration Area
     And The User fills a  Resources Area
     And the User Click on the "Back" button
   # Then The User verify that the onboarding record hasn’t been created
+
+  @ONB2-277
+  Scenario: TC ONB2-277 The user should not be able to create a new onboarding record  by filling in all the required information except one section
+    And The user click on the "New Onboarding" button top right corner of the page
+    And The user fills in all fields on the page except personal title section
+    And the User Click on the "Save & Complete" button
+    And the User Click on the "Confirm" button
+    Then The user then verifies that the toast message has been seen that the registration process did not take place
