@@ -197,3 +197,12 @@ Feature: Onboarding Create Tests
     And The User select a Completion Date at The Latest
     And the User Click on the "Save" button
     Then The User then verify that the onboarding registration status is saved as draft
+
+  @ONB2-222
+  Scenario:The user should not be able to create a new onboarding record without filling in and saving all required information
+    And The user click on the "New Onboarding" button top right corner of the page
+    And The User fills a  Personal Information Area
+    And The User fills a  Company Registration Area
+    And The User fills a  Resources Area
+    And the User Click on the "Back" button
+  # Then The User verify that the onboarding record hasn’t been created
