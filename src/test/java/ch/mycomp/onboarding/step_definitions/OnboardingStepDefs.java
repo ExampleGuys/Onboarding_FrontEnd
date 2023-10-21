@@ -299,4 +299,14 @@ public class OnboardingStepDefs extends ObjectIndex{
         onboardingPage.fillsAResourcesArea();
         onboardingPage.selectCompletionDateAtLatest();
     }
+
+    @And("The user clicks on the Completion Date section in the Company Registration")
+    public void theUserClicksOnTheCompletionDateSectionInTheCompanyRegistration() {
+        onboardingPage.clicksCompletionDateAtLatest();
+    }
+
+    @Then("The User verify that the mini calendar is opened")
+    public void theUserVerifyThatTheMiniCalendarIsOpened() {
+        onboardingPage.assertionCalendarIsDisplayed();
+    }
 }

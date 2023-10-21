@@ -1,3 +1,4 @@
+@regression
 Feature: Onboarding Create Tests
 
   Background: pre-steps
@@ -214,3 +215,9 @@ Feature: Onboarding Create Tests
     And the User Click on the "Save & Complete" button
     And the User Click on the "Confirm" button
     Then The user then verifies that the toast message has been seen that the registration process did not take place
+
+  @ONB2-303
+  Scenario: TC ONB2-303 The mini-calendar should be available in the "Completion Date at The Latest"section
+    And The user click on the "New Onboarding" button top right corner of the page
+    And The user clicks on the Completion Date section in the Company Registration
+    Then The User verify that the mini calendar is opened

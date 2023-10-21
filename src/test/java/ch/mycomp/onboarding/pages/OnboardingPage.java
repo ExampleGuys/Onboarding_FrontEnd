@@ -121,6 +121,8 @@ public class OnboardingPage extends BasePage {
     public WebElement completionDateAtLatest;
     @FindBy(xpath = "(//tbody//tr//td[@class='ant-table-cell'])[5][1]")
     WebElement createdTheNewOnboardingColumnAndRow;
+    @FindBy(xpath = "//div[@class='ant-picker-date-panel']")
+    public WebElement calendarPanel;
 
     public void assertionDeleteIconIsClickable() {
         assert (deleteIconInTheCommentsSection.isEnabled());
@@ -360,5 +362,12 @@ public class OnboardingPage extends BasePage {
 
     public void assertionToastMessageHasBeenSeen() {
         assertEquals(toastMessageText(),"Please fill out all required fields correctly.");
+    }
+
+    public void clicksCompletionDateAtLatest() {
+        BrowserUtils.clickElement(completionDateAtLatest,20);
+    }
+    public void assertionCalendarIsDisplayed(){
+        assert (calendarPanel.isDisplayed());
     }
 }
