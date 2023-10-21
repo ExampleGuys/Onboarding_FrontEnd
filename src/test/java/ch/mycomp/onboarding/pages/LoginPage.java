@@ -112,17 +112,7 @@ public class LoginPage extends BasePage {
 
 
 
-
-
-
-
-
-
-
     public void login() {
-        // loginpage.email.sendKeys("ahmet.bicakci@testtechno.com");
-        // loginpage.passwordInput.sendKeys("Nail&nail.23");
-        //  loginpage.signInButton.click();
 
         emailInput.sendKeys(ConfigurationReader.get("superAdminUser"));
         passwordInput.sendKeys(ConfigurationReader.get("superAdmin_password"));
