@@ -1,8 +1,6 @@
 
 Feature: Users
 
-
-
   @ONB2-14
   Scenario: TC ONB2-14 "List of Users" should be displayed properly on clicking "Users" on the navigation menu
     Given The user goes to the sign-in page
@@ -16,7 +14,14 @@ Feature: Users
     When The user enters valid logon credentials
     And the user clicks on "Users" at the navigation menu
     Then the user clicks on "New User" button
-    Then the user writes a name in the First Name box
+    And the user writes the  name in the First Name box
+    And the user writes the last name in the Last Name box
+    And the user writes the personal email  in the Personal Email box
+    And the user selects a role in the Role box "Admin"
+    And the user selects a company in the Company box "Ankasale"
+    And the user selects a site in the Site box
+    And the user creates a password in the Password box
+    And The user clicks on the Create button
     And The user should see the confirmation message
 
   @ONB2-51

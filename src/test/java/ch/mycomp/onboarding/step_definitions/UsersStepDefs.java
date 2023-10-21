@@ -1,5 +1,6 @@
 package ch.mycomp.onboarding.step_definitions;
 
+import ch.mycomp.onboarding.pages.UsersPage;
 import ch.mycomp.onboarding.utilities.BrowserUtils;
 import ch.mycomp.onboarding.utilities.Driver;
 import io.cucumber.java.en.And;
@@ -15,8 +16,7 @@ import static org.junit.Assert.assertTrue;
 public class UsersStepDefs extends ObjectIndex {
 
 
-    public void scrolDown()
-    {
+    public void scrolDown() {
         JavascriptExecutor jse = (JavascriptExecutor) driver;
 
     }
@@ -53,7 +53,7 @@ public class UsersStepDefs extends ObjectIndex {
     @Then("the user scrolls down until the end of the page")
     public void theUserScrollsDownUntilTheEndOfThePage() {
 
-       BrowserUtils.scrollToElement(usersPage.endOfUsersPage);
+        BrowserUtils.scrollToElement(usersPage.endOfUsersPage);
 
     }
 
@@ -67,12 +67,11 @@ public class UsersStepDefs extends ObjectIndex {
         assert (usersPage.totalNumberOfUsers.isDisplayed());
 
 
-
     }
 
     @Then("the user should observe {string} on each page of User List")
     public void theUserShouldObserveOnEachPageOfUserList(String arg0) {
-    assert (usersPage.listOfTenUsers.isEnabled());
+        assert (usersPage.listOfTenUsers.isEnabled());
 
     }
 
@@ -92,38 +91,21 @@ public class UsersStepDefs extends ObjectIndex {
     @Then("the user verifies that only numbers can be typed in the {string} text field")
     public void theUserVerifiesThatOnlyNumbersCanBeTypedInTheTextField(String arg0) {
 
-      usersPage.zipCodeTextField.sendKeys("12345678");
-
-
-
-
-
-
+        usersPage.zipCodeTextField.sendKeys("12345678");
     }
 
-    @Then("the user writes a name in the First Name box")
-    public void theUserWritesANameInTheFirstNameBox() {
-
-
-
-
-    }
 
     @Then("the user clicks on {string} text field")
     public void theUserClicksOnTextField(String arg0) {
 
         BrowserUtils.clickWithJS(usersPage.newUserPasswordField);
         BrowserUtils.waitFor(3);
-
-
-
-
     }
 
     @Then("the user writes no correct  {string} text field")
     public void theUserWritesNoCorrectTextField(String arg0) {
 
-   usersPage.newUserEmailField.sendKeys("ahmetgmail.com");
+        usersPage.newUserEmailField.sendKeys("ahmetgmail.com");
 
 
     }
@@ -137,7 +119,7 @@ public class UsersStepDefs extends ObjectIndex {
     @And("the user writes inappropriately a password in {string} text field")
     public void theUserWritesInappropriatelyAPasswordInTextField(String arg0) {
 
-       usersPage.newUserPasswordField.sendKeys("1234abc");
+        usersPage.newUserPasswordField.sendKeys("1234abc");
 
 
     }
@@ -149,6 +131,61 @@ public class UsersStepDefs extends ObjectIndex {
                 contains("Password must be between 8 and 20 characters"));
 
     }
+
+    @And("the user writes the  name in the First Name box")
+    public void theUserWritesTheNameInTheFirstNameBox() {
+        usersPage.newUserFirstNameField.sendKeys(faker.name().firstName());
+    }
+
+    @And("the user writes the last name in the Last Name box")
+    public void theUserWritesTheLastNameInTheLastNameBox() {
+        usersPage.newUserLastNameField.sendKeys(faker.name().lastName());
+
+    }
+
+    @And("the user writes the personal email  in the Personal Email box")
+    public void theUserWritesThePersonalEmailInThePersonalEmailBox() {
+        usersPage.newUserEmailField.sendKeys(faker.internet().emailAddress());
+    }
+
+    @And("the user selects a role in the Role box {string}")
+    public void theUserSelectsARoleInTheRoleBox(String targetListElement) {
+        usersPage.theUserSelectsARoleFromTheRoleDropdown(targetListElement);
+    }
+    @And("the user selects a company in the Company box {string}")
+    public void theUserSelectsWritesACompanyInTheCompanyBox(String targetElement) {
+        usersPage.theUserSelectsACompanyInTheCompanyBox(targetElement);
+    }
+
+    @And("the user selects a company in the Company box {string}")
+    public void theUserSelectsACompanyInTheCompanyBox(String targetElement) {
+        usersPage.theUserSelectsACompanyInTheCompanyBox(targetElement);
+
+    }
+
+    @And("the user selects a site in the Site box")
+    public void theUserSelectsASiteInTheSiteBox() {
+        usersPage.newUserSiteField.sendKeys(faker.address().city());
+    }
+
+    @And("the user creates a password in the Password box")
+    public void theUserCreatesAPasswordInThePasswordBox() {
+            BrowserUtils.clickWithJS(usersPage.newUserGeneratePasswordButton);
+        }
+
+
+    @And("The user should see the confirmation message")
+    public void theUserShouldSeeTheConfirmationMessage() {
+
+       assert(usersPage.message.isDisplayed());
+
+    }
 }
+
+
+
+
+
+
 
 
