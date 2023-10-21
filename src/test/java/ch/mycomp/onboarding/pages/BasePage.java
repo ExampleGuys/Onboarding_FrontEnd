@@ -2,6 +2,7 @@ package ch.mycomp.onboarding.pages;
 
 import ch.mycomp.onboarding.utilities.BrowserUtils;
 import ch.mycomp.onboarding.utilities.Driver;
+import com.github.javafaker.Faker;
 import org.openqa.selenium.By;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TimeoutException;
@@ -14,6 +15,7 @@ import java.time.Instant;
 import static org.junit.Assert.assertTrue;
 
 public abstract class BasePage {
+    Faker faker=new Faker();
 
     public BasePage() {
         PageFactory.initElements(Driver.get(), this);
