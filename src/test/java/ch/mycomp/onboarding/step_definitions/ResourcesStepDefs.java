@@ -3,6 +3,7 @@ package ch.mycomp.onboarding.step_definitions;
 import ch.mycomp.onboarding.utilities.BrowserUtils;
 import ch.mycomp.onboarding.utilities.ConfigurationReader;
 import ch.mycomp.onboarding.utilities.Driver;
+import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -11,9 +12,12 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
+import static ch.mycomp.onboarding.utilities.BrowserUtils.fakeName;
 import static ch.mycomp.onboarding.utilities.Driver.driver;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class ResourcesStepDefs extends ObjectIndex {
 
@@ -377,7 +381,7 @@ public class ResourcesStepDefs extends ObjectIndex {
     @Then("The user should see the message {string}")
     public void theUserShouldSeeTheMessage(String arg0) {
         Assert.assertTrue(resourcesPage.message.getText().contains("Resource successfully created"));
-
+      //resourcesPage.categoryNameTitle.click();
     }
 
     @Then("The user clicks on the Create button")
@@ -551,6 +555,11 @@ public class ResourcesStepDefs extends ObjectIndex {
     @And("The user selects a Company from company dropdown {string}")
     public void theUserSelectsACompanyFromCompanyDropdown(String targetListElement) {
         resourcesPage.theUserSelectsACompanyFromCompanyDropdown(targetListElement);
+    }
+
+    @And("The user must be able to search in the {string} search box")
+    public void theUserMustBeAbleToSearchInTheSearchBox(String arg0) {
+        //Search box Test
     }
 }
 
