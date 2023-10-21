@@ -221,3 +221,11 @@ Feature: Onboarding Create Tests
     And The user click on the "New Onboarding" button top right corner of the page
     And The user clicks on the Completion Date section in the Company Registration
     Then The User verify that the mini calendar is opened
+
+  @ONB2-212
+  Scenario: TC ONB2-212 The job in the Drafts list should be able to be saved by changing one of the personal information
+    And The User click on "Drafts" tab under the List of Onboardings headline
+    And And The User click on edit icon in the Actions section of first element of list
+    And The user changing one of the personal information
+    And the User Click on the "Save" button
+    Then The User verify that the change has been saved

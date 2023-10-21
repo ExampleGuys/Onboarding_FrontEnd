@@ -309,4 +309,14 @@ public class OnboardingStepDefs extends ObjectIndex{
     public void theUserVerifyThatTheMiniCalendarIsOpened() {
         onboardingPage.assertionCalendarIsDisplayed();
     }
+
+    @And("The user changing one of the personal information")
+    public void theUserChangingOneOfThePersonalInformation() {
+        onboardingPage.changingOneOfThePersonalInformation();
+        }
+
+    @Then("The User verify that the change has been saved")
+    public void theUserVerifyThatTheChangeHasBeenSaved() {
+        onboardingPage.assertionChangedHasBeenSaved();
+    }
 }

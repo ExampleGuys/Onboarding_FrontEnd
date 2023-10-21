@@ -370,4 +370,15 @@ public class OnboardingPage extends BasePage {
     public void assertionCalendarIsDisplayed(){
         assert (calendarPanel.isDisplayed());
     }
+
+    public void changingOneOfThePersonalInformation() {
+      personalFirstName.sendKeys(".");
+    }
+
+    public void assertionChangedHasBeenSaved() {
+        assertEquals(toastMessageText(),"Onboarding successfully updated");
+
+    }
+
+
 }
