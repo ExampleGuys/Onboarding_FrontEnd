@@ -163,3 +163,7 @@ Feature: Contacts test
     And the user writes Email address in "Enter email" text area
     And The user click on the "Create" button.
     Then user should be able to observe latest created contact is at the top of the list
+
+  @ONB2-289
+  Scenario: TC: ONB2-289 View contacts information under "List of Contacts" header
+    Then user should be able to view contacts' information under "List of Contacts" header

@@ -214,6 +214,13 @@ public class ContactsStepDefs extends ObjectIndex {
     public void userShouldBeAbleToObserveLatestCreatedContactIsAtTheTopOfTheList() {
         contactsPage.checkContactNames();
     }
+
+    @Then("user should be able to view contacts' information under {string} header")
+    public void userShouldBeAbleToViewContactsInformationUnderHeader(String headerName) {
+        assertTrue(contactsPage.getPageHeaderName(headerName).equals(headerName));
+        assertTrue(contactsPage.listOfContactsTable.isDisplayed());
+
+    }
 }
 
 
