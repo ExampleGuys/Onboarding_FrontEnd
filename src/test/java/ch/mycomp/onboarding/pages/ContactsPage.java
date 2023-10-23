@@ -32,11 +32,6 @@ public class ContactsPage extends BasePage {
     @FindBy(xpath = "(//tbody[@class='ant-table-tbody'])/tr")
     List<WebElement> contactsListInOnePage;
 
-    public void clickItemsOnTheNavigationMenu(String navigationMenuItem) {
-        WebElement sidebar = Driver.get().findElement(By.xpath("(//li[@role='menuitem'])//span[text()='" + navigationMenuItem + "']"));
-        BrowserUtils.waitFor(3);
-        BrowserUtils.clickWithJS(sidebar);
-    }
 
     public WebElement getButton(String buttonName) {
         WebElement button = Driver.get().findElement(By.xpath("//span[text()='" + buttonName + "']"));
@@ -67,11 +62,6 @@ public class ContactsPage extends BasePage {
         assertTrue(lastCreatedEmail.getText().equals(fakeEmail));
         System.out.println("lastCreatedEmail = " + lastCreatedEmail.getText());
         System.out.println("fakeEmail = " + fakeEmail);
-    }
-
-    public void clickCreateButtonWithoutWait(String buttonName) {
-        WebElement button = Driver.get().findElement(By.xpath("//span[text()='" + buttonName + "']"));
-        BrowserUtils.clickElement(button, 5);
     }
 
     public int countContacts() {
