@@ -40,7 +40,7 @@ public class ContactsStepDefs extends ObjectIndex {
 
     @And("the user writes a contact name in {string} text area")
     public void theUserWritesAContactNameInTextArea(String placeHolder) {
-        BrowserUtils.waitFor(3);
+        BrowserUtils.waitForVisibility(orderPage.boxName(placeHolder),20);
         contactsPage.writeContactNameInTheTextBox(placeHolder);
 
     }
