@@ -1,5 +1,6 @@
 package ch.mycomp.onboarding.pages;
 
+import ch.mycomp.onboarding.utilities.BrowserUtils;
 import ch.mycomp.onboarding.utilities.Driver;
 import com.github.javafaker.Faker;
 import com.github.javafaker.Faker;
@@ -38,6 +39,11 @@ public class UsersPage extends BasePage {
     public void theUserSelectsACompanyInTheCompanyBox(String targetListElement){
     globalSelectDropdownTargetElement(newUserCompanyField,targetListElement);
 
+    }
+
+    public void theUserSelectsASiteInTheSiteBox(String targetSite) {
+        BrowserUtils.waitFor(3);
+        globalSelectDropdownTargetElement(newUserSiteField,targetSite);
     }
 
     @FindBy(xpath = "//*[text()='List of Users']")
@@ -100,7 +106,7 @@ public class UsersPage extends BasePage {
     @FindBy(xpath = "//*[@placeholder='Enter last name']")
     public WebElement newUserLastNameField;
 
-    @FindBy(xpath = "(//*[@class='ant-select-selection-search'])[2]")
+    @FindBy(xpath = "(//*[@class='ant-select-selection-search'])[1]")
     public WebElement newUserRoleField;
 
     @FindBy(xpath = "//*[@id='User_company']")
@@ -114,6 +120,7 @@ public class UsersPage extends BasePage {
 
     @FindBy(xpath = "//*[@id=\"User\"]/div/div[3]/button[2]/span[2]")
     public WebElement newUserCreatedButton;
+
 
 
 }

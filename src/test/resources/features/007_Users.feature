@@ -19,7 +19,7 @@ Feature: Users
     And the user writes the personal email  in the Personal Email box
     And the user selects a role in the Role box "Admin"
     And the user selects a company in the Company box "Ankasale"
-    And the user selects a site in the Site box
+    And the user selects a site in the Site box "umraniye"
     And the user creates a password in the Password box
     And The user clicks on the Create button
     And The user should see the confirmation message

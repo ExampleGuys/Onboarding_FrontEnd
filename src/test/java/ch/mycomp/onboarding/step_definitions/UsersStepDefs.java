@@ -157,17 +157,6 @@ public class UsersStepDefs extends ObjectIndex {
         usersPage.theUserSelectsACompanyInTheCompanyBox(targetElement);
     }
 
-    @And("the user selects a company in the Company box {string}")
-    public void theUserSelectsACompanyInTheCompanyBox(String targetElement) {
-        usersPage.theUserSelectsACompanyInTheCompanyBox(targetElement);
-
-    }
-
-    @And("the user selects a site in the Site box")
-    public void theUserSelectsASiteInTheSiteBox() {
-        usersPage.newUserSiteField.sendKeys(faker.address().city());
-    }
-
     @And("the user creates a password in the Password box")
     public void theUserCreatesAPasswordInThePasswordBox() {
             BrowserUtils.clickWithJS(usersPage.newUserGeneratePasswordButton);
@@ -178,6 +167,12 @@ public class UsersStepDefs extends ObjectIndex {
     public void theUserShouldSeeTheConfirmationMessage() {
 
        assert(usersPage.message.isDisplayed());
+
+    }
+
+    @And("the user selects a site in the Site box {string}")
+    public void theUserSelectsASiteInTheSiteBox(String targetSite) {
+        usersPage.theUserSelectsASiteInTheSiteBox(targetSite);
 
     }
 }
