@@ -111,7 +111,7 @@ public class OnboardingPage extends BasePage {
     @FindBy(id = "onboarding_birthDate")
     public WebElement personalBirthDate;
 
-    @FindBy(id = "onboarding_employee_address")
+    @FindBy(xpath = "//input[@id='onboarding_employee_address']")
     public WebElement selectCompanyAddress;
 
     @FindBy(id = "onboarding_firstWorkingDay")
@@ -381,4 +381,13 @@ public class OnboardingPage extends BasePage {
     }
 
 
+    public void changingOneOfTheCompanyRegistration() {
+        BrowserUtils.waitFor(2);
+        firstWorkingDay.click();
+        LocalDate today = LocalDate.now();
+        LocalDate firstWorkDay = today.plusWeeks(2);
+        String personalFirstWorkDay = firstWorkDay.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        WebElement workingDay = Driver.get().findElement(By.xpath("//*[@title='" + personalFirstWorkDay + "']"));
+        workingDay.click();
+    }
 }

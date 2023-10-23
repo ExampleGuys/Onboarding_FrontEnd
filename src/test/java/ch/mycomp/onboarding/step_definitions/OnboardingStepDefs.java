@@ -319,4 +319,9 @@ public class OnboardingStepDefs extends ObjectIndex{
     public void theUserVerifyThatTheChangeHasBeenSaved() {
         onboardingPage.assertionChangedHasBeenSaved();
     }
+
+    @And("The user changing one of the Company Registration")
+    public void theUserChangingOneOfTheCompanyRegistration() {
+        onboardingPage.changingOneOfTheCompanyRegistration();
+    }
 }
