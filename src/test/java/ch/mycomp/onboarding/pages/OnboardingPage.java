@@ -17,8 +17,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.*;
 
 public class OnboardingPage extends BasePage {
     public static String totalNumberOfItems;
@@ -111,7 +110,7 @@ public class OnboardingPage extends BasePage {
     @FindBy(id = "onboarding_birthDate")
     public WebElement personalBirthDate;
 
-    @FindBy(id = "onboarding_employee_address")
+    @FindBy(xpath = "//input[@id='onboarding_employee_address']")
     public WebElement selectCompanyAddress;
 
     @FindBy(id = "onboarding_firstWorkingDay")
@@ -121,6 +120,16 @@ public class OnboardingPage extends BasePage {
     public WebElement completionDateAtLatest;
     @FindBy(xpath = "(//tbody//tr//td[@class='ant-table-cell'])[5][1]")
     WebElement createdTheNewOnboardingColumnAndRow;
+    @FindBy(xpath = "//div[@class='ant-picker-date-panel']")
+    public WebElement calendarPanel;
+    @FindBy(xpath = "(//tbody//tr//td[@class='ant-table-cell'])[2][1]")
+    public WebElement firstNameAreaInTheListOfOnboardings;
+
+    @FindBy(xpath = "//input[@id='onboarding_resources_0_resourceCategory']")
+    public WebElement inputResourcesCategory;
+    @FindBy(xpath = "//input[@id='onboarding_resources_0_selectedResources']")
+    public WebElement inputResourcesResource;
+
 
     public void assertionDeleteIconIsClickable() {
         assert (deleteIconInTheCommentsSection.isEnabled());
@@ -360,5 +369,77 @@ public class OnboardingPage extends BasePage {
 
     public void assertionToastMessageHasBeenSeen() {
         assertEquals(toastMessageText(),"Please fill out all required fields correctly.");
+    }
+
+    public void clicksCompletionDateAtLatest() {
+        BrowserUtils.clickElement(completionDateAtLatest,20);
+    }
+    public void assertionCalendarIsDisplayed(){
+        assert (calendarPanel.isDisplayed());
+    }
+
+    public void changingOneOfThePersonalInformation() {
+      personalFirstName.sendKeys(".");
+    }
+
+    public void assertionChangedHasBeenSaved() {
+        assertEquals(toastMessageText(),"Onboarding successfully updated");
+
+    }
+
+
+    public void changingOneOfTheCompanyRegistration() {
+        BrowserUtils.waitFor(2);
+        firstWorkingDay.click();
+        LocalDate today = LocalDate.now();
+        LocalDate firstWorkDay = today.plusWeeks(2);
+        String personalFirstWorkDay = firstWorkDay.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        WebElement workingDay = Driver.get().findElement(By.xpath("//*[@title='" + personalFirstWorkDay + "']"));
+        workingDay.click();
+    }
+
+    public void theUserVerifyThatNoChangesHaveOccured() {
+        assertFalse (firstNameAreaInTheListOfOnboardings.getText().contains("."));
+    }
+
+    public void changingOneOfTheResources() {
+        clickTheButton("Add resource");
+        inputResourcesCategory.click();
+        String category="Telefon";
+        WebElement selectCategory = Driver.get().findElement(By.xpath("//div[@title='" +category + "']"));
+        selectCategory.click();
+        BrowserUtils.waitFor(2);
+        inputResourcesResource.click();
+        String resource="Apple";
+        WebElement resourcesResource = Driver.get().findElement(By.xpath("//div[@title='" +resource + "']"));
+        resourcesResource.click();
+
+
+    }
+
+    public void changingOneOfTheCompletionDateAtTheLatest() {
+        BrowserUtils.waitFor(2);
+        completionDateAtLatest.click();
+        LocalDate today = LocalDate.now();
+        LocalDate complationDay = today.plusDays(1);
+        String resourceCompDate = complationDay.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        WebElement compDateAtLatest = Driver.get().findElement(By.xpath("(//tbody//tr//td[@title='" + resourceCompDate + "'])"));
+        compDateAtLatest.click();
+
+    }
+    public String checkedTheFirstNameOfListFirstElement() {
+        BrowserUtils.waitForVisibility(firstNameAreaInTheListOfOnboardings,20);
+        return firstNameAreaInTheListOfOnboardings.getText();
+    }
+    public void verifyThatTheJobIsSeenInTheComplatedRequestsList() {
+       String draftsFirstName= checkedTheFirstNameOfListFirstElement();
+       String completedFirstName= firstNameAreaInTheListOfOnboardings.getText();
+       assertEquals (draftsFirstName,completedFirstName);
+
+    }
+
+
+    public void clicksOnTheTheFirstWorkingDaySectionInTheCompanyRegistration() {
+        BrowserUtils.clickElement(firstWorkingDay,20);
     }
 }

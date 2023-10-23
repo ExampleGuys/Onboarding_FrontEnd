@@ -1,3 +1,4 @@
+@regression
 Feature: Onboarding Create Tests
 
   Background: pre-steps
@@ -214,3 +215,65 @@ Feature: Onboarding Create Tests
     And the User Click on the "Save & Complete" button
     And the User Click on the "Confirm" button
     Then The user then verifies that the toast message has been seen that the registration process did not take place
+
+  @ONB2-303
+  Scenario: TC ONB2-303 The mini-calendar should be available in the "Completion Date at The Latest"section
+    And The user click on the "New Onboarding" button top right corner of the page
+    And The user clicks on the Completion Date section in the Company Registration
+    Then The User verify that the mini calendar is opened
+
+  @ONB2-212
+  Scenario: TC ONB2-212 The job in the Drafts list should be able to be saved by changing one of the personal information
+    And The User click on "Drafts" tab under the List of Onboardings headline
+    And And The User click on edit icon in the Actions section of first element of list
+    And The user changing one of the personal information
+    And the User Click on the "Save" button
+    Then The User verify that the change has been saved
+
+  @ONB2-214
+  Scenario: TC ONB2-214 The job in the Drafts list should be able to be saved by changing one of the Company Registration
+    And The User click on "Drafts" tab under the List of Onboardings headline
+    And And The User click on edit icon in the Actions section of first element of list
+    And The user changing one of the Company Registration
+    And the User Click on the "Save" button
+    Then The User verify that the change has been saved
+
+  @ONB2-219
+  Scenario: TC ONB2-219 The job in the Drafts list should not be able to be changed once it has been completed without one of the personal details being changed and saved
+    And The User click on "Drafts" tab under the List of Onboardings headline
+    And And The User click on edit icon in the Actions section of first element of list
+    And The user changing one of the personal information
+    And the User Click on the "Back" button
+    Then The User verify that no changes have occured
+
+  @ONB2-215
+  Scenario: TC ONB2-215 The job in the Drafts list should be able to be saved by changing one of the Resources
+    And The User click on "Drafts" tab under the List of Onboardings headline
+    And And The User click on edit icon in the Actions section of first element of list
+    And The user changing one of the Resources
+    And the User Click on the "Save" button
+    Then The User verify that the change has been saved
+
+  @ONB2-216
+  Scenario: TC ONB2-216 The job in the Drafts list should be able to be saved by changing Complatetion Date at The Latest
+    And The User click on "Drafts" tab under the List of Onboardings headline
+    And And The User click on edit icon in the Actions section of first element of list
+    And The user changing one of the Completion Date At the Latest
+    And the User Click on the "Save" button
+    Then The User verify that the change has been saved
+
+  @ONB2-218
+  Scenario: TC ONB2-218 The job in the Drafts list should be able to be saved and complate
+    And The User click on "Drafts" tab under the List of Onboardings headline
+    And The User checked the FirstName of List first element
+    And And The User click on edit icon in the Actions section of first element of list
+    And the User Click on the "Save & Complete" button
+    And the User Click on the "Confirm" button
+    And The User click on "Completed Requests" tab under the List of Onboardings headline
+    Then The User verify that the job is seen in the complated Requests List
+
+    @ONB2-302
+    Scenario: TC ONB2-302 The mini-calendar should be available in the first start date section
+      And The user click on the "New Onboarding" button top right corner of the page
+      And The user clicks on the The First Working Day section in the Company Registration
+      Then The User verify that the mini calendar is opened
