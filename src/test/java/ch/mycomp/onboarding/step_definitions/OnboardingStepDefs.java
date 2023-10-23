@@ -299,4 +299,61 @@ public class OnboardingStepDefs extends ObjectIndex{
         onboardingPage.fillsAResourcesArea();
         onboardingPage.selectCompletionDateAtLatest();
     }
+
+    @And("The user clicks on the Completion Date section in the Company Registration")
+    public void theUserClicksOnTheCompletionDateSectionInTheCompanyRegistration() {
+        onboardingPage.clicksCompletionDateAtLatest();
+    }
+
+    @Then("The User verify that the mini calendar is opened")
+    public void theUserVerifyThatTheMiniCalendarIsOpened() {
+        onboardingPage.assertionCalendarIsDisplayed();
+    }
+
+    @And("The user changing one of the personal information")
+    public void theUserChangingOneOfThePersonalInformation() {
+        onboardingPage.changingOneOfThePersonalInformation();
+        }
+
+    @Then("The User verify that the change has been saved")
+    public void theUserVerifyThatTheChangeHasBeenSaved() {
+        onboardingPage.assertionChangedHasBeenSaved();
+    }
+
+    @And("The user changing one of the Company Registration")
+    public void theUserChangingOneOfTheCompanyRegistration() {
+        onboardingPage.changingOneOfTheCompanyRegistration();
+    }
+
+    @Then("The User verify that no changes have occured")
+    public void theUserVerifyThatNoChangesHaveOccured() {
+        onboardingPage.theUserVerifyThatNoChangesHaveOccured();
+    }
+
+    @And("The user changing one of the Resources")
+    public void theUserChangingOneOfTheResources() {
+        onboardingPage.changingOneOfTheResources();
+    }
+
+    @And("The user changing one of the Completion Date At the Latest")
+    public void theUserChangingOneOfTheCompletionDateAtTheLatest() {
+        onboardingPage.changingOneOfTheCompletionDateAtTheLatest();
+    }
+
+    @Then("The User verify that the job is seen in the complated Requests List")
+    public void theUserVerifyThatTheJobIsSeenInTheComplatedRequestsList() {
+        onboardingPage.verifyThatTheJobIsSeenInTheComplatedRequestsList();
+
+    }
+
+    @And("The User checked the FirstName of List first element")
+    public void theUserCheckedTheFirstNameOfListFirstElement() {
+        onboardingPage.checkedTheFirstNameOfListFirstElement();
+
+    }
+
+    @And("The user clicks on the The First Working Day section in the Company Registration")
+    public void theUserClicksOnTheTheFirstWorkingDaySectionInTheCompanyRegistration() {
+        onboardingPage.clicksOnTheTheFirstWorkingDaySectionInTheCompanyRegistration();
+    }
 }
