@@ -124,6 +124,13 @@ public class OnboardingPage extends BasePage {
     public WebElement calendarPanel;
     @FindBy(xpath = "(//tbody//tr//td[@class='ant-table-cell'])[2][1]")
     public WebElement firstNameAreaInTheListOfOnboardings;
+
+    @FindBy(xpath = "//input[@id='onboarding_resources_0_resourceCategory']")
+    public WebElement inputResourcesCategory;
+    @FindBy(xpath = "//input[@id='onboarding_resources_0_selectedResources']")
+    public WebElement inputResourcesResource;
+
+
     public void assertionDeleteIconIsClickable() {
         assert (deleteIconInTheCommentsSection.isEnabled());
     }
@@ -393,5 +400,20 @@ public class OnboardingPage extends BasePage {
 
     public void theUserVerifyThatNoChangesHaveOccured() {
         assertFalse (firstNameAreaInTheListOfOnboardings.getText().contains("."));
+    }
+
+    public void changingOneOfTheResources() {
+        clickTheButton("Add resource");
+        inputResourcesCategory.click();
+        String category="Telefon";
+        WebElement selectCategory = Driver.get().findElement(By.xpath("//div[@title='" +category + "']"));
+        selectCategory.click();
+        BrowserUtils.waitFor(2);
+        inputResourcesResource.click();
+        String resource="Apple";
+        WebElement resourcesResource = Driver.get().findElement(By.xpath("//div[@title='" +resource + "']"));
+        resourcesResource.click();
+
+
     }
 }

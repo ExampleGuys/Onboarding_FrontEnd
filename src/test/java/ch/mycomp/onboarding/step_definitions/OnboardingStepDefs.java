@@ -329,4 +329,9 @@ public class OnboardingStepDefs extends ObjectIndex{
     public void theUserVerifyThatNoChangesHaveOccured() {
         onboardingPage.theUserVerifyThatNoChangesHaveOccured();
     }
+
+    @And("The user changing one of the Resources")
+    public void theUserChangingOneOfTheResources() {
+        onboardingPage.changingOneOfTheResources();
+    }
 }
