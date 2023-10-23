@@ -339,4 +339,16 @@ public class OnboardingStepDefs extends ObjectIndex{
     public void theUserChangingOneOfTheCompletionDateAtTheLatest() {
         onboardingPage.changingOneOfTheCompletionDateAtTheLatest();
     }
+
+    @Then("The User verify that the job is seen in the complated Requests List")
+    public void theUserVerifyThatTheJobIsSeenInTheComplatedRequestsList() {
+        onboardingPage.verifyThatTheJobIsSeenInTheComplatedRequestsList();
+
+    }
+
+    @And("The User checked the FirstName of List first element")
+    public void theUserCheckedTheFirstNameOfListFirstElement() {
+        onboardingPage.checkedTheFirstNameOfListFirstElement();
+
+    }
 }

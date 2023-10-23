@@ -427,4 +427,16 @@ public class OnboardingPage extends BasePage {
         compDateAtLatest.click();
 
     }
+    public String checkedTheFirstNameOfListFirstElement() {
+        BrowserUtils.waitForVisibility(firstNameAreaInTheListOfOnboardings,20);
+        return firstNameAreaInTheListOfOnboardings.getText();
+    }
+    public void verifyThatTheJobIsSeenInTheComplatedRequestsList() {
+       String draftsFirstName= checkedTheFirstNameOfListFirstElement();
+       String completedFirstName= firstNameAreaInTheListOfOnboardings.getText();
+       assertEquals (draftsFirstName,completedFirstName);
+
+    }
+
+
 }

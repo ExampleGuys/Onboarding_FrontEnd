@@ -261,3 +261,13 @@ Feature: Onboarding Create Tests
     And The user changing one of the Completion Date At the Latest
     And the User Click on the "Save" button
     Then The User verify that the change has been saved
+
+  @ONB2-218
+  Scenario: TC ONB2-218 The job in the Drafts list should be able to be saved and complate
+    And The User click on "Drafts" tab under the List of Onboardings headline
+    And The User checked the FirstName of List first element
+    And And The User click on edit icon in the Actions section of first element of list
+    And the User Click on the "Save & Complete" button
+    And the User Click on the "Confirm" button
+    And The User click on "Completed Requests" tab under the List of Onboardings headline
+    Then The User verify that the job is seen in the complated Requests List
