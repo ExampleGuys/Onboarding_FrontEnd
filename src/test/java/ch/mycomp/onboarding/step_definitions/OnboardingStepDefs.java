@@ -324,4 +324,9 @@ public class OnboardingStepDefs extends ObjectIndex{
     public void theUserChangingOneOfTheCompanyRegistration() {
         onboardingPage.changingOneOfTheCompanyRegistration();
     }
+
+    @Then("The User verify that no changes have occured")
+    public void theUserVerifyThatNoChangesHaveOccured() {
+        onboardingPage.theUserVerifyThatNoChangesHaveOccured();
+    }
 }

@@ -17,8 +17,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.*;
 
 public class OnboardingPage extends BasePage {
     public static String totalNumberOfItems;
@@ -123,7 +122,8 @@ public class OnboardingPage extends BasePage {
     WebElement createdTheNewOnboardingColumnAndRow;
     @FindBy(xpath = "//div[@class='ant-picker-date-panel']")
     public WebElement calendarPanel;
-
+    @FindBy(xpath = "(//tbody//tr//td[@class='ant-table-cell'])[2][1]")
+    public WebElement firstNameAreaInTheListOfOnboardings;
     public void assertionDeleteIconIsClickable() {
         assert (deleteIconInTheCommentsSection.isEnabled());
     }
@@ -389,5 +389,9 @@ public class OnboardingPage extends BasePage {
         String personalFirstWorkDay = firstWorkDay.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         WebElement workingDay = Driver.get().findElement(By.xpath("//*[@title='" + personalFirstWorkDay + "']"));
         workingDay.click();
+    }
+
+    public void theUserVerifyThatNoChangesHaveOccured() {
+        assertFalse (firstNameAreaInTheListOfOnboardings.getText().contains("."));
     }
 }

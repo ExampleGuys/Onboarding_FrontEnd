@@ -237,3 +237,11 @@ Feature: Onboarding Create Tests
     And The user changing one of the Company Registration
     And the User Click on the "Save" button
     Then The User verify that the change has been saved
+
+  @ONB2-219
+  Scenario: TC ONB2-219 The job in the Drafts list should not be able to be changed once it has been completed without one of the personal details being changed and saved
+    And The User click on "Drafts" tab under the List of Onboardings headline
+    And And The User click on edit icon in the Actions section of first element of list
+    And The user changing one of the personal information
+    And the User Click on the "Back" button
+    Then The User verify that no changes have occured
