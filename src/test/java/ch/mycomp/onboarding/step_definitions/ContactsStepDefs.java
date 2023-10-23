@@ -209,6 +209,11 @@ public class ContactsStepDefs extends ObjectIndex {
     public void userShouldBeAbleToVerifyThatGoesBackToThePreviousPage() {
         assertTrue(Driver.driver.getCurrentUrl().contains("1"));
     }
+
+    @Then("user should be able to observe latest created contact is at the top of the list")
+    public void userShouldBeAbleToObserveLatestCreatedContactIsAtTheTopOfTheList() {
+        contactsPage.checkContactNames();
+    }
 }
 
 

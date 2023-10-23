@@ -155,3 +155,11 @@ Feature: Contacts test
     Then user should be able to verify that goes to the next page
     And user clicks pagination-prev-item to move previous page
     Then user should be able to verify that goes back to the previous page
+
+  @ONB2-95
+  Scenario: TC: ONB2-95 Observe latest created contact is at the top of the list of contacts
+    And The user click on the "New Contact" button.
+    And the user writes a contact name in "Enter full name or company" text area
+    And the user writes Email address in "Enter email" text area
+    And The user click on the "Create" button.
+    Then user should be able to observe latest created contact is at the top of the list
