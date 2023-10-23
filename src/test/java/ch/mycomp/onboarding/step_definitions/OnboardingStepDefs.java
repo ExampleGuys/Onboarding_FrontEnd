@@ -334,4 +334,9 @@ public class OnboardingStepDefs extends ObjectIndex{
     public void theUserChangingOneOfTheResources() {
         onboardingPage.changingOneOfTheResources();
     }
+
+    @And("The user changing one of the Completion Date At the Latest")
+    public void theUserChangingOneOfTheCompletionDateAtTheLatest() {
+        onboardingPage.changingOneOfTheCompletionDateAtTheLatest();
+    }
 }

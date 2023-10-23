@@ -416,4 +416,15 @@ public class OnboardingPage extends BasePage {
 
 
     }
+
+    public void changingOneOfTheCompletionDateAtTheLatest() {
+        BrowserUtils.waitFor(2);
+        completionDateAtLatest.click();
+        LocalDate today = LocalDate.now();
+        LocalDate complationDay = today.plusDays(1);
+        String resourceCompDate = complationDay.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        WebElement compDateAtLatest = Driver.get().findElement(By.xpath("(//tbody//tr//td[@title='" + resourceCompDate + "'])"));
+        compDateAtLatest.click();
+
+    }
 }

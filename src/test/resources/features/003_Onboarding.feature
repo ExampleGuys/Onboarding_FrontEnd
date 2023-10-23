@@ -253,3 +253,11 @@ Feature: Onboarding Create Tests
     And The user changing one of the Resources
     And the User Click on the "Save" button
     Then The User verify that the change has been saved
+
+  @ONB2-216
+  Scenario: TC ONB2-216 The job in the Drafts list should be able to be saved by changing Complatetion Date at The Latest
+    And The User click on "Drafts" tab under the List of Onboardings headline
+    And And The User click on edit icon in the Actions section of first element of list
+    And The user changing one of the Completion Date At the Latest
+    And the User Click on the "Save" button
+    Then The User verify that the change has been saved
