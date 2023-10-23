@@ -13,6 +13,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.net.PortUnreachableException;
+import java.util.List;
 
 import static ch.mycomp.onboarding.utilities.Driver.driver;
 
@@ -122,5 +123,12 @@ public class UsersPage extends BasePage {
     public WebElement newUserCreatedButton;
 
 
+    @FindBy(xpath = "//*[@class='ant-table-row ant-table-row-level-0']")
+    public WebElement usersTableRowNumber;
 
-}
+   // public void usersTableRowNumber (){
+   //     List<WebElement> rowtableUsers = (List<WebElement>) usersTableRowNumber;
+   //     rowtableUsers.size();
+
+    }
+

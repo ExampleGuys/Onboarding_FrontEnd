@@ -359,7 +359,7 @@ public class ResourcesPage extends BasePage {
     @FindBy(xpath = "//*[@id='resource_resources_0_name']")
     public WebElement inputResourcesNameNewResourceLocator;
 
-    @FindBy(id = "(resource_company)")
+    @FindBy(id = "resource_company")
     public WebElement inputCompanyDropdownResourcePageLocator;
 
     @FindBy(xpath = "//div[@class='ant-select-selector'][.//*[@id='resource_resources_0_contacts']]")
