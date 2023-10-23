@@ -39,6 +39,7 @@ public class ContactsStepDefs extends ObjectIndex {
 
     @And("the user writes a contact name in {string} text area")
     public void theUserWritesAContactNameInTextArea(String placeHolder) {
+        BrowserUtils.waitFor(3);
         contactsPage.writeContactNameInTheTextBox(placeHolder);
 
     }
@@ -49,7 +50,7 @@ public class ContactsStepDefs extends ObjectIndex {
 
     }
 
-    @And("the user writes email address in {string} text area")
+    @And("the user writes Email address in {string} text area")
     public void theUserWritesEmailAddressInTextArea(String placeHolder) {
         contactsPage.writeEmailInTheTextBox(placeHolder);
     }
@@ -69,11 +70,13 @@ public class ContactsStepDefs extends ObjectIndex {
 
     @And("the user clicks on the {string} button")
     public void theUserClicksOnTheButton(String buttonName) {
-        contactsPage.clickCreateButtonWithoutWait(buttonName);
+        BrowserUtils.clickElement(contactsPage.getButton(buttonName), 20);
+
     }
 
     @Then("user should be able to view {string} text at the top left of the page")
     public void userShouldBeAbleToViewTextAtTheTopLeftOfThePage(String textName) {
+        BrowserUtils.waitForVisibility(contactsPage.message, 20);
         assertTrue("Breadcrumb links did not match", contactsPage.getBreadcrumbText(textName).equals(textName));
 
     }
@@ -131,7 +134,7 @@ public class ContactsStepDefs extends ObjectIndex {
     public void userShouldBeAbleToObserveOnOnePage(String tenContacts) {
 
         int contactsInOnePage = Integer.parseInt(tenContacts);
-        assertEquals(contactsPage.countContacts(),contactsInOnePage);
+        assertEquals(contactsPage.countContacts(), contactsInOnePage);
     }
 
     @Then("user should be able to click pagination-next-item button")
@@ -141,7 +144,7 @@ public class ContactsStepDefs extends ObjectIndex {
 
     @And("the user clicks on the delete icon in the Actions section of a first element of contacts list")
     public void theUserClicksOnTheDeleteIconInTheActionsSectionOfAFirstElementOfContactsList() {
-        BrowserUtils.clickElement(contactsPage.deleteIconForFirstRow,20);
+        BrowserUtils.clickElement(contactsPage.deleteIconForFirstRow, 20);
     }
 
     @And("the user clicks on {string} button on the ant-popover")
