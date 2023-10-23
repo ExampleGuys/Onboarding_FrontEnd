@@ -439,4 +439,7 @@ public class OnboardingPage extends BasePage {
     }
 
 
+    public void clicksOnTheTheFirstWorkingDaySectionInTheCompanyRegistration() {
+        BrowserUtils.clickElement(firstWorkingDay,20);
+    }
 }

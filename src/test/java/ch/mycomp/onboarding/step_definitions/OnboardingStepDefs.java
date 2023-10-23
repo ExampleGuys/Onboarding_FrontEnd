@@ -351,4 +351,9 @@ public class OnboardingStepDefs extends ObjectIndex{
         onboardingPage.checkedTheFirstNameOfListFirstElement();
 
     }
+
+    @And("The user clicks on the The First Working Day section in the Company Registration")
+    public void theUserClicksOnTheTheFirstWorkingDaySectionInTheCompanyRegistration() {
+        onboardingPage.clicksOnTheTheFirstWorkingDaySectionInTheCompanyRegistration();
+    }
 }

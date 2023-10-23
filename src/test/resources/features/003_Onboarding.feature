@@ -271,3 +271,9 @@ Feature: Onboarding Create Tests
     And the User Click on the "Confirm" button
     And The User click on "Completed Requests" tab under the List of Onboardings headline
     Then The User verify that the job is seen in the complated Requests List
+
+    @ONB2-302
+    Scenario: TC ONB2-302 The mini-calendar should be available in the first start date section
+      And The user click on the "New Onboarding" button top right corner of the page
+      And The user clicks on the The First Working Day section in the Company Registration
+      Then The User verify that the mini calendar is opened
