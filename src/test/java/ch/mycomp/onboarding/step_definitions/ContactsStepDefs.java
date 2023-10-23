@@ -1,6 +1,7 @@
 package ch.mycomp.onboarding.step_definitions;
 
 import ch.mycomp.onboarding.utilities.BrowserUtils;
+import ch.mycomp.onboarding.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 
@@ -187,6 +188,26 @@ public class ContactsStepDefs extends ObjectIndex {
     public void userShouldBeAbleToClickButton(String cancelButton) {
         BrowserUtils.clickElement(contactsPage.getButton(cancelButton), 20);
         assertTrue(contactsPage.getButton(cancelButton).isEnabled());
+    }
+
+    @And("user clicks pagination-next-item to move next page")
+    public void userClicksPaginationNextItemToMoveNextPage() {
+        BrowserUtils.clickElement(contactsPage.paginationItemLinkForNextPage,20);
+    }
+
+    @Then("user should be able to verify that goes to the next page")
+    public void userShouldBeAbleToVerifyThatGoesToTheNextPage() {
+        assertTrue(Driver.driver.getCurrentUrl().contains("2"));
+    }
+
+    @And("user clicks pagination-prev-item to move previous page")
+    public void userClicksPaginationPrevItemToMovePreviousPage() {
+        BrowserUtils.clickElement(contactsPage.paginationItemLinkForPreviousPage,20);
+    }
+
+    @Then("user should be able to verify that goes back to the previous page")
+    public void userShouldBeAbleToVerifyThatGoesBackToThePreviousPage() {
+        assertTrue(Driver.driver.getCurrentUrl().contains("1"));
     }
 }
 

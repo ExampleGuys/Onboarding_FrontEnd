@@ -147,3 +147,11 @@ Feature: Contacts test
   Scenario: TC: ONB2-179 Cancel button should be clickable on the ant-popover in the Contacts page
     And user clicks Delete icon
     Then user should be able to click "Cancel" button
+
+  @ONB2-229
+  Scenario: TC: ONB2-229 Move forward and backward in the Contacts page
+    And user scrolls until end of the page
+    And user clicks pagination-next-item to move next page
+    Then user should be able to verify that goes to the next page
+    And user clicks pagination-prev-item to move previous page
+    Then user should be able to verify that goes back to the previous page
