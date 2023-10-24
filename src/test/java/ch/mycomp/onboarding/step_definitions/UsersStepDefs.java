@@ -1,6 +1,5 @@
 package ch.mycomp.onboarding.step_definitions;
 
-import ch.mycomp.onboarding.pages.UsersPage;
 import ch.mycomp.onboarding.utilities.BrowserUtils;
 import ch.mycomp.onboarding.utilities.Driver;
 import io.cucumber.java.en.And;
@@ -11,7 +10,6 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 
 import static ch.mycomp.onboarding.utilities.Driver.driver;
-import static org.junit.Assert.assertTrue;
 
 public class UsersStepDefs extends ObjectIndex {
 
@@ -65,64 +63,49 @@ public class UsersStepDefs extends ObjectIndex {
     @Then("the user should see the number of the total users")
     public void theUserShouldSeeTheNumberOfTheTotalUsers() {
         assert (usersPage.totalNumberOfUsers.isDisplayed());
-
-
     }
 
-    @Then("the user should observe {string} on each page of User List")
-    public void theUserShouldObserveOnEachPageOfUserList(String arg0) {
+    @Then("the user should observe 10 users on each page of User List")
+    public void theUserShouldObserve10UsersOnEachPageOfUserList() {
         assert (usersPage.listOfTenUsers.isEnabled());
-
     }
 
     @Then("the user clicks on {string} button")
     public void theUserClicksOnButton(String arg0) {
         usersPage.newUsersButton.click();
-
     }
 
     @Then("the user clicks on the {string} icon of the Site button")
     public void theUserClicksOnTheIconOfTheSiteButton(String arg0) {
-
-
-        usersPage.newUsersSiteArrow.click();
+        BrowserUtils.clickElement(usersPage.newUsersSiteArrow, 20);
     }
 
     @Then("the user verifies that only numbers can be typed in the {string} text field")
     public void theUserVerifiesThatOnlyNumbersCanBeTypedInTheTextField(String arg0) {
-
-        usersPage.zipCodeTextField.sendKeys("12345678");
+        BrowserUtils.sendKeysMethod(usersPage.zipCodeTextField, "12345678", 20);
     }
 
 
     @Then("the user clicks on {string} text field")
     public void theUserClicksOnTextField(String arg0) {
-
-        BrowserUtils.clickWithJS(usersPage.newUserPasswordField);
-        BrowserUtils.waitFor(3);
+        BrowserUtils.clickElement(usersPage.newUserPasswordField,20);
     }
 
     @Then("the user writes no correct  {string} text field")
     public void theUserWritesNoCorrectTextField(String arg0) {
-
-        usersPage.newUserEmailField.sendKeys("ahmetgmail.com");
-
-
+        BrowserUtils.sendKeysMethod(usersPage.newUserEmailField,"ahmetgmail.com",20);
     }
 
     @Then("the should see the message {string}")
     public void theShouldSeeTheMessage(String arg0) {
-
         BrowserUtils.toastMessage();
     }
 
-    @And("the user writes inappropriately a password in {string} text field")
-    public void theUserWritesInappropriatelyAPasswordInTextField(String arg0) {
-
-        usersPage.newUserPasswordField.sendKeys("1234abc");
-
-
+    @Then("the user verifies that only numbers can be typed in the Zip Code text field")
+    public void theUserVerifiesThatOnlyNumbersCanBeTypedInTheZipCodeTextField() {
+        BrowserUtils.sendKeysMethod(usersPage.newUserPasswordField,"1234abc",20);
     }
+
 
     @Then("the user should see the relevant warning messages")
     public void theUserShouldSeeTheRelevantWarningMessages() {
@@ -152,6 +135,7 @@ public class UsersStepDefs extends ObjectIndex {
     public void theUserSelectsARoleInTheRoleBox(String targetListElement) {
         usersPage.theUserSelectsARoleFromTheRoleDropdown(targetListElement);
     }
+
     @And("the user selects a company in the Company box {string}")
     public void theUserSelectsWritesACompanyInTheCompanyBox(String targetElement) {
         usersPage.theUserSelectsACompanyInTheCompanyBox(targetElement);
@@ -159,14 +143,14 @@ public class UsersStepDefs extends ObjectIndex {
 
     @And("the user creates a password in the Password box")
     public void theUserCreatesAPasswordInThePasswordBox() {
-            BrowserUtils.clickWithJS(usersPage.newUserGeneratePasswordButton);
-        }
+        BrowserUtils.clickWithJS(usersPage.newUserGeneratePasswordButton);
+    }
 
 
     @And("The user should see the confirmation message")
     public void theUserShouldSeeTheConfirmationMessage() {
 
-       assert(usersPage.message.isDisplayed());
+        assert (usersPage.message.isDisplayed());
 
     }
 
@@ -174,6 +158,10 @@ public class UsersStepDefs extends ObjectIndex {
     public void theUserSelectsASiteInTheSiteBox(String targetSite) {
         usersPage.theUserSelectsASiteInTheSiteBox(targetSite);
 
+    }
+
+    @And("the user writes inappropriately a password in Password text field")
+    public void theUserWritesInappropriatelyAPasswordInPasswordTextField() {
     }
 }
 

@@ -22,31 +22,6 @@ public class UsersPage extends BasePage {
 
     Actions actions = new Actions(driver);
 
-
-    public void scrolldownPage() {
-
-        WebElement downPage = driver.findElement(By.xpath("//*[@id=\"root\"]/section/section/main/div[2]/div[2]/div/div[2]/div/div/div/ul"));
-
-        JavascriptExecutor jse = (JavascriptExecutor) driver;
-        jse.executeScript("arguments[0].scrollIntoView();", downPage);
-        jse.executeScript("arguments[0].click();", downPage);
-
-    }
-
-    public void theUserSelectsARoleFromTheRoleDropdown(String targetListElement) {
-        globalSelectDropdownTargetElement(newUserRoleField, targetListElement);
-    }
-
-    public void theUserSelectsACompanyInTheCompanyBox(String targetListElement){
-    globalSelectDropdownTargetElement(newUserCompanyField,targetListElement);
-
-    }
-
-    public void theUserSelectsASiteInTheSiteBox(String targetSite) {
-        BrowserUtils.waitFor(3);
-        globalSelectDropdownTargetElement(newUserSiteField,targetSite);
-    }
-
     @FindBy(xpath = "//*[text()='List of Users']")
     public WebElement titleofUsers;
 
@@ -55,34 +30,20 @@ public class UsersPage extends BasePage {
 
     @FindBy(xpath = "(//div[@class='ant-row css-14bavl3'])[1]")
     public WebElement listofUsers;
-
-    public void assertionForlistofUsersIsVisible() {
-        assert (listofUsers.isDisplayed());
-    }
     @FindBy(xpath = "//*[@class='ant-select-arrow'] ")
     public WebElement usersPageArrow;
 
     @FindBy(xpath = "//*[@id=\"root\"]/section/aside/div[1]/ul/li[4]/span")
     public WebElement tenUsersChosen;
 
-    public void actionsUsers() {
-
-        WebElement usersList = driver.findElement(By.xpath("(//span[@role='img'])[38]\""));
-        actions.contextClick(usersList).perform();
-    }
-
     @FindBy(xpath = "(//*[@type='button'])[2]")
     public WebElement newUsersButton;
 
-    @FindBy(xpath = "//*[@rel='nofollow'])[1]")
+    @FindBy(xpath = "(//*[@rel='nofollow'])[1]")
     public WebElement listOfTenUsers;
 
-    public void assertionListOfTenUsersIsDisplayed() {
-        assert (listOfTenUsers.isDisplayed());
-    }
     @FindBy(xpath = "//li[@class='ant-pagination-total-text']")
     public WebElement totalNumberOfUsers;
-
     @FindBy(xpath = "//*[@id=\"User\"]/div/div[1]/div/div[7]/div/div/div[1]/label/div/button/span")
     public WebElement newUsersSiteArrow;
 
@@ -122,13 +83,46 @@ public class UsersPage extends BasePage {
     @FindBy(xpath = "//*[@id=\"User\"]/div/div[3]/button[2]/span[2]")
     public WebElement newUserCreatedButton;
 
-
     @FindBy(xpath = "//*[@class='ant-table-row ant-table-row-level-0']")
     public WebElement usersTableRowNumber;
 
-   // public void usersTableRowNumber (){
-   //     List<WebElement> rowtableUsers = (List<WebElement>) usersTableRowNumber;
-   //     rowtableUsers.size();
+    public void scrolldownPage() {
+
+        WebElement downPage = driver.findElement(By.xpath("//*[@id=\"root\"]/section/section/main/div[2]/div[2]/div/div[2]/div/div/div/ul"));
+
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
+        jse.executeScript("arguments[0].scrollIntoView();", downPage);
+        jse.executeScript("arguments[0].click();", downPage);
+
+    }
+
+    public void assertionForlistofUsersIsVisible() {
+        assert (listofUsers.isDisplayed());
+    }
+
+    public void actionsUsers() {
+
+        WebElement usersList = driver.findElement(By.xpath("(//span[@role='img'])[38]"));
+        actions.contextClick(usersList).perform();
+    }
+
+    public void assertionListOfTenUsersIsDisplayed() {
+        assert (listOfTenUsers.isDisplayed());
+    }
+
+    public void theUserSelectsARoleFromTheRoleDropdown(String targetListElement) {
+        globalSelectDropdownTargetElement(newUserRoleField, targetListElement);
+    }
+
+    public void theUserSelectsACompanyInTheCompanyBox(String targetListElement){
+        globalSelectDropdownTargetElement(newUserCompanyField,targetListElement);
+
+    }
+
+    public void theUserSelectsASiteInTheSiteBox(String targetSite) {
+        BrowserUtils.waitForClickability(newUserSiteField,20);
+        globalSelectDropdownTargetElement(newUserSiteField,targetSite);
+    }
 
     }
 

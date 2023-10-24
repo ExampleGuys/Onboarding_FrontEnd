@@ -41,7 +41,7 @@ Feature: Users
     Then the user scrolls down until the end of the page
     Then the user click on the arrow of the users page
   #  And the user chooses "10 users" per page
-    Then the user should observe "10 users" on each page of User List
+    Then the user should observe 10 users on each page of User List
 
    @ONB2-135
    Scenario: TC ONB2 The user should observe the number of total users correctly
@@ -58,7 +58,7 @@ Feature: Users
     And the user clicks on "Users" at the navigation menu
     Then the user clicks on "New User" button
     Then the user clicks on the "+" icon of the Site button
-    Then the user verifies that only numbers can be typed in the "Zip Code" text field
+    Then the user verifies that only numbers can be typed in the Zip Code text field
 
   @ONB2-157
     Scenario: TC ONB2-157 An alert message should appear if the email is not filled in correctly.
@@ -77,5 +77,5 @@ Feature: Users
      And the user clicks on "Users" at the navigation menu
      Then the user clicks on "New User" button
      And the user clicks on "Password" text field
-     And the user writes inappropriately a password in "Password" text field
+     And the user writes inappropriately a password in Password text field
      Then the user should see the relevant warning messages
