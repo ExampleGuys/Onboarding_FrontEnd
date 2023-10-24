@@ -8,7 +8,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 public class ResourcesPage extends BasePage {
 
@@ -436,7 +435,6 @@ public class ResourcesPage extends BasePage {
         BrowserUtils.clickWithJS(button);
     }
     public void theUserShouldBeAbleToClickOnTheSearchBySiteSearchBox() {
-        //BrowserUtils.waitForClickability(searchBoxText,1);
         searchBoxText.click();
     }
     public void theUserMustBeAbleToSearchInTheSearchBySiteSearchBox() {
@@ -446,5 +444,76 @@ public class ResourcesPage extends BasePage {
     public void theUserClicksOnTheSitesSitesDeleteButton() {
         BrowserUtils.waitForClickability(deleteButtonDelete,1);
     }
+    public void theUserShouldBeSeenTheNewRecourcesItemOpened() {
+        BrowserUtils.waitForVisibility(addResourcesFirstLine,1);
+    }
+    public void theUserShouldBeSeenTheResourcesPage() {
+        BrowserUtils.waitForVisibility(resourcesSite,1);
+    }
+    public void theUserShouldBeTheTitleOnThePage(String arg0, String arg1) {
+        BrowserUtils.waitForVisibility(listOf_,1);
+    }
+    public void theUserShouldBeTheTitle(String arg0, String arg1, String arg2, String arg3) {
 
+        //        Assert.assertTrue(commonPage.listOf_Title.isDisplayed());
+        //        Assert.assertTrue(commonPage.createdAtTitle.isDisplayed());
+        //        Assert.assertTrue(commonPage.createdByTitle.isDisplayed());
+        //        Assert.assertTrue(resourcesPage.categoryNameTitle.isDisplayed());
+        // BrowserUtils.waitForVisibility(commonPage.listOf_Title,20);
+
+        //   String actualResultlistOf_Title = commonPage.listOf_Title.getText();
+        String expectedResult = arg0;
+        //  Assert.assertEquals(expectedResult,actualResultlistOf_Title);
+    }
+    public void theUserClicksOnTheSearchByNameSearchBox() {
+       searchBoxButton.click();
+    }
+    public void userSearchesInTheSearchBox() {
+        searchBoxButton.getText();
+        BrowserUtils.waitForVisibility(searchBoxFirstLine,1);
+    }
+    public void theUserShouldBeSeenTheNewResourcePage() {
+        BrowserUtils.waitForVisibility(newResourcesPage,1);
+    }
+    public void theUserClicksOnTheLink() {
+        resourcesLink.click();
+    }
+    public void theUserShouldBeSeenTheTitle(String arg0) {
+        getSectionName(arg0);
+        BrowserUtils.waitFor(2);
+        BrowserUtils.waitForVisibility(categoryNameTitleNewResourcesSeit,1);
+    }
+    public void theUserShouldBeSeenTheSelectionTypeTitle() {
+        BrowserUtils.waitForVisibility(selectionTypeTitle,1);
+    }
+    public void theUserShouldBeSeenTheSingleSelectionTitle() {
+        BrowserUtils.waitForVisibility(singleSelectionType,1);
+    }
+    public void theUserClicksOnTheSingleSelectionButton() {
+       singleSelectionTypeSwitch.click();
+    }
+    public void theUserShouldBeSeenTheMultipleSelectionTitle() {
+        BrowserUtils.waitForVisibility(multipleSelectionTitle,1);
+    }
+    public void theUserShouldBeSeenTheQuantitySelectionTitle() {
+        BrowserUtils.waitForVisibility(quantitySelectionTitle,1);
+    }
+    public void theUserShouldBeSeenTheSelectionTitle() {
+        BrowserUtils.verifyElementDisplayed(selectionTitle);
+    }
+    public void theUserClicksOnTheSelectionButton() {
+        selectionTypeSwitch.click();
+    }
+    public void userShouldBeSeenNoSelectionTitle() {
+        BrowserUtils.verifyElementDisplayed(noSelectionTitle);
+    }
+    public void theUserShouldBeSeenTheManualTitle() {
+        BrowserUtils.verifyElementDisplayed(manualTitle);
+    }
+    public void theUserClicksOnTheManualButton() {
+       autoAddtoOnboardingTitleSwitch.click();
+    }
+    public void theUserShouldBeSeenTheAutoAddTitle() {
+        BrowserUtils.verifyElementDisplayed(autoAddTitle);
+    }
 }

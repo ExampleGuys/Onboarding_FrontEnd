@@ -24,7 +24,7 @@ Feature: Resources Tests
     Given The user goes to the sign-in page
     When The user enters valid logon credentials
     Then The user clicks on the "Resources" category
-    And The user should be the "List of Resources" "Category Name" "Created By" "Created At" title
+    And The user should be the String "List of Resources" "Category Name" "Created By" "Created At" title
 
   @ONB2-310
   Scenario:TC: ONB2-310 On the Resources page, verify that the "Search by name" search box is visible and active.

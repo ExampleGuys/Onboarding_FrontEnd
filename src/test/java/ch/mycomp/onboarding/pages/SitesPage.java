@@ -150,7 +150,15 @@ public class SitesPage extends BasePage {
 
         //Sites > sitesLink2]
         @FindBy(xpath = "//span[@class='ant-breadcrumb-link']")
-        public WebElement sitesLink2;
+        public WebElement sitesLink2;//span[@role='button']
+
+        //Sites > zipcodeCounterButton2]
+        @FindBy(xpath = "(//span[@role='button'])[2]")
+        public WebElement zipcodeCounterButton2;
+
+        //Sites > zipcodeCounterButton1]
+        @FindBy(xpath = "(//span[@role='button'])[1]")
+        public WebElement zipcodeCounterButton1;
 
         //Sites/Resources > deleteButton]
         @FindBy(xpath = "(//button[@type='button'])[4]")
@@ -212,6 +220,8 @@ public class SitesPage extends BasePage {
         }
         public void theUserEntersTheInformationOnTheZipCodeItem() {
                 actions.moveToElement(newSeiteEnterZipCode).sendKeys("12365").perform();
+                BrowserUtils.waitFor(3);
+
         }
         public void theUserShouldBeSeenTheNewSiteCountryTitle() {
                 BrowserUtils.waitForVisibility(newSeiteCountryTitle,1);
@@ -234,5 +244,21 @@ public class SitesPage extends BasePage {
         }
         public void theUserEntersTheInformationOnTheStreetItem() {
                 actions.moveToElement(newSeiteEnterStreet).sendKeys("Ankara cad.").perform();
+        }
+        public void theUserClicksOnTheCounterOnTheItem(String arg0) {
+               BrowserUtils.doubleClick(zipcodeCounterButton2);
+               //zipcodeCounterButton2.click();
+        }
+        public void theUserEntersTheInformationOnTheDistrictItem() {
+                actions.moveToElement(newSeiteEnterDistrict).sendKeys("Kaiserslautern").perform();
+        }
+        public void theUserClicksOnTheDistrictItem() {
+                newSeiteEnterDistrict.click();
+        }
+        public void theUserEntersTheInformationOnTheCityItem() {
+                actions.moveToElement(newSeiteEnterCity).sendKeys("Ankara").perform();
+        }
+        public void theUserShouldBeSeenTheSitesPage() {
+                BrowserUtils.verifyElementDisplayed(sitePage);
         }
 }

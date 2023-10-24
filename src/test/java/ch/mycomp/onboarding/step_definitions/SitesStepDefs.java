@@ -1,25 +1,14 @@
 package ch.mycomp.onboarding.step_definitions;
-
-import ch.mycomp.onboarding.pages.*;
 import ch.mycomp.onboarding.utilities.BrowserUtils;
-import ch.mycomp.onboarding.utilities.ConfigurationReader;
-import ch.mycomp.onboarding.utilities.Driver;
-import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 
 public class SitesStepDefs extends ObjectIndex {
 
-
        @And("The user must be able to click on the Sites link")
     public void theUserMustBeAbleToClickOnTheSitesLink() {
-       //sitesPage.sitesLink2.click();
-       //    BrowserUtils.waitForClickability(sitesPage.sitesLink2,1);
            sitesPage.theUserMustBeAbleToClickOnTheSitesLink();
     }
 
@@ -60,7 +49,7 @@ public class SitesStepDefs extends ObjectIndex {
 
     @And("The user should be seen the Sites page")
     public void theUserShouldBeSeenTheSitesPage() {
-        BrowserUtils.verifyElementDisplayed(sitesPage.sitePage);
+        sitesPage.theUserShouldBeSeenTheSitesPage();
     }
 
     @Then("The user clicks on the {string} item")
@@ -114,7 +103,6 @@ public class SitesStepDefs extends ObjectIndex {
 
     @And("The user must be able to search in the Search by Site search box")
     public void theUserMustBeAbleToSearchInTheSearchBySiteSearchBox() {
-        //  actions.moveToElement(resourcesPage.searchBoxText).sendKeys("Avcilar").perform();
         resourcesPage.theUserMustBeAbleToSearchInTheSearchBySiteSearchBox();
     }
 
@@ -155,13 +143,12 @@ public class SitesStepDefs extends ObjectIndex {
 
     @And("The user enters the information on the Zip Code item")
     public void theUserEntersTheInformationOnTheZipCodeItem() {
-        //   actions.moveToElement(sitesPage.newSeiteEnterZipCode).sendKeys("12365").perform();
         sitesPage.theUserEntersTheInformationOnTheZipCodeItem();
     }
 
     @And("The user clicks on the counter on the {string} item")
     public void theUserClicksOnTheCounterOnTheItem(String arg0) {
-
+           sitesPage.theUserClicksOnTheCounterOnTheItem(arg0);
     }
 
     @And("The user should be seen the New Site, Country title")
@@ -191,7 +178,7 @@ public class SitesStepDefs extends ObjectIndex {
 
     @Then("The user enters the information on the City item")
     public void theUserEntersTheInformationOnTheCityItem() {
-           actions.moveToElement(sitesPage.newSeiteEnterCity).sendKeys("Ankara").perform();
+          sitesPage.theUserEntersTheInformationOnTheCityItem();
     }
 
     @And("The user should be seen the New Site, District title")
@@ -201,12 +188,12 @@ public class SitesStepDefs extends ObjectIndex {
 
     @Then("The user clicks on the District item")
     public void theUserClicksOnTheDistrictItem() {
-           sitesPage.newSeiteEnterDistrict.click();
+           sitesPage.theUserClicksOnTheDistrictItem();
     }
 
     @And("The user enters the information on the District item")
     public void theUserEntersTheInformationOnTheDistrictItem() {
-           actions.moveToElement(sitesPage.newSeiteEnterDistrict).sendKeys("Kaiserslautern").perform();
+           sitesPage.theUserEntersTheInformationOnTheDistrictItem();
     }
 
     @And("The user should be seen the New Site, Street title")

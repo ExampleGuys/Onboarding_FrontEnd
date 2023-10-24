@@ -46,7 +46,7 @@ public class ResourcesStepDefs extends ObjectIndex {
 
     @And("The user should be seen the new recources item opened")
     public void theUserShouldBeSeenTheNewRecourcesItemOpened() {
-        Assert.assertTrue(resourcesPage.addResourcesFirstLine.isDisplayed());
+        resourcesPage.theUserShouldBeSeenTheNewRecourcesItemOpened();
     }
 
     @And("The user should be seen the New Rwsources Page {string} page")
@@ -56,37 +56,34 @@ public class ResourcesStepDefs extends ObjectIndex {
 
     @Then("The user clicks on the {string} link")
     public void theUserClicksOnTheLink(String arg0) {
-        resourcesPage.resourcesLink.click();
+        resourcesPage.theUserClicksOnTheLink();
     }
 
     @And("The user should be seen the {string} title")
     public void theUserShouldBeSeenTheTitle(String arg0) {
-        resourcesPage.getSectionName(arg0);
-        BrowserUtils.waitFor(2);
-        Assert.assertTrue(resourcesPage.categoryNameTitleNewResourcesSeit.isDisplayed());
+        resourcesPage.theUserShouldBeSeenTheTitle(arg0);
 
     }
 
     @And("The user should be seen the selection type title")
     public void theUserShouldBeSeenTheSelectionTypeTitle() {
-        Assert.assertTrue(resourcesPage.selectionTypeTitle.isDisplayed());
+       resourcesPage.theUserShouldBeSeenTheSelectionTypeTitle();
     }
 
     @And("The user should be seen the Single Selection title")
     public void theUserShouldBeSeenTheSingleSelectionTitle() {
-        Assert.assertTrue(resourcesPage.singleSelectionType.isDisplayed());
-
+        resourcesPage.theUserShouldBeSeenTheSingleSelectionTitle();
     }
 
     @And("The user should be seen the Multiple Selection title")
     public void theUserShouldBeSeenTheMultipleSelectionTitle() {
-        Assert.assertTrue(resourcesPage.multipleSelectionTitle.isDisplayed());
+        resourcesPage.theUserShouldBeSeenTheMultipleSelectionTitle();
 
     }
 
     @And("The user clicks on the Single Selection button")
     public void theUserClicksOnTheSingleSelectionButton() {
-        resourcesPage.singleSelectionTypeSwitch.click();
+        resourcesPage.theUserClicksOnTheSingleSelectionButton();
     }
 
     @And("The user should be seen the Resources Page {string} page")
@@ -97,53 +94,36 @@ public class ResourcesStepDefs extends ObjectIndex {
 
     @And("The user should be the {string} title on the {string} page")
     public void theUserShouldBeTheTitleOnThePage(String arg0, String arg1) {
-          Assert.assertTrue(resourcesPage.listOf_.isDisplayed());
+         resourcesPage.theUserShouldBeTheTitleOnThePage(arg0,arg1);
     }
-
-
-    @And("The user should be the {string} {string} {string} {string} title")
-    public void theUserShouldBeTheTitle(String arg0, String arg1, String arg2, String arg3) {
-
-        //        Assert.assertTrue(commonPage.listOf_Title.isDisplayed());
-        //        Assert.assertTrue(commonPage.createdAtTitle.isDisplayed());
-        //        Assert.assertTrue(commonPage.createdByTitle.isDisplayed());
-        //        Assert.assertTrue(resourcesPage.categoryNameTitle.isDisplayed());
-        // BrowserUtils.waitForVisibility(commonPage.listOf_Title,20);
-
-        //   String actualResultlistOf_Title = commonPage.listOf_Title.getText();
-        String expectedResult = arg0;
-        //  Assert.assertEquals(expectedResult,actualResultlistOf_Title);
-    }
-
     @Then("The user clicks on the Search by name search box")
     public void theUserClicksOnTheSearchByNameSearchBox() {
-        resourcesPage.searchBoxButton.click();
+        resourcesPage.theUserClicksOnTheSearchByNameSearchBox();
     }
 
     @And("User searches in the search box")
     public void userSearchesInTheSearchBox() {
-        resourcesPage.searchBoxButton.getText();
-        Assert.assertTrue(resourcesPage.searchBoxFirstLine.isDisplayed());
+        resourcesPage.userSearchesInTheSearchBox();
     }
 
     @And("The user should be seen the Resources page")
     public void theUserShouldBeSeenTheResourcesPage() {
-        Assert.assertTrue(resourcesPage.resourcesSite.isDisplayed());
+       resourcesPage.theUserShouldBeSeenTheResourcesPage();
     }
 
     @And("The user should be seen the New Resource page")
     public void theUserShouldBeSeenTheNewResourcePage() {
-        Assert.assertTrue(resourcesPage.newResourcesPage.isDisplayed());
+        resourcesPage.theUserShouldBeSeenTheNewResourcePage();
     }
 
     @And("The user should be seen the Quantity Selection title")
     public void theUserShouldBeSeenTheQuantitySelectionTitle() {
-        Assert.assertTrue(resourcesPage.quantitySelectionTitle.isDisplayed());
+       resourcesPage.theUserShouldBeSeenTheQuantitySelectionTitle();
     }
 
     @Then("The user should be seen the Selection title")
     public void theUserShouldBeSeenTheSelectionTitle() {
-        Assert.assertTrue(resourcesPage.selectionTitle.isDisplayed());
+        resourcesPage.theUserShouldBeSeenTheSelectionTitle();
     }
 
     @And("User should be seen No Selection title")
@@ -153,7 +133,7 @@ public class ResourcesStepDefs extends ObjectIndex {
 
     @And("The user clicks on the Selection button")
     public void theUserClicksOnTheSelectionButton() {
-        resourcesPage.selectionTypeSwitch.click();
+        resourcesPage.theUserClicksOnTheSelectionButton();
     }
 
     @And("The user should be seen the Auto Add to Onboarding title")
@@ -163,7 +143,7 @@ public class ResourcesStepDefs extends ObjectIndex {
 
     @Then("The user should be seen the Manual title")
     public void theUserShouldBeSeenTheManualTitle() {
-        Assert.assertTrue(resourcesPage.manualTitle.isDisplayed());
+       resourcesPage.theUserShouldBeSeenTheManualTitle();
 
     }
 
@@ -174,7 +154,7 @@ public class ResourcesStepDefs extends ObjectIndex {
 
     @And("The user clicks on the Manual button")
     public void theUserClicksOnTheManualButton() {
-        resourcesPage.autoAddtoOnboardingTitleSwitch.click();
+        resourcesPage.theUserClicksOnTheManualButton();
     }
 
     @And("The user should be seen the Resources title")
@@ -562,6 +542,21 @@ public class ResourcesStepDefs extends ObjectIndex {
     public void theUserShouldSeeTheDeleteMessageeSiteSuccessfullyDeleted() {
         Assert.assertTrue(resourcesPage.message.getText().contains("Site successfully deleted"));
         BrowserUtils.waitFor(3);
+    }
+
+    @And("The user should be the String {string} {string} {string} {string} title")
+    public void theUserShouldBeTheStringTitle(String arg0, String arg1, String arg2, String arg3) {
+
+            //        Assert.assertTrue(commonPage.listOf_Title.isDisplayed());
+            //        Assert.assertTrue(commonPage.createdAtTitle.isDisplayed());
+            //        Assert.assertTrue(commonPage.createdByTitle.isDisplayed());
+            //        Assert.assertTrue(resourcesPage.categoryNameTitle.isDisplayed());
+            // BrowserUtils.waitForVisibility(commonPage.listOf_Title,20);
+
+            //   String actualResultlistOf_Title = commonPage.listOf_Title.getText();
+            String expectedResult = arg0;
+            //  Assert.assertEquals(expectedResult,actualResultlistOf_Title);
+
     }
 }
 
