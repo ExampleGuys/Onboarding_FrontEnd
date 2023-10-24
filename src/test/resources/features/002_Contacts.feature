@@ -61,11 +61,10 @@ Feature: Contacts test
     And The user click on the "Create" button.
     Then user should be able to verify that user should not be able create a contact
 
-
   @ONB2-153
   Scenario: TC: ONB2-153 Create a contact without filling the company name text field
     And The user click on the "New Contact" button.
-    And the user writes email address in "Enter email" text area
+    And the user writes Email address in "Enter email" text area
     And The user click on the "Create" button.
     Then user should be able to verify that user should not be able create a contact
 
@@ -73,7 +72,7 @@ Feature: Contacts test
   Scenario: TC: ONB2-154 Observe that new contact created message appears
     And The user click on the "New Contact" button.
     And the user writes a contact name in "Enter full name or company" text area
-    And the user writes email address in "Enter email" text area
+    And the user writes Email address in "Enter email" text area
     And the user clicks on the "Create" button
     Then user should be able to see "Contact successfully created" message
 
@@ -89,7 +88,7 @@ Feature: Contacts test
   Scenario: TC: ONB2-148 Create a company name by using numbers
     And The user click on the "New Contact" button.
     And the user writes a contact name in "Enter full name or company" text area with numbers
-    And the user writes email address in "Enter email" text area
+    And the user writes Email address in "Enter email" text area
     And the user clicks on the "Create" button
     Then user should be able to verify that writes a company name by using numbers
 
@@ -148,3 +147,23 @@ Feature: Contacts test
   Scenario: TC: ONB2-179 Cancel button should be clickable on the ant-popover in the Contacts page
     And user clicks Delete icon
     Then user should be able to click "Cancel" button
+
+  @ONB2-229
+  Scenario: TC: ONB2-229 Move forward and backward in the Contacts page
+    And user scrolls until end of the page
+    And user clicks pagination-next-item to move next page
+    Then user should be able to verify that goes to the next page
+    And user clicks pagination-prev-item to move previous page
+    Then user should be able to verify that goes back to the previous page
+
+  @ONB2-95
+  Scenario: TC: ONB2-95 Observe latest created contact is at the top of the list of contacts
+    And The user click on the "New Contact" button.
+    And the user writes a contact name in "Enter full name or company" text area
+    And the user writes Email address in "Enter email" text area
+    And The user click on the "Create" button.
+    Then user should be able to observe latest created contact is at the top of the list
+
+  @ONB2-289
+  Scenario: TC: ONB2-289 View contacts information under "List of Contacts" header
+    Then user should be able to view contacts' information under "List of Contacts" header

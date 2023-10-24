@@ -21,11 +21,11 @@ public class Hooks {
        System.out.println(scenario.getName());
    }
 
-    @AfterStep
+/*    @AfterStep
     public void step(Scenario step) {
         System.out.println("Step is " + step.getStatus());
 
-    }
+    }*/
     @After
     public void tearDown(Scenario scenario){
         if(scenario.isFailed()){

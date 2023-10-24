@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
@@ -25,17 +26,18 @@ public class Driver {
             String browser = ConfigurationReader.get("browser");
             switch (browser) {
                 case "chrome":
-
-                    driver = new ChromeDriver();
+                    ChromeOptions chromeOptions = new ChromeOptions();
+                    chromeOptions.addArguments("disable-infobars", "disable-notifications");
+                    driver = new ChromeDriver(chromeOptions);
                     break;
                 case "chrome-headless":
-                 //   driver = new ChromeDriver(new ChromeOptions().setHeadless(true));
+                    driver = new ChromeDriver(new ChromeOptions().addArguments("headless"));
                     break;
                 case "firefox":
                     driver = new FirefoxDriver();
                     break;
                 case "firefox-headless":
-                  //  driver = new FirefoxDriver(new FirefoxOptions().setHeadless(true));
+                    driver = new FirefoxDriver(new FirefoxOptions().addArguments("headless"));
                     break;
                 case "ie":
                     if (!System.getProperty("os.name").toLowerCase().contains("windows"))
@@ -46,7 +48,7 @@ public class Driver {
                 case "edge":
                     if (!System.getProperty("os.name").toLowerCase().contains("windows"))
                         throw new WebDriverException("Your OS doesn't support Edge");
-                    driver = new EdgeDriver();
+                    driver = new EdgeDriver(new EdgeOptions().addArguments("headless"));
                     break;
 
                 case "safari":
@@ -67,6 +69,6 @@ public class Driver {
             driver = null;
         }
 
-   }
+    }
 
 }

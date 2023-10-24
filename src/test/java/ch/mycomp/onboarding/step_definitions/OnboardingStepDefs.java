@@ -1,5 +1,6 @@
 package ch.mycomp.onboarding.step_definitions;
 
+import ch.mycomp.onboarding.utilities.BrowserUtils;
 import ch.mycomp.onboarding.utilities.ConfigurationReader;
 import ch.mycomp.onboarding.utilities.Driver;
 import io.cucumber.java.en.*;
@@ -221,6 +222,7 @@ public class OnboardingStepDefs extends ObjectIndex{
     @Then("The User verify that the Delete Comment button is clickable")
     public void theUserVerifyThatTheDeleteCommentButtonIsClickable() {
         onboardingPage.assertionDeleteIconIsClickable();
+
     }
 
     @Then("The customize column button at the top right of the page must be clickable")
@@ -253,4 +255,105 @@ public class OnboardingStepDefs extends ObjectIndex{
     }
 
 
+    @And("The User fills a  Personal Information Area")
+    public void theUserFillsAPersonalInformationArea() {
+    onboardingPage.selectPersonalTitle();
+    onboardingPage.enterFirstNameLastNameEmail();
+    onboardingPage.selectBirthDate();
+    }
+
+    @And("The User fills a  Company Registration Area")
+    public void theUserFillsACompanyRegistrationArea() {
+        onboardingPage.fillsCompanyRegistrationArea();
+    }
+
+    @And("The User select a Completion Date at The Latest")
+    public void theUserSelectACompletionDateAtTheLatest() {
+        onboardingPage.selectCompletionDateAtLatest();
+    }
+
+    @And("The User fills a  Resources Area")
+    public void theUserFillsAResourcesArea() {
+        onboardingPage.fillsAResourcesArea();
+    }
+
+    @Then("The User verify that the onboarding record has been created in the List of Onboardings")
+    public void theUserVerifyThatTheOnboardingRecordHasBeenCreatedInTheListOfOnboardings() {
+        onboardingPage.assertionCreatedNewOnboardingIsDisplayed();
+    }
+
+    @Then("The User then verify that the onboarding registration status is saved as draft")
+    public void theUserThenVerifyThatTheOnboardingRegistrationStatusIsSavedAsDraft() {
+        onboardingPage.clickOnDraftsTab();
+        onboardingPage.assertionNewOnboardingSavedInDraftsPage();
+    }
+
+    @Then("The user then verifies that the toast message has been seen that the registration process did not take place")
+    public void theUserThenVerifiesThatTheToastMessageHasBeenSeenThatTheRegistrationProcessDidNotTakePlace() {
+        onboardingPage.assertionToastMessageHasBeenSeen();
+    }
+
+    @And("The user fills in all fields on the page except personal title section")
+    public void theUserFillsInAllFieldsOnThePageExceptPersonalTitleSection() {
+        onboardingPage.fillsCompanyRegistrationArea();
+        onboardingPage.fillsAResourcesArea();
+        onboardingPage.selectCompletionDateAtLatest();
+    }
+
+    @And("The user clicks on the Completion Date section in the Company Registration")
+    public void theUserClicksOnTheCompletionDateSectionInTheCompanyRegistration() {
+        onboardingPage.clicksCompletionDateAtLatest();
+    }
+
+    @Then("The User verify that the mini calendar is opened")
+    public void theUserVerifyThatTheMiniCalendarIsOpened() {
+        onboardingPage.assertionCalendarIsDisplayed();
+    }
+
+    @And("The user changing one of the personal information")
+    public void theUserChangingOneOfThePersonalInformation() {
+        onboardingPage.changingOneOfThePersonalInformation();
+        }
+
+    @Then("The User verify that the change has been saved")
+    public void theUserVerifyThatTheChangeHasBeenSaved() {
+        onboardingPage.assertionChangedHasBeenSaved();
+    }
+
+    @And("The user changing one of the Company Registration")
+    public void theUserChangingOneOfTheCompanyRegistration() {
+        onboardingPage.changingOneOfTheCompanyRegistration();
+    }
+
+    @Then("The User verify that no changes have occured")
+    public void theUserVerifyThatNoChangesHaveOccured() {
+        onboardingPage.theUserVerifyThatNoChangesHaveOccured();
+    }
+
+    @And("The user changing one of the Resources")
+    public void theUserChangingOneOfTheResources() {
+        onboardingPage.changingOneOfTheResources();
+    }
+
+    @And("The user changing one of the Completion Date At the Latest")
+    public void theUserChangingOneOfTheCompletionDateAtTheLatest() {
+        onboardingPage.changingOneOfTheCompletionDateAtTheLatest();
+    }
+
+    @Then("The User verify that the job is seen in the complated Requests List")
+    public void theUserVerifyThatTheJobIsSeenInTheComplatedRequestsList() {
+        onboardingPage.verifyThatTheJobIsSeenInTheComplatedRequestsList();
+
+    }
+
+    @And("The User checked the FirstName of List first element")
+    public void theUserCheckedTheFirstNameOfListFirstElement() {
+        onboardingPage.checkedTheFirstNameOfListFirstElement();
+
+    }
+
+    @And("The user clicks on the The First Working Day section in the Company Registration")
+    public void theUserClicksOnTheTheFirstWorkingDaySectionInTheCompanyRegistration() {
+        onboardingPage.clicksOnTheTheFirstWorkingDaySectionInTheCompanyRegistration();
+    }
 }

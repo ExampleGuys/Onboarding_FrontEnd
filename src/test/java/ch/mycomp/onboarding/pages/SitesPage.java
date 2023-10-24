@@ -146,6 +146,11 @@ public class SitesPage extends BasePage{
         @FindBy(xpath = "//span[@class='ant-breadcrumb-link']")
         public WebElement sitesLink2;
 
+        //Sites/Resources > deleteButton]
+        @FindBy(xpath = "(//button[@type='button'])[4]")
+        //(//div[@class='ant-col css-14bavl3'])[2] //(//button[@type='button'])[4]
+        public WebElement deleteButton;
+
 
 
     }

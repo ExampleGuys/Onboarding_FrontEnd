@@ -1,6 +1,7 @@
 package ch.mycomp.onboarding.step_definitions;
 
 import ch.mycomp.onboarding.utilities.BrowserUtils;
+import ch.mycomp.onboarding.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 
@@ -39,6 +40,7 @@ public class ContactsStepDefs extends ObjectIndex {
 
     @And("the user writes a contact name in {string} text area")
     public void theUserWritesAContactNameInTextArea(String placeHolder) {
+        BrowserUtils.waitForVisibility(orderPage.boxName(placeHolder),20);
         contactsPage.writeContactNameInTheTextBox(placeHolder);
 
     }
@@ -49,7 +51,7 @@ public class ContactsStepDefs extends ObjectIndex {
 
     }
 
-    @And("the user writes email address in {string} text area")
+    @And("the user writes Email address in {string} text area")
     public void theUserWritesEmailAddressInTextArea(String placeHolder) {
         contactsPage.writeEmailInTheTextBox(placeHolder);
     }
@@ -69,11 +71,13 @@ public class ContactsStepDefs extends ObjectIndex {
 
     @And("the user clicks on the {string} button")
     public void theUserClicksOnTheButton(String buttonName) {
-        contactsPage.clickCreateButtonWithoutWait(buttonName);
+        BrowserUtils.clickElement(contactsPage.getButton(buttonName), 20);
+
     }
 
     @Then("user should be able to view {string} text at the top left of the page")
     public void userShouldBeAbleToViewTextAtTheTopLeftOfThePage(String textName) {
+        BrowserUtils.waitForVisibility(contactsPage.message, 20);
         assertTrue("Breadcrumb links did not match", contactsPage.getBreadcrumbText(textName).equals(textName));
 
     }
@@ -131,7 +135,7 @@ public class ContactsStepDefs extends ObjectIndex {
     public void userShouldBeAbleToObserveOnOnePage(String tenContacts) {
 
         int contactsInOnePage = Integer.parseInt(tenContacts);
-        assertEquals(contactsPage.countContacts(),contactsInOnePage);
+        assertEquals(contactsPage.countContacts(), contactsInOnePage);
     }
 
     @Then("user should be able to click pagination-next-item button")
@@ -141,7 +145,7 @@ public class ContactsStepDefs extends ObjectIndex {
 
     @And("the user clicks on the delete icon in the Actions section of a first element of contacts list")
     public void theUserClicksOnTheDeleteIconInTheActionsSectionOfAFirstElementOfContactsList() {
-        BrowserUtils.clickElement(contactsPage.deleteIconForFirstRow,20);
+        BrowserUtils.clickElement(contactsPage.deleteIconForFirstRow, 20);
     }
 
     @And("the user clicks on {string} button on the ant-popover")
@@ -184,6 +188,38 @@ public class ContactsStepDefs extends ObjectIndex {
     public void userShouldBeAbleToClickButton(String cancelButton) {
         BrowserUtils.clickElement(contactsPage.getButton(cancelButton), 20);
         assertTrue(contactsPage.getButton(cancelButton).isEnabled());
+    }
+
+    @And("user clicks pagination-next-item to move next page")
+    public void userClicksPaginationNextItemToMoveNextPage() {
+        BrowserUtils.clickElement(contactsPage.paginationItemLinkForNextPage,20);
+    }
+
+    @Then("user should be able to verify that goes to the next page")
+    public void userShouldBeAbleToVerifyThatGoesToTheNextPage() {
+        assertTrue(Driver.driver.getCurrentUrl().contains("2"));
+    }
+
+    @And("user clicks pagination-prev-item to move previous page")
+    public void userClicksPaginationPrevItemToMovePreviousPage() {
+        BrowserUtils.clickElement(contactsPage.paginationItemLinkForPreviousPage,20);
+    }
+
+    @Then("user should be able to verify that goes back to the previous page")
+    public void userShouldBeAbleToVerifyThatGoesBackToThePreviousPage() {
+        assertTrue(Driver.driver.getCurrentUrl().contains("1"));
+    }
+
+    @Then("user should be able to observe latest created contact is at the top of the list")
+    public void userShouldBeAbleToObserveLatestCreatedContactIsAtTheTopOfTheList() {
+        contactsPage.checkContactNames();
+    }
+
+    @Then("user should be able to view contacts' information under {string} header")
+    public void userShouldBeAbleToViewContactsInformationUnderHeader(String headerName) {
+        assertTrue(contactsPage.getPageHeaderName(headerName).equals(headerName));
+        assertTrue(contactsPage.listOfContactsTable.isDisplayed());
+
     }
 }
 

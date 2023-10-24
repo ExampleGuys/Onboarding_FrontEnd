@@ -1,3 +1,4 @@
+@regression
 Feature: Onboarding Create Tests
 
   Background: pre-steps
@@ -176,3 +177,103 @@ Feature: Onboarding Create Tests
     Then The user verify that the addition of a new comment
     And The user click on the "Delete" icon-button
     Then The User verify that the new comment has been deleted
+
+  @ONB2-220
+  Scenario: TC ONB2-220 The user should be able to create a new onboarding record by filling in all the required information
+    And The user click on the "New Onboarding" button top right corner of the page
+    And The User fills a  Personal Information Area
+    And The User fills a  Company Registration Area
+    And The User fills a  Resources Area
+    And The User select a Completion Date at The Latest
+    And the User Click on the "Save & Complete" button
+    And the User Click on the "Confirm" button
+    Then The User verify that the onboarding record has been created in the List of Onboardings
+
+  @ONB2-221
+  Scenario: TC ONB2-221 The user should be able to save a new onboarding record by filling in all the required information
+    And The user click on the "New Onboarding" button top right corner of the page
+    And The User fills a  Personal Information Area
+    And The User fills a  Company Registration Area
+    And The User fills a  Resources Area
+    And The User select a Completion Date at The Latest
+    And the User Click on the "Save" button
+    Then The User then verify that the onboarding registration status is saved as draft
+
+  @ONB2-222
+  Scenario: TC ONB2-222 The user should not be able to create a new onboarding record without filling in and saving all required information
+    And The user click on the "New Onboarding" button top right corner of the page
+    And The User fills a  Personal Information Area
+    And The User fills a  Company Registration Area
+    And The User fills a  Resources Area
+    And the User Click on the "Back" button
+  # Then The User verify that the onboarding record hasn’t been created
+
+  @ONB2-277
+  Scenario: TC ONB2-277 The user should not be able to create a new onboarding record  by filling in all the required information except one section
+    And The user click on the "New Onboarding" button top right corner of the page
+    And The user fills in all fields on the page except personal title section
+    And the User Click on the "Save & Complete" button
+    And the User Click on the "Confirm" button
+    Then The user then verifies that the toast message has been seen that the registration process did not take place
+
+  @ONB2-303
+  Scenario: TC ONB2-303 The mini-calendar should be available in the "Completion Date at The Latest"section
+    And The user click on the "New Onboarding" button top right corner of the page
+    And The user clicks on the Completion Date section in the Company Registration
+    Then The User verify that the mini calendar is opened
+
+  @ONB2-212
+  Scenario: TC ONB2-212 The job in the Drafts list should be able to be saved by changing one of the personal information
+    And The User click on "Drafts" tab under the List of Onboardings headline
+    And And The User click on edit icon in the Actions section of first element of list
+    And The user changing one of the personal information
+    And the User Click on the "Save" button
+    Then The User verify that the change has been saved
+
+  @ONB2-214
+  Scenario: TC ONB2-214 The job in the Drafts list should be able to be saved by changing one of the Company Registration
+    And The User click on "Drafts" tab under the List of Onboardings headline
+    And And The User click on edit icon in the Actions section of first element of list
+    And The user changing one of the Company Registration
+    And the User Click on the "Save" button
+    Then The User verify that the change has been saved
+
+  @ONB2-219
+  Scenario: TC ONB2-219 The job in the Drafts list should not be able to be changed once it has been completed without one of the personal details being changed and saved
+    And The User click on "Drafts" tab under the List of Onboardings headline
+    And And The User click on edit icon in the Actions section of first element of list
+    And The user changing one of the personal information
+    And the User Click on the "Back" button
+    Then The User verify that no changes have occured
+
+  @ONB2-215
+  Scenario: TC ONB2-215 The job in the Drafts list should be able to be saved by changing one of the Resources
+    And The User click on "Drafts" tab under the List of Onboardings headline
+    And And The User click on edit icon in the Actions section of first element of list
+    And The user changing one of the Resources
+    And the User Click on the "Save" button
+    Then The User verify that the change has been saved
+
+  @ONB2-216
+  Scenario: TC ONB2-216 The job in the Drafts list should be able to be saved by changing Complatetion Date at The Latest
+    And The User click on "Drafts" tab under the List of Onboardings headline
+    And And The User click on edit icon in the Actions section of first element of list
+    And The user changing one of the Completion Date At the Latest
+    And the User Click on the "Save" button
+    Then The User verify that the change has been saved
+
+  @ONB2-218
+  Scenario: TC ONB2-218 The job in the Drafts list should be able to be saved and complate
+    And The User click on "Drafts" tab under the List of Onboardings headline
+    And The User checked the FirstName of List first element
+    And And The User click on edit icon in the Actions section of first element of list
+    And the User Click on the "Save & Complete" button
+    And the User Click on the "Confirm" button
+    And The User click on "Completed Requests" tab under the List of Onboardings headline
+    Then The User verify that the job is seen in the complated Requests List
+
+    @ONB2-302
+    Scenario: TC ONB2-302 The mini-calendar should be available in the first start date section
+      And The user click on the "New Onboarding" button top right corner of the page
+      And The user clicks on the The First Working Day section in the Company Registration
+      Then The User verify that the mini calendar is opened

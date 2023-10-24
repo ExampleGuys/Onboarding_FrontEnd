@@ -2,7 +2,9 @@ package ch.mycomp.onboarding.pages;
 
 import ch.mycomp.onboarding.utilities.BrowserUtils;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class ResourcesPage extends BasePage {
 
@@ -31,7 +33,7 @@ public class ResourcesPage extends BasePage {
     public WebElement categoryNameTitleNewResourcesSeit;
 
     //Resources >clickOnResources
-    @FindBy(xpath = "(//a[@href='resources'])[1]")
+    @FindBy(xpath = "//a[@href='resources'])[1]")
     public WebElement clickOnResourcesCategory;
 
 
@@ -179,10 +181,6 @@ public class ResourcesPage extends BasePage {
     @FindBy(xpath = "//div[text()='List of Resources']")
     public WebElement listOfResourcesTitleText;
 
-    // //Resources > Category Name Title
-    // @FindBy(xpath = "//label[@title='Category Name']")
-    // public WebElement categoryNameTitle;
-
     //Resources > resourcesNameTitle
     @FindBy(xpath = "//label[@title='Resource Name']")
     public WebElement resourcesNameTitle;
@@ -242,7 +240,7 @@ public class ResourcesPage extends BasePage {
     public WebElement createdAt;
 
     //Sites/Resources > columns]
-    @FindBy(xpath = "//thead[@class='ant-table-thead']") //td[@class='ant-table-cell'
+    @FindBy(xpath = "//thead[@class='ant-table-thead']]") //td[@class='ant-table-cell'
     public WebElement columns;
 
     //Sites/Resources > searchBoxButton]
@@ -294,7 +292,6 @@ public class ResourcesPage extends BasePage {
     @FindBy(xpath = "//input[@id='resource_company']")
     public WebElement selectTheCompany;
 
-
     //Sites/Resources > deleteButtonDelete]
     @FindBy(xpath = "//span[text()='Delete']")
     public WebElement deleteButtonDelete;
@@ -306,7 +303,6 @@ public class ResourcesPage extends BasePage {
     //Sites/Resources > newResorceDeletePopconfirm]
     @FindBy(xpath = "//div[text()='Delete Resource']")
     public WebElement newResorceDeletePopconfirm;
-
 
     //Sites/Resources > new_BackButton]
     @FindBy(xpath = "//button[@class='ant-btn css-14bavl3 ant-btn-default ant-btn-lg']")
@@ -333,16 +329,20 @@ public class ResourcesPage extends BasePage {
     public WebElement new_CreateButton2;
 
     //Sites/Resources > new_CreateErrorMesage]
-    @FindBy(xpath = "//div[@class='go3958317564']")
+    @FindBy(xpath = "//div[@'class='go3958317564']")
     public WebElement new_CreateErrorMesage;
 
     //Sites/Resources > createContactAlert2]
-    @FindBy(xpath = "//div[text()='Create Contact']")
+    @FindBy(xpath = "//div=[text()='Create Contact']")
     public WebElement createContactAlert2;
 
     //Sites/Resources > createContactAlert1]
-    @FindBy(xpath = "//div[@class='ant-tooltip css-14bavl3 ant-tooltip-placement-top']")
+    @FindBy(xpath = "//div=[@class='ant-tooltip css-14bavl3 ant-tooltip-placement-top']")
     public WebElement createContactAlert1;
+
+    //Sites/Resources > searchBoxText
+    @FindBy(xpath = "//input[@placeholder='Search by site...']")
+    public WebElement searchBoxText;
 
     @FindBy(xpath = "//*[@id='resource_name']")
     public WebElement inputCategoryNameTextboxLocator;

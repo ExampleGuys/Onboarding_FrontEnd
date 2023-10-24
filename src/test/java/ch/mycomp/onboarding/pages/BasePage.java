@@ -2,6 +2,7 @@ package ch.mycomp.onboarding.pages;
 
 import ch.mycomp.onboarding.utilities.BrowserUtils;
 import ch.mycomp.onboarding.utilities.Driver;
+import com.github.javafaker.Faker;
 import org.openqa.selenium.By;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TimeoutException;
@@ -14,6 +15,7 @@ import java.time.Instant;
 import static org.junit.Assert.assertTrue;
 
 public abstract class BasePage {
+    Faker faker=new Faker();
 
     public BasePage() {
         PageFactory.initElements(Driver.get(), this);
@@ -167,6 +169,12 @@ public abstract class BasePage {
     public void globalDropdownElementPicker(String targetElement) {
         WebElement element = Driver.get().findElement(By.xpath(" //div[@title='" + targetElement + "']//div[1]"));
         BrowserUtils.clickElement(element,20);
+    }
+
+    public String getPageHeaderName(String pageHeaderName){
+        WebElement pageHeader = Driver.get().findElement(By.xpath("//div[text()='" + pageHeaderName + "']"));
+        BrowserUtils.waitForVisibility(pageHeader, 20);
+        return pageHeader.getText();
     }
 
 }
