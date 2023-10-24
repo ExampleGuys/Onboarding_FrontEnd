@@ -1,5 +1,6 @@
 package ch.mycomp.onboarding.pages;
 
+import ch.mycomp.onboarding.utilities.BrowserUtils;
 import ch.mycomp.onboarding.utilities.Driver;
 import com.github.javafaker.Faker;
 import com.github.javafaker.Faker;
@@ -12,6 +13,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.net.PortUnreachableException;
+import java.util.List;
 
 import static ch.mycomp.onboarding.utilities.Driver.driver;
 
@@ -29,6 +31,20 @@ public class UsersPage extends BasePage {
         jse.executeScript("arguments[0].scrollIntoView();", downPage);
         jse.executeScript("arguments[0].click();", downPage);
 
+    }
+
+    public void theUserSelectsARoleFromTheRoleDropdown(String targetListElement) {
+        globalSelectDropdownTargetElement(newUserRoleField, targetListElement);
+    }
+
+    public void theUserSelectsACompanyInTheCompanyBox(String targetListElement){
+    globalSelectDropdownTargetElement(newUserCompanyField,targetListElement);
+
+    }
+
+    public void theUserSelectsASiteInTheSiteBox(String targetSite) {
+        BrowserUtils.waitFor(3);
+        globalSelectDropdownTargetElement(newUserSiteField,targetSite);
     }
 
     @FindBy(xpath = "//*[text()='List of Users']")
@@ -76,7 +92,7 @@ public class UsersPage extends BasePage {
     @FindBy(xpath = "//*[@id=\"root\"]/section/section/main/div[2]/div[2]/div/div[2]/div/div/div/ul")
     public WebElement endOfUsersPage;
 
-    @FindBy(xpath = "//*[@placeholder='Enter first name']")
+    @FindBy(xpath = "//*[@placeholder='Enter personal email']")
     public WebElement newUserEmailField;
 
     @FindBy(xpath = "//input[@placeholder='Enter password']")
@@ -85,4 +101,34 @@ public class UsersPage extends BasePage {
     @FindBy(xpath = "//*[text()='Password must be between 8 and 20 characters']")
     public WebElement newUserPasswordWarningMessage;
 
-}
+    @FindBy(xpath = "//*[@placeholder='Enter first name']")
+    public WebElement newUserFirstNameField;
+
+    @FindBy(xpath = "//*[@placeholder='Enter last name']")
+    public WebElement newUserLastNameField;
+
+    @FindBy(xpath = "(//*[@class='ant-select-selection-search'])[1]")
+    public WebElement newUserRoleField;
+
+    @FindBy(xpath = "//*[@id='User_company']")
+    public WebElement newUserCompanyField;
+
+    @FindBy(xpath = "(//*[@class='ant-select-selector'])[3]")
+    public WebElement newUserSiteField;
+
+    @FindBy(xpath = "//*[@aria-label='barcode']")
+    public WebElement newUserGeneratePasswordButton;
+
+    @FindBy(xpath = "//*[@id=\"User\"]/div/div[3]/button[2]/span[2]")
+    public WebElement newUserCreatedButton;
+
+
+    @FindBy(xpath = "//*[@class='ant-table-row ant-table-row-level-0']")
+    public WebElement usersTableRowNumber;
+
+   // public void usersTableRowNumber (){
+   //     List<WebElement> rowtableUsers = (List<WebElement>) usersTableRowNumber;
+   //     rowtableUsers.size();
+
+    }
+
