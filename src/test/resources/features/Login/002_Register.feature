@@ -27,3 +27,10 @@ Feature: Register
     Then the user clicks on the password text field
     And the user writes inappropriately a password in "Password" text field
     Then the user should see the relevant warning messages
+
+ Scenario: TC 234 The number of "Total Users" should be visible at the bottom of the List of User page
+   Given The user goes to the sign-in page
+   When The user enters valid logon credentials
+   And the user clicks on "Users" at the navigation menu
+  And the user scroll down the bottom of the page
+   And the number of "Total Users" should be visible
