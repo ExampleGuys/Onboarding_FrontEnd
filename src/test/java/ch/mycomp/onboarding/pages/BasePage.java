@@ -171,4 +171,10 @@ public abstract class BasePage {
         BrowserUtils.clickElement(element,20);
     }
 
+    public String getPageHeaderName(String pageHeaderName){
+        WebElement pageHeader = Driver.get().findElement(By.xpath("//div[text()='" + pageHeaderName + "']"));
+        BrowserUtils.waitForVisibility(pageHeader, 20);
+        return pageHeader.getText();
+    }
+
 }
