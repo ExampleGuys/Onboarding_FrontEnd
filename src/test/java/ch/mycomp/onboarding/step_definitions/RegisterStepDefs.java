@@ -34,4 +34,15 @@ public class RegisterStepDefs extends ObjectIndex{
 
         assert (registerPage.toastMessageText().contains("User successfully created"));
     }
+
+    @And("the number of {string} should be visible")
+    public void theNumberOfShouldBeVisible(String arg0) {
+
+       assert(registerPage.totalNumberOfUser.getText().contains("Total 116 contacts"));
+    }
+
+    @And("the user scroll down the bottom of the page")
+    public void theUserScrollDownTheBottomOfThePage() {
+        BrowserUtils.scrollToElement(registerPage.paginationTotalText);
+    }
 }
