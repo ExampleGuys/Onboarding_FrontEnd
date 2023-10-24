@@ -24,7 +24,8 @@ public class ResourcesStepDefs extends ObjectIndex {
 
     @Given("The user goes to the sign-in page")
     public void theUserGoesToTheSignInPage() {
-        Driver.get().get(ConfigurationReader.get("myCompStagingSignin"));
+     resourcesPage.theUserGoesToTheSignInPage();
+
     }
 
     @When("The user enters valid logon credentials")
@@ -35,15 +36,12 @@ public class ResourcesStepDefs extends ObjectIndex {
 
     @Then("The user clicks on the {string} category")
     public void theUserClicksOnTheCategory(String navigationName) {
-        WebElement sidebar = Driver.get().findElement(By.xpath("//span[text()='" + navigationName + "']"));
-        BrowserUtils.clickWithJS(sidebar);
+        resourcesPage.theUserClicksOnTheCategory(navigationName);
     }
 
     @Then("The user clicks on the {string} button")
     public void theUserClicksOnTheButton(String buttonName) {
-        BrowserUtils.waitFor(2);
-        WebElement button = Driver.get().findElement(By.xpath("//span[text()='" + buttonName + "']"));
-        BrowserUtils.clickWithJS(button);
+        resourcesPage.theUserClicksOnTheButton(buttonName);
     }
 
     @And("The user should be seen the new recources item opened")
@@ -386,7 +384,7 @@ public class ResourcesStepDefs extends ObjectIndex {
 
     @Then("The user clicks on the Create button")
     public void theUserClicksOnTheCreateButton() {
-        BrowserUtils.clickElement(resourcesPage.new_CreateButton2, 20);
+       resourcesPage.theUserClicksOnTheCreateButton();
     }
 
     @Then("The user should be the {string} heading on the {string} page")
@@ -560,6 +558,10 @@ public class ResourcesStepDefs extends ObjectIndex {
     @And("The user must be able to search in the {string} search box")
     public void theUserMustBeAbleToSearchInTheSearchBox(String arg0) {
         //Search box Test
+    }
+    public void theUserShouldSeeTheDeleteMessageeSiteSuccessfullyDeleted() {
+        Assert.assertTrue(resourcesPage.message.getText().contains("Site successfully deleted"));
+        BrowserUtils.waitFor(3);
     }
 }
 

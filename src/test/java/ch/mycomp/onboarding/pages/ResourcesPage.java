@@ -1,6 +1,10 @@
 package ch.mycomp.onboarding.pages;
 
 import ch.mycomp.onboarding.utilities.BrowserUtils;
+import ch.mycomp.onboarding.utilities.ConfigurationReader;
+import ch.mycomp.onboarding.utilities.Driver;
+import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -8,6 +12,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class ResourcesPage extends BasePage {
 
+    Actions actions = new Actions(Driver.get());
     //Resources >resourcesSite
     @FindBy(xpath = "(//div[@class='ant-row css-14bavl3'])[1]")
     public WebElement resourcesSite;
@@ -398,4 +403,48 @@ public class ResourcesPage extends BasePage {
     public void theUserSelectsACompanyFromCompanyDropdown(String targetListElement) {
         globalSelectDropdownTargetElement(inputCompanyDropdownResourcePageLocator, targetListElement);
     }
+
+    public void theUserGoesToTheSignInPage() {
+        Driver.get().get(ConfigurationReader.get("myCompStagingSignin"));
+    }
+
+    public void theUserClicksOnTheCategory(String navigationName) {
+        WebElement sidebar = Driver.get().findElement(By.xpath("//span[text()='" + navigationName + "']"));
+        BrowserUtils.clickWithJS(sidebar);
+
+    }
+    public void theUserClicksOnTheCreateButton() {
+        BrowserUtils.clickElement(new_CreateButton2, 20);
+    }
+    public void theUserShouldBeSeenTheListOfSitesTitle() {
+        BrowserUtils.verifyElementDisplayed(listOf_);
+
+    }
+    public void theUserShouldBeSeenTheCreatedByTitle() {
+        Assert.assertTrue(createdBy_.isDisplayed());
+    }
+    public void theUserShouldBeSeenTheCreatedAtTitle() {
+        Assert.assertTrue(createdAt.isDisplayed());
+    }
+    public void theUserShouldBeSeenTheAntPopoverShouldAppear() {
+        BrowserUtils.verifyElementDisplayed(deletePopconfirm);
+        BrowserUtils.waitFor(3);
+    }
+    public void theUserClicksOnTheButton(String buttonName) {
+        BrowserUtils.waitFor(2);
+        WebElement button = Driver.get().findElement(By.xpath("//span[text()='" + buttonName + "']"));
+        BrowserUtils.clickWithJS(button);
+    }
+    public void theUserShouldBeAbleToClickOnTheSearchBySiteSearchBox() {
+        //BrowserUtils.waitForClickability(searchBoxText,1);
+        searchBoxText.click();
+    }
+    public void theUserMustBeAbleToSearchInTheSearchBySiteSearchBox() {
+        actions.moveToElement(searchBoxText).sendKeys("Avcilar").perform();
+        BrowserUtils.waitFor(2);
+    }
+    public void theUserClicksOnTheSitesSitesDeleteButton() {
+        BrowserUtils.waitForClickability(deleteButtonDelete,1);
+    }
+
 }

@@ -176,5 +176,8 @@ public abstract class BasePage {
         BrowserUtils.waitForVisibility(pageHeader, 20);
         return pageHeader.getText();
     }
+    public WebElement boxName(String boxNameInfo) {
+        return Driver.get().findElement(By.xpath("//*[@placeholder='" + boxNameInfo + "']"));
+    }
 
 }
