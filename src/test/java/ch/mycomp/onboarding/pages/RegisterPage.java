@@ -20,6 +20,9 @@ public class RegisterPage extends BasePage{
     @FindBy(xpath = ("//*[@placeholder='Enter password again']"))
     public WebElement passwordAgainTextFieldNewUser;
 
+    @FindBy(xpath = ("  //li[@class='ant-pagination-total-text']"))
+    public WebElement totalNumberOfUser;
+
     public void checkSignUpButton() {
         BrowserUtils.verifyElementDisplayed(buttonSignUp);
     }

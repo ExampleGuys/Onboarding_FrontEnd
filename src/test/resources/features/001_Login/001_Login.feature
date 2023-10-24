@@ -29,9 +29,9 @@ Feature: Login Screen Test
     Examples:
       | email          | password            |
       | superAdminUser | superAdmin_password |
-#    | adminUser      | admin_password      |
+      | adminUser      | admin_password      |
       | requesterUser  | requester_password  |
-#    | approverUser   | approver_password   |
+      | approverUser   | approver_password   |
 
   @ONB2-332
   Scenario: TC ONB2-332 The forget password link should be clickable on Sign In page
@@ -64,9 +64,6 @@ Feature: Login Screen Test
   @ONB-398
   Scenario Outline: TC ONB2-398 The User should NOT log in unmatched credentials, invalid email and wrong password
     Then the user enters with user "<Email>", user "<Password>", and "<warningMessage>"
-
-
-
 
     Examples:
 
