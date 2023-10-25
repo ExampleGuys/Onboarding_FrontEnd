@@ -6,7 +6,6 @@ Feature: Register
     When Dont have an account sign up link
     Then the user should see Sign Up button
 
-
   Scenario: TC ONB2-129 The new user should enter their own password
     Given The user goes to the sign-in page
     When The user enters valid logon credentials

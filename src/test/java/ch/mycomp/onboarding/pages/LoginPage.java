@@ -10,9 +10,6 @@ import static org.junit.Assert.*;
 public class LoginPage extends BasePage {
 
 
-    //  String passwordInUnencrypted;
-
-
     // MyComp SignIn page
     @FindBy(xpath = "//div[@class='ant-card-head-title']")
     public WebElement myCompUrl;

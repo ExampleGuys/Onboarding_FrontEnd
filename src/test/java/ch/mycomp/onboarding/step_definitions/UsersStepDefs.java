@@ -10,6 +10,8 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 
 import static ch.mycomp.onboarding.utilities.Driver.driver;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class UsersStepDefs extends ObjectIndex {
 
@@ -51,7 +53,7 @@ public class UsersStepDefs extends ObjectIndex {
     @Then("the user scrolls down until the end of the page")
     public void theUserScrollsDownUntilTheEndOfThePage() {
 
-        BrowserUtils.scrollToElement(usersPage.endOfUsersPage);
+       BrowserUtils.scrollToElement(usersPage.endOfUsersPage);
 
     }
 
@@ -73,6 +75,7 @@ public class UsersStepDefs extends ObjectIndex {
     @Then("the user clicks on {string} button")
     public void theUserClicksOnButton(String arg0) {
         usersPage.newUsersButton.click();
+
     }
 
     @Then("the user clicks on the {string} icon of the Site button")
@@ -98,6 +101,7 @@ public class UsersStepDefs extends ObjectIndex {
 
     @Then("the should see the message {string}")
     public void theShouldSeeTheMessage(String arg0) {
+
         BrowserUtils.toastMessage();
     }
 
@@ -106,12 +110,12 @@ public class UsersStepDefs extends ObjectIndex {
         BrowserUtils.sendKeysMethod(usersPage.newUserPasswordField,"1234abc",20);
     }
 
-
     @Then("the user should see the relevant warning messages")
     public void theUserShouldSeeTheRelevantWarningMessages() {
 
-        assert (usersPage.newUserPasswordWarningMessage.getText().
-                contains("Password must be between 8 and 20 characters"));
+        assert (usersPage.newUserPasswordWarningMessage.
+                getText().contains("//*[text()='Password must be between 8 and 20 characters']"));
+        BrowserUtils.waitFor(3);
 
     }
 
@@ -163,12 +167,22 @@ public class UsersStepDefs extends ObjectIndex {
     @And("the user writes inappropriately a password in Password text field")
     public void theUserWritesInappropriatelyAPasswordInPasswordTextField() {
     }
+
+    @And("the user chooses {string}")
+    public void theUserChooses(String numberOfPage) {
+     usersPage.tenPagesUsers.isEnabled();
+
+    }
+
+    @And("The user should see the confirmation message {string}")
+    public void theUserShouldSeeTheConfirmationMessage(String confirmationMessage) {
+
+    //    assertEquals("User successfully created",usersPage.toastMessageText(),confirmationMessage);
+        assert(usersPage.toastMessageText().contains("User successfully created"));
+
+
+    }
+
 }
-
-
-
-
-
-
 
 

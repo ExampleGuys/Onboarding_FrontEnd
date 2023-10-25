@@ -131,15 +131,6 @@ public class LoginStepDefs extends ObjectIndex {
 
     }
 
-
-    @Then("the user enters with user {string}, user {string}, and {string}")
-    public void theUserEntersWithUserUserAnd(String email , String password, String warningMessage ) {
-
-    //    loginPage.negativeLoginsCheck( email,  password, warningMessage);
-
-
-    }
-
     @And("the user enters a valid email on the Forgot Password page")
     public void theUserEntersAValidEmailOnTheForgotPasswordPage() {
     }

@@ -45,4 +45,10 @@ public class RegisterStepDefs extends ObjectIndex{
     public void theUserScrollDownTheBottomOfThePage() {
         BrowserUtils.scrollToElement(registerPage.paginationTotalText);
     }
+
+    @And("the user writes inappropriately a password in {string} text field")
+    public void theUserWritesInappropriatelyAPasswordInTextField(String arg0) {
+
+        registerPage.passwordTextFieldNewUser.sendKeys("abc123");
+    }
 }

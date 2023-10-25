@@ -86,6 +86,12 @@ public class UsersPage extends BasePage {
     @FindBy(xpath = "//*[@class='ant-table-row ant-table-row-level-0']")
     public WebElement usersTableRowNumber;
 
+
+
+    @FindBy(xpath = "(//*[text()='10 / page'])[1]")
+    public WebElement tenPagesUsers;
+
+
     public void scrolldownPage() {
 
         WebElement downPage = driver.findElement(By.xpath("//*[@id=\"root\"]/section/section/main/div[2]/div[2]/div/div[2]/div/div/div/ul"));

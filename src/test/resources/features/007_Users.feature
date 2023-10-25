@@ -22,7 +22,7 @@ Feature: Users
     And the user selects a site in the Site box "umraniye"
     And the user creates a password in the Password box
     And The user clicks on the Create button
-    And The user should see the confirmation message
+    And The user should see the confirmation message "User successfully created"
 
   @ONB2-51
   Scenario: TCOBN@-51 Verification of the Access to the Users page
@@ -32,7 +32,6 @@ Feature: Users
     Then the user should see the Users page
 
 
-
   @ONB2-136
   Scenario: TC ONB2-136 The user should control the number of users from the page selection button
     Given The user goes to the sign-in page
@@ -40,7 +39,7 @@ Feature: Users
     And the user clicks on "Users" at the navigation menu
     Then the user scrolls down until the end of the page
     Then the user click on the arrow of the users page
-  #  And the user chooses "10 users" per page
+    And the user chooses "10/page"
     Then the user should observe 10 users on each page of User List
 
    @ONB2-135
