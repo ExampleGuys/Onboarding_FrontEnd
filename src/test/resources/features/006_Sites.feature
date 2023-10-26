@@ -198,3 +198,8 @@ Scenario:TC: ONB2-198 On the Home Page of the "Sites" category can appear and cl
     Then The user clicks on the "New Site" button
     Then The user clicks on the "Back" button
     And The user should be seen the Sites page
+
+  @ONB2-269
+  Scenario:TC: ONB2-269 Verify that clicking the "Edit" button on the "Sites" page shows that the "Edit Site" page is visible.
+    Then The user clicks on the Edit button
+    And  The user should be seen the "Edit Site" page

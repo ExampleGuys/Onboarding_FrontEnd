@@ -205,6 +205,7 @@ public class SitesPage extends BasePage {
         }
         public void theUserClicksOnTheEditButton() {
                 BrowserUtils.waitForClickability(editButton,1);
+                BrowserUtils.waitFor(3);
         }
         public void theUserShouldBeSeenTheNewSiteSiteTitle() {
                 BrowserUtils.waitForVisibility(newSeiteSiteTitle,1);
@@ -267,6 +268,9 @@ public class SitesPage extends BasePage {
 
         public void theUserClicksOnTheScrollBarOnTheItem(String arg0) {
                 forDirectionsScroll.click();
-
+        }
+        public void theUserShouldBeSeenThePage(String arg0) {
+                BrowserUtils.waitFor(3);
+                BrowserUtils.verifyElementDisplayed(sitePage);
         }
 }
