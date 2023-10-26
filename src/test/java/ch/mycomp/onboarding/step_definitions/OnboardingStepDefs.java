@@ -369,4 +369,15 @@ public class OnboardingStepDefs extends ObjectIndex{
     public void theUserButtonInTheResourcesSection(String buttonName) {
         onboardingPage.clickTheButton(buttonName);
     }
+
+    @And("The user enter an email in the Filter Modal and click on {string} button")
+    public void theUserEnterAnEmailInTheFilterModalAndClickOnButton(String buttonName) {
+        onboardingPage.entersAnEmail();
+        onboardingPage.clickButton(buttonName);
+    }
+
+    @Then("the user verify that results according to the email address entered are filtered")
+    public void theUserVerifyThatResultsAccordingToTheEmailAddressEnteredAreFiltered() {
+        onboardingPage.theUserVerifyThatResultsAccordingToTheEmailAddressEnteredAreFiltered();
+    }
 }

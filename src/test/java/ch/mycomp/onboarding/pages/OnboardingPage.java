@@ -125,6 +125,11 @@ public class OnboardingPage extends BasePage {
     @FindBy(xpath = "//input[@id='onboarding_resources_0_selectedResources']")
     public WebElement inputResourcesResource;
 
+    @FindBy(id = "searchText")
+    public WebElement inputEmail;
+
+    @FindBy(xpath = "//tbody//tr[@class='ant-table-row ant-table-row-level-0']")
+    public List<WebElement> allRowOfListing;
 
     public void assertionDeleteIconIsClickable() {
         assert (deleteIconInTheCommentsSection.isEnabled());
@@ -436,5 +441,15 @@ public class OnboardingPage extends BasePage {
 
     public void clicksOnTheTheFirstWorkingDaySectionInTheCompanyRegistration() {
         BrowserUtils.clickElement(firstWorkingDay,20);
+    }
+
+    public void entersAnEmail() {
+        inputEmail.sendKeys("adan.cormier@hotmail.com");
+    }
+
+    public void theUserVerifyThatResultsAccordingToTheEmailAddressEnteredAreFiltered() {
+        BrowserUtils.waitFor(2);
+        assertEquals(1,allRowOfListing.size());
+
     }
 }

@@ -19,3 +19,9 @@ Feature: Onboarding Create Tests with SuperAdmin Role
     And The User "Add resource" button in the Resources Section
     And The User click on plus + button near to "Resource" in the Company Registration section
     Then The User verify that the modal is opened
+
+  @ONB2-322
+  Scenario: TC ONB2-322 The search box in the onboarding listing page should filter properly
+    And The user click on the "Search" button top right corner of the page
+    And The user enter an email in the Filter Modal and click on "OK" button
+    Then the user verify that results according to the email address entered are filtered
