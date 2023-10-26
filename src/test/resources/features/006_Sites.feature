@@ -168,3 +168,7 @@ Scenario:TC: ONB2-198 On the Home Page of the "Sites" category can appear and cl
     And The user clicks on the counter on the "Zip Code" item
     And User "Zip Code" must have entered incorrect character
 
+  @ONB2-261
+  Scenario:TC: ONB2-261 Verify that the "For Directions" heading appears on the New Site page.
+    Then The user clicks on the "New Site" button
+    And The user clicks on the "For Directions" item
