@@ -186,3 +186,9 @@ Scenario:TC: ONB2-198 On the Home Page of the "Sites" category can appear and cl
     And The user clicks on the "For Directions" item
     Then The user should be able to type up to fivehundred characters in the Description field
     And  The user clicks on the scroll bar on the "For Directions" item
+
+  @ONB2-265
+  Scenario:TC: ONB2-265 Verify that the "Create" button is visible and clickable on the New Site page.
+    Then The user clicks on the "New Site" button
+    Then User enters invalid information on the "New Site" page
+    Then The user clicks on the Create button
