@@ -109,6 +109,10 @@ public class SitesPage extends BasePage {
         @FindBy(xpath = "//input[@id='Site_street']")
         public WebElement newSeiteEnterStreet;
 
+        //Sites > editSeiteEnterCountry]
+        @FindBy(xpath = " //input[@placeholder='Enter country']")
+        public WebElement editSeiteEnterCountry;
+
         //Sites > newSeiteForDirectionsTitle]
         @FindBy(xpath = "//label[normalize-space()='For Directions']")
         public WebElement newSeiteForDirectionsTitle;
@@ -272,5 +276,14 @@ public class SitesPage extends BasePage {
         public void theUserShouldBeSeenThePage(String arg0) {
                 BrowserUtils.waitFor(3);
                 BrowserUtils.verifyElementDisplayed(sitePage);
+        }
+        public void theUserMakesChangesToTheDesiredCategory() {
+                editSeiteEnterCountry.clear();
+                BrowserUtils.waitFor(3);
+                editSeiteEnterCountry.click();
+                actions.moveToElement(editSeiteEnterCountry).sendKeys("Türkiye").perform();
+        }
+        public void theUserSeesTheConfirmationMessage() {
+                BrowserUtils.verifyElementDisplayed(newSeiteEnterCountryMesage);
         }
 }

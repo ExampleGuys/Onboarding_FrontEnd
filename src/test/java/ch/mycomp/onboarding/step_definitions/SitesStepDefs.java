@@ -228,4 +228,14 @@ public class SitesStepDefs extends ObjectIndex {
     public void theUserShouldBeSeenThePage(String arg0) {
            sitesPage.theUserShouldBeSeenThePage(arg0);
     }
+
+    @Then("The user makes changes to the desired category")
+    public void theUserMakesChangesToTheDesiredCategory() {
+           sitesPage.theUserMakesChangesToTheDesiredCategory();
+    }
+
+    @And("The user sees the confirmation message")
+    public void theUserSeesTheConfirmationMessage() {
+
+    }
 }

@@ -203,3 +203,9 @@ Scenario:TC: ONB2-198 On the Home Page of the "Sites" category can appear and cl
   Scenario:TC: ONB2-269 Verify that clicking the "Edit" button on the "Sites" page shows that the "Edit Site" page is visible.
     Then The user clicks on the Edit button
     And  The user should be seen the "Edit Site" page
+
+  @ONB2-270
+  Scenario:TC: ONB2-270 Confirm that changes are made to the "Edit Site" page when the "Edit" button is clicked on the "Sites" page.
+    Then The user clicks on the Edit button
+    Then The user makes changes to the desired category
+    And The user sees the confirmation message
