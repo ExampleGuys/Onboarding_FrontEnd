@@ -47,7 +47,6 @@ public class SitesStepDefs extends ObjectIndex {
     @And("The user clicks on the Edit button")
     public void theUserClicksOnTheEditButton() {
            sitesPage.editButton.click();
-           //sitesPage.theUserClicksOnTheEditButton();
     }
 
     @And("The user should be seen the Sites page")
