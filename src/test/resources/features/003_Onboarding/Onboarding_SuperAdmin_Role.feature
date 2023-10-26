@@ -1,5 +1,5 @@
 @regression
-Feature : Onboarding Create Tests with SuperAdmin Role
+Feature: Onboarding Create Tests with SuperAdmin Role
 
   Background: pre-steps
     Given The user goes to staging url
@@ -9,5 +9,6 @@ Feature : Onboarding Create Tests with SuperAdmin Role
   @ONB2-299
   Scenario: TC ONB2-299 The user should be able to create a new resource category in the "Resources" section when making a new onboarding
     And The user click on the "New Onboarding" button top right corner of the page
-    And The User click on plus + button near to "Resources" in the Company Registration section
+    And The User "Add resource" button in the Resources Section
+    And The User click on plus + button near to "Category" in the Company Registration section
     Then The User verify that the modal is opened

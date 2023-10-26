@@ -364,4 +364,9 @@ public class OnboardingStepDefs extends ObjectIndex{
     public void theUserVerifyThatTheModalIsOpened() {
         onboardingPage.assertionOpenedModal();
     }
+
+    @And("The User {string} button in the Resources Section")
+    public void theUserButtonInTheResourcesSection(String buttonName) {
+        onboardingPage.clickTheButton(buttonName);
+    }
 }
