@@ -192,3 +192,9 @@ Scenario:TC: ONB2-198 On the Home Page of the "Sites" category can appear and cl
     Then The user clicks on the "New Site" button
     Then User enters invalid information on the "New Site" page
     Then The user clicks on the Create button
+
+  @ONB2-267
+  Scenario:TC: ONB2-267 On the New Site page, verify that the "Back" button is visible and clickable.
+    Then The user clicks on the "New Site" button
+    Then The user clicks on the "Back" button
+    And The user should be seen the Sites page
