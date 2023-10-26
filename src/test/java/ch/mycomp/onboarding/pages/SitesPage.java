@@ -230,7 +230,6 @@ public class SitesPage extends BasePage {
                 BrowserUtils.waitForVisibility(newSeiteCityTitle,1);
         }
         public void theUserClicksOnTheCityItem() {
-                //BrowserUtils.waitForClickability(newSeiteEnterCity,1);
                 newSeiteEnterCity.click();
         }
         public void theUserShouldBeSeenTheNewSiteDistrictTitle() {
@@ -247,7 +246,6 @@ public class SitesPage extends BasePage {
         }
         public void theUserClicksOnTheCounterOnTheItem(String arg0) {
                BrowserUtils.doubleClick(zipcodeCounterButton2);
-               //zipcodeCounterButton2.click();
         }
         public void theUserEntersTheInformationOnTheDistrictItem() {
                 actions.moveToElement(newSeiteEnterDistrict).sendKeys("Kaiserslautern").perform();

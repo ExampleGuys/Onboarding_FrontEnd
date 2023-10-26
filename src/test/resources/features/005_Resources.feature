@@ -229,7 +229,6 @@ Feature: Resources Tests
     Then The user clicks on the Create button
     Then The user should be seen the Ant-Popover should appear.
     Then The user clicks on the Resources Delete button
-    Then The user clicks on the Resources Resource Delete button
-    And The user should see the delete messagee "Field option category successfully deleted"
+    And The user should see the delete messagee Please fill out all required fields correctly.
 
 

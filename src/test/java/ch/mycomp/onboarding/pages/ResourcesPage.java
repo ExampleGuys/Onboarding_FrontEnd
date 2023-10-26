@@ -5,12 +5,17 @@ import ch.mycomp.onboarding.utilities.ConfigurationReader;
 import ch.mycomp.onboarding.utilities.Driver;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
+import static ch.mycomp.onboarding.utilities.Driver.driver;
+import static org.junit.Assert.assertTrue;
+
 public class ResourcesPage extends BasePage {
 
+    OrderPage orderPage=new OrderPage();
     Actions actions = new Actions(Driver.get());
     //Resources >resourcesSite
     @FindBy(xpath = "(//div[@class='ant-row css-14bavl3'])[1]")
@@ -373,7 +378,7 @@ public class ResourcesPage extends BasePage {
     public void theUserEntersACategoryNameOnTheNewResourcePage() {
         String categoryName = "Automation_" + getEpochTime();
         System.out.println("Category Name is = " + categoryName);
-        BrowserUtils.sendKeysMethod(inputCategoryNameTextboxLocator,categoryName,20);
+        BrowserUtils.sendKeysMethod(inputCategoryNameTextboxLocator, categoryName, 20);
     }
 
 
@@ -412,47 +417,60 @@ public class ResourcesPage extends BasePage {
         BrowserUtils.clickWithJS(sidebar);
 
     }
+
     public void theUserClicksOnTheCreateButton() {
         BrowserUtils.clickElement(new_CreateButton2, 20);
     }
+
     public void theUserShouldBeSeenTheListOfSitesTitle() {
         BrowserUtils.verifyElementDisplayed(listOf_);
 
     }
+
     public void theUserShouldBeSeenTheCreatedByTitle() {
         Assert.assertTrue(createdBy_.isDisplayed());
     }
+
     public void theUserShouldBeSeenTheCreatedAtTitle() {
         Assert.assertTrue(createdAt.isDisplayed());
     }
+
     public void theUserShouldBeSeenTheAntPopoverShouldAppear() {
         BrowserUtils.verifyElementDisplayed(deletePopconfirm);
         BrowserUtils.waitFor(3);
     }
+
     public void theUserClicksOnTheButton(String buttonName) {
         BrowserUtils.waitFor(2);
         WebElement button = Driver.get().findElement(By.xpath("//span[text()='" + buttonName + "']"));
         BrowserUtils.clickWithJS(button);
     }
+
     public void theUserShouldBeAbleToClickOnTheSearchBySiteSearchBox() {
         searchBoxText.click();
     }
+
     public void theUserMustBeAbleToSearchInTheSearchBySiteSearchBox() {
         actions.moveToElement(searchBoxText).sendKeys("Avcilar").perform();
         BrowserUtils.waitFor(2);
     }
+
     public void theUserClicksOnTheSitesSitesDeleteButton() {
-        BrowserUtils.waitForClickability(deleteButtonDelete,1);
+        BrowserUtils.waitForClickability(deleteButtonDelete, 1);
     }
+
     public void theUserShouldBeSeenTheNewRecourcesItemOpened() {
-        BrowserUtils.waitForVisibility(addResourcesFirstLine,1);
+        BrowserUtils.waitForVisibility(addResourcesFirstLine, 1);
     }
+
     public void theUserShouldBeSeenTheResourcesPage() {
-        BrowserUtils.waitForVisibility(resourcesSite,1);
+        BrowserUtils.waitForVisibility(resourcesSite, 1);
     }
+
     public void theUserShouldBeTheTitleOnThePage(String arg0, String arg1) {
-        BrowserUtils.waitForVisibility(listOf_,1);
+        BrowserUtils.waitForVisibility(listOf_, 1);
     }
+
     public void theUserShouldBeTheTitle(String arg0, String arg1, String arg2, String arg3) {
 
         //        Assert.assertTrue(commonPage.listOf_Title.isDisplayed());
@@ -465,55 +483,212 @@ public class ResourcesPage extends BasePage {
         String expectedResult = arg0;
         //  Assert.assertEquals(expectedResult,actualResultlistOf_Title);
     }
+
     public void theUserClicksOnTheSearchByNameSearchBox() {
-       searchBoxButton.click();
+        searchBoxButton.click();
     }
+
     public void userSearchesInTheSearchBox() {
         searchBoxButton.getText();
-        BrowserUtils.waitForVisibility(searchBoxFirstLine,1);
+        BrowserUtils.waitForVisibility(searchBoxFirstLine, 1);
     }
+
     public void theUserShouldBeSeenTheNewResourcePage() {
-        BrowserUtils.waitForVisibility(newResourcesPage,1);
+        BrowserUtils.waitForVisibility(newResourcesPage, 1);
     }
+
     public void theUserClicksOnTheLink() {
         resourcesLink.click();
     }
+
     public void theUserShouldBeSeenTheTitle(String arg0) {
         getSectionName(arg0);
         BrowserUtils.waitFor(2);
-        BrowserUtils.waitForVisibility(categoryNameTitleNewResourcesSeit,1);
+        BrowserUtils.waitForVisibility(categoryNameTitleNewResourcesSeit, 1);
     }
+
     public void theUserShouldBeSeenTheSelectionTypeTitle() {
-        BrowserUtils.waitForVisibility(selectionTypeTitle,1);
+        BrowserUtils.waitForVisibility(selectionTypeTitle, 1);
     }
+
     public void theUserShouldBeSeenTheSingleSelectionTitle() {
-        BrowserUtils.waitForVisibility(singleSelectionType,1);
+        BrowserUtils.waitForVisibility(singleSelectionType, 1);
     }
+
     public void theUserClicksOnTheSingleSelectionButton() {
-       singleSelectionTypeSwitch.click();
+        singleSelectionTypeSwitch.click();
     }
+
     public void theUserShouldBeSeenTheMultipleSelectionTitle() {
-        BrowserUtils.waitForVisibility(multipleSelectionTitle,1);
+        BrowserUtils.waitForVisibility(multipleSelectionTitle, 1);
     }
+
     public void theUserShouldBeSeenTheQuantitySelectionTitle() {
-        BrowserUtils.waitForVisibility(quantitySelectionTitle,1);
+        BrowserUtils.waitForVisibility(quantitySelectionTitle, 1);
     }
+
     public void theUserShouldBeSeenTheSelectionTitle() {
         BrowserUtils.verifyElementDisplayed(selectionTitle);
     }
+
     public void theUserClicksOnTheSelectionButton() {
         selectionTypeSwitch.click();
     }
+
     public void userShouldBeSeenNoSelectionTitle() {
         BrowserUtils.verifyElementDisplayed(noSelectionTitle);
     }
+
     public void theUserShouldBeSeenTheManualTitle() {
         BrowserUtils.verifyElementDisplayed(manualTitle);
     }
+
     public void theUserClicksOnTheManualButton() {
-       autoAddtoOnboardingTitleSwitch.click();
+        autoAddtoOnboardingTitleSwitch.click();
     }
+
     public void theUserShouldBeSeenTheAutoAddTitle() {
         BrowserUtils.verifyElementDisplayed(autoAddTitle);
+    }
+
+    public void theUserShouldBeSeenTheResourcesTitle() {
+        BrowserUtils.verifyElementDisplayed(resourcesTitle);
+    }
+
+    public void theUserShouldBeTheSeenRecourcesNameTitle() {
+        BrowserUtils.verifyElementDisplayed(resourcesNameTitle);
+    }
+
+    public void theUserShouldBeSeenTheContactsTitle() {
+        BrowserUtils.verifyElementDisplayed(newResourcescontactsTitle);
+    }
+
+    public void theUserHoversOverTheButtonNextToTheContactsTitleTheCreateContactAlertAppears() {
+        WebElement hover = driver.findElement(By.xpath("//button[@type='submit']"));
+        actions.moveToElement(hover).build().perform();
+        if (hover.isDisplayed()) {
+            System.out.println("Create Contact Alert is Displayed");
+
+        } else {
+            System.out.println("Create Contact Alert could not be displayed");
+        }
+    }
+    public void theUserShouldBeSeenTheCreateContactPage() {
+        BrowserUtils.verifyElementDisplayed(newResourcesCreateContactsPage);
+    }
+    public void theUserClicksTheXButton() {
+       newResourcesCreateContactsPageXButton.click();
+    }
+    public void theUserClicksTheBackButton() {
+       new_BackButton.click();
+    }
+    public void theUserShouldBeTheSeenEnterCategoryNameTextBox() {
+        BrowserUtils.verifyElementDisplayed(categoryNameTitleNewResourcesSeit);
+    }
+    public void theUserClicksOnTheEnterCategoryNameItem() {
+        categoryNameTitleNewResourcesSeit.click();
+    }
+    public void theUserOnlyWriteInTextBox(String arg0) {
+        WebElement enterCategoryName = orderPage.boxName("Enter category name");
+        actions.click(enterCategoryName).
+                sendKeys(faker.options().toString()).
+                sendKeys(Keys.ENTER).
+                perform();
+
+        BrowserUtils.waitFor(2);
+
+    }
+    public void theUserShouldSeeTheErrorMessage(String arg0) {
+        Assert.assertTrue(categoryNameErrorMessage.getText().contains("Please fill out all required fields correctly."));
+    }
+    public void theUserClicksOnTheEnterResourceNameTextBox() {
+      newResourcesEnterResourcesName.click();
+    }
+    public void relevantInformationIntoTheEnterEnterResourceNameTextBox() {
+        WebElement enterResourceName = orderPage.boxName("Enter resource name");
+        actions.click(enterResourceName).
+                sendKeys(faker.name().name()).
+                perform();
+
+        BrowserUtils.waitFor(2);
+    }
+    public void theUserShouldSeeTheMessage(String arg0) {
+        Assert.assertTrue(message.getText().contains("Resource successfully created"));
+
+    }
+    public void theUserShouldBeTheEnteredInformationInAList() {
+        BrowserUtils.verifyElementDisplayed(searchBoxFirstLine);
+    }
+    public void theUserClicksOnTheNewResourcesDeleteButton() {
+        resourceDeletButton.click();
+        BrowserUtils.waitFor(2);
+    }
+    public void theUserClicksOnTheNewResourcesResourceDeleteButton() {
+        deleteButtonDelete.click();
+    }
+    public void verifyAppearThatTheAddResourceLineHasBeenDeleted() {
+        BrowserUtils.verifyElementDisplayed(addResourcesDeleteLine);
+        BrowserUtils.waitFor(2);
+    }
+    public void userEntersInvalidInformationOnTheNewResourcePage() {
+        BrowserUtils.clickWithJS(selectTheCompany);
+       selectTheCompany.sendKeys("Ankasale",Keys.ENTER);
+        BrowserUtils.waitFor(2);
+        WebElement startBox = orderPage.boxName("Enter category name");
+        actions.click(startBox).
+                sendKeys("Yemek").
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                sendKeys("Yusuf Köfte").
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.ENTER).perform();
+    }
+    public void theUserClicksOnTheResourcesDeleteButton() {
+        resourceDeletButton.click();
+        BrowserUtils.waitFor(2);
+    }
+    public void theUserClicksOnTheResourcesResourceDeleteButton() {
+        deleteButtonDelete.click();
+    }
+    public void theUserClicksOnTheResourcesResourceCancelButton() {
+        deleteButtonCancel.click();
+    }
+    public void userEntersValidInformationOnTheNewResourcePage() {
+        BrowserUtils.clickWithJS(selectTheCompany);
+        selectTheCompany.sendKeys("Test Techno Consultant", Keys.ENTER);
+        BrowserUtils.waitFor(2);
+        WebElement startBox = orderPage.boxName("Enter category name");
+        actions.click(startBox).
+                sendKeys("Telefon").
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.ENTER).
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.ENTER).
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.ENTER).
+                sendKeys(Keys.TAB).
+                sendKeys("Apple").
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                sendKeys("nokia@gmail.com - nokia", Keys.ENTER).
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                perform();
+        BrowserUtils.waitFor(2);
+    }
+    public void theUserShouldBeTheStringTitle(String arg0, String arg1, String arg2, String arg3) {
+        assertTrue(listOf_.isDisplayed());
+        assertTrue(categoryNameTitle.isDisplayed());
+        assertTrue(createdBy_.isDisplayed());
+        assertTrue(createdAt.isDisplayed());
     }
 }

@@ -1,5 +1,6 @@
 package ch.mycomp.onboarding.step_definitions;
 
+import ch.mycomp.onboarding.pages.BasePage;
 import ch.mycomp.onboarding.utilities.BrowserUtils;
 import ch.mycomp.onboarding.utilities.ConfigurationReader;
 import ch.mycomp.onboarding.utilities.Driver;
@@ -21,7 +22,7 @@ import static org.junit.Assert.assertTrue;
 
 public class ResourcesStepDefs extends ObjectIndex {
 
-
+    BasePage basePage=new BasePage();
     @Given("The user goes to the sign-in page")
     public void theUserGoesToTheSignInPage() {
      resourcesPage.theUserGoesToTheSignInPage();
@@ -128,7 +129,7 @@ public class ResourcesStepDefs extends ObjectIndex {
 
     @And("User should be seen No Selection title")
     public void userShouldBeSeenNoSelectionTitle() {
-        Assert.assertTrue(resourcesPage.noSelectionTitle.isDisplayed());
+        resourcesPage.userShouldBeSeenNoSelectionTitle();
     }
 
     @And("The user clicks on the Selection button")
@@ -149,7 +150,7 @@ public class ResourcesStepDefs extends ObjectIndex {
 
     @And("The user should be seen the Auto-add title")
     public void theUserShouldBeSeenTheAutoAddTitle() {
-        Assert.assertTrue(resourcesPage.autoAddTitle.isDisplayed());
+        resourcesPage.theUserShouldBeSeenTheAutoAddTitle();
     }
 
     @And("The user clicks on the Manual button")
@@ -159,12 +160,12 @@ public class ResourcesStepDefs extends ObjectIndex {
 
     @And("The user should be seen the Resources title")
     public void theUserShouldBeSeenTheResourcesTitle() {
-        Assert.assertTrue(resourcesPage.resourcesTitle.isDisplayed());
+       resourcesPage.theUserShouldBeSeenTheNewResourcePage();
     }
 
     @And("The user should be the seen Recources Name title")
     public void theUserShouldBeTheSeenRecourcesNameTitle() {
-        Assert.assertTrue(resourcesPage.resourcesNameTitle.isDisplayed());
+       resourcesPage.theUserShouldBeTheSeenRecourcesNameTitle();
     }
 
     @And("The user should be seen the Contacts + title")
@@ -184,48 +185,33 @@ public class ResourcesStepDefs extends ObjectIndex {
 
     @Then("The user hovers over the + button next to the Contacts title, the Create Contact alert appears")
     public void theUserHoversOverTheButtonNextToTheContactsTitleTheCreateContactAlertAppears() {
-        WebElement hover = driver.findElement(By.xpath("//button[@type='submit']"));
-        actions.moveToElement(hover).build().perform();
-        if (hover.isDisplayed()) {
-            System.out.println("Create Contact Alert is Displayed");
-
-        }else {
-            System.out.println("Create Contact Alert could not be displayed");
-        }
-
+        resourcesPage.theUserHoversOverTheButtonNextToTheContactsTitleTheCreateContactAlertAppears();
     }
 
     @Then("The user clicks the x button")
     public void theUserClicksTheXButton() {
-        resourcesPage.newResourcesCreateContactsPageXButton.click();
+        resourcesPage.theUserClicksTheXButton();
     }
 
     @Then("The user clicks the Back button")
     public void theUserClicksTheBackButton() {
-        resourcesPage.new_BackButton.click();
+        resourcesPage.theUserClicksTheBackButton();
     }
 
 
     @Then("The user clicks on the Enter category name item")
     public void theUserClicksOnTheEnterCategoryNameItem() {
-        resourcesPage.categoryNameTitleNewResourcesSeit.click();
+        resourcesPage.theUserClicksOnTheEnterCategoryNameItem();
     }
 
     @Then("The user should be the seen Enter category name text box")
     public void theUserShouldBeTheSeenEnterCategoryNameTextBox() {
-        Assert.assertTrue(resourcesPage.categoryNameTitleNewResourcesSeit.isDisplayed());
+        resourcesPage.theUserShouldBeTheSeenEnterCategoryNameTextBox();
     }
 
     @And("The user only write in {string} text box")
     public void theUserOnlyWriteInTextBox(String arg0) {
-        WebElement enterCategoryName = orderPage.boxName("Enter category name");
-        actions.click(enterCategoryName).
-                sendKeys(faker.options().toString()).
-                sendKeys(Keys.ENTER).
-                perform();
-
-        BrowserUtils.waitFor(2);
-
+       resourcesPage.theUserOnlyWriteInTextBox(arg0);
     }
 
     @And("Sees the error message {string}")
@@ -238,17 +224,12 @@ public class ResourcesStepDefs extends ObjectIndex {
 
     @Then("The user clicks on the Enter resource name text box")
     public void theUserClicksOnTheEnterResourceNameTextBox() {
-        resourcesPage.newResourcesEnterResourcesName.click();
+        resourcesPage.theUserClicksOnTheEnterResourceNameTextBox();
     }
 
     @Then("Relevant information into the enter Enter resource name text box")
     public void relevantInformationIntoTheEnterEnterResourceNameTextBox() {
-        WebElement enterResourceName = orderPage.boxName("Enter resource name");
-        actions.click(enterResourceName).
-                sendKeys(faker.name().name()).
-                perform();
-
-        BrowserUtils.waitFor(2);
+        resourcesPage.relevantInformationIntoTheEnterEnterResourceNameTextBox();
     }
 
 
@@ -301,7 +282,7 @@ public class ResourcesStepDefs extends ObjectIndex {
 
     @And("The user should be the entered information in a list")
     public void theUserShouldBeTheEnteredInformationInAList() {
-        Assert.assertTrue(resourcesPage.searchBoxFirstLine.isDisplayed());
+       resourcesPage.theUserShouldBeTheEnteredInformationInAList();
     }
 
     @Then("The user clicks on the Select responsible people text box")
@@ -328,7 +309,7 @@ public class ResourcesStepDefs extends ObjectIndex {
 
     @And("The user should see the error message {string}")
     public void theUserShouldSeeTheErrorMessage(String arg0) {
-        Assert.assertTrue(resourcesPage.categoryNameErrorMessage.getText().contains("Please fill out all required fields correctly."));
+        resourcesPage.theUserShouldSeeTheErrorMessage(arg0);
     }
 
     @Then("User enters valid information on the {string} page")
@@ -358,8 +339,8 @@ public class ResourcesStepDefs extends ObjectIndex {
 
     @Then("The user should see the message {string}")
     public void theUserShouldSeeTheMessage(String arg0) {
-        Assert.assertTrue(resourcesPage.message.getText().contains("Resource successfully created"));
-      //resourcesPage.categoryNameTitle.click();
+        assertEquals(basePage.toastMessageText(),"Resource successfully created");
+        //Assert.assertTrue(resourcesPage.message.getText().contains("Resource successfully created"));
     }
 
     @Then("The user clicks on the Create button")
@@ -369,8 +350,8 @@ public class ResourcesStepDefs extends ObjectIndex {
 
     @Then("The user should be the {string} heading on the {string} page")
     public void theUserShouldBeTheHeadingOnThePage(String arg0, String arg1) {
-      //  Steps need to be written. There is a bug.
-    }
+    //  Steps need to be written. There is a bug.
+}
 
     @Then("The user enters the relevant information on the {string} page")
     public void theUserEntersTheRelevantInformationOnThePage(String arg0) {
@@ -394,8 +375,7 @@ public class ResourcesStepDefs extends ObjectIndex {
 
     @And("The user clicks on the New Resources Delete button")
     public void theUserClicksOnTheNewResourcesDeleteButton() {
-        resourcesPage.resourceDeletButton.click();
-        BrowserUtils.waitFor(2);
+        resourcesPage.theUserClicksOnTheNewResourcesDeleteButton();
 
     }
 
@@ -413,90 +393,47 @@ public class ResourcesStepDefs extends ObjectIndex {
 
     @And("Verify appear that the Add resource line has been deleted.")
     public void verifyAppearThatTheAddResourceLineHasBeenDeleted() {
-        Assert.assertTrue(resourcesPage.addResourcesDeleteLine.isDisplayed());
-        BrowserUtils.waitFor(2);
-
+       resourcesPage.verifyAppearThatTheAddResourceLineHasBeenDeleted();
     }
 
     @And("The user clicks on the New Resources Resource Delete button")
     public void theUserClicksOnTheNewResourcesResourceDeleteButton() {
-        resourcesPage.deleteButtonDelete.click();
+        resourcesPage.theUserClicksOnTheNewResourcesResourceDeleteButton();
     }
 
     @Then("User enters invalid information on the New Resource page")
     public void userEntersInvalidInformationOnTheNewResourcePage() {
-        BrowserUtils.clickWithJS(resourcesPage.selectTheCompany);
-        resourcesPage.selectTheCompany.sendKeys("Ankasale",Keys.ENTER);
-        BrowserUtils.waitFor(2);
-        WebElement startBox = orderPage.boxName("Enter category name");
-        actions.click(startBox).
-                sendKeys("Yemek").
-                sendKeys(Keys.TAB).
-                sendKeys(Keys.TAB).
-                sendKeys(Keys.TAB).
-                sendKeys(Keys.TAB).
-                sendKeys("Yusuf Köfte").
-                sendKeys(Keys.TAB).
-                sendKeys(Keys.TAB).
-                sendKeys(Keys.TAB).
-                sendKeys(Keys.TAB).
-                sendKeys(Keys.TAB).
-                sendKeys(Keys.TAB).
-                sendKeys(Keys.ENTER).perform();
+       resourcesPage.userEntersInvalidInformationOnTheNewResourcePage();
     }
 
     @Then("The user should see the messagee {string}")
     public void theUserShouldSeeTheMessagee(String arg0) {
-        Assert.assertTrue(resourcesPage.message.getText().contains("Please fill out all required fields correctly."));
+        assertEquals(basePage.toastMessageText(),"Please fill out all required fields correctly.");
     }
 
     @Then("The user clicks on the Resources Resource Delete button")
     public void theUserClicksOnTheResourcesResourceDeleteButton() {
-        resourcesPage.deleteButtonDelete.click();
+        resourcesPage.theUserClicksOnTheResourcesResourceDeleteButton();
     }
 
     @And("The user should see the delete messagee {string}")
     public void theUserShouldSeeTheDeleteMessagee(String arg0) {
-        Assert.assertTrue(resourcesPage.message.getText().contains("Field option category successfully deleted"));
-        BrowserUtils.waitFor(3);
+        assertEquals(basePage.toastMessageText(),"Field option category successfully deleted");
     }
 
     @And("The user clicks on the Resources Delete button")
     public void theUserClicksOnTheResourcesDeleteButton() {
-        resourcesPage.resourceDeletButton.click();
-        BrowserUtils.waitFor(2);
+        resourcesPage.theUserClicksOnTheResourcesDeleteButton();
     }
 
     @Then("The user clicks on the Resources Resource Cancel button")
-    public void theUserClicksOnTheResourcesResourceCancelButton() {
-        resourcesPage.deleteButtonCancel.click();
+       public void theUserClicksOnTheResourcesResourceCancelButton() {
+        resourcesPage.theUserClicksOnTheResourcesResourceCancelButton();
     }
 
     @Then("User enters valid information on the New Resource page")
     public void userEntersValidInformationOnTheNewResourcePage() {
-        BrowserUtils.clickWithJS(resourcesPage.selectTheCompany);
-        resourcesPage.selectTheCompany.sendKeys("Test Techno Consultant", Keys.ENTER);
-        BrowserUtils.waitFor(2);
-        WebElement startBox = orderPage.boxName("Enter category name");
-        actions.click(startBox).
-                sendKeys("Telefon").
-                sendKeys(Keys.TAB).
-                sendKeys(Keys.ENTER).
-                sendKeys(Keys.TAB).
-                sendKeys(Keys.ENTER).
-                sendKeys(Keys.TAB).
-                sendKeys(Keys.ENTER).
-                sendKeys(Keys.TAB).
-                sendKeys("Apple").
-                sendKeys(Keys.TAB).
-                sendKeys(Keys.TAB).
-                sendKeys("nokia@gmail.com - nokia", Keys.ENTER).
-                sendKeys(Keys.TAB).
-                sendKeys(Keys.TAB).
-                sendKeys(Keys.TAB).
-                sendKeys(Keys.TAB).
-                perform();
-        BrowserUtils.waitFor(2);
+       resourcesPage.userEntersInvalidInformationOnTheNewResourcePage();
     }
 
     @And("The user enters a Category Name on the new resource page")
@@ -546,17 +483,11 @@ public class ResourcesStepDefs extends ObjectIndex {
 
     @And("The user should be the String {string} {string} {string} {string} title")
     public void theUserShouldBeTheStringTitle(String arg0, String arg1, String arg2, String arg3) {
-
-            //        Assert.assertTrue(commonPage.listOf_Title.isDisplayed());
-            //        Assert.assertTrue(commonPage.createdAtTitle.isDisplayed());
-            //        Assert.assertTrue(commonPage.createdByTitle.isDisplayed());
-            //        Assert.assertTrue(resourcesPage.categoryNameTitle.isDisplayed());
-            // BrowserUtils.waitForVisibility(commonPage.listOf_Title,20);
-
-            //   String actualResultlistOf_Title = commonPage.listOf_Title.getText();
-            String expectedResult = arg0;
-            //  Assert.assertEquals(expectedResult,actualResultlistOf_Title);
-
+        resourcesPage.theUserShouldBeTheStringTitle(arg0,arg1,arg2,arg3);
+    }
+    @And("The user should see the delete messagee Please fill out all required fields correctly.")
+    public void theUserShouldSeeTheDeleteMessageePleaseFillOutAllRequiredFieldsCorrectly() {
+        assertEquals(basePage.toastMessageText(),"Please fill out all required fields correctly.");
     }
 }
 

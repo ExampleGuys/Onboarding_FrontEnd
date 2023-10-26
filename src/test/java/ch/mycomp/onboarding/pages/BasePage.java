@@ -14,7 +14,7 @@ import java.time.Instant;
 
 import static org.junit.Assert.assertTrue;
 
-public abstract class BasePage {
+public class BasePage {
     Faker faker=new Faker();
 
     public BasePage() {
@@ -179,5 +179,6 @@ public abstract class BasePage {
     public WebElement boxName(String boxNameInfo) {
         return Driver.get().findElement(By.xpath("//*[@placeholder='" + boxNameInfo + "']"));
     }
+
 
 }
