@@ -209,3 +209,8 @@ Scenario:TC: ONB2-198 On the Home Page of the "Sites" category can appear and cl
     Then The user clicks on the Edit button
     Then The user makes changes to the desired category
     And The user sees the confirmation message
+
+  @ONB2-274
+  Scenario:TC: ONB2-274 On the "New Sites" page, verify that "New Sites" is visible and clickable.
+    Then The user should be seen the Sites page
+    Then The user clicks on the "New Site" button
