@@ -489,5 +489,10 @@ public class ResourcesStepDefs extends ObjectIndex {
     public void theUserShouldSeeTheDeleteMessageePleaseFillOutAllRequiredFieldsCorrectly() {
         assertEquals(basePage.toastMessageText(),"Please fill out all required fields correctly.");
     }
+
+    @And("User {string} must have entered incorrect character")
+    public void userMustHaveEnteredIncorrectCharacter(String arg0) {
+        // Manual Test
+    }
 }
 

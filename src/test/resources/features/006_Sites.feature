@@ -159,3 +159,12 @@ Scenario:TC: ONB2-198 On the Home Page of the "Sites" category can appear and cl
     Then The user clicks on the "New Site" button
     Then The user clicks on the Street item
     And The user enters the information on the Street item
+
+  @ONB2-248
+  Scenario:TC: Manual Test => ONB2-248 On the New Site page, verify that you cannot enter the wrong characters in the "Postal Code" item.
+    Then The user clicks on the "New Site" button
+    Then The user clicks on the Zip Code button
+    And The user enters the information on the Zip Code item
+    And The user clicks on the counter on the "Zip Code" item
+    And User "Zip Code" must have entered incorrect character
+
