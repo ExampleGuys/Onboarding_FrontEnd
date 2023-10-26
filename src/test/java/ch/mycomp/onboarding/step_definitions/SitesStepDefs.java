@@ -5,6 +5,8 @@ import io.cucumber.java.en.Then;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
+import static org.junit.Assert.assertEquals;
+
 public class SitesStepDefs extends ObjectIndex {
 
        @And("The user must be able to click on the Sites link")
@@ -209,5 +211,10 @@ public class SitesStepDefs extends ObjectIndex {
     @And("The user enters the information on the Street item")
     public void theUserEntersTheInformationOnTheStreetItem() {
            sitesPage.theUserEntersTheInformationOnTheStreetItem();
+    }
+
+    @And("The user cannot enter more than {int} characters in the {string} item on the {string} page")
+    public void theUserCannotEnterMoreThanCharactersInTheItemOnThePage(int arg0, String arg1, String arg2) {
+        //Manual Test
     }
 }

@@ -172,3 +172,10 @@ Scenario:TC: ONB2-198 On the Home Page of the "Sites" category can appear and cl
   Scenario:TC: ONB2-261 Verify that the "For Directions" heading appears on the New Site page.
     Then The user clicks on the "New Site" button
     And The user clicks on the "For Directions" item
+
+  @ONB2-262
+  Scenario:TC: Manual Test ONB2-262 Verify that you cannot enter more than 500 characters in the "For Directions" item on the New Site page.
+    Then The user clicks on the "New Site" button
+    And The user clicks on the "For Directions" item
+    Then The user should be able to type up to fivehundred characters in the Description field
+    And The user cannot enter more than 500 characters in the "For Directions" item on the "New Site" page
