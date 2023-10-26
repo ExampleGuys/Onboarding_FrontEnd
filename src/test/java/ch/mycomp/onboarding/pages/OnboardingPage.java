@@ -2,19 +2,14 @@ package ch.mycomp.onboarding.pages;
 
 import ch.mycomp.onboarding.utilities.BrowserUtils;
 import ch.mycomp.onboarding.utilities.Driver;
-import org.joda.time.DateTime;
-import org.joda.time.format.DateTimeFormat;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -69,7 +64,7 @@ public class OnboardingPage extends BasePage {
     @FindBy(xpath = "(//tbody[@class='ant-table-tbody']//tr[1]/td[9]//button)[2]")
     public WebElement iconViewMoreFirstRowofTable;
     @FindBy(xpath = "//*[@class='ant-modal-content']")
-    WebElement modalShowLogs;
+    WebElement openedModal;
     @FindBy(xpath = "(//tbody[@class='ant-table-tbody']//tr[1]/td[9]//button)[3]")
     static WebElement deleteIconOfTheFirstElementOfOnboardingList;
 
@@ -130,6 +125,11 @@ public class OnboardingPage extends BasePage {
     @FindBy(xpath = "//input[@id='onboarding_resources_0_selectedResources']")
     public WebElement inputResourcesResource;
 
+    @FindBy(id = "searchText")
+    public WebElement inputEmail;
+
+    @FindBy(xpath = "//tbody//tr[@class='ant-table-row ant-table-row-level-0']")
+    public List<WebElement> allRowOfListing;
 
     public void assertionDeleteIconIsClickable() {
         assert (deleteIconInTheCommentsSection.isEnabled());
@@ -209,8 +209,8 @@ public class OnboardingPage extends BasePage {
         BrowserUtils.clickElement(buttonShowLogs, 20);
     }
 
-    public void assertionShowLogsModal() {
-        assert (modalShowLogs.isDisplayed());
+    public void assertionOpenedModal() {
+        assert (openedModal.isDisplayed());
     }
 
     public void clickDeleteIconOfTeFirstElementOfOnboardingList() {
@@ -441,5 +441,15 @@ public class OnboardingPage extends BasePage {
 
     public void clicksOnTheTheFirstWorkingDaySectionInTheCompanyRegistration() {
         BrowserUtils.clickElement(firstWorkingDay,20);
+    }
+
+    public void entersAnEmail() {
+        inputEmail.sendKeys("adan.cormier@hotmail.com");
+    }
+
+    public void theUserVerifyThatResultsAccordingToTheEmailAddressEnteredAreFiltered() {
+        BrowserUtils.waitFor(2);
+        assertEquals(1,allRowOfListing.size());
+
     }
 }
