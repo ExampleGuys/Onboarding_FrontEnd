@@ -47,6 +47,7 @@ public class SitesStepDefs extends ObjectIndex {
     @And("The user clicks on the Edit button")
     public void theUserClicksOnTheEditButton() {
            sitesPage.editButton.click();
+        BrowserUtils.waitFor(2);
     }
 
     @And("The user should be seen the Sites page")
@@ -136,6 +137,7 @@ public class SitesStepDefs extends ObjectIndex {
     @And("User enters valid information on the {string} item")
     public void userEntersValidInformationOnTheItem(String arg0) {
            sitesPage.userEntersValidInformationOnTheItem(arg0);
+        BrowserUtils.waitFor(2);
     }
 
     @Then("The user clicks on the Zip Code button")
@@ -236,6 +238,35 @@ public class SitesStepDefs extends ObjectIndex {
 
     @And("The user sees the confirmation message")
     public void theUserSeesTheConfirmationMessage() {
+        sitesPage.theUserSeesTheConfirmationMessage();
+    }
 
+    @Then("The user clicks on the Save button")
+    public void theUserClicksOnTheSaveButton() {
+           sitesPage.saveButton.click();
+    }
+
+    @Then("User enters valid information on the New Site page")
+    public void userEntersValidInformationOnTheNewSitePage() {
+        BrowserUtils.clickWithJS(sitesPage.selectTheCompany);
+        sitesPage.selectTheCompany.sendKeys("Ankasale",Keys.ENTER);
+        BrowserUtils.waitFor(2);
+        WebElement startBox = orderPage.boxName("Address Site");
+        actions.click(startBox).
+                sendKeys("Avcilar").
+                sendKeys(Keys.TAB).
+                sendKeys("23652").
+                sendKeys(Keys.TAB).
+                sendKeys("TR").
+                sendKeys(Keys.TAB).
+                sendKeys("Ankara").
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                sendKeys("Ankara Caddesi").
+                sendKeys(Keys.TAB).
+                sendKeys("Home delivery").
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).click().perform();
+        BrowserUtils.waitFor(2);
     }
 }

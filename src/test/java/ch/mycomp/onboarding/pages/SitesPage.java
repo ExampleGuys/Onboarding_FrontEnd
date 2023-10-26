@@ -12,8 +12,12 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import static org.junit.Assert.assertEquals;
+
 public class SitesPage extends BasePage {
         Actions actions = new Actions(Driver.get());
+
+        BasePage basePage = new BasePage();
 
         //Sites >clickOnSites ]
         @FindBy(xpath = "//a[normalize-space()='']")
@@ -174,6 +178,10 @@ public class SitesPage extends BasePage {
         //(//div[@class='ant-col css-14bavl3'])[2] //(//button[@type='button'])[4]
         public WebElement deleteButton;
 
+        //Sites/Resources > saveButton]
+        @FindBy(xpath = "//span[text()='Save']")
+        public WebElement saveButton;
+
         public  void heUserShouldBeSeenTheListOfSitesTitle(){
 
         }
@@ -282,8 +290,9 @@ public class SitesPage extends BasePage {
                 BrowserUtils.waitFor(3);
                 editSeiteEnterCountry.click();
                 actions.moveToElement(editSeiteEnterCountry).sendKeys("Türkiye").perform();
+                saveButton.click();
         }
         public void theUserSeesTheConfirmationMessage() {
-                BrowserUtils.verifyElementDisplayed(newSeiteEnterCountryMesage);
+                assertEquals(basePage.toastMessageText(),"Site successfully updated");
         }
 }

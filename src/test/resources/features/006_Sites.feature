@@ -186,6 +186,7 @@ Scenario:TC: ONB2-198 On the Home Page of the "Sites" category can appear and cl
     And The user clicks on the "For Directions" item
     Then The user should be able to type up to fivehundred characters in the Description field
     And  The user clicks on the scroll bar on the "For Directions" item
+    # locate alinmiyor
 
   @ONB2-265
   Scenario:TC: ONB2-265 Verify that the "Create" button is visible and clickable on the New Site page.
@@ -214,3 +215,12 @@ Scenario:TC: ONB2-198 On the Home Page of the "Sites" category can appear and cl
   Scenario:TC: ONB2-274 On the "New Sites" page, verify that "New Sites" is visible and clickable.
     Then The user should be seen the Sites page
     Then The user clicks on the "New Site" button
+
+  @ONB2-389
+  Scenario:TC: ONB2-389 E2E-Verify that new entries can be made on the site page.
+    Then The user clicks on the "New Site" button
+    Then User enters valid information on the New Site page
+    And The user clicks on the Create button
+    Then The user clicks on the Edit button
+    And User enters valid information on the "Adress Site" item
+    Then The user clicks on the Save button

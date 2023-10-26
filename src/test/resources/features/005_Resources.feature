@@ -226,7 +226,7 @@ Feature: Resources Tests
   @ONB2-390
   Scenario:TC: ONB2-390 E2E-Verify that new entries can be made on the Resources page.
     Then The user clicks on the "New Resource" button
-    Then  User enters valid information on the New Resource page
+    Then  User enters valid information on the "New Resource" page
     Then The user clicks on the Create button
     Then The user should be seen the Ant-Popover should appear.
     Then The user clicks on the Resources Delete button
