@@ -217,4 +217,10 @@ public class SitesStepDefs extends ObjectIndex {
     public void theUserCannotEnterMoreThanCharactersInTheItemOnThePage(int arg0, String arg1, String arg2) {
         //Manual Test
     }
+
+    @And("The user clicks on the scroll bar on the {string} item")
+    public void theUserClicksOnTheScrollBarOnTheItem(String arg0) {
+           sitesPage.theUserClicksOnTheScrollBarOnTheItem(arg0);
+
+    }
 }

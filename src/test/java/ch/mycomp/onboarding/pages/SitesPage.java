@@ -4,6 +4,7 @@ import ch.mycomp.onboarding.utilities.BrowserUtils;
 import ch.mycomp.onboarding.utilities.ConfigurationReader;
 import ch.mycomp.onboarding.utilities.Driver;
 import com.github.javafaker.Faker;
+import io.cucumber.java.en.And;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -160,6 +161,10 @@ public class SitesPage extends BasePage {
         @FindBy(xpath = "(//span[@role='button'])[1]")
         public WebElement zipcodeCounterButton1;
 
+        //Sites > forDirectionsScroll]
+        @FindBy(xpath = "( //span[@class='ant-input-suffix']")
+        public WebElement forDirectionsScroll;
+
         //Sites/Resources > deleteButton]
         @FindBy(xpath = "(//button[@type='button'])[4]")
         //(//div[@class='ant-col css-14bavl3'])[2] //(//button[@type='button'])[4]
@@ -258,5 +263,10 @@ public class SitesPage extends BasePage {
         }
         public void theUserShouldBeSeenTheSitesPage() {
                 BrowserUtils.verifyElementDisplayed(sitePage);
+        }
+
+        public void theUserClicksOnTheScrollBarOnTheItem(String arg0) {
+                forDirectionsScroll.click();
+
         }
 }

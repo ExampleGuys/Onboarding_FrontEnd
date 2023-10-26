@@ -180,3 +180,9 @@ Scenario:TC: ONB2-198 On the Home Page of the "Sites" category can appear and cl
     Then The user should be able to type up to fivehundred characters in the Description field
     And The user cannot enter more than 500 characters in the "For Directions" item on the "New Site" page
 
+  @ONB2-264
+  Scenario:TC: ONB2-264 On the New Site page, the "For Directions" item appears next to the scroll bar, and Verify that it is active.
+    Then The user clicks on the "New Site" button
+    And The user clicks on the "For Directions" item
+    Then The user should be able to type up to fivehundred characters in the Description field
+    And  The user clicks on the scroll bar on the "For Directions" item
