@@ -277,3 +277,9 @@ Feature: Onboarding Create Tests
       And The user click on the "New Onboarding" button top right corner of the page
       And The user clicks on the The First Working Day section in the Company Registration
       Then The User verify that the mini calendar is opened
+
+    @ONB2-297
+    Scenario: TC ONB2-297 The user should be able to create a new company site in the "Company registration" section when making a new onboarding
+      And The user click on the "New Onboarding" button top right corner of the page
+      And The User click on plus + button near to "Company Site" in the Company Registration section
+      Then The User verify that the modal is opened
