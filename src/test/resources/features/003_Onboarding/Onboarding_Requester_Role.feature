@@ -1,5 +1,5 @@
 @regression
-Feature: Onboarding Create Tests
+Feature: Onboarding Create Tests with Requester Role
 
   Background: pre-steps
     Given The user goes to staging url
