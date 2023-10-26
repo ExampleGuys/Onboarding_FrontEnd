@@ -184,9 +184,10 @@ Feature: Resources Tests
     And The user selects Quantity Selection  as "true"
     And The user selects Auto Add to Onboarding as "true"
     And The user enters a Resource Name on the new resource page
-    And The user selects a Contact from contacts dropdown "vernell.keebler@gmail.com - Tristan Hegmann"
+    And The user selects a Contact from contacts dropdown "millard.mclaughlin@gmail.com - Lisabeth Wiza"
     Then The user clicks on the Create button
     And The user should be the entered information in a list
+    #vernell.keebler@gmail.com - Tristan Hegmann
 
   @ONB2-312
   Scenario:TC: BUG ONB2-312 On the Resources page, verify that the search badge for the "Search by name" searchbox is clickable.
