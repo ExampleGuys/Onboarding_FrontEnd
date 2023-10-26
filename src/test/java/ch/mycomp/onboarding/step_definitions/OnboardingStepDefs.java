@@ -1,6 +1,5 @@
 package ch.mycomp.onboarding.step_definitions;
 
-import ch.mycomp.onboarding.utilities.BrowserUtils;
 import ch.mycomp.onboarding.utilities.ConfigurationReader;
 import ch.mycomp.onboarding.utilities.Driver;
 import io.cucumber.java.en.*;
@@ -134,7 +133,7 @@ public class OnboardingStepDefs extends ObjectIndex{
 
     @Then("The User Verify that show logs modal opened")
     public void theUserVerifyThatShowLogsModalOpened() {
-        onboardingPage.assertionShowLogsModal();
+        onboardingPage.assertionOpenedModal();
     }
 
     @Then("the User verify that Company Registration section is visible")
@@ -355,5 +354,30 @@ public class OnboardingStepDefs extends ObjectIndex{
     @And("The user clicks on the The First Working Day section in the Company Registration")
     public void theUserClicksOnTheTheFirstWorkingDaySectionInTheCompanyRegistration() {
         onboardingPage.clicksOnTheTheFirstWorkingDaySectionInTheCompanyRegistration();
+    }
+    @And("The User click on plus + button near to {string} in the Company Registration section")
+    public void theUserClickOnPlusButtonNearToInTheCompanyRegistrationSection(String optionName) {
+        orderPage.clickPlusAccordingToOptionName(optionName);
+    }
+
+    @Then("The User verify that the modal is opened")
+    public void theUserVerifyThatTheModalIsOpened() {
+        onboardingPage.assertionOpenedModal();
+    }
+
+    @And("The User {string} button in the Resources Section")
+    public void theUserButtonInTheResourcesSection(String buttonName) {
+        onboardingPage.clickTheButton(buttonName);
+    }
+
+    @And("The user enter an email in the Filter Modal and click on {string} button")
+    public void theUserEnterAnEmailInTheFilterModalAndClickOnButton(String buttonName) {
+        onboardingPage.entersAnEmail();
+        onboardingPage.clickButton(buttonName);
+    }
+
+    @Then("the user verify that results according to the email address entered are filtered")
+    public void theUserVerifyThatResultsAccordingToTheEmailAddressEnteredAreFiltered() {
+        onboardingPage.theUserVerifyThatResultsAccordingToTheEmailAddressEnteredAreFiltered();
     }
 }
