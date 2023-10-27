@@ -221,6 +221,24 @@ public class ContactsStepDefs extends ObjectIndex {
         assertTrue(contactsPage.listOfContactsTable.isDisplayed());
 
     }
+
+    @And("user clicks Edit icon under the Actions column in the Contacts page")
+    public void userClicksEditIconUnderTheActionsColumnInTheContactsPage() {
+        BrowserUtils.clickElement(contactsPage.editIconForFirstRow,20);
+    }
+
+    @And("user writes updated in the {string} text area")
+    public void userWritesInTheTextArea(String placeHolder) {
+        BrowserUtils.waitForVisibility(orderPage.boxName(placeHolder),20);
+        contactsPage.editContactName(placeHolder);
+    }
+
+    @Then("user should be able to save the updated company name")
+    public void userShouldBeAbleToSaveTheUpdatedCompanyName() {
+        contactsPage.clickButton("Save");
+        assertTrue(contactsPage.toastMessageText().contains("success"));
+        assertTrue(contactsPage.lastCreatedContactName.getText().contains("updated"));
+    }
 }
 
 

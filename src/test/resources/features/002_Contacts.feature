@@ -167,3 +167,9 @@ Feature: Contacts test
   @ONB2-289
   Scenario: TC: ONB2-289 View contacts information under "List of Contacts" header
     Then user should be able to view contacts' information under "List of Contacts" header
+
+  @ONB2-182
+  Scenario: TC: ONB2-182 Update contact name and save
+    And user clicks Edit icon under the Actions column in the Contacts page
+    And user writes updated in the "Enter full name or company" text area
+    Then user should be able to save the updated company name
