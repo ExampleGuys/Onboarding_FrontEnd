@@ -173,3 +173,10 @@ Feature: Contacts test
     And user clicks Edit icon under the Actions column in the Contacts page
     And user writes updated in the "Enter full name or company" text area
     Then user should be able to save the updated company name
+
+  @ONB2-184
+  Scenario: TC: ONB2-184 Contact successfully updated message should be seen
+    And user clicks Edit icon under the Actions column in the Contacts page
+    And user writes updated in the "Enter full name or company" text area
+    And The user click on the "Save" button.
+    Then user should be able to view "Contact successfully updated" message
