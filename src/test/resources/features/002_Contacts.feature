@@ -180,3 +180,7 @@ Feature: Contacts test
     And user writes updated in the "Enter full name or company" text area
     And The user click on the "Save" button.
     Then user should be able to view "Contact successfully updated" message
+
+  @ONB2-147
+  Scenario: TC: ONB2-147 Verify that enters the contacts page
+    Then user should be able to verify that enters the "Contacts | Mycomp" page

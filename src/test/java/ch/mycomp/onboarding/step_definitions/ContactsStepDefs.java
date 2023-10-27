@@ -245,6 +245,11 @@ public class ContactsStepDefs extends ObjectIndex {
     public void userShouldBeAbleToViewMessage(String toastMessageText) {
         assertEquals(contactsPage.toastMessageText(),toastMessageText);
     }
+
+    @Then("user should be able to verify that enters the {string} page")
+    public void userShouldBeAbleToVerifyThatEntersTheContactPage(String pageTitle) {
+        assertEquals(pageTitle, Driver.get().getTitle());
+    }
 }
 
 
