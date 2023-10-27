@@ -167,3 +167,26 @@ Feature: Contacts test
   @ONB2-289
   Scenario: TC: ONB2-289 View contacts information under "List of Contacts" header
     Then user should be able to view contacts' information under "List of Contacts" header
+
+  @ONB2-182
+  Scenario: TC: ONB2-182 Update contact name and save
+    And user clicks Edit icon under the Actions column in the Contacts page
+    And user writes updated in the "Enter full name or company" text area
+    Then user should be able to save the updated company name
+
+  @ONB2-184
+  Scenario: TC: ONB2-184 Contact successfully updated message should be seen
+    And user clicks Edit icon under the Actions column in the Contacts page
+    And user writes updated in the "Enter full name or company" text area
+    And The user click on the "Save" button.
+    Then user should be able to view "Contact successfully updated" message
+
+  @ONB2-147
+  Scenario: TC: ONB2-147 Verify that enters the contacts page
+    Then user should be able to verify that enters the "Contacts | Mycomp" page
+
+  @ONB2-288
+  Scenario: TC: ONB2-288 Verify that the back button works in the Edit Contact | Mycomp page
+    And user clicks Edit icon under the Actions column in the Contacts page
+    And The user click on the "Back" button.
+    Then user should be able to verify that goes back to the "Contacts | Mycomp" page
