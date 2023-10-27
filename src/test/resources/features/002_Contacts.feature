@@ -184,3 +184,9 @@ Feature: Contacts test
   @ONB2-147
   Scenario: TC: ONB2-147 Verify that enters the contacts page
     Then user should be able to verify that enters the "Contacts | Mycomp" page
+
+  @ONB2-288
+  Scenario: TC: ONB2-288 Verify that the back button works in the Edit Contact | Mycomp page
+    And user clicks Edit icon under the Actions column in the Contacts page
+    And The user click on the "Back" button.
+    Then user should be able to verify that goes back to the "Contacts | Mycomp" page
