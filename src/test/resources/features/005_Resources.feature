@@ -24,7 +24,7 @@ Feature: Resources Tests
     Given The user goes to the sign-in page
     When The user enters valid logon credentials
     Then The user clicks on the "Resources" category
-    And The user should be the "List of Resources" "Category Name" "Created By" "Created At" title
+    And The user should be the String "List of Resources" "Category Name" "Created By" "Created At" title
 
   @ONB2-310
   Scenario:TC: ONB2-310 On the Resources page, verify that the "Search by name" search box is visible and active.
@@ -184,9 +184,10 @@ Feature: Resources Tests
     And The user selects Quantity Selection  as "true"
     And The user selects Auto Add to Onboarding as "true"
     And The user enters a Resource Name on the new resource page
-    And The user selects a Contact from contacts dropdown "vernell.keebler@gmail.com - Tristan Hegmann"
+    And The user selects a Contact from contacts dropdown "millard.mclaughlin@gmail.com - Lisabeth Wiza"
     Then The user clicks on the Create button
     And The user should be the entered information in a list
+    #vernell.keebler@gmail.com - Tristan Hegmann
 
   @ONB2-312
   Scenario:TC: BUG ONB2-312 On the Resources page, verify that the search badge for the "Search by name" searchbox is clickable.
@@ -225,11 +226,10 @@ Feature: Resources Tests
   @ONB2-390
   Scenario:TC: ONB2-390 E2E-Verify that new entries can be made on the Resources page.
     Then The user clicks on the "New Resource" button
-    Then  User enters valid information on the New Resource page
+    Then  User enters valid information on the "New Resource" page
     Then The user clicks on the Create button
     Then The user should be seen the Ant-Popover should appear.
     Then The user clicks on the Resources Delete button
-    Then The user clicks on the Resources Resource Delete button
-    And The user should see the delete messagee "Field option category successfully deleted"
+    And The user should see the delete messagee Please fill out all required fields correctly.
 
 

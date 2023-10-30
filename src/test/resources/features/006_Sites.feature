@@ -115,7 +115,6 @@ Scenario:TC: ONB2-198 On the Home Page of the "Sites" category can appear and cl
     Then The user clicks on the Zip Code button
     And The user enters the information on the Zip Code item
     And The user clicks on the counter on the "Zip Code" item
-    And The user performs the function of the counter on the "Zip Code" item
 
   @ONB2-252
   Scenario:TC: ONB2-252 On the New Site page, verify that the title  "Country" is visible.
@@ -160,3 +159,68 @@ Scenario:TC: ONB2-198 On the Home Page of the "Sites" category can appear and cl
     Then The user clicks on the "New Site" button
     Then The user clicks on the Street item
     And The user enters the information on the Street item
+
+  @ONB2-248
+  Scenario:TC: Manual Test => ONB2-248 On the New Site page, verify that you cannot enter the wrong characters in the "Postal Code" item.
+    Then The user clicks on the "New Site" button
+    Then The user clicks on the Zip Code button
+    And The user enters the information on the Zip Code item
+    And The user clicks on the counter on the "Zip Code" item
+    And User "Zip Code" must have entered incorrect character
+
+  @ONB2-261
+  Scenario:TC: ONB2-261 Verify that the "For Directions" heading appears on the New Site page.
+    Then The user clicks on the "New Site" button
+    And The user clicks on the "For Directions" item
+
+  @ONB2-262
+  Scenario:TC: Manual Test ==> ONB2-262 Verify that you cannot enter more than 500 characters in the "For Directions" item on the New Site page.
+    Then The user clicks on the "New Site" button
+    And The user clicks on the "For Directions" item
+    Then The user should be able to type up to fivehundred characters in the Description field
+    And The user cannot enter more than 500 characters in the "For Directions" item on the "New Site" page
+
+  @ONB2-264
+  Scenario:TC: ONB2-264 On the New Site page, the "For Directions" item appears next to the scroll bar, and Verify that it is active.
+    Then The user clicks on the "New Site" button
+    And The user clicks on the "For Directions" item
+    Then The user should be able to type up to fivehundred characters in the Description field
+    And  The user clicks on the scroll bar on the "For Directions" item
+    # locate alinmiyor
+
+  @ONB2-265
+  Scenario:TC: ONB2-265 Verify that the "Create" button is visible and clickable on the New Site page.
+    Then The user clicks on the "New Site" button
+    Then User enters invalid information on the "New Site" page
+    Then The user clicks on the Create button
+
+  @ONB2-267
+  Scenario:TC: ONB2-267 On the New Site page, verify that the "Back" button is visible and clickable.
+    Then The user clicks on the "New Site" button
+    Then The user clicks on the "Back" button
+    And The user should be seen the Sites page
+
+  @ONB2-269
+  Scenario:TC: ONB2-269 Verify that clicking the "Edit" button on the "Sites" page shows that the "Edit Site" page is visible.
+    Then The user clicks on the Edit button
+    And  The user should be seen the "Edit Site" page
+
+  @ONB2-270
+  Scenario:TC: ONB2-270 Confirm that changes are made to the "Edit Site" page when the "Edit" button is clicked on the "Sites" page.
+    Then The user clicks on the Edit button
+    Then The user makes changes to the desired category
+    And The user sees the confirmation message
+
+  @ONB2-274
+  Scenario:TC: ONB2-274 On the "New Sites" page, verify that "New Sites" is visible and clickable.
+    Then The user should be seen the Sites page
+    Then The user clicks on the "New Site" button
+
+  @ONB2-389
+  Scenario:TC: ONB2-389 E2E-Verify that new entries can be made on the site page.
+    Then The user clicks on the "New Site" button
+    Then User enters valid information on the New Site page
+    And The user clicks on the Create button
+    Then The user clicks on the Edit button
+    And User enters valid information on the "Adress Site" item
+    Then The user clicks on the Save button

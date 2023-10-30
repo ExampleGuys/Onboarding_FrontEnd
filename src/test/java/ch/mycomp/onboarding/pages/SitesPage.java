@@ -1,12 +1,15 @@
 package ch.mycomp.onboarding.pages;
 
-import com.github.javafaker.Faker;
+import ch.mycomp.onboarding.utilities.BrowserUtils;
+import ch.mycomp.onboarding.utilities.Driver;
+import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class SitesPage extends BasePage{
+import static org.junit.Assert.assertEquals;
+
+public class SitesPage extends BasePage {
 
         //Sites >clickOnSites ]
         @FindBy(xpath = "//a[normalize-space()='']")
@@ -102,6 +105,10 @@ public class SitesPage extends BasePage{
         @FindBy(xpath = "//input[@id='Site_street']")
         public WebElement newSeiteEnterStreet;
 
+        //Sites > editSeiteEnterCountry]
+        @FindBy(xpath = " //input[@placeholder='Enter country']")
+        public WebElement editSeiteEnterCountry;
+
         //Sites > newSeiteForDirectionsTitle]
         @FindBy(xpath = "//label[normalize-space()='For Directions']")
         public WebElement newSeiteForDirectionsTitle;
@@ -144,15 +151,140 @@ public class SitesPage extends BasePage{
 
         //Sites > sitesLink2]
         @FindBy(xpath = "//span[@class='ant-breadcrumb-link']")
-        public WebElement sitesLink2;
+        public WebElement sitesLink2;//span[@role='button']
+
+        //Sites > zipcodeCounterButton2]
+        @FindBy(xpath = "(//span[@role='button'])[2]")
+        public WebElement zipcodeCounterButton2;
+
+        //Sites > zipcodeCounterButton1]
+        @FindBy(xpath = "(//span[@role='button'])[1]")
+        public WebElement zipcodeCounterButton1;
+
+        //Sites > forDirectionsScroll]
+        @FindBy(xpath = "( //span[@class='ant-input-suffix'])")
+        public WebElement forDirectionsScroll;
 
         //Sites/Resources > deleteButton]
         @FindBy(xpath = "(//button[@type='button'])[4]")
         //(//div[@class='ant-col css-14bavl3'])[2] //(//button[@type='button'])[4]
         public WebElement deleteButton;
 
+        //Sites/Resources > saveButton]
+        @FindBy(xpath = "//span[text()='Save']")
+        public WebElement saveButton;
 
+        public  void heUserShouldBeSeenTheListOfSitesTitle(){
 
-    }
+        }
+        public  void theUserMustBeAbleToClickOnTheSitesLink(){
+                BrowserUtils.waitForClickability(sitesLink2,1);
+                BrowserUtils.waitForVisibility(sitesLink2,1);
+        }
 
+        public void theUserShouldBeSeenTheSiteTitle() {
+                BrowserUtils.waitForVisibility(siteTitle,1);
+        }
+        public void theUserClicksOnTheDeleteButton() {
+                deleteButton.click();
+        }
+        public void theUserClicksOnTheItem(String arg0) {
+                BrowserUtils.waitForClickability(newSeiteEnterForDirections,1);
+        }
+        public WebElement boxName(String boxNameInfo) {
+                return Driver.get().findElement(By.xpath("//*[@placeholder='" + boxNameInfo + "']"));
+        }
+        public void theUserShouldBeAbleToTypeUpToFivehundredCharactersInTheDescriptionField() {
+                String str= faker.lorem().characters(510);
+                int strlength = str.length(); //510
+                boxName("Enter for directions").sendKeys(str);
+                int textlength = newSeiteEnterForDirections.getText().length();
+                String str500 = newSeiteForDirections500.getText();//500 / 500
+                int space = str500.indexOf(" "); //3
+                int fivehundred = Integer.parseInt((str500.substring(0,space))); //500 int
+                Assert.assertEquals(textlength,fivehundred);
+        }
+        public void theUserShouldSeeTheNumberOfCharactersTheyEnteredAtTheBottomRight() {
+                BrowserUtils.waitForVisibility(newSeiteForDirections500,1);
+        }
+        public void theUserClicksOnTheEditButton() {
+                BrowserUtils.waitForClickability(editButton,1);
+                BrowserUtils.waitFor(3);
+        }
+        public void theUserShouldBeSeenTheNewSiteSiteTitle() {
+                BrowserUtils.waitForVisibility(newSeiteSiteTitle,1);
+        }
+        public void theUserShouldBeSeenTheNewSiteZipCodeTitle() {
+                BrowserUtils.waitForVisibility(newSeiteZipCodeTitle,1);
+        }
+        public void theUserClicksOnTheAdressSiteButton() {
+               // BrowserUtils.waitForClickability(newSeiteAdressSite,1);
+                newSeiteAdressSite.click();
+        }
+        public void userEntersValidInformationOnTheItem(String arg0) {
+                actions.moveToElement(newSeiteAdressSite).sendKeys("Aselsan").perform();
+        }
+        public void theUserClicksOnTheZipCodeButton() {
+                //BrowserUtils.waitForClickability(newSeiteEnterZipCode,1);
+                newSeiteEnterZipCode.click();
+        }
+        public void theUserEntersTheInformationOnTheZipCodeItem() {
+                actions.moveToElement(newSeiteEnterZipCode).sendKeys("12365").perform();
+                BrowserUtils.waitFor(3);
 
+        }
+        public void theUserShouldBeSeenTheNewSiteCountryTitle() {
+                BrowserUtils.waitForVisibility(newSeiteCountryTitle,1);
+        }
+        public void theUserShouldBeSeenTheNewSiteCityTitle() {
+                BrowserUtils.waitForVisibility(newSeiteCityTitle,1);
+        }
+        public void theUserClicksOnTheCityItem() {
+                newSeiteEnterCity.click();
+        }
+        public void theUserShouldBeSeenTheNewSiteDistrictTitle() {
+                BrowserUtils.waitForVisibility(newSeiteDistrictTitle,1);
+        }
+        public void theUserShouldBeSeenTheNewSiteStreetTitle() {
+                BrowserUtils.verifyElementDisplayed(newSeiteStreetTitle);
+        }
+        public void theUserClicksOnTheStreetItem() {
+               newSeiteEnterStreet.click();
+        }
+        public void theUserEntersTheInformationOnTheStreetItem() {
+                actions.moveToElement(newSeiteEnterStreet).sendKeys("Ankara cad.").perform();
+        }
+        public void theUserClicksOnTheCounterOnTheItem(String arg0) {
+               BrowserUtils.doubleClick(zipcodeCounterButton2);
+        }
+        public void theUserEntersTheInformationOnTheDistrictItem() {
+                actions.moveToElement(newSeiteEnterDistrict).sendKeys("Kaiserslautern").perform();
+        }
+        public void theUserClicksOnTheDistrictItem() {
+                newSeiteEnterDistrict.click();
+        }
+        public void theUserEntersTheInformationOnTheCityItem() {
+                actions.moveToElement(newSeiteEnterCity).sendKeys("Ankara").perform();
+        }
+        public void theUserShouldBeSeenTheSitesPage() {
+                BrowserUtils.verifyElementDisplayed(sitePage);
+        }
+
+        public void theUserClicksOnTheScrollBarOnTheItem(String arg0) {
+                forDirectionsScroll.click();
+        }
+        public void theUserShouldBeSeenThePage(String arg0) {
+                BrowserUtils.waitFor(3);
+                BrowserUtils.verifyElementDisplayed(sitePage);
+        }
+        public void theUserMakesChangesToTheDesiredCategory() {
+                editSeiteEnterCountry.clear();
+                BrowserUtils.waitFor(3);
+                editSeiteEnterCountry.click();
+                actions.moveToElement(editSeiteEnterCountry).sendKeys("Türkiye").perform();
+                saveButton.click();
+        }
+        public void theUserSeesTheConfirmationMessage() {
+                assertEquals(toastMessageText(),"Site successfully updated");
+        }
+}

@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -15,11 +16,10 @@ import java.time.Instant;
 import static org.junit.Assert.assertTrue;
 
 public abstract class BasePage {
-    Faker faker=new Faker();
-
     public BasePage() {
         PageFactory.initElements(Driver.get(), this);
     }
+
 
     @FindBy(xpath = "//div[@class='go3958317564']")
     public WebElement message;
@@ -52,6 +52,12 @@ public abstract class BasePage {
     public WebElement globalInputCompanyDropdown;
 
 
+    Faker faker=new Faker();
+    Actions actions = new Actions(Driver.get());
+    OrderPage orderPage = new OrderPage();
+    String fakeContactName = faker.name().fullName();
+    String fakeEmail = faker.internet().emailAddress();
+
     public String getTotalNumberOfThePageInformationText() {
 
         String[] arr = paginationTotalText.getText().split(" ");
@@ -74,7 +80,7 @@ public abstract class BasePage {
 
     public String toastMessageText() {
 
-        BrowserUtils.waitForVisibility(message, 20);
+        BrowserUtils.waitForVisibility(message, 5);
         return message.getText();
     }
 
@@ -176,5 +182,9 @@ public abstract class BasePage {
         BrowserUtils.waitForVisibility(pageHeader, 20);
         return pageHeader.getText();
     }
+    public WebElement boxName(String boxNameInfo) {
+        return Driver.get().findElement(By.xpath("//*[@placeholder='" + boxNameInfo + "']"));
+    }
+
 
 }

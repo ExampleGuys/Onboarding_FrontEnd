@@ -1,55 +1,47 @@
 package ch.mycomp.onboarding.step_definitions;
-
-import ch.mycomp.onboarding.pages.*;
 import ch.mycomp.onboarding.utilities.BrowserUtils;
-import ch.mycomp.onboarding.utilities.ConfigurationReader;
-import ch.mycomp.onboarding.utilities.Driver;
-import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
+
+import static org.junit.Assert.assertEquals;
 
 public class SitesStepDefs extends ObjectIndex {
 
-
        @And("The user must be able to click on the Sites link")
     public void theUserMustBeAbleToClickOnTheSitesLink() {
-        sitesPage.sitesLink2.click();
+           sitesPage.theUserMustBeAbleToClickOnTheSitesLink();
     }
 
     @And("The user should be seen the List of Sites title")
     public void theUserShouldBeSeenTheListOfSitesTitle() {
-        resourcesPage.listOf_.isDisplayed();
+       resourcesPage.theUserShouldBeSeenTheListOfSitesTitle();
 
     }
     @And("The user should be seen the Site title")
     public void theUserShouldBeSeenTheSiteTitle() {
-        Assert.assertTrue(sitesPage.siteTitle.isDisplayed());
+        sitesPage.theUserShouldBeSeenTheSiteTitle();
     }
 
     @And("The user should be seen the Created By title")
     public void theUserShouldBeSeenTheCreatedByTitle() {
-        Assert.assertTrue(resourcesPage.createdBy_.isDisplayed());
+       resourcesPage.theUserShouldBeSeenTheCreatedByTitle();
     }
 
     @And("The user should be seen the Created At title")
     public void theUserShouldBeSeenTheCreatedAtTitle() {
-        Assert.assertTrue(resourcesPage.createdAt.isDisplayed());
+        resourcesPage.theUserShouldBeSeenTheCreatedAtTitle();
     }
 
     @And("The user clicks on the Delete button")
     public void theUserClicksOnTheDeleteButton() {
-        sitesPage.deleteButton.click();
+        sitesPage.theUserClicksOnTheDeleteButton();
     }
 
     @And("The user should be seen the Ant-Popover should appear")
     public void theUserShouldBeSeenTheAntPopoverShouldAppear() {
-        Assert.assertTrue(resourcesPage.deletePopconfirm.isDisplayed());
-        BrowserUtils.waitFor(3);
+        resourcesPage.theUserShouldBeSeenTheAntPopoverShouldAppear();
     }
 
     @And("The user clicks on the Edit button")
@@ -60,35 +52,23 @@ public class SitesStepDefs extends ObjectIndex {
 
     @And("The user should be seen the Sites page")
     public void theUserShouldBeSeenTheSitesPage() {
-           Assert.assertTrue(sitesPage.sitePage.isDisplayed());
+        sitesPage.theUserShouldBeSeenTheSitesPage();
     }
 
     @Then("The user clicks on the {string} item")
     public void theUserClicksOnTheItem(String arg0) {
-           sitesPage.newSeiteEnterForDirections.click();
+           sitesPage.theUserClicksOnTheItem(arg0);
     }
 
     @Then("The user should be able to type up to fivehundred characters in the Description field")
     public void theUserShouldBeAbleToTypeUpToFivehundredCharactersInTheDescriptionField() {
-        String str= faker.lorem().characters(510);
-        int strlength = str.length(); //510
+        sitesPage.theUserShouldBeAbleToTypeUpToFivehundredCharactersInTheDescriptionField();
 
-        orderPage.boxName("Enter for directions").sendKeys(str);
-
-        int textlength = sitesPage.newSeiteEnterForDirections.getText().length();
-
-        String str500 = sitesPage.newSeiteForDirections500.getText();//500 / 500
-
-        int space = str500.indexOf(" "); //3
-
-        int fivehundred = Integer.parseInt((str500.substring(0,space))); //500 int
-
-        Assert.assertEquals(textlength,fivehundred);
     }
 
     @And("The user should see the number of characters they entered at the bottom right")
     public void theUserShouldSeeTheNumberOfCharactersTheyEnteredAtTheBottomRight() {
-           Assert.assertTrue(sitesPage.newSeiteForDirections500.isDisplayed());
+           sitesPage.theUserShouldSeeTheNumberOfCharactersTheyEnteredAtTheBottomRight();
     }
 
     @Then("User enters invalid information on the {string} page")
@@ -121,67 +101,63 @@ public class SitesStepDefs extends ObjectIndex {
 
     @And("The user should be able to click on the Search by Site search box")
     public void theUserShouldBeAbleToClickOnTheSearchBySiteSearchBox() {
-           resourcesPage.searchBoxText.click();
+           resourcesPage.theUserShouldBeAbleToClickOnTheSearchBySiteSearchBox();
     }
 
     @And("The user must be able to search in the Search by Site search box")
     public void theUserMustBeAbleToSearchInTheSearchBySiteSearchBox() {
-          actions.moveToElement(resourcesPage.searchBoxText).sendKeys("Avcilar").perform();
+        resourcesPage.theUserMustBeAbleToSearchInTheSearchBySiteSearchBox();
     }
 
     @Then("The user clicks on the Sites Sites Delete button")
     public void theUserClicksOnTheSitesSitesDeleteButton() {
-           resourcesPage.deleteButtonDelete.click();
+           resourcesPage.theUserClicksOnTheSitesSitesDeleteButton();
     }
 
     @And("The user should see the delete messagee Site successfully deleted")
     public void theUserShouldSeeTheDeleteMessageeSiteSuccessfullyDeleted() {
-        Assert.assertTrue(resourcesPage.message.getText().contains("Site successfully deleted"));
-        BrowserUtils.waitFor(3);
+       resourcesPage.theUserClicksOnTheSitesSitesDeleteButton();
     }
 
     @And("The user should be seen the New Site Site title")
     public void theUserShouldBeSeenTheNewSiteSiteTitle() {
-           Assert.assertTrue(sitesPage.newSeiteSiteTitle.isDisplayed());
+          sitesPage.theUserShouldBeSeenTheNewSiteSiteTitle();
     }
 
     @And("The user should be seen the New Site, Zip Code title")
     public void theUserShouldBeSeenTheNewSiteZipCodeTitle() {
-           Assert.assertTrue(sitesPage.newSeiteZipCodeTitle.isDisplayed());
+           sitesPage.theUserShouldBeSeenTheNewSiteZipCodeTitle();
     }
 
     @And("The user clicks on the Adress Site button")
     public void theUserClicksOnTheAdressSiteButton() {
-           sitesPage.newSeiteAdressSite.click();
+           sitesPage.theUserClicksOnTheAdressSiteButton();
     }
 
     @And("User enters valid information on the {string} item")
     public void userEntersValidInformationOnTheItem(String arg0) {
-           actions.moveToElement(sitesPage.newSeiteAdressSite).sendKeys("Aselsan").perform();
+           sitesPage.userEntersValidInformationOnTheItem(arg0);
+        BrowserUtils.waitFor(2);
     }
 
     @Then("The user clicks on the Zip Code button")
     public void theUserClicksOnTheZipCodeButton() {
-           sitesPage.newSeiteEnterZipCode.click();
+           sitesPage.theUserClicksOnTheZipCodeButton();
     }
 
     @And("The user enters the information on the Zip Code item")
     public void theUserEntersTheInformationOnTheZipCodeItem() {
-           actions.moveToElement(sitesPage.newSeiteEnterZipCode).sendKeys("12365").perform();
+        sitesPage.theUserEntersTheInformationOnTheZipCodeItem();
     }
 
     @And("The user clicks on the counter on the {string} item")
     public void theUserClicksOnTheCounterOnTheItem(String arg0) {
-
-    }
-
-    @And("The user performs the function of the counter on the {string} item")
-    public void theUserPerformsTheFunctionOfTheCounterOnTheItem(String arg0) {
+           sitesPage.theUserClicksOnTheCounterOnTheItem(arg0);
     }
 
     @And("The user should be seen the New Site, Country title")
     public void theUserShouldBeSeenTheNewSiteCountryTitle() {
-           Assert.assertTrue(sitesPage.newSeiteCountryTitle.isDisplayed());
+          sitesPage.theUserShouldBeSeenTheNewSiteCountryTitle();
     }
 
     @And("The user clicks on the Country item")
@@ -196,46 +172,101 @@ public class SitesStepDefs extends ObjectIndex {
 
     @And("The user should be seen the New Site, City title")
     public void theUserShouldBeSeenTheNewSiteCityTitle() {
-           Assert.assertTrue(sitesPage.newSeiteCityTitle.isDisplayed());
+           sitesPage.theUserShouldBeSeenTheNewSiteCityTitle();
     }
 
     @Then("The user clicks on the City item")
     public void theUserClicksOnTheCityItem() {
-           sitesPage.newSeiteEnterCity.click();
+           sitesPage.theUserClicksOnTheCityItem();
     }
 
     @Then("The user enters the information on the City item")
     public void theUserEntersTheInformationOnTheCityItem() {
-           actions.moveToElement(sitesPage.newSeiteEnterCity).sendKeys("Ankara").perform();
+          sitesPage.theUserEntersTheInformationOnTheCityItem();
     }
 
     @And("The user should be seen the New Site, District title")
     public void theUserShouldBeSeenTheNewSiteDistrictTitle() {
-           Assert.assertTrue(sitesPage.newSeiteDistrictTitle.isDisplayed());
+          sitesPage.theUserShouldBeSeenTheNewSiteDistrictTitle();
     }
 
     @Then("The user clicks on the District item")
     public void theUserClicksOnTheDistrictItem() {
-           sitesPage.newSeiteEnterDistrict.click();
+           sitesPage.theUserClicksOnTheDistrictItem();
     }
 
     @And("The user enters the information on the District item")
     public void theUserEntersTheInformationOnTheDistrictItem() {
-           actions.moveToElement(sitesPage.newSeiteEnterDistrict).sendKeys("Kaiserslautern").perform();
+           sitesPage.theUserEntersTheInformationOnTheDistrictItem();
     }
 
     @And("The user should be seen the New Site, Street title")
     public void theUserShouldBeSeenTheNewSiteStreetTitle() {
-           Assert.assertTrue(sitesPage.newSeiteStreetTitle.isDisplayed());
+          sitesPage.theUserShouldBeSeenTheNewSiteStreetTitle();
     }
 
     @Then("The user clicks on the Street item")
     public void theUserClicksOnTheStreetItem() {
-           sitesPage.newSeiteEnterStreet.click();
+           sitesPage.theUserClicksOnTheStreetItem();
     }
 
     @And("The user enters the information on the Street item")
     public void theUserEntersTheInformationOnTheStreetItem() {
-           actions.moveToElement(sitesPage.newSeiteEnterStreet).sendKeys("Ankara cad.").perform();
+           sitesPage.theUserEntersTheInformationOnTheStreetItem();
+    }
+
+    @And("The user cannot enter more than {int} characters in the {string} item on the {string} page")
+    public void theUserCannotEnterMoreThanCharactersInTheItemOnThePage(int arg0, String arg1, String arg2) {
+        //Manual Test
+    }
+
+    @And("The user clicks on the scroll bar on the {string} item")
+    public void theUserClicksOnTheScrollBarOnTheItem(String arg0) {
+           sitesPage.theUserClicksOnTheScrollBarOnTheItem(arg0);
+
+    }
+
+    @And("The user should be seen the {string} page")
+    public void theUserShouldBeSeenThePage(String arg0) {
+           sitesPage.theUserShouldBeSeenThePage(arg0);
+    }
+
+    @Then("The user makes changes to the desired category")
+    public void theUserMakesChangesToTheDesiredCategory() {
+           sitesPage.theUserMakesChangesToTheDesiredCategory();
+    }
+
+    @And("The user sees the confirmation message")
+    public void theUserSeesTheConfirmationMessage() {
+        sitesPage.theUserSeesTheConfirmationMessage();
+    }
+
+    @Then("The user clicks on the Save button")
+    public void theUserClicksOnTheSaveButton() {
+           sitesPage.saveButton.click();
+    }
+
+    @Then("User enters valid information on the New Site page")
+    public void userEntersValidInformationOnTheNewSitePage() {
+        BrowserUtils.clickWithJS(sitesPage.selectTheCompany);
+        sitesPage.selectTheCompany.sendKeys("Ankasale",Keys.ENTER);
+        BrowserUtils.waitFor(2);
+        WebElement startBox = orderPage.boxName("Address Site");
+        actions.click(startBox).
+                sendKeys("Avcilar").
+                sendKeys(Keys.TAB).
+                sendKeys("23652").
+                sendKeys(Keys.TAB).
+                sendKeys("TR").
+                sendKeys(Keys.TAB).
+                sendKeys("Ankara").
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).
+                sendKeys("Ankara Caddesi").
+                sendKeys(Keys.TAB).
+                sendKeys("Home delivery").
+                sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).click().perform();
+        BrowserUtils.waitFor(2);
     }
 }

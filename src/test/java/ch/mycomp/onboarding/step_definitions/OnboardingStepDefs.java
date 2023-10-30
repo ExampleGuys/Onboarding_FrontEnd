@@ -380,4 +380,5 @@ public class OnboardingStepDefs extends ObjectIndex{
     public void theUserVerifyThatResultsAccordingToTheEmailAddressEnteredAreFiltered() {
         onboardingPage.theUserVerifyThatResultsAccordingToTheEmailAddressEnteredAreFiltered();
     }
+
 }
