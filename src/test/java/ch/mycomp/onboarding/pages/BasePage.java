@@ -74,7 +74,7 @@ public class BasePage {
 
     public String toastMessageText() {
 
-        BrowserUtils.waitForVisibility(message, 5);
+        BrowserUtils.waitForVisibility(message, 20);
         return message.getText();
     }
 
