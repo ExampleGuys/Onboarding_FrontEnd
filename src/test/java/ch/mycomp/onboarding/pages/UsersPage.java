@@ -1,26 +1,14 @@
 package ch.mycomp.onboarding.pages;
 
 import ch.mycomp.onboarding.utilities.BrowserUtils;
-import ch.mycomp.onboarding.utilities.Driver;
-import com.github.javafaker.Faker;
-import com.github.javafaker.Faker;
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-
-import java.net.PortUnreachableException;
-import java.util.List;
 
 import static ch.mycomp.onboarding.utilities.Driver.driver;
 
 public class UsersPage extends BasePage {
-
-
-    Actions actions = new Actions(driver);
 
     @FindBy(xpath = "//*[text()='List of Users']")
     public WebElement titleofUsers;

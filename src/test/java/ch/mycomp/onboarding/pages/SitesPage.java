@@ -1,23 +1,15 @@
 package ch.mycomp.onboarding.pages;
 
 import ch.mycomp.onboarding.utilities.BrowserUtils;
-import ch.mycomp.onboarding.utilities.ConfigurationReader;
 import ch.mycomp.onboarding.utilities.Driver;
-import com.github.javafaker.Faker;
-import io.cucumber.java.en.And;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 import static org.junit.Assert.assertEquals;
 
 public class SitesPage extends BasePage {
-        Actions actions = new Actions(Driver.get());
-
-        BasePage basePage = new BasePage();
 
         //Sites >clickOnSites ]
         @FindBy(xpath = "//a[normalize-space()='']")
@@ -170,7 +162,7 @@ public class SitesPage extends BasePage {
         public WebElement zipcodeCounterButton1;
 
         //Sites > forDirectionsScroll]
-        @FindBy(xpath = "( //span[@class='ant-input-suffix']")
+        @FindBy(xpath = "( //span[@class='ant-input-suffix'])")
         public WebElement forDirectionsScroll;
 
         //Sites/Resources > deleteButton]
@@ -293,6 +285,6 @@ public class SitesPage extends BasePage {
                 saveButton.click();
         }
         public void theUserSeesTheConfirmationMessage() {
-                assertEquals(basePage.toastMessageText(),"Site successfully updated");
+                assertEquals(toastMessageText(),"Site successfully updated");
         }
 }

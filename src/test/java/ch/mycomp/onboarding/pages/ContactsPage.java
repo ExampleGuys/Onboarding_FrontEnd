@@ -1,9 +1,7 @@
 package ch.mycomp.onboarding.pages;
 
-import ch.mycomp.onboarding.utilities.BrowserUtils;
 import ch.mycomp.onboarding.utilities.Driver;
 
-import com.github.javafaker.Faker;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -14,11 +12,6 @@ import static org.junit.Assert.*;
 
 public class ContactsPage extends BasePage {
 
-    Faker faker = new Faker();
-    OrderPage orderPage = new OrderPage();
-
-    String fakeContactName = faker.name().fullName();
-    String fakeEmail = faker.internet().emailAddress();
 
     @FindBy(xpath = "((//td[@class='ant-table-cell'])/b[1])[1]")
     public WebElement lastCreatedContactName;
