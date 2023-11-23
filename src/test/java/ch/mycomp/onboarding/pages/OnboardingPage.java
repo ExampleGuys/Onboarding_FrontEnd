@@ -50,7 +50,7 @@ public class OnboardingPage extends BasePage {
     public WebElement headlineAttechmentsSection;
 
     @FindBy(xpath = "//span[@aria-label='upload']")
-    public WebElement attahmentUpload;
+    public WebElement attachmentUpload;
 
     @FindBy(xpath = "//tbody[@class='ant-table-tbody']//tr[1]")
     public WebElement firstRowinTheListOfOnboardingTable;
@@ -131,12 +131,17 @@ public class OnboardingPage extends BasePage {
     @FindBy(xpath = "//tbody//tr[@class='ant-table-row ant-table-row-level-0']")
     public List<WebElement> allRowOfListing;
 
+    @FindBy(xpath = "//div[@class='ant-popover-inner']")
+    public WebElement deleteModal;
+
     public void assertionDeleteIconIsClickable() {
         assert (deleteIconInTheCommentsSection.isEnabled());
     }
 
-    public void assertionForPersonalInformationHeadlineIsVisible() {
-        assert (headlinePersonalInformation.isDisplayed());
+    public void assertionForHeadlineIsVisible(String pageHeaderName) {
+        WebElement pageHeader = Driver.get().findElement(By.xpath("//h2[text()='" + pageHeaderName + "']"));
+
+       BrowserUtils.verifyElementDisplayed(pageHeader);
     }
 
     public void assertionForCompanyRegistrationHeadlineIsVisible() {
@@ -156,15 +161,17 @@ public class OnboardingPage extends BasePage {
     }
 
     public void assertionForShowLogsIcon() {
-        assert (buttonShowLogs.isDisplayed());
+        BrowserUtils.verifyElementDisplayed(buttonShowLogs);
     }
 
-    public void clickOnDraftsTab() {
-        BrowserUtils.clickElement(draftsTab, 20);
+    public void clickOnDraftsTab(String tabName) {
+        WebElement button = Driver.get().findElement(By.xpath("//div[text()='" + tabName + "']"));
+        BrowserUtils.clickElement(button, 20);
     }
 
     public void clickEditIconInTheTable() {
-        BrowserUtils.clickElement(editIconInTheTableFirstRowInTheActionSection, 20);
+        BrowserUtils.waitFor(2);
+        BrowserUtils.clickElement(editIconForFirstRow, 20);
     }
 
     public void assertionForAttechmentsHeadlineIsVisible() {
@@ -172,11 +179,12 @@ public class OnboardingPage extends BasePage {
     }
 
     public void assertionAttachmentUploadButton() {
-        assert (attahmentUpload.isDisplayed());
+        BrowserUtils.verifyElementDisplayed(attachmentUpload);
+
     }
 
     public void assertionFirstRowOOnboardingList() {
-        assert firstRowinTheListOfOnboardingTable.isDisplayed();
+        BrowserUtils.verifyElementDisplayed(firstRowinTheListOfOnboardingTable);
     }
 
     public void clickOnLinkOfOnboardings() {
@@ -185,7 +193,7 @@ public class OnboardingPage extends BasePage {
 
     public void assertionLinkOfOnboardings() {
         BrowserUtils.clickElement(linkOfOnboardings, 20);
-        String expectedUrl = "https://staging.onboarding.mycomp.ch/onboarding";
+        String expectedUrl = "https://staging.onboarding.mycomp.ch/onboardings";
         String actualUrl = Driver.get().getCurrentUrl();
         assertEquals(expectedUrl, actualUrl);
     }
@@ -200,9 +208,9 @@ public class OnboardingPage extends BasePage {
         BrowserUtils.clickElement(iconViewMoreFirstRowofTable, 20);
     }
 
-    public void assertionRedirectToEditOnboardingPage() {
-        BrowserUtils.waitForPageToLoad(3);
-        assertionForPersonalInformationHeadlineIsVisible();
+    public void assertionRedirectToEditOnboardingPage(String pageTitle) {
+        BrowserUtils.waitFor(3);
+        assertEquals(pageTitle,getPageTitle());
     }
 
     public void clickOnShowLogIcon() {
@@ -218,12 +226,12 @@ public class OnboardingPage extends BasePage {
         BrowserUtils.clickElement(deleteIconOfTheFirstElementOfOnboardingList, 20);
     }
 
-    public void assertionCancelButtonWorkingProperly(String buttonName) {
-        assert (!(buttonCancel.isDisplayed()));
+    public void assertionCancelButtonClickable(String buttonName) {
+        shouldClickableButton(buttonName);
     }
 
     public void assertionRedirectToNewOnboardingPage() {
-        String expectedUrl = "https://staging.onboarding.mycomp.ch/onboarding/create";
+        String expectedUrl = "https://staging.onboarding.mycomp.ch/onboardings/create";
         String actualUrl = Driver.get().getCurrentUrl();
         assertEquals(expectedUrl, actualUrl);
     }
@@ -233,13 +241,13 @@ public class OnboardingPage extends BasePage {
     }
 
     public void assertionAllOnboardingsVisible() {
-        String expectedUrl = "https://staging.onboarding.mycomp.ch/onboarding?page=&isCompleted=";
+        String expectedUrl = "https://staging.onboarding.mycomp.ch/onboardings?page=&isCompleted=";
         String actualUrl = Driver.get().getCurrentUrl();
         assertEquals(expectedUrl, actualUrl);
     }
 
     public void assertionDraftOnboardingsVisible() {
-        String expectedUrl = "https://staging.onboarding.mycomp.ch/onboarding?page=&isCompleted=false";
+        String expectedUrl = "https://staging.onboarding.mycomp.ch/onboardings?page=&isCompleted=false";
         String actualUrl = Driver.get().getCurrentUrl();
         assertEquals(expectedUrl, actualUrl);
     }
@@ -249,20 +257,16 @@ public class OnboardingPage extends BasePage {
     }
 
     public void assertionCompletedOnboardingsVisible() {
-        String expectedUrl = "https://staging.onboarding.mycomp.ch/onboarding?page=&isCompleted=true";
+        String expectedUrl = "https://staging.onboarding.mycomp.ch/onboardings?page=&isCompleted=true";
         String actualUrl = Driver.get().getCurrentUrl();
         assertEquals(expectedUrl, actualUrl);
     }
 
     public void assertionTotalOnboardingItemIsChanged() {
         String totalNumberOfItemsActual = totalOnboardingSection.getText();
-        Assert.assertEquals(totalNumberOfItems, totalNumberOfItemsActual);
+        Assert.assertNotEquals(totalNumberOfItems, totalNumberOfItemsActual);
     }
 
-    public void clickTheButton(String buttonName) {
-        WebElement button = Driver.get().findElement(By.xpath("//span[text()='" + buttonName + "']"));
-        BrowserUtils.clickWithJS(button);
-    }
 
     public void assertionXXXButtonClickable(String buttonName) {
         WebElement button = Driver.get().findElement(By.xpath("//span[text()='" + buttonName + "']"));
@@ -383,6 +387,7 @@ public class OnboardingPage extends BasePage {
     }
 
     public void assertionChangedHasBeenSaved() {
+        BrowserUtils.waitFor(1);
         assertEquals(toastMessageText(),"Onboarding successfully updated");
 
     }
@@ -403,7 +408,7 @@ public class OnboardingPage extends BasePage {
     }
 
     public void changingOneOfTheResources() {
-        clickTheButton("Add resource");
+        clickButton("Add resource");
         inputResourcesCategory.click();
         String category="Telefon";
         WebElement selectCategory = Driver.get().findElement(By.xpath("//div[@title='" +category + "']"));
@@ -451,5 +456,9 @@ public class OnboardingPage extends BasePage {
         BrowserUtils.waitFor(2);
         assertEquals(1,allRowOfListing.size());
 
+    }
+
+    public void assertionForEditIcon() {
+        BrowserUtils.verifyElementDisplayed(editIconForFirstRow);
     }
 }

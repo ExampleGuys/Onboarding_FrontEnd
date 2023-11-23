@@ -586,7 +586,7 @@ public class ResourcesPage extends BasePage {
         categoryNameTitleNewResourcesSeit.click();
     }
     public void theUserOnlyWriteInTextBox(String arg0) {
-        WebElement enterCategoryName = orderPage.boxName("Enter category name");
+        WebElement enterCategoryName = boxName("Enter category name");
         actions.click(enterCategoryName).
                 sendKeys(faker.options().toString()).
                 sendKeys(Keys.ENTER).
@@ -602,7 +602,7 @@ public class ResourcesPage extends BasePage {
       newResourcesEnterResourcesName.click();
     }
     public void relevantInformationIntoTheEnterEnterResourceNameTextBox() {
-        WebElement enterResourceName = orderPage.boxName("Enter resource name");
+        WebElement enterResourceName = boxName("Enter resource name");
         actions.click(enterResourceName).
                 sendKeys(faker.name().name()).
                 perform();
@@ -631,7 +631,7 @@ public class ResourcesPage extends BasePage {
         BrowserUtils.clickWithJS(selectTheCompany);
        selectTheCompany.sendKeys("Ankasale",Keys.ENTER);
         BrowserUtils.waitFor(2);
-        WebElement startBox = orderPage.boxName("Enter category name");
+        WebElement startBox = boxName("Enter category name");
         actions.click(startBox).
                 sendKeys("Yemek").
                 sendKeys(Keys.TAB).
@@ -661,7 +661,7 @@ public class ResourcesPage extends BasePage {
         BrowserUtils.clickWithJS(selectTheCompany);
         selectTheCompany.sendKeys("Test Techno Consultant", Keys.ENTER);
         BrowserUtils.waitFor(2);
-        WebElement startBox = orderPage.boxName("Enter category name");
+        WebElement startBox = boxName("Enter category name");
         actions.click(startBox).
                 sendKeys("Telefon").
                 sendKeys(Keys.TAB).

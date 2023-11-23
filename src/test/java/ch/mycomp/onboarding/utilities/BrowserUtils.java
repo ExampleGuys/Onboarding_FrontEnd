@@ -462,6 +462,15 @@ public class BrowserUtils {
 
         }
     }
+    public static void verifyElementClickable(WebElement element) {
+        try {
+            Assert.assertTrue(element.isEnabled());
 
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+            Assert.fail("Element not found: " + element);
+
+        }
+    }
 
 }

@@ -1,5 +1,6 @@
 package ch.mycomp.onboarding.pages;
 
+import ch.mycomp.onboarding.utilities.BrowserUtils;
 import ch.mycomp.onboarding.utilities.ConfigurationReader;
 //import jdk.internal.event.Event;
 import org.openqa.selenium.WebElement;
@@ -10,23 +11,18 @@ import static org.junit.Assert.*;
 public class LoginPage extends BasePage {
 
 
-    //  String passwordInUnencrypted;
-
-
     // MyComp SignIn page
     @FindBy(xpath = "//div[@class='ant-card-head-title']")
     public WebElement myCompUrl;
 
-    // Email
-    @FindBy(xpath = "//*[@placeholder='Enter e-mail']")
-    public WebElement email;
+
 
     //Main Page
     @FindBy(xpath = "//*[@id=\"root\"]/div[2]/img")
     public WebElement myCompPTitle;
 
     @FindBy(xpath = "//div[@class='ant-card ant-card-bordered css-14bavl3']")
-    public WebElement signInFieldText;
+    public WebElement signInModal;
 
 
     //Email input
@@ -57,7 +53,7 @@ public class LoginPage extends BasePage {
 
 
     // Reset Password button
-    @FindBy(xpath = "//span[normalize-space()='Reset Password']")
+    @FindBy(xpath = "//*[text()='Reset Password']")
     public WebElement resetPasswordButton;
 
     // Reset password email message (Password link sent to your email)
@@ -93,7 +89,7 @@ public class LoginPage extends BasePage {
     public WebElement emptyPasswordFieldToastMessage;
 
     // Eye-icon of password text field
-    @FindBy(xpath = "//*[@id=\"root\"]/div[2]/main/div/div[2]/form/div[2]/div/div[2]/div/div/span/span[2]")
+    @FindBy(xpath = "//*[@aria-label='eye-invisible']")
     public WebElement eyeIconforPassword;
 
     // Password in encrypted
@@ -102,7 +98,7 @@ public class LoginPage extends BasePage {
 
     //  Unencrypted password
 
-    @FindBy(xpath = "(//div[@class='ant-form-item-control-input'])[2]")
+    @FindBy(xpath = "//input[@autocomplete='current-password']")
     public WebElement passwordInUnencrypted;
 
 
@@ -181,7 +177,75 @@ public class LoginPage extends BasePage {
         System.out.println("expectedToastMessage = " + expectedToastMessage);
 
         assertEquals(expectedToastMessage,actualToastMessage);
+    }
 
-//        assert (toastMessages.getText().equalsIgnoreCase("You've successfully signed in"));
+    public void theUserVerifyThatTheSignInModalIsVisible(){
+        BrowserUtils.waitForVisibility(signInModal,30);
+        assertTrue(signInModal.isDisplayed());
+    }
+
+    public void theUserVerifyThatTheEmailTextFieldShouldBeClicakble() {
+       assertTrue(emailInput.isEnabled());
+    }
+
+    public void TheUserVerifyThatThePasswordTextFieldShouldBeClickable() {
+        assertTrue(passwordInput.isEnabled());
+    }
+
+    public void TheUserVerifyThatTheForgetPasswordLinkShouldBeClickable(){
+        assertTrue(forgotLink.isEnabled());
+    }
+
+    public void TheForgetPasswordLinkShouldBeVisible() {
+        assertTrue(forgotLink.isDisplayed());
+
+
+    }
+    public void theUserEnterPasswordInPasswordArea() {
+
+        passwordInput.sendKeys("AB123@ab");
+    }
+
+    public void TheUserVerifyThatThePasswordIsWrittenInTheEncryptedForm() {
+        String expectedPassword = "";
+        assertEquals (expectedPassword,passwordInEncrypted.getText());
+        System.out.println("Actual Password : " + passwordInEncrypted.getText());
+
+
+    }
+
+    public void theUserVerifyThatTheEyeIconShouldBeVisibleOnThePasswordTextField() {
+        assertTrue(eyeIconforPassword.isDisplayed());
+    }
+
+    public void theUserClickOnTheEyeIconThePasswordTextField() {
+       BrowserUtils.clickWithJS(eyeIconforPassword);
+    }
+
+    public void theUserVerifyThatThePasswordIsVisible() {
+        String expectedPassword = "AB123@ab";
+        assertEquals (expectedPassword,passwordInput.getAttribute("value"));
+        System.out.println("Actual Password : " + passwordInput.getAttribute("value"));
+
+    }
+
+    public void theUserClickOnForgotPasswordLinkInTheSignInPage() {
+        BrowserUtils.clickElement(forgotLink,20);
+    }
+
+    public void theUserVerifyThatTheForgotPasswordPageIsOpen() {
+        assertTrue(forgotPasswordPage.isDisplayed());
+    }
+
+    public void connotLogin(String email, String password, String warningMessage) {
+        emailInput.sendKeys(ConfigurationReader.get(email));
+        passwordInput.sendKeys(ConfigurationReader.get(password));
+        signInButton.click();
+
+        assertEquals(warningMessage,toastMessageText());
+    }
+
+    public void theUserVerifyThatResetPasswordButtonShouldBeClickable() {
+        assertTrue(resetPasswordButton.isEnabled());
     }
 }

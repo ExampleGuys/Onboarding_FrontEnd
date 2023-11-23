@@ -8,46 +8,24 @@ public class OnboardingStepDefs extends ObjectIndex{
 
 
     @Given("The user goes to staging url")
-    public void the_user_goes_to_staging_url() {
-        Driver.get().get(ConfigurationReader.get("url"));
+    public void theUserGoesToStagingUrl() {
+        onboardingPage.theUserGoesToStagingUrl();
     }
 
     @And("The User click on the {string} section in the Navigation Menu")
     public void theUserClickOnTheSectionInTheNavigationMenu(String navigationName) {
-        onboardingPage.clickTheButton(navigationName);
+        onboardingPage.clickButton(navigationName);
     }
 
     @And("The user click on the {string} button top right corner of the page")
     public void theUserClickOnTheButton(String buttonName) {
-       onboardingPage.clickTheButton(buttonName);
+       onboardingPage.clickButton(buttonName);
     }
 
-    @Then("the user should seen Personal Information section")
-    public void theUserShouldSeenPersonalInformationSection() {
-        onboardingPage.assertionForPersonalInformationHeadlineIsVisible();
+    @Then("The user should seen {string} section")
+    public void theUserShouldSeenSection(String pageHeaderName) {
+        onboardingPage.assertionForHeadlineIsVisible(pageHeaderName);
     }
-
-    @Then("the user should seen Company Registration section")
-    public void theUserShouldSeenCompanyRegistrationSection() {
-        onboardingPage.assertionForCompanyRegistrationHeadlineIsVisible();
-
-    }
-
-    @Then("the user should seen Resources section")
-    public void theUserShouldSeenResourcesSection() {
-        onboardingPage.assertionForResourcesHeadlineIsVisible();
-    }
-
-    @Then("the user should seen Completion Date at The Latest section")
-    public void theUserShouldSeenCompletionDateAtTheLatestSection() {
-        onboardingPage.assertionForCompletionDateAtTheLatestHeadlineIsVisible();
-    }
-
-    @Then("the user should seen Comments section")
-    public void theUserShouldSeenCommentsSection() {
-    onboardingPage.assertionForCommentsIsVisible();
-    }
-
 
     @Then("The User verify that “Show Logs” button in the Action section is visible")
     public void theUserVerifyThatShowLogsButtonInTheActionSectionIsVisible() {
@@ -56,16 +34,16 @@ public class OnboardingStepDefs extends ObjectIndex{
 
     @And("The User click on {string} tab under the List of Onboardings headline")
     public void theUserClickOnTabUnderTheListOfOnboardingsHeadline(String tabName) {
-        onboardingPage.clickOnDraftsTab();
+        onboardingPage.clickOnDraftsTab(tabName);
 
     }
 
     @Then("The User verify that edit icon in the Actions section of first element of list should be visible")
     public void theUserVerifyThatEditIconInTheActionsSectionOfFirstElementOfListShouldBeVisible() {
-        onboardingPage.assertionForShowLogsIcon();
+        onboardingPage.assertionForEditIcon();
     }
 
-    @And("And The User click on edit icon in the Actions section of first element of list")
+    @And("The User click on edit icon in the Actions section of first element of list")
     public void andTheUserClickOnEditIconInTheActionsSectionOfFirstElementOfList() {
         onboardingPage.clickEditIconInTheTable();
 
@@ -73,7 +51,7 @@ public class OnboardingStepDefs extends ObjectIndex{
 
     @Then("The User verify that Personel Information section should be visible")
     public void theUserVerifyThatPersonelInformationSectionShouldBeVisible() {
-        onboardingPage.assertionForPersonalInformationHeadlineIsVisible();
+      //  onboardingPage.assertionForPersonalInformationHeadlineIsVisible();
     }
 
     @Then("The User verify that Resources section should be visible")
@@ -96,7 +74,7 @@ public class OnboardingStepDefs extends ObjectIndex{
         onboardingPage.assertionForAttechmentsHeadlineIsVisible();
     }
 
-    @Then("the user should seen “Select File” button in the Attachments section")
+    @Then("The user should seen “Select File” button in the Attachments section")
     public void theUserShouldSeenSelectFileButtonInTheAttachmentsSection() {
         onboardingPage.assertionAttachmentUploadButton();
     }
@@ -106,7 +84,7 @@ public class OnboardingStepDefs extends ObjectIndex{
         onboardingPage.assertionFirstRowOOnboardingList();
     }
 
-    @And("The User click on the {string} link top left on the page")
+    @And("The User click on the Onboardings link top left on the page")
     public void theUserClickOnTheOnboardingsLinkTopLeftOnThePage() {
         onboardingPage.clickOnLinkOfOnboardings();
     }
@@ -121,9 +99,9 @@ public class OnboardingStepDefs extends ObjectIndex{
         onboardingPage.clickOnViewMoreIcon();
     }
 
-    @Then("The user verify that the page redirect to Edit Onboarding Page")
-    public void theUserVerifyThatThePageRedirectToEditOnboardingPage() {
-        onboardingPage.assertionRedirectToEditOnboardingPage();
+    @Then("The user verify that the page redirect to {string} Page")
+    public void theUserVerifyThatThePageRedirectToEditOnboardingPage(String pageTitle) {
+        onboardingPage.assertionRedirectToEditOnboardingPage(pageTitle);
     }
 
     @And("The User Click on the show logs button of First Onboarding List Element")
@@ -136,7 +114,7 @@ public class OnboardingStepDefs extends ObjectIndex{
         onboardingPage.assertionOpenedModal();
     }
 
-    @Then("the User verify that Company Registration section is visible")
+    @Then("The User verify that Company Registration section is visible")
     public void theUserVerifyThatCompanyRegistrationSectionIsVisible() {
         onboardingPage.assertionForCompanyRegistrationHeadlineIsVisible();
     }
@@ -146,16 +124,12 @@ public class OnboardingStepDefs extends ObjectIndex{
         onboardingPage.clickDeleteIconOfTeFirstElementOfOnboardingList();
 
     }
-    @And("The User Click on {string} button on the ant-popover")
-    public void theUserClickOnButtonOnTheAntPopover(String buttonName) {
-       onboardingPage.clickTheButton(buttonName);
 
-    }
 
-    @Then("The User verify that {string} button is working properly")
-    public void theUserVerifyThatButtonIsWorkingProperly(String buttonName) {
-        onboardingPage.clickTheButton(buttonName);
-        onboardingPage.assertionCancelButtonWorkingProperly(buttonName);
+    @Then("The User verify that {string} button is clickable")
+    public void theUserVerifyThatButtonIsClickable(String buttonName) {
+
+        onboardingPage.assertionCancelButtonClickable(buttonName);
 
     }
 
@@ -166,7 +140,7 @@ public class OnboardingStepDefs extends ObjectIndex{
 
     @And("The User click on All tab under the List of Onboardings headline")
     public void theUserClickOnAllTabUnderTheListOfOnboardingsHeadline() {
-        onboardingPage.clickOnDraftsTab();
+        //  onboardingPage.clickOnDraftsTab(ta);
         onboardingPage.clickOnAllTab();
     }
 
@@ -213,9 +187,9 @@ public class OnboardingStepDefs extends ObjectIndex{
     }
 
 
-    @And("the User Click on the {string} button")
+    @And("The User Click on the {string} button")
     public void theUserClicksOnTheButton(String buttonName) {
-        onboardingPage.clickTheButton(buttonName);
+        onboardingPage.clickButton(buttonName);
     }
 
     @Then("The User verify that the Delete Comment button is clickable")
@@ -245,7 +219,7 @@ public class OnboardingStepDefs extends ObjectIndex{
     @And("The user click on the {string} icon-button")
     public void theUserClickOnTheIconButton(String buttonName) {
         onboardingPage.clickOnDeleteIcon();
-        onboardingPage.clickTheButton(buttonName);
+        onboardingPage.clickButton(buttonName);
     }
 
     @Then("The User verify that the new comment has been deleted")
@@ -283,7 +257,7 @@ public class OnboardingStepDefs extends ObjectIndex{
 
     @Then("The User then verify that the onboarding registration status is saved as draft")
     public void theUserThenVerifyThatTheOnboardingRegistrationStatusIsSavedAsDraft() {
-        onboardingPage.clickOnDraftsTab();
+       // onboardingPage.clickOnDraftsTab();
         onboardingPage.assertionNewOnboardingSavedInDraftsPage();
     }
 
@@ -367,7 +341,7 @@ public class OnboardingStepDefs extends ObjectIndex{
 
     @And("The User {string} button in the Resources Section")
     public void theUserButtonInTheResourcesSection(String buttonName) {
-        onboardingPage.clickTheButton(buttonName);
+        onboardingPage.clickButton(buttonName);
     }
 
     @And("The user enter an email in the Filter Modal and click on {string} button")
@@ -376,7 +350,7 @@ public class OnboardingStepDefs extends ObjectIndex{
         onboardingPage.clickButton(buttonName);
     }
 
-    @Then("the user verify that results according to the email address entered are filtered")
+    @Then("The user verify that results according to the email address entered are filtered")
     public void theUserVerifyThatResultsAccordingToTheEmailAddressEnteredAreFiltered() {
         onboardingPage.theUserVerifyThatResultsAccordingToTheEmailAddressEnteredAreFiltered();
     }

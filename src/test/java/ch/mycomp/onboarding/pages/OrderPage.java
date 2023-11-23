@@ -52,9 +52,6 @@ public class OrderPage extends BasePage{
         return message;
     }
 
-    public WebElement boxName(String boxNameInfo) {
-        return Driver.get().findElement(By.xpath("//*[@placeholder='" + boxNameInfo + "']"));
-    }
 
     public WebElement ddmBox(String ddmInfo) {
         return Driver.get().findElement(By.cssSelector("[title='"+ddmInfo+"']"));

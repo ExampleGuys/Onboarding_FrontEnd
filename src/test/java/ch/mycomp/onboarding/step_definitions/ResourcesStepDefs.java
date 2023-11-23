@@ -22,7 +22,7 @@ public class ResourcesStepDefs extends ObjectIndex {
 
     }
 
-    @When("The user enters valid logon credentials")
+    @When("The user enters valid login credentials")
     public void theUserEntersValidLogonCredentials() {
         loginPage.login();
     }

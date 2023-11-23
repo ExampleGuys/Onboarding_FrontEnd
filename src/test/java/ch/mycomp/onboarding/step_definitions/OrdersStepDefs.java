@@ -36,9 +36,7 @@ public class OrdersStepDefs extends ObjectIndex {
 
     @And("The user click on the {string} button.")
     public void theUserClickOnTheButton(String buttonName) {
-        WebElement button = Driver.get().findElement(By.xpath("//span[text()='" + buttonName + "']"));
-        BrowserUtils.clickWithJS(button);
-
+       contactsPage.clickButton(buttonName);
     }
 
     @Then("the user should be redirected to the new order creation page")

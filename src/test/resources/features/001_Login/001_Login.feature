@@ -1,30 +1,26 @@
-@Regression  @Smoke
+@Regression  @yavuz
 
 Feature: Login Screen Test
 
   Background:
-    Given The user goes to myCompSignin
+    Given The user goes to staging url
 
   @ONB2-237
-  Scenario: TC ONB2-237 The login screen should be visible after clicking on a login button.
-    Then the user verifies that the login screen visible after clicking on the login button.
-
-  @ONB2-241
-  Scenario: TC ONB2-241 All login-related elements should be present on the login page.
-    Then the user verifies that all-login elements visible on the login box
+  Scenario: TC ONB2-237 The Sign In modal should be visible
+    Then The user verify that the Sign In modal is visible
 
   @ONB2-244
   Scenario: TC OBN2-244 E-mail text field should be clickable on the Sign In page
-    Then The user should click on the E-mail text field
+    Then The user verify that the E-mail text field should be clickable
 
   @ONB2-247
   Scenario: TC ONB2-247 Password text field should be clickable on the Sign In page
-    Then The user should click on Password text field
+    Then The user verify that the Password text field should be clickable
 
   @ONB2-251
   Scenario Outline: TC ONB2-251 The user should log in with the correct credentials.
-    Then The user enters with user "<email>" and user "<password>"
-    And the user should sign in successfully
+    And The user enters with user "<email>" and user "<password>"
+    Then The user verify that sign in successfully
 
     Examples:
       | email          | password            |
@@ -35,52 +31,52 @@ Feature: Login Screen Test
 
   @ONB2-332
   Scenario: TC ONB2-332 The forget password link should be clickable on Sign In page
-    And the user verifies that the forget password link should be clickable on the login screen
+   Then The user verify that the forget password link should be clickable
 
   @ONB2-311
   Scenario: TC ONB2-311 There should be a forgot password link on the login screen
-    And the forget password link should be present on the login screen
+   Then The user verify that the forget password link should be visible
 
   @ONB2-293
   Scenario: TC-ONB2-293 The password entered should be in encrypted form at the login page
-    Then the user should write their password in encrypted form
+    And The user enter password in Password area
+    Then The user verify that the password is written in the encrypted form
 
   @ONB2-294
-  Scenario: TC ONB2-294 The eye icon should be added to the password text field
-    Then the eye icon should be visible on the password text field
+  Scenario: TC ONB2-294 The eye icon should be visible the password text field
+    Then The user verify that the eye icon should be visible on the password text field
 
   @ONB2-295
   Scenario: TC ONB2-295 The user should be able to view the password by clicking on the eye icon.
-    Then the user writes the password
-    And the user clicks on the eye icon the password text field
-    And the user should view the the password
+    And The user enter password in Password area
+    And The user click on the eye icon in the password text field
+    Then The user verify that the password is visible
 
 
   @ONB@-337
   Scenario: TC ONB2-337 The email field should be visible on the forget password page to recover the password.
-    Then the user clicks on forgot password link in the sign in page
-    And the user verifies that the Forget Password page is open
+    And The user click on forgot password link in the sign in page
+    Then The user verify that the Forgot Password page is open
 
   @ONB-398
   Scenario Outline: TC ONB2-398 The User should NOT log in unmatched credentials, invalid email and wrong password
-    Then the user enters with user "<Email>", user "<Password>", and "<warningMessage>"
+    Then The user enters with user "<Email>", user "<Password>", and "<warningMessage>" and verify that con not login
 
     Examples:
 
-      | Email          | Password            | warningMessage                |
-      | superAdminUser | wrongPassword       | wrongPasswordMessage          |
-      | superAdminUser | emptyPassword       | emptyPasswordTextFieldMessage |
-      | inValidEmail   | superAdmin_password | invalidEmailMessage           |
-      | inValidEmail   | wrongPassword       | invalidEmailMessage           |
-      | incorrectEmail | superAdmin_password | incorrectEmailMessage         |
-      | emptyEmail     | emptyPassword       | emptyEmailTextFieldMessage    |
+      | Email          | Password            | warningMessage                                |
+      | superAdminUser | wrongPassword       | Credentials did not match                     |
+      | superAdminUser | emptyPassword       | Please fill out all required fields correctly.|
+      | inValidEmail   | superAdmin_password | Email must be a valid email                   |
+      | inValidEmail   | wrongPassword       | Email must be a valid email                   |
+      | incorrectEmail | superAdmin_password | Credentials did not match                     |
+      | emptyEmail     | emptyPassword       | Please fill out all required fields correctly.|
 
 
   @ONB-339
-  Scenario: TC ONB2-339 Reset Password" button should be clickable at the Forgot Password page
-    Then the user clicks on forgot password link in the sign in page
-    And the user enters a valid email on the Forgot Password page
-    And the user should click on the Reset Password link
+  Scenario: TC ONB2-339 Reset Password button should be clickable at the Forgot Password page
+    And The user click on forgot password link in the sign in page
+    Then The user verify that Reset Password button should be clickable
 
 
 

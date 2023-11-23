@@ -1,10 +1,10 @@
-@regression
+@regression @yavuz
 Feature: Onboarding Create Tests with SuperAdmin Role
 
   Background: pre-steps
     Given The user goes to staging url
     And The user enters with user "superAdminUser" and user "superAdmin_password"
-    And The User click on the "Onboarding" section in the Navigation Menu
+    And The User click on the "Onboardings" section in the Navigation Menu
 
   @ONB2-299
   Scenario: TC ONB2-299 The user should be able to create a new resource category in the "Resources" section when making a new onboarding

@@ -1,6 +1,7 @@
 package ch.mycomp.onboarding.pages;
 
 import ch.mycomp.onboarding.utilities.BrowserUtils;
+import ch.mycomp.onboarding.utilities.ConfigurationReader;
 import ch.mycomp.onboarding.utilities.Driver;
 import com.github.javafaker.Faker;
 import org.openqa.selenium.By;
@@ -15,7 +16,7 @@ import java.time.Instant;
 
 import static org.junit.Assert.assertTrue;
 
-public abstract class BasePage {
+public class BasePage {
     public BasePage() {
         PageFactory.initElements(Driver.get(), this);
     }
@@ -54,7 +55,7 @@ public abstract class BasePage {
 
     Faker faker=new Faker();
     Actions actions = new Actions(Driver.get());
-    OrderPage orderPage = new OrderPage();
+    //OrderPage orderPage = new OrderPage();
     String fakeContactName = faker.name().fullName();
     String fakeEmail = faker.internet().emailAddress();
 
@@ -102,7 +103,7 @@ public abstract class BasePage {
         return titleName;
     }
 
-    public String getPageTitle(String pageTitle) {
+    public String getPageTitle() {
         return Driver.get().getTitle();
     }
 
@@ -121,6 +122,8 @@ public abstract class BasePage {
         WebElement button = Driver.get().findElement(By.xpath("//span[text()='" + buttonName + "']"));
         BrowserUtils.clickWithJS(button);
     }
+
+
 
     /**
      * Returns the current epoch time in seconds.
@@ -185,6 +188,22 @@ public abstract class BasePage {
     public WebElement boxName(String boxNameInfo) {
         return Driver.get().findElement(By.xpath("//*[@placeholder='" + boxNameInfo + "']"));
     }
+
+    public void theUserGoesToStagingUrl() {
+        Driver.get().get(ConfigurationReader.get("url"));
+    }
+
+    public void shouldSeenButton(String buttonName) {
+        WebElement button = Driver.get().findElement(By.xpath("//span[text()='" + buttonName + "']"));
+        BrowserUtils.verifyElementDisplayed(button);
+    }
+
+    public void shouldClickableButton(String buttonName) {
+        WebElement button = Driver.get().findElement(By.xpath("//span[text()='" + buttonName + "']"));
+        BrowserUtils.verifyElementClickable(button);
+    }
+
+
 
 
 }

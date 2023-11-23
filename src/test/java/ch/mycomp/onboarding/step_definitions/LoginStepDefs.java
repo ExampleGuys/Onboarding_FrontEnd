@@ -10,11 +10,8 @@ import io.cucumber.java.en.When;
 
 public class LoginStepDefs extends ObjectIndex {
 
-    @Given("The user goes to myCompSignin")
-    public void theUserGoesToMyCompSignin() {
-        Driver.get().get(ConfigurationReader.get("myCompStagingSignin"));
 
-    }
+
     @When("the user enters valid requester {string} and {string}")
     public void theUserEntersValidRequesterAnd(String email, String password) {
         email = ConfigurationReader.get("requesterUser");
@@ -30,26 +27,19 @@ public class LoginStepDefs extends ObjectIndex {
 
     }
 
-    @Then("the user verifies that the login screen visible after clicking on the login button.")
-    public void theUserVerifiesThatTheLoginScreenVisibleAfterClickingOnTheLoginButton() {
-       BrowserUtils.waitForVisibility(loginPage.signInFieldText,30);
-       loginPage.signInFieldText.isEnabled();
+    @Then("The user verify that the Sign In modal is visible")
+    public void theUserVerifyThatTheSignInModalIsVisible() {
+      loginPage.theUserVerifyThatTheSignInModalIsVisible();
     }
 
-    @Then("the user verifies that all-login elements visible on the login box")
-    public void theUserVerifiesThatAllLoginElementsVisibleOnTheLoginBox() {
-        loginPage.signInFieldText.isDisplayed();
-
+    @Then("The user verify that the E-mail text field should be clickable")
+    public void theUserVerifyThatTheEmailTextFieldShouldBeClicakble(){
+        loginPage.theUserVerifyThatTheEmailTextFieldShouldBeClicakble();
     }
 
-    @Then("The user should click on the E-mail text field")
-    public void theUserShouldClickOnTheEMailTextField() {
-        loginPage.email.isEnabled();
-    }
-
-    @Then("The user should click on Password text field")
-    public void theUserShouldClickOnPasswordTextField() {
-        loginPage.passwordInput.isEnabled();
+    @Then("The user verify that the Password text field should be clickable")
+    public void TheUserVerifyThatThePasswordTextFieldShouldBeClickable() {
+        loginPage.TheUserVerifyThatThePasswordTextFieldShouldBeClickable();
     }
 
 
@@ -63,30 +53,29 @@ public class LoginStepDefs extends ObjectIndex {
         loginPage.login(email,password);
     }
 
-    @And("the user should sign in successfully")
-    public void theUserShouldSignInSuccessfully() {
+    @And("The user verify that sign in successfully")
+    public void TheUserVerifyThatSignInSuccessfully() {
 
         loginPage.checkLoginSuccessToastMessage();
     }
 
 
-    @And("the user verifies that the forget password link should be clickable on the login screen")
-    public void theUserVerifiesThatTheForgetPasswordLinkShouldBeClickableOnTheLoginScreen() {
-        assert(loginPage.forgotLink.isEnabled());
+    @And("The user verify that the forget password link should be clickable")
+    public void TheUserVerifyThatTheForgetPasswordLinkShouldBeClickable() {
+        loginPage.TheUserVerifyThatTheForgetPasswordLinkShouldBeClickable();
 
     }
 
-    @And("the forget password link should be present on the login screen")
-    public void theForgetPasswordLinkShouldBePresentOnTheLoginScreen() {
-        assert(loginPage.forgotLink.isDisplayed());
+    @And("The user verify that the forget password link should be visible")
+    public void TheForgetPasswordLinkShouldBeVisible() {
+       loginPage.TheForgetPasswordLinkShouldBeVisible();
 
 
     }
 
-    @Then("the eye icon should be visible on the password text field")
-    public void theEyeIconShouldBeVisibleOnThePasswordTextField() {
-
-        assert (loginPage.eyeIconforPassword.isDisplayed());
+    @Then("The user verify that the eye icon should be visible on the password text field")
+    public void theUserVerifyThatTheEyeIconShouldBeVisibleOnThePasswordTextField() {
+        loginPage.theUserVerifyThatTheEyeIconShouldBeVisibleOnThePasswordTextField();
 
         }
 
@@ -97,9 +86,9 @@ public class LoginStepDefs extends ObjectIndex {
         loginPage.passwordInput.sendKeys("Nail&nail.23");
     }
 
-    @And("the user clicks on the eye icon the password text field")
-    public void theUserClicksOnTheEyeIconThePasswordTextField() {
-        loginPage.eyeIconforPassword.click();
+    @And("The user click on the eye icon in the password text field")
+    public void theUserClickOnTheEyeIconInThePasswordTextField() {
+       loginPage.theUserClickOnTheEyeIconThePasswordTextField();
     }
 
     @And("the user should view the the password")
@@ -110,10 +99,9 @@ public class LoginStepDefs extends ObjectIndex {
     }
 
 
-    @Then("the user should write their password in encrypted form")
-    public void theUserShouldWriteTheirPasswordInEncryptedForm() {
-        assert (loginPage.passwordInEncrypted.getText().contains("Nail&nail.23"));
-        BrowserUtils.waitFor(3);
+    @Then("The user verify that the password is written in the encrypted form")
+    public void TheUserVerifyThatThePasswordIsWrittenInTheEncryptedForm() {
+      loginPage.TheUserVerifyThatThePasswordIsWrittenInTheEncryptedForm();
 
     }
 
@@ -125,30 +113,49 @@ public class LoginStepDefs extends ObjectIndex {
         BrowserUtils.waitFor(3);
     }
 
-    @And("the user verifies that the Forget Password page is open")
-    public void theUserVerifiesThatTheForgetPasswordPageIsOpen() {
-        assert (loginPage.emailInput.isDisplayed());
+    @And("The user verify that the Forgot Password page is open")
+    public void theUserVerifyThatTheForgotPasswordPageIsOpen() {
+       loginPage.theUserVerifyThatTheForgotPasswordPageIsOpen();
 
     }
 
 
-    @Then("the user enters with user {string}, user {string}, and {string}")
+    @Then("The user enters with user {string}, user {string}, and {string} and verify that con not login")
     public void theUserEntersWithUserUserAnd(String email , String password, String warningMessage ) {
 
-    //    loginPage.negativeLoginsCheck( email,  password, warningMessage);
+    loginPage.connotLogin(email,password,warningMessage);
 
 
     }
 
     @And("the user enters a valid email on the Forgot Password page")
     public void theUserEntersAValidEmailOnTheForgotPasswordPage() {
+
     }
 
-    @Then("the user clicks on forgot password link in the sign in page")
-    public void theUserClicksOnForgotPasswordLinkInTheSignInPage() {
+    @Then("The user click on forgot password link in the sign in page")
+    public void theUserClickOnForgotPasswordLinkInTheSignInPage() {
 
-        BrowserUtils.clickWithJS(loginPage.forgotPasswordLink);
+       loginPage.theUserClickOnForgotPasswordLinkInTheSignInPage();
     }
 
 
+    @Then("The user enter password in Password area")
+    public void theUserEnterPasswordInPasswordArea() {
+        loginPage.theUserEnterPasswordInPasswordArea();
+    }
+
+    @Then("The user verify that the password is visible")
+    public void theUserVerifyThatThePasswordIsVisible() {
+        loginPage.theUserVerifyThatThePasswordIsVisible();
+    }
+
+    @Then("The user verify that cannot login")
+    public void theUserVerifyThatCannotLogin() {
+    }
+
+    @Then("The user verify that Reset Password button should be clickable")
+    public void theUserVerifyThatResetPasswordButtonShouldBeClickable() {
+        loginPage.theUserVerifyThatResetPasswordButtonShouldBeClickable();
+    }
 }

@@ -20,11 +20,9 @@ public class UsersStepDefs extends ObjectIndex {
     }
 
 
-    @And("the user clicks on {string} at the navigation menu")
+    @And("The user click on {string} at the navigation menu")
     public void theUserClicksOnAtTheNavigationMenu(String navigationName) {
-
-        WebElement sidebar = Driver.get().findElement(By.xpath("//span[text()='" + navigationName + "']"));
-        BrowserUtils.clickWithJS(sidebar);
+        registerPage.clickButton(navigationName);
 
     }
 
@@ -70,9 +68,9 @@ public class UsersStepDefs extends ObjectIndex {
         assert (usersPage.listOfTenUsers.isEnabled());
     }
 
-    @Then("the user clicks on {string} button")
-    public void theUserClicksOnButton(String arg0) {
-        usersPage.newUsersButton.click();
+    @Then("The user click on {string} button")
+    public void theUserClickOnButton(String buttonName) {
+        usersPage.clickButton(buttonName);
     }
 
     @Then("the user clicks on the {string} icon of the Site button")
