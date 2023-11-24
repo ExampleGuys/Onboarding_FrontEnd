@@ -332,7 +332,7 @@ public class ResourcesStepDefs extends ObjectIndex {
 
     @Then("The user should see the message {string}")
     public void theUserShouldSeeTheMessage(String arg0) {
-        assertEquals(resourcesPage.toastMessageText(),"Resource successfully created");
+        assertEquals(resourcesPage.toastMessageText(),arg0);
         //Assert.assertTrue(resourcesPage.message.getText().contains("Resource successfully created"));
     }
 

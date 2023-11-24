@@ -2,7 +2,7 @@ Feature: Sites Tests
 
 Background: Sites Tests
   Given The user goes to the sign-in page
-  When The user enters valid logon credentials
+  When The user enters valid login credentials
   Then The user clicks on the "Sites" category
 
   @ONB2-198

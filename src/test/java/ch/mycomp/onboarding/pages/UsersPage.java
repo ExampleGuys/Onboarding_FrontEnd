@@ -85,7 +85,7 @@ public class UsersPage extends BasePage {
     }
 
     public void assertionForlistofUsersIsVisible() {
-        assert (listofUsers.isDisplayed());
+        BrowserUtils.verifyElementDisplayed(listofUsers);
     }
 
     public void actionsUsers() {
@@ -112,5 +112,41 @@ public class UsersPage extends BasePage {
         globalSelectDropdownTargetElement(newUserSiteField,targetSite);
     }
 
+    public void theUserWritesTheNameInTheFirstNameBox() {
+        newUserFirstNameField.sendKeys(BrowserUtils.fakeName());
     }
+
+    public void theUserWritesTheLastNameInTheLastNameBox() {
+        newUserLastNameField.sendKeys(BrowserUtils.fakeLastName());
+    }
+
+    public void theUserWritesThePersonalEmailInThePersonalEmailBox() {
+        newUserEmailField.sendKeys(BrowserUtils.fakeEmailAdress());
+    }
+
+
+    public void theUserCreatesAPasswordInThePasswordBox() {
+        BrowserUtils.clickElement(newUserGeneratePasswordButton,20);
+    }
+
+    public void theUserVerifyThatTheConfirmationMessageIsDisplayed() {
+        BrowserUtils.assertContains(toastMessageText(),"users successfully created");
+    }
+
+    public void theUserShouldSeeTheUsersPage() {
+        assert (titleofUsers.getText().contains("Users"));
+    }
+
+    public void theUserShouldSeeTheNumberOfTheTotalUsers() {
+        assert (totalNumberOfUsers.isDisplayed());
+    }
+
+    public void theUserClicksOnTheIconOfTheSiteButton() {
+        BrowserUtils.clickElement(newUsersSiteArrow, 20);
+    }
+
+    public void theUserVerifiesThatOnlyNumbersCanBeTypedInTheZipCodeTextField() {
+        BrowserUtils.sendKeysMethod(newUserPasswordField,"1234abc",20);
+    }
+}
 

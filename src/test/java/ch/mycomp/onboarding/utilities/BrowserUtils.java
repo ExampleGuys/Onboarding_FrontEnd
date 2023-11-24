@@ -440,7 +440,10 @@ public class BrowserUtils {
     }
 
     public static String fakeName(){
-        return new Faker().harryPotter().character();
+        return new Faker().name().firstName();
+    }
+    public static String fakeLastName(){
+        return new Faker().name().lastName();
     }
 
     public static String fakeEmailAdress(){

@@ -140,7 +140,7 @@ public class OnboardingStepDefs extends ObjectIndex{
 
     @And("The User click on All tab under the List of Onboardings headline")
     public void theUserClickOnAllTabUnderTheListOfOnboardingsHeadline() {
-        //  onboardingPage.clickOnDraftsTab(ta);
+
         onboardingPage.clickOnAllTab();
     }
 
@@ -173,7 +173,7 @@ public class OnboardingStepDefs extends ObjectIndex{
 
     @Then("The User verify that {string} button should be clickable")
     public void theUserVerifyThatButtonShouldBeClickable(String buttonName) {
-       onboardingPage.assertionXXXButtonClickable(buttonName);
+       onboardingPage.shouldClickableButton(buttonName);
     }
 
     @And("The user write a comment in the comment section bottom of the page")
@@ -183,7 +183,7 @@ public class OnboardingStepDefs extends ObjectIndex{
 
     @Then("The User verify that the {string} button is clickable")
     public void theUserVerifyThatTheButtonIsClickable(String buttonName) {
-        onboardingPage.assertionXXXButtonClickable(buttonName);
+        onboardingPage.shouldClickableButton(buttonName);
     }
 
 
@@ -192,8 +192,8 @@ public class OnboardingStepDefs extends ObjectIndex{
         onboardingPage.clickButton(buttonName);
     }
 
-    @Then("The User verify that the Delete Comment button is clickable")
-    public void theUserVerifyThatTheDeleteCommentButtonIsClickable() {
+    @Then("The User verify that the Delete Comment icon is clickable")
+    public void theUserVerifyThatTheDeleteCommentIconIsClickable() {
         onboardingPage.assertionDeleteIconIsClickable();
 
     }
@@ -204,7 +204,7 @@ public class OnboardingStepDefs extends ObjectIndex{
     }
     @Then("The {string} button at the top right of the page should be clickable")
     public void theButtonAtTheTopRightOfThePageShouldBeClickable(String buttonName) {
-        onboardingPage.assertionXXXButtonClickable(buttonName);
+        onboardingPage.shouldClickableButton(buttonName);
     }
 
     @Then("The User verify that “Show Logs” button in the Action section is clickable")
@@ -257,8 +257,8 @@ public class OnboardingStepDefs extends ObjectIndex{
 
     @Then("The User then verify that the onboarding registration status is saved as draft")
     public void theUserThenVerifyThatTheOnboardingRegistrationStatusIsSavedAsDraft() {
-       // onboardingPage.clickOnDraftsTab();
-        onboardingPage.assertionNewOnboardingSavedInDraftsPage();
+
+        onboardingPage.assertionCreatedNewOnboardingIsDisplayed();
     }
 
     @Then("The user then verifies that the toast message has been seen that the registration process did not take place")
@@ -355,4 +355,8 @@ public class OnboardingStepDefs extends ObjectIndex{
         onboardingPage.theUserVerifyThatResultsAccordingToTheEmailAddressEnteredAreFiltered();
     }
 
+    @And("The User click on {string} button on the ant-popover")
+    public void theUserClickOnButtonOnTheAntPopover(String buttonName) {
+        onboardingPage.clickButton(buttonName);
+    }
 }

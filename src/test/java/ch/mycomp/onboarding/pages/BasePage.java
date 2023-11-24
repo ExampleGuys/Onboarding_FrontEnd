@@ -55,7 +55,6 @@ public class BasePage {
 
     Faker faker=new Faker();
     Actions actions = new Actions(Driver.get());
-    //OrderPage orderPage = new OrderPage();
     String fakeContactName = faker.name().fullName();
     String fakeEmail = faker.internet().emailAddress();
 
@@ -115,7 +114,7 @@ public class BasePage {
 
     public void isClickableCustomizationColumns() {
         BrowserUtils.waitForVisibility(customizationColumnSelectButton, 20);
-        assertTrue(customizationColumnSelectButton.isEnabled());
+        BrowserUtils.verifyElementClickable(customizationColumnSelectButton);
     }
 
     public void clickButton(String buttonName) {

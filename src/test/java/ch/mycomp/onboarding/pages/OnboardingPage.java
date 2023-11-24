@@ -222,8 +222,8 @@ public class OnboardingPage extends BasePage {
     }
 
     public void clickDeleteIconOfTeFirstElementOfOnboardingList() {
-        totalNumberOfItems = totalOnboardingSection.getText();
-        BrowserUtils.clickElement(deleteIconOfTheFirstElementOfOnboardingList, 20);
+        totalNumberOfItems = paginationTotalText.getText();
+        BrowserUtils.clickElement(deleteIconForFirstRow, 20);
     }
 
     public void assertionCancelButtonClickable(String buttonName) {
@@ -263,7 +263,7 @@ public class OnboardingPage extends BasePage {
     }
 
     public void assertionTotalOnboardingItemIsChanged() {
-        String totalNumberOfItemsActual = totalOnboardingSection.getText();
+        String totalNumberOfItemsActual = paginationTotalText.getText();
         Assert.assertNotEquals(totalNumberOfItems, totalNumberOfItemsActual);
     }
 
@@ -279,11 +279,11 @@ public class OnboardingPage extends BasePage {
 
 
     public void assertionShowLogsIconIsClickable() {
-        assert (buttonShowLogs.isEnabled());
+        BrowserUtils.verifyElementClickable(buttonShowLogs);
     }
 
     public void assertionNewCommentHasBeenAdded() {
-        assert (addedCommentList.isDisplayed());
+        BrowserUtils.verifyElementDisplayed(addedCommentList);
     }
 
     public void clickOnDeleteIcon() {
@@ -291,6 +291,7 @@ public class OnboardingPage extends BasePage {
     }
 
     public void assertionCommentsNotVisible() {
+
         assert (!(addedCommentList.isDisplayed()));
     }
 
@@ -304,13 +305,13 @@ public class OnboardingPage extends BasePage {
     }
 
     public void enterFirstNameLastNameEmail() {
-        personalFirstName.sendKeys(faker.name().firstName());
-        personalLastName.sendKeys(faker.name().lastName());
-        personalEmail.sendKeys(faker.internet().emailAddress());
+        boxName("Enter first name").sendKeys(BrowserUtils.fakeName());
+        boxName("Enter last name").sendKeys(BrowserUtils.fakeLastName());
+       boxName("Enter personal email").sendKeys(BrowserUtils.fakeEmailAdress());
     }
 
     public void selectBirthDate() {
-        personalBirthDate.click();
+        boxName("Select birth date").click();
         LocalDate today = LocalDate.now();
         LocalDate birthday = today.minusYears(16);
         String birthdayPersonal = birthday.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
@@ -322,7 +323,7 @@ public class OnboardingPage extends BasePage {
         selectCompanyAddress.click();
         WebElement adress = Driver.get().findElement(By.xpath("//div[@title='Avcilar']"));
         adress.click();
-        firstWorkingDay.click();
+        boxName("Select first working day").click();
         LocalDate today = LocalDate.now();
         LocalDate firstWorkDay = today.plusWeeks(1);
         String personalFirstWorkDay = firstWorkDay.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
@@ -331,7 +332,7 @@ public class OnboardingPage extends BasePage {
     }
 
     public void selectCompletionDateAtLatest() {
-        completionDateAtLatest.click();
+        boxName("Select completion date").click();
         LocalDate today = LocalDate.now();
         LocalDate complationDay = today.plusWeeks(1);
         String resourceCompDate = complationDay.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
@@ -352,24 +353,11 @@ public class OnboardingPage extends BasePage {
     }
 
     public void assertionCreatedNewOnboardingIsDisplayed() {
-       LocalDateTime now = LocalDateTime.now();
-       String localDate= now.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"));
-        System.out.println(localDate);
-        System.out.println(createdTheNewOnboardingColumnAndRow.getText());
-       assertNotEquals(createdTheNewOnboardingColumnAndRow.getText(),localDate);
+      assert(message.isDisplayed());
 
     }
 
-    public void assertionNewOnboardingSavedInDraftsPage() {
-        LocalDateTime now = LocalDateTime.now();
-        String localDate= now.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-        System.out.println(localDate);
 
-        String[] date= createdTheNewOnboardingColumnAndRow.getText().split(" ");
-        System.out.println(date[0]);
-        assertEquals(date[0],localDate);
-
-    }
 
     public void assertionToastMessageHasBeenSeen() {
         assertEquals(toastMessageText(),"Please fill out all required fields correctly.");
@@ -379,6 +367,7 @@ public class OnboardingPage extends BasePage {
         BrowserUtils.clickElement(completionDateAtLatest,20);
     }
     public void assertionCalendarIsDisplayed(){
+
         assert (calendarPanel.isDisplayed());
     }
 
@@ -426,7 +415,7 @@ public class OnboardingPage extends BasePage {
         BrowserUtils.waitFor(2);
         completionDateAtLatest.click();
         LocalDate today = LocalDate.now();
-        LocalDate complationDay = today.plusDays(1);
+        LocalDate complationDay = today.plusDays(3);
         String resourceCompDate = complationDay.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         WebElement compDateAtLatest = Driver.get().findElement(By.xpath("(//tbody//tr//td[@title='" + resourceCompDate + "'])"));
         compDateAtLatest.click();

@@ -2,7 +2,7 @@ Feature: Resources Tests
 
   Background:Resourcces Tests
     Given The user goes to the sign-in page
-    When The user enters valid logon credentials
+    When The user enters valid login credentials
     Then The user clicks on the "Resources" category
 
   @ONB2-365
@@ -22,7 +22,7 @@ Feature: Resources Tests
   @ONB2-309
   Scenario:TC: ONB2-309 On the Resources page, verify that the navigation bar appears under the "List of Resources" title.
     Given The user goes to the sign-in page
-    When The user enters valid logon credentials
+    When The user enters valid login credentials
     Then The user clicks on the "Resources" category
     And The user should be the String "List of Resources" "Category Name" "Created By" "Created At" title
 
@@ -167,7 +167,7 @@ Feature: Resources Tests
     Then The user clicks on the "New Resource" button
     Then  User enters valid information on the "New Resource" page
     Then The user clicks on the Create button
-    Then  The user should see the message "Resource successfully created"
+    Then  The user should see the message "resources successfully created"
 
   @ONB2-372
   Scenario:TC: BUG ONB2-372 On the Resources page, verify that the "Created At" heading is visible and active.

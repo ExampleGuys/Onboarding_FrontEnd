@@ -33,17 +33,18 @@ public class UsersStepDefs extends ObjectIndex {
     }
 
 
-    @And("the user should see the title of {string} on the users page")
+    @And("The User should see the title of {string} on the users page")
     public void theUserShouldSeeTheTitleOfOnTheUsersPage(String arg0) {
         usersPage.assertionForlistofUsersIsVisible();
 
     }
 
 
-    @Then("the user should see the Users page")
+    @Then("The user should see the Users page")
     public void theUserShouldSeeTheUsersPage() {
+        usersPage.theUserShouldSeeTheUsersPage();
 
-        assert (usersPage.titleofUsers.getText().contains("Users"));
+
     }
 
     @Then("the user scrolls down until the end of the page")
@@ -58,9 +59,10 @@ public class UsersStepDefs extends ObjectIndex {
         usersPage.usersPageArrow.isEnabled();
     }
 
-    @Then("the user should see the number of the total users")
+    @Then("The user should see the number of the total users")
     public void theUserShouldSeeTheNumberOfTheTotalUsers() {
-        assert (usersPage.totalNumberOfUsers.isDisplayed());
+        usersPage.theUserShouldSeeTheNumberOfTheTotalUsers();
+
     }
 
     @Then("the user should observe 10 users on each page of User List")
@@ -73,9 +75,10 @@ public class UsersStepDefs extends ObjectIndex {
         usersPage.clickButton(buttonName);
     }
 
-    @Then("the user clicks on the {string} icon of the Site button")
+    @Then("The user clicks on the {string} icon of the Site button")
     public void theUserClicksOnTheIconOfTheSiteButton(String arg0) {
-        BrowserUtils.clickElement(usersPage.newUsersSiteArrow, 20);
+        usersPage.theUserClicksOnTheIconOfTheSiteButton();
+
     }
 
     @Then("the user verifies that only numbers can be typed in the {string} text field")
@@ -99,9 +102,10 @@ public class UsersStepDefs extends ObjectIndex {
         BrowserUtils.toastMessage();
     }
 
-    @Then("the user verifies that only numbers can be typed in the Zip Code text field")
+    @Then("The user verifies that only numbers can be typed in the Zip Code text field")
     public void theUserVerifiesThatOnlyNumbersCanBeTypedInTheZipCodeTextField() {
-        BrowserUtils.sendKeysMethod(usersPage.newUserPasswordField,"1234abc",20);
+        usersPage.theUserVerifiesThatOnlyNumbersCanBeTypedInTheZipCodeTextField();
+
     }
 
 
@@ -113,46 +117,50 @@ public class UsersStepDefs extends ObjectIndex {
 
     }
 
-    @And("the user writes the  name in the First Name box")
+    @And("The user writes the  name in the First Name box")
     public void theUserWritesTheNameInTheFirstNameBox() {
-        usersPage.newUserFirstNameField.sendKeys(faker.name().firstName());
+        usersPage.theUserWritesTheNameInTheFirstNameBox();
     }
 
-    @And("the user writes the last name in the Last Name box")
+    @And("The user writes the last name in the Last Name box")
     public void theUserWritesTheLastNameInTheLastNameBox() {
-        usersPage.newUserLastNameField.sendKeys(faker.name().lastName());
+        usersPage.theUserWritesTheLastNameInTheLastNameBox();
+
 
     }
 
-    @And("the user writes the personal email  in the Personal Email box")
+    @And("The user writes the personal email  in the Personal Email box")
     public void theUserWritesThePersonalEmailInThePersonalEmailBox() {
-        usersPage.newUserEmailField.sendKeys(faker.internet().emailAddress());
+        usersPage.theUserWritesThePersonalEmailInThePersonalEmailBox();
+
     }
 
-    @And("the user selects a role in the Role box {string}")
+    @And("The user selects a role in the Role box {string}")
     public void theUserSelectsARoleInTheRoleBox(String targetListElement) {
-        usersPage.theUserSelectsARoleFromTheRoleDropdown(targetListElement);
+        usersPage. theUserSelectsARoleFromTheRoleDropdown(targetListElement);
     }
 
-    @And("the user selects a company in the Company box {string}")
+    @And("The user selects a company in the Company box {string}")
     public void theUserSelectsWritesACompanyInTheCompanyBox(String targetElement) {
         usersPage.theUserSelectsACompanyInTheCompanyBox(targetElement);
     }
 
-    @And("the user creates a password in the Password box")
+    @And("The user creates a password in the Password box")
     public void theUserCreatesAPasswordInThePasswordBox() {
-        BrowserUtils.clickWithJS(usersPage.newUserGeneratePasswordButton);
-    }
-
-
-    @And("The user should see the confirmation message")
-    public void theUserShouldSeeTheConfirmationMessage() {
-
-        assert (usersPage.message.isDisplayed());
+        usersPage.theUserCreatesAPasswordInThePasswordBox();
 
     }
 
-    @And("the user selects a site in the Site box {string}")
+
+    @And("The user verify that the confirmation message is displayed")
+    public void theUserVerifyThatTheConfirmationMessageIsDisplayed() {
+        usersPage.theUserVerifyThatTheConfirmationMessageIsDisplayed();
+
+
+
+    }
+
+    @And("The user selects a site in the Site box {string}")
     public void theUserSelectsASiteInTheSiteBox(String targetSite) {
         usersPage.theUserSelectsASiteInTheSiteBox(targetSite);
 

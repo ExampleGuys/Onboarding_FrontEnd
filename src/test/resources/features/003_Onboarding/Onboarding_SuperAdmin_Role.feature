@@ -24,4 +24,4 @@ Feature: Onboarding Create Tests with SuperAdmin Role
   Scenario: TC ONB2-322 The search box in the onboarding listing page should filter properly
     And The user click on the "Search" button top right corner of the page
     And The user enter an email in the Filter Modal and click on "OK" button
-    Then the user verify that results according to the email address entered are filtered
+    Then The user verify that results according to the email address entered are filtered

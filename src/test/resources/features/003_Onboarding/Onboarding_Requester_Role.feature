@@ -112,7 +112,9 @@ Feature: Onboarding Create Tests with Requester Role
 
   @ONB2-78
   Scenario: TC ONB2-78 'All' tab should show all onboarding processes
-    And The User click on All tab under the List of Onboardings headline
+    And The User click on "All" tab under the List of Onboardings headline
+    And The User click on "Drafts" tab under the List of Onboardings headline
+    And The User click on "All" tab under the List of Onboardings headline
     Then Then user verify that All onboarding processes should shown in the All tab
 
   @ONB2-79
@@ -121,14 +123,14 @@ Feature: Onboarding Create Tests with Requester Role
     Then Then user verify that Draft onboarding processes should shown in the Drafts tab
 
   @ONB2-80
-  Scenario: TC ONB2-80 'Complated' tab should show complated onboarding processes
-    And The User click on Completed tab under the List of Onboardings headline
+  Scenario: TC ONB2-80 'Complated Requests' tab should show complated onboarding processes
+    And The User click on "Completed Requests" tab under the List of Onboardings headline
     Then Then user verify that Completed onboarding processes should shown in the Drafts tab
 
   @ONB2-46
   Scenario: TC ONB2-46 Created onboarding should be deleted
     And The user click on the delete icon in the Actions section of a first element of onboarding list
-    And The User Click on "Delete" button on the ant-popover
+    And The User click on "Delete" button on the ant-popover
     Then The user verify that created onboarding is deleted
 
   @ONB2-112
@@ -147,7 +149,7 @@ Feature: Onboarding Create Tests with Requester Role
     And The user click on the "New Onboarding" button top right corner of the page
     And The user write a comment in the comment section bottom of the page
     And The User Click on the "Add comment" button
-    Then The User verify that the Delete Comment button is clickable
+    Then The User verify that the Delete Comment icon is clickable
 
   @ONB2-77
   Scenario: TC ONB2-77 The customize column button on the onboarding listing page should be clickable
@@ -224,7 +226,7 @@ Feature: Onboarding Create Tests with Requester Role
   @ONB2-212
   Scenario: TC ONB2-212 The job in the Drafts list should be able to be saved by changing one of the personal information
     And The User click on "Drafts" tab under the List of Onboardings headline
-    And And The User click on edit icon in the Actions section of first element of list
+    And The User click on edit icon in the Actions section of first element of list
     And The user changing one of the personal information
     And The User Click on the "Save" button
     Then The User verify that the change has been saved
@@ -232,7 +234,7 @@ Feature: Onboarding Create Tests with Requester Role
   @ONB2-214
   Scenario: TC ONB2-214 The job in the Drafts list should be able to be saved by changing one of the Company Registration
     And The User click on "Drafts" tab under the List of Onboardings headline
-    And And The User click on edit icon in the Actions section of first element of list
+    And The User click on edit icon in the Actions section of first element of list
     And The user changing one of the Company Registration
     And The User Click on the "Save" button
     Then The User verify that the change has been saved
@@ -240,7 +242,7 @@ Feature: Onboarding Create Tests with Requester Role
   @ONB2-219
   Scenario: TC ONB2-219 The job in the Drafts list should not be able to be changed once it has been completed without one of the personal details being changed and saved
     And The User click on "Drafts" tab under the List of Onboardings headline
-    And And The User click on edit icon in the Actions section of first element of list
+    And The User click on edit icon in the Actions section of first element of list
     And The user changing one of the personal information
     And The User Click on the "Back" button
     Then The User verify that no changes have occured
@@ -248,7 +250,7 @@ Feature: Onboarding Create Tests with Requester Role
   @ONB2-215
   Scenario: TC ONB2-215 The job in the Drafts list should be able to be saved by changing one of the Resources
     And The User click on "Drafts" tab under the List of Onboardings headline
-    And And The User click on edit icon in the Actions section of first element of list
+    And The User click on edit icon in the Actions section of first element of list
     And The user changing one of the Resources
     And The User Click on the "Save" button
     Then The User verify that the change has been saved
@@ -256,7 +258,7 @@ Feature: Onboarding Create Tests with Requester Role
   @ONB2-216
   Scenario: TC ONB2-216 The job in the Drafts list should be able to be saved by changing Complatetion Date at The Latest
     And The User click on "Drafts" tab under the List of Onboardings headline
-    And And The User click on edit icon in the Actions section of first element of list
+    And The User click on edit icon in the Actions section of first element of list
     And The user changing one of the Completion Date At the Latest
     And The User Click on the "Save" button
     Then The User verify that the change has been saved
@@ -265,7 +267,7 @@ Feature: Onboarding Create Tests with Requester Role
   Scenario: TC ONB2-218 The job in the Drafts list should be able to be saved and complate
     And The User click on "Drafts" tab under the List of Onboardings headline
     And The User checked the FirstName of List first element
-    And And The User click on edit icon in the Actions section of first element of list
+    And The User click on edit icon in the Actions section of first element of list
     And The User Click on the "Save & Complete" button
     And The User Click on the "Confirm" button
     And The User click on "Completed Requests" tab under the List of Onboardings headline
