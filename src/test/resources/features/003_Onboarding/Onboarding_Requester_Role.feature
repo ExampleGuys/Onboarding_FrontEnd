@@ -136,7 +136,7 @@ Feature: Onboarding Create Tests with Requester Role
   @ONB2-112
   Scenario: TC ONB2-112 Add Resources button in the new onboarding page should be clickable
     And The user click on the "New Onboarding" button top right corner of the page
-    Then The User verify that "Add resource" button should be clickable
+    Then The User verify that "Add resource" button is clickable
 
   @ONB2-113
   Scenario: TC ONB2-113 Add Comment button in the new onboarding page should be clickable
@@ -282,5 +282,5 @@ Feature: Onboarding Create Tests with Requester Role
     @ONB2-297
     Scenario: TC ONB2-297 The user should be able to create a new company site in the "Company registration" section when making a new onboarding
       And The user click on the "New Onboarding" button top right corner of the page
-      And The User click on plus + button near to "Company Site" in the Company Registration section
+      And The User click on plus + button near to "Company Site" title
       Then The User verify that the modal is opened

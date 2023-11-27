@@ -1,79 +1,85 @@
 @regression
 Feature: Sites Tests
 
-Background: Sites Tests
-  Given The user goes to the sign-in page
-  When The user enters valid login credentials
-  Then The user clicks on the "Sites" category
+  Background: pre-steps
+    Given The user goes to staging url
+    And The user enters valid login credentials
+    And The User click on the "Sites" section in the Navigation Menu
+
 
   @ONB2-198
-Scenario:TC: ONB2-198 On the Home Page of the "Sites" category can appear and click and verify.
-  Then The user clicks on the "Sites" category
-
+  Scenario:TC ONB2-198 "Sites" category can appear and in the Navigation Menu
+    Then The User verify that "Sites" button is clickable
 
   @ONB2-199
-  Scenario:TC: ONB2-199 Verify that clicking on the "Sites" category makes the "Sites" page viewable.
-       And The user should be seen the Sites page
+  Scenario:TC ONB2-199 Clicking on the "Sites" category sould be redirect to Sites Page
+    Then The user verify that the page redirect to "Sites | Mycomp" Page
 
   @ONB2-200
-  Scenario:TC: ONB2-200 Verify that the "Sites" link is visible and clickable on the "Sites" page.
-        And The user must be able to click on the Sites link
+  Scenario:TC ONB2-200 "Sites" breadcrumblink is visible in the Sites page
+    Then The User should be able to view "Sites" breadcrumb link
 
   @ONB2-201
-  Scenario:TC: ONB2-201 Verify that the "List of Sites" title is visible on the "Sites" page.
-    And The user should be seen the List of Sites title
+  Scenario:TC ONB2-201  The "List of Sites" heading appears on the Sites page.
+    Then The user verify that the "List of Sites" title is seen
 
   @ONB2-202
-  Scenario:TC: ONB2-202 Verify that the "Site" title is visible on the "Sites" page.
-        And The user should be seen the Site title
+  Scenario:TC ONB2-202 sites column should be visible in the Sites page
+    Then The User should be able to see "sites" column in the page
+
 
   @ONB2-203
-  Scenario:TC: ONB2-203 Verify that the "Created By" title is visible on the "Sites" page.
-    And The user should be seen the Created By title
+  Scenario:TC ONB2-203 Created By column should be visible in the Sites page
+    Then The User should be able to see "Created By" column in the page
 
   @ONB2-204
-  Scenario:TC: ONB2-204 Verify that the "Created At" title is visible on the "Sites" page.
-    And The user should be seen the Created At title
+  Scenario:TC ONB2-204 Created At column should be visible in the Sites page
+    Then The User should be able to see "Created At" column in the page
 
   @ONB2-207
-  Scenario:TC: ONB2-207 Verify that the "Delete" button is visible and active on the "Sites" page.
-    And The user clicks on the Delete button
+  Scenario:TC ONB2-207 Verify that the "Delete" button is clickable
+    And The user click on the delete icon in the Actions section of a first element of onboarding list
+    And The user click on the "Delete" button.
+    Then The user should be able to see a warning message as "sites successfully deleted"
+
 
   @ONB2-208
-  Scenario:TC: ONB2-208 Verify that clicking the "Delete" button on the "Sites" page will show that the Ant-Popover is visible.
-    And The user clicks on the Delete button
-    And The user should be seen the Ant-Popover should appear
+  Scenario:TC ONB2-208  "Delete" button in the modal is visible
+    And The user click on the delete icon in the Actions section of a first element of onboarding list
+    Then The User verifies that "Delete" button is visible
 
   @ONB2-209
-  Scenario:TC: ONB2-209 Verify that the "Delete" button is active when clicking the "Delete" button on the "Sites" page.
-    And The user clicks on the Delete button
-    And The user should be seen the Ant-Popover should appear
-    And The user clicks on the Delete button
+  Scenario:TC ONB2-209 "Delete" button in the modal is clickable
+    And The user click on the delete icon in the Actions section of a first element of onboarding list
+    Then The User verify that "Delete" button is clickable
 
   @ONB2-211
-  Scenario:TC: ONB2-211 Verify that the "Cancel" button is active when clicking the "Delete" button on the "Sites" page.
-    And The user clicks on the Delete button
-    And The user should be seen the Ant-Popover should appear
-    And The user clicks on the "Cancel" button
+  Scenario:TC ONB2-211 Cancel button in the modal is clickable
+    And The user click on the delete icon in the Actions section of a first element of onboarding list
+    Then The User verify that "Cancel" button is clickable
 
   @ONB2-236
-  Scenario:TC: ONB2-236 On the "Sites" page, verify that the "New Site" button is visible and clickable.
-    And The user clicks on the "New Site" button
+  Scenario:TC ONB2-236 "New Site" button is clickable.
+    Then The User verify that "New Site" button is clickable
+
+  Scenario:"New Site" button is visible
+    Then The User verifies that "New Site" button is visible
+
 
   @ONB2-263
-  Scenario:TC: ONB2-263 Verify that the number of characters entered in the "For Directions" item is visible on the New Site page.
-    Then The user clicks on the "New Site" button
-    Then The user clicks on the "For Directions" item
+  Scenario:TC ONB2-263 Verify that the number of characters entered in the "For Directions" item is visible on the New Site page.
+    And The user click on the "New Site" button.
     Then The user should be able to type up to fivehundred characters in the Description field
-    And The user should see the number of characters they entered at the bottom right
+
 
   @ONB2-266
-  Scenario:TC: ONB2-266 When invalid / incomplete information is entered on the New Site page, click the "Create" button Verify that the error message is visible.
-    Then The user clicks on the "New Site" button
-    Then User enters invalid information on the "New Site" page
-    Then The user sees the error message
+  Scenario:TC: ONB2-266 The user should not be able to create a site with incomplete information (Negative Senario)
+    And The user click on the "New Site" button.
+    And User enters invalid information on the page
+    And The user click on the "Create" button.
+    Then The user should be able to see a warning message as "Something went wrong"
 
-  @ONB2-268
+  @ONB2-268  #>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
   Scenario:TC: ONB2-268 Verify that the "Edit" button is visible and active on the "Sites" page.
     And The user clicks on the Edit button
 

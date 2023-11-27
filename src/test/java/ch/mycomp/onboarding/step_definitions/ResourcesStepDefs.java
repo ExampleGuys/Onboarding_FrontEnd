@@ -99,7 +99,7 @@ public class ResourcesStepDefs extends ObjectIndex {
        resourcesPage.theUserShouldBeSeenTheResourcesPage();
     }
 
-    @And("The user should be seen the New Resource page")
+    @And("The user verify that the New Resource page is seen")
     public void theUserShouldBeSeenTheNewResourcePage() {
         resourcesPage.theUserShouldBeSeenTheNewResourcePage();
     }
@@ -526,6 +526,17 @@ public class ResourcesStepDefs extends ObjectIndex {
     @And("The user verify that {string} title is visible in the Resources Section")
     public void theUserVerifyThatTitleIsVisibleInTheResourcesSection(String titleName) {
         resourcesPage.shouldSeenButton(titleName);
+
+    }
+
+    @Then("The user verify that delete icon is visible")
+    public void theUserVerifyThatDeleteIconIsVisible() {
+        resourcesPage.theUserVerifyThatDeleteIconIsVisible();
+    }
+
+    @Then("The user verify that delete icon is clickable")
+    public void theUserVerifyThatDeleteIconIsClickable() {
+        resourcesPage.theUserVerifyThatDeleteIconIsClickable();
 
     }
 }

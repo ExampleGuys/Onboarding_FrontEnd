@@ -12,7 +12,7 @@ Feature: Contacts test
 
   @ONB2-152
   Scenario: TC: ONB2-152 New Contact button should be clickable
-    Then The User verifies that "New Contact" button is clickable
+    Then The User verify that "New Contact" button is clickable
 
   @ONB2-163
   Scenario: TC: ONB2-163 Full Name / Company section should be visible in the New Contact page
@@ -26,19 +26,19 @@ Feature: Contacts test
 
   @ONB2-165
   Scenario: TC: ONB2-165 Full Name / Company column should be visible in the Contacts page
-    Then The User should be able to see "Full Name / companies" column in the Contacts page
+    Then The User should be able to see "Full Name / companies" column in the page
 
   @ONB2-166
   Scenario: TC: ONB2-166 Email column should be visible in the Contacts page
-    Then The User should be able to see "Email" column in the Contacts page
+    Then The User should be able to see "Email" column in the page
 
   @ONB2-167
   Scenario: TC: ONB2-167 Last Change column should be visible in the Contacts page
-    Then The User should be able to see "Last Change" column in the Contacts page
+    Then The User should be able to see "Last Change" column in the page
 
   @ONB2-168
   Scenario: TC: ONB2-168 Created By column should be visible in the Contacts page
-    Then The User should be able to see "Created By" column in the Contacts page
+    Then The User should be able to see "Created By" column in the page
 
   @ONB2-292
   Scenario: TC: ONB2-292 Verify that the warning message should be seen when creating a contact without a data
@@ -73,7 +73,7 @@ Feature: Contacts test
     And The user click on the "New Contact" button.
     And The user writes a contact name in "Enter full name or company" text area
     And The user writes Email address in "Enter email" text area
-    And The user clicks on the "Create" button
+    And The User Click on the "Create" button
     Then The User should be able to see "contacts successfully created" message
 
   @ONB2-176
@@ -89,7 +89,7 @@ Feature: Contacts test
     And The user click on the "New Contact" button.
     And The user writes a contact name in "Enter full name or company" text area with numbers
     And The user writes Email address in "Enter email" text area
-    And The user clicks on the "Create" button
+    And The User Click on the "Create" button
     Then The User should be able to verify that writes a company name by using numbers
 
   @ONB2-291

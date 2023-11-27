@@ -4,6 +4,7 @@ import ch.mycomp.onboarding.utilities.BrowserUtils;
 import ch.mycomp.onboarding.utilities.Driver;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -286,5 +287,27 @@ public class SitesPage extends BasePage {
         }
         public void theUserSeesTheConfirmationMessage() {
                 assertEquals(toastMessageText(),"Site successfully updated");
+        }
+
+        public void userEntersInvalidInformationOnThePage() {
+                BrowserUtils.clickWithJS(selectTheCompany);
+                selectTheCompany.sendKeys("Ankasale", Keys.ENTER);
+                BrowserUtils.waitFor(2);
+                WebElement startBox = boxName("Address Site");
+                actions.click(startBox).
+                        sendKeys("Avcilar").
+                        sendKeys(Keys.TAB).
+                        sendKeys("23652").
+                        sendKeys(Keys.TAB).
+                        sendKeys("TR").
+                        sendKeys(Keys.TAB).
+                        sendKeys(" ").
+                        sendKeys(Keys.TAB).
+                        sendKeys(Keys.TAB).
+                        sendKeys("Ankara Caddesi").
+                        sendKeys(Keys.TAB).
+                        sendKeys(Keys.TAB).
+                        sendKeys(Keys.TAB).click().perform();
+
         }
 }

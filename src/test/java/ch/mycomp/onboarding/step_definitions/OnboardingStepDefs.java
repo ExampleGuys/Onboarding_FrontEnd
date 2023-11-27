@@ -164,11 +164,6 @@ public class OnboardingStepDefs extends ObjectIndex{
 
     }
 
-    @Then("The User verify that {string} button should be clickable")
-    public void theUserVerifyThatButtonShouldBeClickable(String buttonName) {
-       onboardingPage.shouldClickableButton(buttonName);
-    }
-
     @And("The user write a comment in the comment section bottom of the page")
     public void theUserWriteACommentInTheCommentSectionBottomOfThePage() {
         onboardingPage.inputCommentArea();
@@ -322,7 +317,7 @@ public class OnboardingStepDefs extends ObjectIndex{
     public void theUserClicksOnTheTheFirstWorkingDaySectionInTheCompanyRegistration() {
         onboardingPage.clicksOnTheTheFirstWorkingDaySectionInTheCompanyRegistration();
     }
-    @And("The User click on plus + button near to {string} in the Company Registration section")
+    @And("The User click on plus + button near to {string} title")
     public void theUserClickOnPlusButtonNearToInTheCompanyRegistrationSection(String optionName) {
         orderPage.clickPlusAccordingToOptionName(optionName);
     }

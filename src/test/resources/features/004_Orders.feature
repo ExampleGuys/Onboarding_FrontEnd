@@ -149,12 +149,12 @@ Feature: Orders Tests
   @ONB2-89
   Scenario: The user should be able to add information in the title box on the edit order page
     And The User click on edit icon in the Actions section of first element of list
-    Then user should be able to edit information in the "Enter order title" box
+    Then user should be able to enter information in the "Enter order title" box
 
   @ONB2-90
   Scenario: The user should be able to add information in the description box on the edit order page
     And The User click on edit icon in the Actions section of first element of list
-    Then user should be able to edit information in the "Enter description" box
+    Then user should be able to enter information in the "Enter description" box
 
   @ONB2-91
   Scenario: The user should be able to choose an option as catagory on the edit order page.

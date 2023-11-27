@@ -372,6 +372,9 @@ public class ResourcesPage extends BasePage {
     @FindBy(xpath = "//div[@class='ant-select-selector'][.//*[@id='resource_resources_0_contacts']]")
     public WebElement inputContactsDropdownResourcePageLocator;
 
+    @FindBy(xpath = "(//span[@aria-label='delete'])")
+    public WebElement deleteIconResourcesSection;
+
 
 
 
@@ -720,5 +723,14 @@ public class ResourcesPage extends BasePage {
 
     public void theUserVerifyThatAutoAddToOnboardingSwitchIsClickable() {
         BrowserUtils.verifyElementClickable(autoAddtoOnboardingTitleSwitch);
+    }
+
+    public void theUserVerifyThatDeleteIconIsVisible() {
+        BrowserUtils.verifyElementDisplayed(deleteIconResourcesSection);
+    }
+
+    public void theUserVerifyThatDeleteIconIsClickable() {
+        BrowserUtils.verifyElementClickable(deleteIconResourcesSection);
+
     }
 }

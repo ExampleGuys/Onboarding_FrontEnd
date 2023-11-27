@@ -154,7 +154,7 @@ public class OrdersStepDefs extends ObjectIndex {
     }
 
 
-    @Then("user should be able to edit information in the {string} box")
+    @Then("user should be able to enter information in the {string} box")
     public void userShouldBeAbleToEditInformationInTheBox(String placeHolder) {
         orderPage.userShouldBeAbleToEditInformationInTheBox(placeHolder);
 

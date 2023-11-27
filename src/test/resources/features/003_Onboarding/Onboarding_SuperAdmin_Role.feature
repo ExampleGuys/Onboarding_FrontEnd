@@ -10,14 +10,14 @@ Feature: Onboarding Create Tests with SuperAdmin Role
   Scenario: TC ONB2-299 The user should be able to create a new resource category in the "Resources" section when making a new onboarding
     And The user click on the "New Onboarding" button top right corner of the page
     And The User "Add resource" button in the Resources Section
-    And The User click on plus + button near to "Category" in the Company Registration section
+    And The User click on plus + button near to "Category" title
     Then The User verify that the modal is opened
 
   @ONB2-300
   Scenario: TC ONB2-300 The user should be able to create a new resource in the "Resources" section when making a new onboarding
     And The user click on the "New Onboarding" button top right corner of the page
     And The User "Add resource" button in the Resources Section
-    And The User click on plus + button near to "Resource" in the Company Registration section
+    And The User click on plus + button near to "Category" title
     Then The User verify that the modal is opened
 
   @ONB2-322

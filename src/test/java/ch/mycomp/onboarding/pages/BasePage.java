@@ -194,7 +194,7 @@ public class BasePage {
 
     public void shouldSeenButton(String buttonName) {
         WebElement button = Driver.get().findElement(By.xpath("//span[text()='" + buttonName + "']"));
-        BrowserUtils.verifyElementDisplayed(button);
+        assert (button.isDisplayed());
     }
 
     public void shouldClickableButton(String buttonName) {

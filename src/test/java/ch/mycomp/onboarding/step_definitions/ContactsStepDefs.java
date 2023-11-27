@@ -26,7 +26,7 @@ public class ContactsStepDefs extends ObjectIndex {
         contactsPage.userShouldBeAbleToSeeSectionInTheNewContactPage(sectionName);
     }
 
-    @Then("The User should be able to see {string} column in the Contacts page")
+    @Then("The User should be able to see {string} column in the page")
     public void userShouldBeAbleToSeeColumnInThePage(String fullNameCompanyColumn) {
         contactsPage.userShouldBeAbleToSeeColumnInThePage(fullNameCompanyColumn);
 

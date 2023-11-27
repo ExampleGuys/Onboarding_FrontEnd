@@ -8,7 +8,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
@@ -17,9 +16,6 @@ import static org.junit.Assert.*;
 public class OnboardingPage extends BasePage {
     public static String totalNumberOfItems;
 
-    // Onboarding>Create new Onboarding> Personal Information Headline
-    @FindBy(xpath = "//h2[text()='Personal Information']")
-    public WebElement headlinePersonalInformation;
 
     // Onboarding>Create new Onboarding> Company Registration Headline
     @FindBy(xpath = "//h2[text()='Company Registration']")
@@ -41,11 +37,6 @@ public class OnboardingPage extends BasePage {
     @FindBy(xpath = "(//*[@class='ant-space-item'])[4]")
     public WebElement buttonShowLogs;
 
-    @FindBy(xpath = "//div[text()='Drafts']")
-    public WebElement draftsTab;
-
-    @FindBy(xpath = "(//tbody[@class='ant-table-tbody']//tr[1]/td[9]//button)[2]")
-    public WebElement editIconInTheTableFirstRowInTheActionSection;
     @FindBy(xpath = "//h2[text()='Attachments']")
     public WebElement headlineAttechmentsSection;
 
@@ -76,9 +67,6 @@ public class OnboardingPage extends BasePage {
 
     @FindBy(xpath = "//div[text()='Completed Requests']")
     public WebElement CompletedTab;
-
-    @FindBy(xpath = "//li[@class='ant-pagination-total-text']")
-    public static WebElement totalOnboardingSection;
 
 
     @FindBy(xpath = "//input[@placeholder='Enter a comment']")
@@ -223,7 +211,7 @@ public class OnboardingPage extends BasePage {
 
     public void clickDeleteIconOfTeFirstElementOfOnboardingList() {
         totalNumberOfItems = paginationTotalText.getText();
-        System.out.println("total item : " + paginationTotalText.getText());
+
         BrowserUtils.clickElement(deleteIconForFirstRow, 20);
     }
 

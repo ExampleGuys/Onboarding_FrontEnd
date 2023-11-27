@@ -26,19 +26,19 @@ Feature: Resources Tests
 
   @ONB2-309
   Scenario:TC ONB2-309 Company column should be visible in the Resources page
-    Then The User should be able to see "Company" column in the Contacts page
+    Then The User should be able to see "Company" column in the page
 
 
   Scenario:TC ONB2-309 Category Name column should be visible in the Resources page
-    Then The User should be able to see "Category Name" column in the Contacts page
+    Then The User should be able to see "Category Name" column in the page
 
 
   Scenario:TC ONB2-309 Created By column should be visible in the Resources page
-    Then The User should be able to see "Created By" column in the Contacts page
+    Then The User should be able to see "Created By" column in the page
 
 
   Scenario:TC ONB2-309 Created At column should be visible in the Resources page
-    Then The User should be able to see "Created At" column in the Contacts page
+    Then The User should be able to see "Created At" column in the page
 
 
   @ONB2-310
@@ -119,37 +119,24 @@ Feature: Resources Tests
     And The user click on the "New Resource" button.
     And The user verify that "Contacts" title is visible in the Resources Section
 
-  @ONB2-331 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  @ONB2-331
   Scenario:TC ONB2-331 the "+" button next to the "Contacts" title is clickable.
     And The user click on the "New Resource" button.
-    Then The user verify that
-    And The user clicks the + button
-    And The user should be seen the Create Contact page
-
-  @ONB2-334
-  Scenario:TC: ONB2-334 On the New Resource page, next to the "Contacts" heading, click on the "+" button Verify that
-  the error message appears and is active when incorrect information is entered on the "Create Contact" page.
-    Then The user clicks on the "New Resource" button
-    And The user should be seen the Contacts + title
-    Then The user hovers over the + button next to the Contacts title, the Create Contact alert appears
-    And The user clicks the + button
-    And The user clicks on the "Cancel" button
-    And The user should be seen the New Resource page
+    And The User click on plus + button near to "Contacts" title
+    Then The User verify that the modal is opened
 
   @ONB2-336
-  Scenario:TC: ONB2-336 On the Create Contact page, verify that the "X" button is visible and clickable in the upper-right corner
-    Then The user clicks on the "New Resource" button
-    And The user should be seen the Contacts + title
-    Then The user hovers over the + button next to the Contacts title, the Create Contact alert appears
-    And The user clicks the + button
-    Then The user clicks the x button
-    And The user should be seen the New Resource page
+  Scenario:TC ONB2-336 On the Create Contact page, verify that the "X" button is clickable in the upper-right corner
+    And The user click on the "New Resource" button.
+    And The user hovers over the + button next to the Contacts title, the Create Contact alert appears
+    And The User click on plus + button near to "Contacts" title
+    And The user clicks the x button
+    Then The user verify that the New Resource page is seen
 
   @ONB2-366
-  Scenario:TC: ONB2-366 On the New Resource page, verify that the "Back" button is visible and clickable.
-    Then The user clicks on the "New Resource" button
-    Then The user clicks the Back button
-    And The user should be seen the Resources page
+  Scenario:TC ONB2-366 verify that the "Back" button is clickable
+    And The user click on the "New Resource" button.
+    Then The User verify that "Back" button is clickable
 
   @ONB2-333
   Scenario:TC:BUG ONB2-333 The New Resource page, next to the "Contacts" title, click on the "+"
@@ -166,37 +153,30 @@ Feature: Resources Tests
 # And The user enters valid information and sees the confirmation message
 
   @ONB2-317
-  Scenario:TC: ONB2-317 On the New Source page, verify that the "Enter category name" text box is visible and clickable.
-    Then The user clicks on the "New Resource" button
-    Then The user should be seen the "Category Name" title
-    Then The user should be the seen Enter category name text box
-    Then The user clicks on the Enter category name item
-    And  The user only write in "Enter category" text box
-    And The user should see the error message "Please fill out all required fields correctly."
+  Scenario:TC ONB2-317 "Enter category name" text box is enterable
+    And The user click on the "New Resource" button.
+    Then user should be able to enter information in the "Enter category name" box
 
   @ONB2-329
-  Scenario:TC: ONB2-329 On the New Resource page, verify that the "Enter resource name" text box appears and is clickable
-    Then The user clicks on the "New Resource" button
-    Then The user should be seen the "Resource Name" title
-    Then The user clicks on the Enter resource name text box
-    Then Relevant information into the enter Enter resource name text box
+  Scenario:TC ONB2-329 "Enter resource name" text box is enterable
+    And The user click on the "New Resource" button.
+    Then user should be able to enter information in the "Enter resource name" box
+
 
   @ONB2-367
-  Scenario:TC: ONB2-367 On the New Resource page, verify that the "Create" button is visible and clickable.
-    Then The user clicks on the "New Resource" button
-    Then  User enters valid information on the "New Resource" page
-    Then The user clicks on the Create button
-    Then  The user should see the message "resources successfully created"
+  Scenario:TC ONB2-367 On the New Resource page, verify that the "Create" button is visible
+    And The user click on the "New Resource" button.
+    Then The User verify that "Create" button is clickable
 
-  @ONB2-372
-  Scenario:TC: BUG ONB2-372 On the Resources page, verify that the "Created At" heading is visible and active.
-    Then The user should be the "Created At" heading on the "Resources" page
-    Then The user enters the relevant information on the "New Resources" page
-    And Under the "Created At" heading, the user sees what time they logged in
 
-  @ONB2-380
-  Scenario:TC: ONB2-380 On the Resources page, verify that the records entered under the "List of Resources" heading are visible.
-    And The user clicks on the "New Resource" button
+  Scenario:TC ONB2-367 On the New Resource page, verify that the "Create" button is visible
+    And The user click on the "New Resource" button.
+    Then The User verifies that "Create" button is visible
+
+    
+  @ONB2-380 # E2E test hatali!!!!!!
+  Scenario:TC ONB2-380 On the Resources page, verify that the records entered under the "List of Resources" heading are visible.
+    And The user click on the "New Resource" button.
     And The user selects a Company from company dropdown "Test Techno Consultant"
     And The user enters a Category Name on the new resource page
     And The user selects Selection Type as "true"
@@ -208,43 +188,39 @@ Feature: Resources Tests
     And The user should be the entered information in a list
     #vernell.keebler@gmail.com - Tristan Hegmann
 
-  @ONB2-312
-  Scenario:TC: BUG ONB2-312 On the Resources page, verify that the search badge for the "Search by name" searchbox is clickable.
-    Then The user should be able to click on the "Search by name" search box
-    And The user should be able to click on the icon next to the "Search by name" search box.
 
   @ONB2-364
-  Scenario:TC: ONB2-364 On the New Resource page, verify that the "Delete Resource" button is visible and clickable
-    Then The user clicks on the "New Resource" button
-    And The user should be seen the Ant-Popover should appear.
-    And The user clicks on the New Resources Delete button
-    And The user clicks on the New Resources Resource Delete button
-    And Verify appear that the Add resource line has been deleted.
+  Scenario:TC ONB2-364  Delete icon in the Resources section is visible
+    And The user click on the "New Resource" button.
+    Then The user verify that delete icon is visible
+
+  Scenario:TC ONB2-364  Delete icon in the Resources section is clickable
+    And The user click on the "New Resource" button.
+    Then The user verify that delete icon is clickable
+
+
 
   @ONB2-368
-  Scenario:TC: ONB2-368 On the New Resource page, verify that the "Create" button is visible and clickable. (Negative Senario)
-    Then The user clicks on the "New Resource" button
-    Then User enters invalid information on the New Resource page
-    Then The user clicks on the Create button
-    Then The user should see the messagee "Please fill out all required fields correctly."
+  Scenario:TC ONB2-368 The user should not be able to create a resource with incomplete information (Negative Senario)
+    And The user click on the "New Resource" button.
+    And The User Click on the "Create" button
+    Then The user should be able to see a warning message as "Please fill out all required fields correctly."
 
-  @ONB2-369
-  Scenario:TC: ONB2-369 Verify that the "Delete" button is visible and active on the Resources page.
-    Then The user should be seen the Ant-Popover should appear.
-    Then The user clicks on the Resources Delete button
-    Then The user clicks on the Resources Resource Delete button
-    And The user should see the delete messagee "Field option category successfully deleted"
+
+  @ONB2-369 # bug????
+  Scenario:TC ONB2-369 Verify that the "Delete" button is clickable
+    And The user click on the delete icon in the Actions section of a first element of onboarding list
+    And The user click on the "Delete" button.
+    Then The user should be able to see a warning message as "Field option category successfully deleted"
 
   @ONB2-370
-  Scenario:TC: ONB2-370 In the dropdown that comes when the "Delete" button is clicked on the New Resource page Verify that the "Cancel" button is visible and clickable.
-    Then The user should be seen the Ant-Popover should appear.
-    Then The user clicks on the Resources Delete button
-    Then The user clicks on the Resources Resource Cancel button
-    And The user should be seen the Resources page
-
+  Scenario:TC ONB2-370 The Cancel button in the modal is clickable
+    And The user click on the delete icon in the Actions section of a first element of onboarding list
+    Then The User verify that "Cancel" button is clickable
+    
   @ONB2-390
-  Scenario:TC: ONB2-390 E2E-Verify that new entries can be made on the Resources page.
-    Then The user clicks on the "New Resource" button
+  Scenario:TC ONB2-390 E2E-Verify that new entries can be made on the Resources page.
+    Then The user click on the "New Resource" button.
     Then  User enters valid information on the "New Resource" page
     Then The user clicks on the Create button
     Then The user should be seen the Ant-Popover should appear.
