@@ -16,7 +16,7 @@ public class ContactsStepDefs extends ObjectIndex {
       contactsPage.shouldSeenButton(buttonName);
     }
 
-    @Then("The User verifies that {string} button is clickable")
+    @Then("The User verify that {string} button is clickable")
     public void userVerifiesThatButtonIsClickable(String buttonName) {
       contactsPage.shouldClickableButton(buttonName);
     }
@@ -92,13 +92,13 @@ public class ContactsStepDefs extends ObjectIndex {
 
     }
 
-    @Then("The User should be able to view {string} breadcrumb link on the New Contact page")
+    @Then("The User should be able to view {string} breadcrumb link")
     public void userShouldBeAbleToViewBreadcrumbLinkOnThePage(String breadcrumbLink) {
         contactsPage.userShouldBeAbleToViewBreadcrumbLinkOnThePage(breadcrumbLink);
 
     }
 
-    @Then("The User should be able to clickable {string} breadcrumb link on the New Contact page")
+    @Then("The User should be able to clickable {string} breadcrumb link")
     public void userShouldBeAbleToClickableBreadcrumbLinkOnTheNewContactPage(String breadcrumbLink) {
         contactsPage.userShouldBeAbleToClickableBreadcrumbLinkOnTheNewContactPage(breadcrumbLink);
 

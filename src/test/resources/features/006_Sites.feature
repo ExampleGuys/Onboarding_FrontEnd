@@ -1,3 +1,4 @@
+@regression
 Feature: Sites Tests
 
 Background: Sites Tests

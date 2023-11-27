@@ -1,4 +1,4 @@
-@Regression  @yavuz
+@regression
 
 Feature: Login Screen Test
 

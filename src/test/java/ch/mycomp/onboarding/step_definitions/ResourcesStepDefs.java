@@ -33,10 +33,7 @@ public class ResourcesStepDefs extends ObjectIndex {
         resourcesPage.theUserClicksOnTheCategory(navigationName);
     }
 
-    @Then("The user clicks on the {string} button")
-    public void theUserClicksOnTheButton(String buttonName) {
-        resourcesPage.theUserClicksOnTheButton(buttonName);
-    }
+
 
     @And("The user should be seen the new recources item opened")
     public void theUserShouldBeSeenTheNewRecourcesItemOpened() {
@@ -53,11 +50,7 @@ public class ResourcesStepDefs extends ObjectIndex {
         resourcesPage.theUserClicksOnTheLink();
     }
 
-    @And("The user should be seen the {string} title")
-    public void theUserShouldBeSeenTheTitle(String arg0) {
-        resourcesPage.theUserShouldBeSeenTheTitle(arg0);
 
-    }
 
     @And("The user should be seen the selection type title")
     public void theUserShouldBeSeenTheSelectionTypeTitle() {
@@ -77,22 +70,23 @@ public class ResourcesStepDefs extends ObjectIndex {
 
     @And("The user clicks on the Single Selection button")
     public void theUserClicksOnTheSingleSelectionButton() {
-        resourcesPage.theUserClicksOnTheSingleSelectionButton();
+        resourcesPage.theUserClicksOnTheSingleSelectionSwitch();
     }
 
     @And("The user should be seen the Resources Page {string} page")
     public void theUserShouldBeSeenTheResourcesPage(String arg0) {
-        Assert.assertTrue(resourcesPage.listOfResourcesTitleText.isDisplayed());
+        Assert.assertTrue(resourcesPage.listOfResourcesTitle.isDisplayed());
 
     }
 
-    @And("The user should be the {string} title on the {string} page")
-    public void theUserShouldBeTheTitleOnThePage(String arg0, String arg1) {
-         resourcesPage.theUserShouldBeTheTitleOnThePage(arg0,arg1);
+    @And("The user verify that the {string} title is seen")
+    public void theUserShouldBeTheTitleOnThePage(String titleName) {
+         resourcesPage.theUserShouldBeTheTitleOnThePage(titleName);
     }
-    @Then("The user clicks on the Search by name search box")
-    public void theUserClicksOnTheSearchByNameSearchBox() {
-        resourcesPage.theUserClicksOnTheSearchByNameSearchBox();
+    @Then("The user verify that the {string} search box is seen")
+    public void theUserClicksOnTheSearchByNameSearchBox(String placeHolder) {
+
+       resourcesPage.theUserClicksOnTheSearchByNameSearchBox(placeHolder);
     }
 
     @And("User searches in the search box")
@@ -173,7 +167,7 @@ public class ResourcesStepDefs extends ObjectIndex {
 
     @And("The user should be seen the Create Contact page")
     public void theUserShouldBeSeenTheCreateContactPage() {
-        Assert.assertTrue(resourcesPage.newResourcesCreateContactsPage.isDisplayed());
+       assert (resourcesPage.newResourcesCreateContactsPage.isDisplayed());
     }
 
     @Then("The user hovers over the + button next to the Contacts title, the Create Contact alert appears")
@@ -478,14 +472,61 @@ public class ResourcesStepDefs extends ObjectIndex {
     public void theUserShouldBeTheStringTitle(String arg0, String arg1, String arg2, String arg3) {
         resourcesPage.theUserShouldBeTheStringTitle(arg0,arg1,arg2,arg3);
     }
-    @And("The user should see the delete messagee Please fill out all required fields correctly.")
+    @And("The user should see the delete messagee resources successfully created.")
     public void theUserShouldSeeTheDeleteMessageePleaseFillOutAllRequiredFieldsCorrectly() {
-        assertEquals(resourcesPage.toastMessageText(),"Please fill out all required fields correctly.");
+        assertEquals(resourcesPage.toastMessageText(),"resources successfully created");
     }
 
     @And("User {string} must have entered incorrect character")
     public void userMustHaveEnteredIncorrectCharacter(String arg0) {
         // Manual Test
+    }
+
+    @And("The user click on the delete icon in the Actions section of a first element of resources list")
+    public void theUserClickOnTheDeleteIconInTheActionsSectionOfAFirstElementOfResourcesList() {
+        onboardingPage.clickDeleteIconOfTeFirstElementOfOnboardingList();
+    }
+
+    @Then("The User should seen + Add resource button")
+    public void theUserShouldSeenAddResourceButton() {
+        resourcesPage.theUserShouldSeenAddResourceButton();
+    }
+
+    @Then("The user verify that the {string} search box is clickable")
+    public void theUserVerifyThatTheSearchBoxIsClickable(String placeHolder) {
+        resourcesPage.theUserVerifyThatTheSearchBoxIsClickable(placeHolder);
+    }
+
+    @Then("The User verifies that {string} button is visible")
+    public void theUserVerifiesThatButtonIsVisible(String buttonName) {
+        resourcesPage.shouldSeenButton(buttonName);
+    }
+
+    @And("The user verify that {string} title is visible")
+    public void theUserVerifyThatTitleIsVisible(String titleName) {
+        resourcesPage.theUserVerifyThatTitleIsVisible(titleName);
+    }
+
+    @Then("The User verify that Selection Type Switch is clickable")
+    public void theUserVerifiesThatSelectionTypeSwitchIsClickable() {
+        resourcesPage.thetheUserVerifiesThatSingleSelectionSwitchIsClickable();
+
+    }
+
+    @Then("The User verify that Quantity Selection Switch is clickable")
+    public void theUserVerifyThatQuantitySelectionSwitchIsClickable() {
+        resourcesPage.theUserVerifyThatQuantitySelectionSwitchIsClickable();
+    }
+
+    @Then("The User verify that Auto Add to Onboarding Switch is clickable")
+    public void theUserVerifyThatAutoAddToOnboardingSwitchIsClickable() {
+        resourcesPage.theUserVerifyThatAutoAddToOnboardingSwitchIsClickable();
+    }
+
+    @And("The user verify that {string} title is visible in the Resources Section")
+    public void theUserVerifyThatTitleIsVisibleInTheResourcesSection(String titleName) {
+        resourcesPage.shouldSeenButton(titleName);
+
     }
 }
 

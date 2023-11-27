@@ -1,4 +1,4 @@
-
+@regression
 Feature: Users
 
   Background: pre-steps

@@ -1,4 +1,4 @@
-@regression @yavuz
+@regression
 Feature: Contacts test
 
   Background:pre-steps
@@ -95,8 +95,8 @@ Feature: Contacts test
   @ONB2-291
   Scenario: TC: ONB2-291 Contacts breadcrumb link should be visible and clickable on the New Contacts page
     And The user click on the "New Contact" button.
-    Then The User should be able to view "Contacts" breadcrumb link on the New Contact page
-    Then The User should be able to clickable "Contacts" breadcrumb link on the New Contact page
+    Then The User should be able to view "Contacts" breadcrumb link
+    Then The User should be able to clickable "Contacts" breadcrumb link
 
   @ONB2-231
   Scenario: TC: ONB2-231 Verify that the back button works

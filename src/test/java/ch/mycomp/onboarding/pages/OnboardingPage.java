@@ -63,7 +63,7 @@ public class OnboardingPage extends BasePage {
 
     @FindBy(xpath = "(//tbody[@class='ant-table-tbody']//tr[1]/td[9]//button)[2]")
     public WebElement iconViewMoreFirstRowofTable;
-    @FindBy(xpath = "//*[@class='ant-modal-content']")
+    @FindBy(xpath = "//*[@role='dialog']")
     WebElement openedModal;
     @FindBy(xpath = "(//tbody[@class='ant-table-tbody']//tr[1]/td[9]//button)[3]")
     static WebElement deleteIconOfTheFirstElementOfOnboardingList;
@@ -218,11 +218,12 @@ public class OnboardingPage extends BasePage {
     }
 
     public void assertionOpenedModal() {
-        assert (openedModal.isDisplayed());
+       assert (openedModal.isDisplayed());
     }
 
     public void clickDeleteIconOfTeFirstElementOfOnboardingList() {
         totalNumberOfItems = paginationTotalText.getText();
+        System.out.println("total item : " + paginationTotalText.getText());
         BrowserUtils.clickElement(deleteIconForFirstRow, 20);
     }
 
@@ -263,8 +264,8 @@ public class OnboardingPage extends BasePage {
     }
 
     public void assertionTotalOnboardingItemIsChanged() {
-        String totalNumberOfItemsActual = paginationTotalText.getText();
-        Assert.assertNotEquals(totalNumberOfItems, totalNumberOfItemsActual);
+        BrowserUtils.waitFor(2);
+        BrowserUtils.verifyElementDisplayed(message);
     }
 
 

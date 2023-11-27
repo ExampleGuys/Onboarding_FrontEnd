@@ -239,7 +239,7 @@ public class OrderPage extends BasePage{
     }
 
     public void theUserShouldBeAbleToChooseAnOptionAsCatagoryDdmOnTheEditOrderPage() {
-        resourcesPage.newResourcesAddResourcesButton.click();
+        resourcesPage.addResourcesButton.click();
         BrowserUtils.waitFor(2);
         selectCategoryDdm.click();
         BrowserUtils.waitFor(2);

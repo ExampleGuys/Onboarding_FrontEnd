@@ -1,4 +1,4 @@
-@Regression @yavuz
+@regression @yavuz
 Feature: Register
 
   Scenario: TC ONB2-386 The Sign Up Page should be visible

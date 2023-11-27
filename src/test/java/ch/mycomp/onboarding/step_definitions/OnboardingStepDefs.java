@@ -126,13 +126,6 @@ public class OnboardingStepDefs extends ObjectIndex{
     }
 
 
-    @Then("The User verify that {string} button is clickable")
-    public void theUserVerifyThatButtonIsClickable(String buttonName) {
-
-        onboardingPage.assertionCancelButtonClickable(buttonName);
-
-    }
-
     @Then("The User verify that redirected to new onboarding create page")
     public void theUserVerifyThatRedirectedToNewOnboardingCreatePage() {
         onboardingPage.assertionRedirectToNewOnboardingPage();

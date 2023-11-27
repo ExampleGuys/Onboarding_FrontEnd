@@ -1,4 +1,4 @@
-@regression @yavuz
+@regression
 Feature: Onboarding Create Tests with Requester Role
 
   Background: pre-steps
