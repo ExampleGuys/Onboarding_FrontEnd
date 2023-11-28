@@ -15,13 +15,6 @@ import static org.junit.Assert.assertTrue;
 
 public class OrdersStepDefs extends ObjectIndex {
 
-/*
-
-    @When("user logs in with the valid credentials")
-    public void user_logs_in_with_the_valid_credentials() {
-        loginPage.login("superAdminUser", "superAdmin_password");
-    }
-*/
 
     @When("user logs in with the valid credentials as {string} and {string}")
     public void userLogsInWithTheValidCredentialsAsAnd(String username, String password) {
@@ -30,80 +23,68 @@ public class OrdersStepDefs extends ObjectIndex {
 
     @And("Click on the {string} section in the Navigation Menu")
     public void clickOnTheSectionInTheNavigationMenu(String navigationName) {
-        WebElement sidebar = Driver.get().findElement(By.xpath("//span[text()='" + navigationName + "']"));
-        BrowserUtils.clickWithJS(sidebar);
+        orderPage.clickOnTheSectionInTheNavigationMenu(navigationName);
+
     }
 
     @And("The user click on the {string} button.")
     public void theUserClickOnTheButton(String buttonName) {
-        WebElement button = Driver.get().findElement(By.xpath("//span[text()='" + buttonName + "']"));
-        BrowserUtils.clickWithJS(button);
-
+       contactsPage.clickButton(buttonName);
     }
 
-    @Then("the user should be redirected to the new order creation page")
+    @Then("The User should be redirected to the new order creation page")
     public void theUserShouldBeRedirectedToTheNewOrderCreationPage() {
-        assertTrue(Driver.get().getCurrentUrl().contains("create"));
+        orderPage.theUserShouldBeRedirectedToTheNewOrderCreationPage();
+
     }
 
     @And("The user should be able to add data to {string} with {string}")
-    public void theUserShouldBeAbleToCreateNewCompany(String placeHolder, String companyNAme) {
-        String fakeDataInfo = BrowserUtils.fakeName();
-        orderPage.boxName(placeHolder).sendKeys(companyNAme);
-        assertEquals(orderPage.boxName(placeHolder).getAttribute("value"), companyNAme);
+    public void theUserShouldBeAbleToCreateNewCompany(String placeHolder, String companyName) {
+        orderPage.theUserShouldBeAbleToCreateNewCompany(placeHolder,companyName);
 
     }
 
     @And("The user should be able to see a warning message as {string}")
     public void theUserShouldBeAbleToSeeAWarningMessageAs(String message) {
-        assertEquals(orderPage.getPopupsMessage(), message);
+        orderPage.theUserShouldBeAbleToSeeAWarningMessageAs(message);
+
     }
 
     @And("The user select the company from ddm")
     public void theUserSelectTheCompanyFromDdm() {
-        WebElement button2 = Driver.get().findElement(By.cssSelector("#Order_company"));
-        BrowserUtils.clickWithJS(button2);
-        button2.sendKeys("Test Techno Consultant" + Keys.ENTER);
+        orderPage.theUserSelectTheCompanyFromDdm();
+
+
     }
 
     @And("The user select the shipping adress from ddm")
     public void theUserSelectTheShippingAdressFromDdm() {
-        WebElement button2 = Driver.get().findElement(By.cssSelector("#Order_delivery_address"));
-        BrowserUtils.clickWithJS(button2);
-        BrowserUtils.waitFor(2);
-        button2.sendKeys("Avcilar" + Keys.ENTER);
-        assertTrue(button2.isDisplayed());
+        orderPage.theUserSelectTheShippingAdressFromDdm();
+
     }
 
     @And("The user select the date from datapicker")
     public void theUserSelectTheDateFromDatapicker() {
-        WebElement button2 = Driver.get().findElement(By.cssSelector("#Order_delivery_date"));
-        BrowserUtils.clickWithJS(button2);
-        button2.sendKeys("31-10-2023" + Keys.ENTER);
-        assertTrue(orderPage.datapicker.isEnabled());
+        orderPage.theUserSelectTheDateFromDatapicker();
+
     }
 
     @And("The user select the priority from the ddm")
     public void theUserSelectThePriorityFromTheDdm() {
-        WebElement button2 = Driver.get().findElement(By.cssSelector("#Order_priority"));
-        BrowserUtils.clickWithJS(button2);
-        BrowserUtils.waitFor(1);
-        button2.sendKeys("Normal" + Keys.ENTER);
-        assertTrue(orderPage.priorityDdm.isEnabled());
+        orderPage.theUserSelectThePriorityFromTheDdm();
+
     }
 
     @And("The user select the approver from the ddm")
     public void theUserSelectTheApproverFromTheDdm() {
-        WebElement button2 = Driver.get().findElement(By.cssSelector("#Order_approver"));
-        BrowserUtils.clickWithJS(button2);
-        button2.sendKeys("test@yopmail.com - Test Tester" + Keys.ENTER);
+        orderPage.theUserSelectTheApproverFromTheDdm();
+
     }
 
     @And("The user select the contact from the ddm")
     public void theUserSelectTheContactFromTheDdm() {
-        WebElement button2 = Driver.get().findElement(By.cssSelector("#Order_contactUser"));
-        BrowserUtils.clickWithJS(button2);
-        button2.sendKeys("gpt" + Keys.ENTER);
+        orderPage.theUserSelectTheContactFromTheDdm();
+
     }
 
     @And("The user clicks the {string} icon.")
@@ -113,80 +94,39 @@ public class OrdersStepDefs extends ObjectIndex {
 
     @And("The user should be able to add data to {string}")
     public void theUserShouldBeAbleToAddDataTo(String placeHolder) {
-        String fakeDataInfo = BrowserUtils.fakeName();
-        orderPage.boxName(placeHolder).clear();
-        orderPage.boxName(placeHolder).sendKeys(fakeDataInfo);
-        assertEquals(orderPage.boxName(placeHolder).getAttribute("value"), fakeDataInfo);
+        orderPage.theUserShouldBeAbleToAddDataTo(placeHolder);
+
 
     }
 
     @And("The user should be able to add Email adress to {string}")
     public void theUserShouldBeAbleToAddEmailAdressTo(String placeHolder) {
-        String fakeEmailInfo = BrowserUtils.fakeEmailAdress();
-        orderPage.boxName(placeHolder).sendKeys(fakeEmailInfo);
-        BrowserUtils.waitFor(1);
-        assertEquals(orderPage.boxName(placeHolder).getAttribute("value"), fakeEmailInfo);
+        orderPage.theUserShouldBeAbleToAddEmailAdressTo(placeHolder);
+
     }
 
     @Then("the user should be able to redirect back to the List of Orders page again.")
     public void theUserShouldBeAbleToRedirectBackToTheListOfOrdersPageAgain() {
-        assertTrue(Driver.get().getCurrentUrl().contains("order"));
+        orderPage.theUserShouldBeAbleToRedirectBackToTheListOfOrdersPageAgain();
+
 
     }
 
 
     @And("user fills in all required fields properly")
     public void userFillsInAllRequiredFieldsProperly() {
-        WebElement baslamakutusu = orderPage.boxName("Enter first name");
-        String password = "AB123@ab";
-
-        actions.click(baslamakutusu).
-                sendKeys(faker.name().firstName()).
-                sendKeys(Keys.TAB).
-                sendKeys(faker.name().lastName()).
-                sendKeys(Keys.TAB).
-                sendKeys(faker.name().lastName()).
-                sendKeys(Keys.TAB).sendKeys(faker.internet().
-                        emailAddress()).sendKeys(Keys.TAB)
-                .sendKeys(Keys.TAB).sendKeys("Avcilar" + Keys.ENTER)
-                .sendKeys(Keys.TAB).
-                sendKeys(Keys.TAB).
-                sendKeys(password).perform();
-
-        BrowserUtils.waitFor(2);
-        actions.sendKeys(Keys.TAB).sendKeys(password)
-                .sendKeys(Keys.TAB)
-                .sendKeys(Keys.TAB)
-                .sendKeys(Keys.TAB).click().perform();
-
+        orderPage.userFillsInAllRequiredFieldsProperly();
 
     }
 
     @Then("The user should be able to type up to fivehundred characters in the Description field.")
         public void theUserShouldBeAbleToTypeUpToFivehundredCharactersInTheDescriptionField() {
-
-            String str= faker.lorem().characters(510);
-            int strlength = str.length(); //510
-
-            orderPage.boxName("Enter description").sendKeys(str);
-
-            int textlength = orderPage.orderEnterDescriptionInfo.getText().length();
-
-            String str500 = orderPage.order500InputDataCount.getText();//500 / 500
-
-            int bosluk = str500.indexOf(" "); //3
-
-            int fivehundred = Integer.parseInt((str500.substring(0,bosluk))); //500 int
-
-            assertEquals(textlength,fivehundred);
-
-        // Assert.assertNotEquals(strlength,textlength);
-
+        orderPage.theUserShouldBeAbleToTypeUpToFivehundredCharactersInTheDescriptionField();
     }
 
     @Then("The user should seen New Order Information section")
     public void theUserShouldSeenNewOrderInformationSection() {
-        Assert.assertTrue(Driver.driver.getCurrentUrl().contains("create"));
+        orderPage.theUserShouldSeenNewOrderInformationSection();
     }
 
     @Then("The user should be able to see {string} section")
@@ -198,12 +138,9 @@ public class OrdersStepDefs extends ObjectIndex {
 
     @Then("Then user should be able to click on the Delete Comment icon")
     public void thenUserShouldBeAbleToClickOnTheDeleteCommentIcon() {
-        orderPage.deleteIcon.click();
-        Assert.assertTrue(orderPage.deleteIcon.isEnabled());
-        WebElement deleteConfirmation = Driver.get().findElement(By.xpath("//span[text()='Delete']"));
-        BrowserUtils.clickWithJS(deleteConfirmation);
 
-       // Assert.assertFalse(orderPage.deleteIcon.isEnabled());
+        orderPage.thenUserShouldBeAbleToClickOnTheDeleteCommentIcon();
+
     }
 
     @And("The user click on the delete icon in the Actions section of a first element of orders list")
@@ -217,39 +154,36 @@ public class OrdersStepDefs extends ObjectIndex {
     }
 
 
-    @Then("user should be able to edit information in the {string} box")
+    @Then("user should be able to enter information in the {string} box")
     public void userShouldBeAbleToEditInformationInTheBox(String placeHolder) {
-        String fakeDataInfo = BrowserUtils.fakeName();
-        orderPage.boxName(placeHolder).clear();
-        orderPage.boxName(placeHolder).sendKeys(" "+fakeDataInfo);
+        orderPage.userShouldBeAbleToEditInformationInTheBox(placeHolder);
 
-        BrowserUtils.waitFor(1);
-        assertTrue(orderPage.boxName(placeHolder).getAttribute("value").contains(fakeDataInfo));
     }
 
     @Then("the user should be able to choose an option as catagory ddm on the edit order page.")
     public void theUserShouldBeAbleToChooseAnOptionAsCatagoryDdmOnTheEditOrderPage() {
-        resourcesPage.newResourcesAddResourcesButton.click();
-        BrowserUtils.waitFor(2);
-           orderPage.selectCategoryDdm.click();
-        BrowserUtils.waitFor(2);
-      //  BrowserUtils.waitForVisibility(orderPage.clickDdm("Select Category"),10);
-        orderPage.selectCategoryDdm.sendKeys("Telefon"+Keys.ENTER);
-        Assert.assertTrue(orderPage.selectCategoryDdm.isEnabled());
+        orderPage.theUserShouldBeAbleToChooseAnOptionAsCatagoryDdmOnTheEditOrderPage();
+
 
     }
 
     @Then("the user should be able to choose an option from Resource dropdown menu on the edit order page.")
     public void theUserShouldBeAbleToChooseAnOptionFromResourceDropDowmMenuOnTheEditOrderPage() {
+        orderPage.theUserShouldBeAbleToChooseAnOptionFromResourceDropDowmMenuOnTheEditOrderPage();
 
-        orderPage.resourcesQuantityDdm.sendKeys("5");
-        Assert.assertTrue(orderPage.resourcesQuantityDdm.isEnabled());
+
     }
 
     @Then("the user should be able to choose a quantity under the Resource, on the Edit Order page")
     public void theUserShouldBeAbleToChooseAQuantityUnderTheResourceOnTheEditOrderPage() {
-        orderPage.resourcesDdm.sendKeys("Apple");
-       Assert.assertTrue(orderPage.resourcesDdm.isEnabled());
+        orderPage.theUserShouldBeAbleToChooseAQuantityUnderTheResourceOnTheEditOrderPage();
+
+
+    }
+
+    @And("The user select the employee from ddm")
+    public void theUserSelectTheEmployeeFromDdm() {
+        orderPage.theUserSelectTheEmployeeFromDdm();
 
     }
 }

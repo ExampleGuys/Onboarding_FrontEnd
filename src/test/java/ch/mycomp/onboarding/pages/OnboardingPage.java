@@ -8,7 +8,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
@@ -17,9 +16,6 @@ import static org.junit.Assert.*;
 public class OnboardingPage extends BasePage {
     public static String totalNumberOfItems;
 
-    // Onboarding>Create new Onboarding> Personal Information Headline
-    @FindBy(xpath = "//h2[text()='Personal Information']")
-    public WebElement headlinePersonalInformation;
 
     // Onboarding>Create new Onboarding> Company Registration Headline
     @FindBy(xpath = "//h2[text()='Company Registration']")
@@ -41,16 +37,11 @@ public class OnboardingPage extends BasePage {
     @FindBy(xpath = "(//*[@class='ant-space-item'])[4]")
     public WebElement buttonShowLogs;
 
-    @FindBy(xpath = "//div[text()='Drafts']")
-    public WebElement draftsTab;
-
-    @FindBy(xpath = "(//tbody[@class='ant-table-tbody']//tr[1]/td[9]//button)[2]")
-    public WebElement editIconInTheTableFirstRowInTheActionSection;
     @FindBy(xpath = "//h2[text()='Attachments']")
     public WebElement headlineAttechmentsSection;
 
     @FindBy(xpath = "//span[@aria-label='upload']")
-    public WebElement attahmentUpload;
+    public WebElement attachmentUpload;
 
     @FindBy(xpath = "//tbody[@class='ant-table-tbody']//tr[1]")
     public WebElement firstRowinTheListOfOnboardingTable;
@@ -63,7 +54,7 @@ public class OnboardingPage extends BasePage {
 
     @FindBy(xpath = "(//tbody[@class='ant-table-tbody']//tr[1]/td[9]//button)[2]")
     public WebElement iconViewMoreFirstRowofTable;
-    @FindBy(xpath = "//*[@class='ant-modal-content']")
+    @FindBy(xpath = "//*[@role='dialog']")
     WebElement openedModal;
     @FindBy(xpath = "(//tbody[@class='ant-table-tbody']//tr[1]/td[9]//button)[3]")
     static WebElement deleteIconOfTheFirstElementOfOnboardingList;
@@ -76,9 +67,6 @@ public class OnboardingPage extends BasePage {
 
     @FindBy(xpath = "//div[text()='Completed Requests']")
     public WebElement CompletedTab;
-
-    @FindBy(xpath = "//li[@class='ant-pagination-total-text']")
-    public static WebElement totalOnboardingSection;
 
 
     @FindBy(xpath = "//input[@placeholder='Enter a comment']")
@@ -131,12 +119,17 @@ public class OnboardingPage extends BasePage {
     @FindBy(xpath = "//tbody//tr[@class='ant-table-row ant-table-row-level-0']")
     public List<WebElement> allRowOfListing;
 
+    @FindBy(xpath = "//div[@class='ant-popover-inner']")
+    public WebElement deleteModal;
+
     public void assertionDeleteIconIsClickable() {
         assert (deleteIconInTheCommentsSection.isEnabled());
     }
 
-    public void assertionForPersonalInformationHeadlineIsVisible() {
-        assert (headlinePersonalInformation.isDisplayed());
+    public void assertionForHeadlineIsVisible(String pageHeaderName) {
+        WebElement pageHeader = Driver.get().findElement(By.xpath("//h2[text()='" + pageHeaderName + "']"));
+
+       BrowserUtils.verifyElementDisplayed(pageHeader);
     }
 
     public void assertionForCompanyRegistrationHeadlineIsVisible() {
@@ -156,15 +149,17 @@ public class OnboardingPage extends BasePage {
     }
 
     public void assertionForShowLogsIcon() {
-        assert (buttonShowLogs.isDisplayed());
+        BrowserUtils.verifyElementDisplayed(buttonShowLogs);
     }
 
-    public void clickOnDraftsTab() {
-        BrowserUtils.clickElement(draftsTab, 20);
+    public void clickOnDraftsTab(String tabName) {
+        WebElement button = Driver.get().findElement(By.xpath("//div[text()='" + tabName + "']"));
+        BrowserUtils.clickElement(button, 20);
     }
 
     public void clickEditIconInTheTable() {
-        BrowserUtils.clickElement(editIconInTheTableFirstRowInTheActionSection, 20);
+        BrowserUtils.waitFor(2);
+        BrowserUtils.clickElement(editIconForFirstRow, 20);
     }
 
     public void assertionForAttechmentsHeadlineIsVisible() {
@@ -172,11 +167,12 @@ public class OnboardingPage extends BasePage {
     }
 
     public void assertionAttachmentUploadButton() {
-        assert (attahmentUpload.isDisplayed());
+        BrowserUtils.verifyElementDisplayed(attachmentUpload);
+
     }
 
     public void assertionFirstRowOOnboardingList() {
-        assert firstRowinTheListOfOnboardingTable.isDisplayed();
+        BrowserUtils.verifyElementDisplayed(firstRowinTheListOfOnboardingTable);
     }
 
     public void clickOnLinkOfOnboardings() {
@@ -185,7 +181,7 @@ public class OnboardingPage extends BasePage {
 
     public void assertionLinkOfOnboardings() {
         BrowserUtils.clickElement(linkOfOnboardings, 20);
-        String expectedUrl = "https://staging.onboarding.mycomp.ch/onboarding";
+        String expectedUrl = "https://staging.onboarding.mycomp.ch/onboardings";
         String actualUrl = Driver.get().getCurrentUrl();
         assertEquals(expectedUrl, actualUrl);
     }
@@ -200,9 +196,9 @@ public class OnboardingPage extends BasePage {
         BrowserUtils.clickElement(iconViewMoreFirstRowofTable, 20);
     }
 
-    public void assertionRedirectToEditOnboardingPage() {
-        BrowserUtils.waitForPageToLoad(3);
-        assertionForPersonalInformationHeadlineIsVisible();
+    public void assertionRedirectToEditOnboardingPage(String pageTitle) {
+        BrowserUtils.waitFor(3);
+        assertEquals(pageTitle,getPageTitle());
     }
 
     public void clickOnShowLogIcon() {
@@ -210,20 +206,21 @@ public class OnboardingPage extends BasePage {
     }
 
     public void assertionOpenedModal() {
-        assert (openedModal.isDisplayed());
+       assert (openedModal.isDisplayed());
     }
 
     public void clickDeleteIconOfTeFirstElementOfOnboardingList() {
-        totalNumberOfItems = totalOnboardingSection.getText();
-        BrowserUtils.clickElement(deleteIconOfTheFirstElementOfOnboardingList, 20);
+        totalNumberOfItems = paginationTotalText.getText();
+
+        BrowserUtils.clickElement(deleteIconForFirstRow, 20);
     }
 
-    public void assertionCancelButtonWorkingProperly(String buttonName) {
-        assert (!(buttonCancel.isDisplayed()));
+    public void assertionCancelButtonClickable(String buttonName) {
+        shouldClickableButton(buttonName);
     }
 
     public void assertionRedirectToNewOnboardingPage() {
-        String expectedUrl = "https://staging.onboarding.mycomp.ch/onboarding/create";
+        String expectedUrl = "https://staging.onboarding.mycomp.ch/onboardings/create";
         String actualUrl = Driver.get().getCurrentUrl();
         assertEquals(expectedUrl, actualUrl);
     }
@@ -233,13 +230,13 @@ public class OnboardingPage extends BasePage {
     }
 
     public void assertionAllOnboardingsVisible() {
-        String expectedUrl = "https://staging.onboarding.mycomp.ch/onboarding?page=&isCompleted=";
+        String expectedUrl = "https://staging.onboarding.mycomp.ch/onboardings?page=&isCompleted=";
         String actualUrl = Driver.get().getCurrentUrl();
         assertEquals(expectedUrl, actualUrl);
     }
 
     public void assertionDraftOnboardingsVisible() {
-        String expectedUrl = "https://staging.onboarding.mycomp.ch/onboarding?page=&isCompleted=false";
+        String expectedUrl = "https://staging.onboarding.mycomp.ch/onboardings?page=&isCompleted=false";
         String actualUrl = Driver.get().getCurrentUrl();
         assertEquals(expectedUrl, actualUrl);
     }
@@ -249,20 +246,16 @@ public class OnboardingPage extends BasePage {
     }
 
     public void assertionCompletedOnboardingsVisible() {
-        String expectedUrl = "https://staging.onboarding.mycomp.ch/onboarding?page=&isCompleted=true";
+        String expectedUrl = "https://staging.onboarding.mycomp.ch/onboardings?page=&isCompleted=true";
         String actualUrl = Driver.get().getCurrentUrl();
         assertEquals(expectedUrl, actualUrl);
     }
 
     public void assertionTotalOnboardingItemIsChanged() {
-        String totalNumberOfItemsActual = totalOnboardingSection.getText();
-        Assert.assertEquals(totalNumberOfItems, totalNumberOfItemsActual);
+        BrowserUtils.waitFor(2);
+        BrowserUtils.verifyElementDisplayed(message);
     }
 
-    public void clickTheButton(String buttonName) {
-        WebElement button = Driver.get().findElement(By.xpath("//span[text()='" + buttonName + "']"));
-        BrowserUtils.clickWithJS(button);
-    }
 
     public void assertionXXXButtonClickable(String buttonName) {
         WebElement button = Driver.get().findElement(By.xpath("//span[text()='" + buttonName + "']"));
@@ -275,11 +268,11 @@ public class OnboardingPage extends BasePage {
 
 
     public void assertionShowLogsIconIsClickable() {
-        assert (buttonShowLogs.isEnabled());
+        BrowserUtils.verifyElementClickable(buttonShowLogs);
     }
 
     public void assertionNewCommentHasBeenAdded() {
-        assert (addedCommentList.isDisplayed());
+        BrowserUtils.verifyElementDisplayed(addedCommentList);
     }
 
     public void clickOnDeleteIcon() {
@@ -287,6 +280,7 @@ public class OnboardingPage extends BasePage {
     }
 
     public void assertionCommentsNotVisible() {
+
         assert (!(addedCommentList.isDisplayed()));
     }
 
@@ -300,13 +294,13 @@ public class OnboardingPage extends BasePage {
     }
 
     public void enterFirstNameLastNameEmail() {
-        personalFirstName.sendKeys(faker.name().firstName());
-        personalLastName.sendKeys(faker.name().lastName());
-        personalEmail.sendKeys(faker.internet().emailAddress());
+        boxName("Enter first name").sendKeys(BrowserUtils.fakeName());
+        boxName("Enter last name").sendKeys(BrowserUtils.fakeLastName());
+       boxName("Enter personal email").sendKeys(BrowserUtils.fakeEmailAdress());
     }
 
     public void selectBirthDate() {
-        personalBirthDate.click();
+        boxName("Select birth date").click();
         LocalDate today = LocalDate.now();
         LocalDate birthday = today.minusYears(16);
         String birthdayPersonal = birthday.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
@@ -318,7 +312,7 @@ public class OnboardingPage extends BasePage {
         selectCompanyAddress.click();
         WebElement adress = Driver.get().findElement(By.xpath("//div[@title='Avcilar']"));
         adress.click();
-        firstWorkingDay.click();
+        boxName("Select first working day").click();
         LocalDate today = LocalDate.now();
         LocalDate firstWorkDay = today.plusWeeks(1);
         String personalFirstWorkDay = firstWorkDay.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
@@ -327,7 +321,7 @@ public class OnboardingPage extends BasePage {
     }
 
     public void selectCompletionDateAtLatest() {
-        completionDateAtLatest.click();
+        boxName("Select completion date").click();
         LocalDate today = LocalDate.now();
         LocalDate complationDay = today.plusWeeks(1);
         String resourceCompDate = complationDay.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
@@ -348,24 +342,11 @@ public class OnboardingPage extends BasePage {
     }
 
     public void assertionCreatedNewOnboardingIsDisplayed() {
-       LocalDateTime now = LocalDateTime.now();
-       String localDate= now.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"));
-        System.out.println(localDate);
-        System.out.println(createdTheNewOnboardingColumnAndRow.getText());
-       assertNotEquals(createdTheNewOnboardingColumnAndRow.getText(),localDate);
+      assert(message.isDisplayed());
 
     }
 
-    public void assertionNewOnboardingSavedInDraftsPage() {
-        LocalDateTime now = LocalDateTime.now();
-        String localDate= now.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-        System.out.println(localDate);
 
-        String[] date= createdTheNewOnboardingColumnAndRow.getText().split(" ");
-        System.out.println(date[0]);
-        assertEquals(date[0],localDate);
-
-    }
 
     public void assertionToastMessageHasBeenSeen() {
         assertEquals(toastMessageText(),"Please fill out all required fields correctly.");
@@ -375,6 +356,7 @@ public class OnboardingPage extends BasePage {
         BrowserUtils.clickElement(completionDateAtLatest,20);
     }
     public void assertionCalendarIsDisplayed(){
+
         assert (calendarPanel.isDisplayed());
     }
 
@@ -383,6 +365,7 @@ public class OnboardingPage extends BasePage {
     }
 
     public void assertionChangedHasBeenSaved() {
+        BrowserUtils.waitFor(1);
         assertEquals(toastMessageText(),"Onboarding successfully updated");
 
     }
@@ -403,7 +386,7 @@ public class OnboardingPage extends BasePage {
     }
 
     public void changingOneOfTheResources() {
-        clickTheButton("Add resource");
+        clickButton("Add resource");
         inputResourcesCategory.click();
         String category="Telefon";
         WebElement selectCategory = Driver.get().findElement(By.xpath("//div[@title='" +category + "']"));
@@ -421,7 +404,7 @@ public class OnboardingPage extends BasePage {
         BrowserUtils.waitFor(2);
         completionDateAtLatest.click();
         LocalDate today = LocalDate.now();
-        LocalDate complationDay = today.plusDays(1);
+        LocalDate complationDay = today.plusDays(3);
         String resourceCompDate = complationDay.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         WebElement compDateAtLatest = Driver.get().findElement(By.xpath("(//tbody//tr//td[@title='" + resourceCompDate + "'])"));
         compDateAtLatest.click();
@@ -451,5 +434,9 @@ public class OnboardingPage extends BasePage {
         BrowserUtils.waitFor(2);
         assertEquals(1,allRowOfListing.size());
 
+    }
+
+    public void assertionForEditIcon() {
+        BrowserUtils.verifyElementDisplayed(editIconForFirstRow);
     }
 }

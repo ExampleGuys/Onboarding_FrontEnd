@@ -7,19 +7,19 @@ import io.cucumber.java.en.When;
 
 public class RegisterStepDefs extends ObjectIndex{
 
-    @When("Dont have an account sign up link")
-    public void dontHaveAnAccountSignUpLink() {
-        BrowserUtils.clickElement(registerPage.signUpLinkLocator,20);
+    @When("The User click on  sign up link bottom of the modal")
+    public void theUserClickOnSignUpLinkBottomOfTheModal() {
+        registerPage.theUserClickOnSignUpLinkBottomOfTheModal();
     }
 
-    @Then("the user should see Sign Up button")
+    @Then("The user verify that Sign Up button is visible")
     public void theUserShouldSeeSignUpButton() {
         registerPage.checkSignUpButton();
     }
 
-    @Then("the user clicks on the password text field")
-    public void theUserClicksOnThePasswordTextField() {BrowserUtils.clickElement(registerPage.
-            passwordTextFieldNewUser,20);
+    @Then("The user click on the password text field")
+    public void theUserClicksOnThePasswordTextField() {
+        BrowserUtils.clickElement(registerPage.passwordTextFieldNewUser,20);
             BrowserUtils.waitFor(3);}
 
     @Then("the user enters a password for the new user")

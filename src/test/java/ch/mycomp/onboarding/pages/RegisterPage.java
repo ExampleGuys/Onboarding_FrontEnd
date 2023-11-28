@@ -26,4 +26,8 @@ public class RegisterPage extends BasePage{
     public void checkSignUpButton() {
         BrowserUtils.verifyElementDisplayed(buttonSignUp);
     }
+
+    public void theUserClickOnSignUpLinkBottomOfTheModal() {
+        BrowserUtils.clickElement(signUpLinkLocator,20);
+    }
 }

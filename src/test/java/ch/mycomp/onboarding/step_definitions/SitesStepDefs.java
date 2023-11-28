@@ -71,32 +71,15 @@ public class SitesStepDefs extends ObjectIndex {
            sitesPage.theUserShouldSeeTheNumberOfCharactersTheyEnteredAtTheBottomRight();
     }
 
-    @Then("User enters invalid information on the {string} page")
-    public void userEntersInvalidInformationOnThePage(String arg0) {
-        BrowserUtils.clickWithJS(sitesPage.selectTheCompany);
-       sitesPage.selectTheCompany.sendKeys("Ankasale",Keys.ENTER);
-        BrowserUtils.waitFor(2);
-        WebElement startBox = orderPage.boxName("Address Site");
-        actions.click(startBox).
-                sendKeys("Avcilar").
-                sendKeys(Keys.TAB).
-                sendKeys("23652").
-                sendKeys(Keys.TAB).
-                sendKeys("TR").
-                sendKeys(Keys.TAB).
-                sendKeys("Ankara").
-                sendKeys(Keys.TAB).
-                sendKeys(Keys.TAB).
-                sendKeys("Ankara Caddesi").
-                sendKeys(Keys.TAB).
-                sendKeys(Keys.TAB).
-                sendKeys(Keys.TAB).click().perform();
+    @Then("User enters invalid information on the page")
+    public void userEntersInvalidInformationOnThePage() {
+           sitesPage.userEntersInvalidInformationOnThePage();
 
     }
 
     @Then("The user sees the error message")
     public void theUserSeesTheErrorMessage() {
-          // Assert.assertTrue(sitesPage.);
+         theUserSeesTheErrorMessage();
     }
 
     @And("The user should be able to click on the Search by Site search box")

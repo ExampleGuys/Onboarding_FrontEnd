@@ -26,6 +26,7 @@ public class ResourcesPage extends BasePage {
     @FindBy(xpath = ("(//div[@class='ant-form-item-control-input-content'])[12]"))
     public WebElement addResourcesFirstLine;
 
+
     //Resources >addResourcesDeleteLine
     @FindBy(xpath = ("(//button[@type='button'])[5]"))
     public WebElement addResourcesDeleteLine;
@@ -36,7 +37,7 @@ public class ResourcesPage extends BasePage {
 
     //Resources > Category Name Title New Resources Site
     @FindBy(xpath = "//label[@title='Category Name']")
-    public WebElement categoryNameTitleNewResourcesSeit;
+    public WebElement categoryNameTitle;
 
     //Resources >clickOnResources
     @FindBy(xpath = "(//a[@href='resources'])[1]")
@@ -45,7 +46,7 @@ public class ResourcesPage extends BasePage {
 
     //Resources > Category Name Title
     @FindBy(xpath = "//th[text()='Category Name']")
-    public WebElement categoryNameTitle;
+    public WebElement categoryNameTitle2;
 
     @FindBy(xpath = "(//li[@class='ant-menu-item ant-menu-item-only-child'])[7]")
     public WebElement resourcesCategory;
@@ -116,7 +117,7 @@ public class ResourcesPage extends BasePage {
     public WebElement quantitySelectionTitle;
 
     //Resources >quantitySelectionSwitch
-    @FindBy(xpath = ("(//span[@class='ant-switch-inner'])[2]"))//span[@class='ant-switch-inner']
+    @FindBy(xpath = ("(//span[@class='ant-switch-inner'])[2]"))
     public WebElement quantitySelectionSwitch;
 
     //Resources >autoAddtoOnboardingTitle
@@ -128,7 +129,7 @@ public class ResourcesPage extends BasePage {
     public WebElement newResourcescontactsTitle;
 
     //Resources >autoAddtoOnboardingTitleSwitch
-    @FindBy(xpath = ("(//span[@class='ant-switch-inner'])[3]"))//button[@role='switch']
+    @FindBy(xpath = ("(//span[@class='ant-switch-inner'])[3]"))
     public WebElement autoAddtoOnboardingTitleSwitch;
 
     //Resources >newResourcesNameTitle
@@ -168,8 +169,8 @@ public class ResourcesPage extends BasePage {
     public WebElement newResourcesContactsMessage;
 
     //Resources >newResourcesAddResourcesButton
-    @FindBy(xpath = ("//span[normalize-space()='Add resource']"))
-    public WebElement newResourcesAddResourcesButton;
+    @FindBy(xpath = ("//*[text()='Add resource']"))
+    public WebElement addResourcesButton;
 
     //Resources >newResourcesCreateContactsPageCancelButton
     @FindBy(xpath = ("//span[normalize-space()='Cancel']"))
@@ -184,8 +185,8 @@ public class ResourcesPage extends BasePage {
     public WebElement newResourcesAddResourcesNewItem;
 
     //Resources >listOfResourcesTitleText
-    @FindBy(xpath = "//div[text()='List of Resources']")
-    public WebElement listOfResourcesTitleText;
+    @FindBy(xpath = "//div[@class='ant-card-head-title']")
+    public WebElement listOfResourcesTitle;
 
     //Resources > resourcesNameTitle
     @FindBy(xpath = "//label[@title='Resource Name']")
@@ -371,6 +372,11 @@ public class ResourcesPage extends BasePage {
     @FindBy(xpath = "//div[@class='ant-select-selector'][.//*[@id='resource_resources_0_contacts']]")
     public WebElement inputContactsDropdownResourcePageLocator;
 
+    @FindBy(xpath = "(//span[@aria-label='delete'])")
+    public WebElement deleteIconResourcesSection;
+
+
+
 
     public void theUserEntersACategoryNameOnTheNewResourcePage() {
         String categoryName = "Automation_" + getEpochTime();
@@ -464,8 +470,10 @@ public class ResourcesPage extends BasePage {
         BrowserUtils.waitForVisibility(resourcesSite, 1);
     }
 
-    public void theUserShouldBeTheTitleOnThePage(String arg0, String arg1) {
-        BrowserUtils.waitForVisibility(listOf_, 1);
+    public void theUserShouldBeTheTitleOnThePage(String titleName) {
+        WebElement button = Driver.get().findElement(By.xpath("//div[text()='" + titleName + "']"));
+        BrowserUtils.verifyElementDisplayed(button);
+
     }
 
     public void theUserShouldBeTheTitle(String arg0, String arg1, String arg2, String arg3) {
@@ -481,8 +489,9 @@ public class ResourcesPage extends BasePage {
         //  Assert.assertEquals(expectedResult,actualResultlistOf_Title);
     }
 
-    public void theUserClicksOnTheSearchByNameSearchBox() {
-        searchBoxButton.click();
+    public void theUserClicksOnTheSearchByNameSearchBox(String placeHolder ) {
+
+        BrowserUtils.verifyElementDisplayed(boxName(placeHolder));
     }
 
     public void userSearchesInTheSearchBox() {
@@ -501,7 +510,7 @@ public class ResourcesPage extends BasePage {
     public void theUserShouldBeSeenTheTitle(String arg0) {
         getSectionName(arg0);
         BrowserUtils.waitFor(2);
-        BrowserUtils.waitForVisibility(categoryNameTitleNewResourcesSeit, 1);
+        BrowserUtils.waitForVisibility(categoryNameTitle, 1);
     }
 
     public void theUserShouldBeSeenTheSelectionTypeTitle() {
@@ -512,7 +521,7 @@ public class ResourcesPage extends BasePage {
         BrowserUtils.waitForVisibility(singleSelectionType, 1);
     }
 
-    public void theUserClicksOnTheSingleSelectionButton() {
+    public void theUserClicksOnTheSingleSelectionSwitch() {
         singleSelectionTypeSwitch.click();
     }
 
@@ -580,13 +589,13 @@ public class ResourcesPage extends BasePage {
        new_BackButton.click();
     }
     public void theUserShouldBeTheSeenEnterCategoryNameTextBox() {
-        BrowserUtils.verifyElementDisplayed(categoryNameTitleNewResourcesSeit);
+        BrowserUtils.verifyElementDisplayed(categoryNameTitle);
     }
     public void theUserClicksOnTheEnterCategoryNameItem() {
-        categoryNameTitleNewResourcesSeit.click();
+        categoryNameTitle.click();
     }
     public void theUserOnlyWriteInTextBox(String arg0) {
-        WebElement enterCategoryName = orderPage.boxName("Enter category name");
+        WebElement enterCategoryName = boxName("Enter category name");
         actions.click(enterCategoryName).
                 sendKeys(faker.options().toString()).
                 sendKeys(Keys.ENTER).
@@ -602,7 +611,7 @@ public class ResourcesPage extends BasePage {
       newResourcesEnterResourcesName.click();
     }
     public void relevantInformationIntoTheEnterEnterResourceNameTextBox() {
-        WebElement enterResourceName = orderPage.boxName("Enter resource name");
+        WebElement enterResourceName = boxName("Enter resource name");
         actions.click(enterResourceName).
                 sendKeys(faker.name().name()).
                 perform();
@@ -631,7 +640,7 @@ public class ResourcesPage extends BasePage {
         BrowserUtils.clickWithJS(selectTheCompany);
        selectTheCompany.sendKeys("Ankasale",Keys.ENTER);
         BrowserUtils.waitFor(2);
-        WebElement startBox = orderPage.boxName("Enter category name");
+        WebElement startBox = boxName("Enter category name");
         actions.click(startBox).
                 sendKeys("Yemek").
                 sendKeys(Keys.TAB).
@@ -661,7 +670,7 @@ public class ResourcesPage extends BasePage {
         BrowserUtils.clickWithJS(selectTheCompany);
         selectTheCompany.sendKeys("Test Techno Consultant", Keys.ENTER);
         BrowserUtils.waitFor(2);
-        WebElement startBox = orderPage.boxName("Enter category name");
+        WebElement startBox = boxName("Enter category name");
         actions.click(startBox).
                 sendKeys("Telefon").
                 sendKeys(Keys.TAB).
@@ -687,5 +696,41 @@ public class ResourcesPage extends BasePage {
         assertTrue(categoryNameTitle.isDisplayed());
         assertTrue(createdBy_.isDisplayed());
         assertTrue(createdAt.isDisplayed());
+    }
+
+    public void theUserShouldSeenAddResourceButton() {
+        BrowserUtils.verifyElementDisplayed(addResourcesButton);
+    }
+
+    public void theUserVerifyThatTheSearchBoxIsClickable(String placeHolder) {
+        BrowserUtils.verifyElementClickable(boxName(placeHolder));
+    }
+
+
+    public void theUserVerifyThatTitleIsVisible(String titleName) {
+        WebElement button = Driver.get().findElement(By.xpath("//label[@title='" + titleName + "']"));
+        BrowserUtils.verifyElementDisplayed(categoryNameTitle);
+
+    }
+
+    public void thetheUserVerifiesThatSingleSelectionSwitchIsClickable() {
+        BrowserUtils.verifyElementClickable(singleSelectionTypeSwitch);
+    }
+
+    public void theUserVerifyThatQuantitySelectionSwitchIsClickable() {
+        BrowserUtils.verifyElementClickable(quantitySelectionSwitch);
+    }
+
+    public void theUserVerifyThatAutoAddToOnboardingSwitchIsClickable() {
+        BrowserUtils.verifyElementClickable(autoAddtoOnboardingTitleSwitch);
+    }
+
+    public void theUserVerifyThatDeleteIconIsVisible() {
+        BrowserUtils.verifyElementDisplayed(deleteIconResourcesSection);
+    }
+
+    public void theUserVerifyThatDeleteIconIsClickable() {
+        BrowserUtils.verifyElementClickable(deleteIconResourcesSection);
+
     }
 }
