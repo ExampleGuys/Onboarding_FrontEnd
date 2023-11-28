@@ -3,7 +3,7 @@ Feature: Onboarding Create Tests with Requester Role
 
   Background: pre-steps
     Given The user goes to staging url
-    And The user enters with user "requesterUser" and user "requester_password"
+    And The user enters with user "employeeTester" and user "employeePassword"
     And The User click on the "Onboardings" section in the Navigation Menu
 
   @ONB2-107
