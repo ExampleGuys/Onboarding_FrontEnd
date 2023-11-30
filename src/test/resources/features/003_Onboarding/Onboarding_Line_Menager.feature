@@ -1,9 +1,9 @@
 @regression
-Feature: Onboarding Create Tests with Requester Role
+Feature: Onboarding Create Tests with Line Menager
 
   Background: pre-steps
     Given The user goes to staging url
-    And The user enters with user "employeeTester" and user "employeePassword"
+    And The user enters with user "lineMenagerUser" and user "lineMenagerPassword"
     And The User click on the "Onboardings" section in the Navigation Menu
 
   @ONB2-107
@@ -13,7 +13,7 @@ Feature: Onboarding Create Tests with Requester Role
 
   @ONB2-108
   Scenario: TC ONB2-108 Company Registration section in the new onboarding page should be visible
-    And The user click on the "New Onboarding" button top right corner of the page
+    And The user click on the "New Onboarding" button.
     Then The user should seen "Company Registration" section
 
   @ONB2-109
@@ -74,7 +74,7 @@ Feature: Onboarding Create Tests with Requester Role
     And The user click on the "New Onboarding" button top right corner of the page
     Then The user should seen “Select File” button in the Attachments section
 
-  @ONB2-19
+  @ONB2-19 @crud
   Scenario: TC ONB2-19 List of Onboarding should be displayed properly
     Then User should be able to view previously created onboarding item
 
@@ -127,7 +127,7 @@ Feature: Onboarding Create Tests with Requester Role
     And The User click on "Completed Requests" tab under the List of Onboardings headline
     Then Then user verify that Completed onboarding processes should shown in the Drafts tab
 
-  @ONB2-46
+  @ONB2-46 @crud
   Scenario: TC ONB2-46 Created onboarding should be deleted
     And The user click on the delete icon in the Actions section of a first element of onboarding list
     And The User click on "Delete" button on the ant-popover
@@ -179,7 +179,7 @@ Feature: Onboarding Create Tests with Requester Role
     And The user click on the "Delete" icon-button
     Then The User verify that the new comment has been deleted
 
-  @ONB2-220
+  @ONB2-220 @crud
   Scenario: TC ONB2-220 The user should be able to create a new onboarding record by filling in all the required information
     And The user click on the "New Onboarding" button top right corner of the page
     And The User fills a  Personal Information Area
@@ -209,7 +209,7 @@ Feature: Onboarding Create Tests with Requester Role
     And The User Click on the "Back" button
   # Then The User verify that the onboarding record hasn’t been created
 
-  @ONB2-277
+  @ONB2-277 @crud
   Scenario: TC ONB2-277 The user should not be able to create a new onboarding record  by filling in all the required information except one section
     And The user click on the "New Onboarding" button top right corner of the page
     And The user fills in all fields on the page except personal title section
@@ -223,7 +223,7 @@ Feature: Onboarding Create Tests with Requester Role
     And The user clicks on the Completion Date section in the Company Registration
     Then The User verify that the mini calendar is opened
 
-  @ONB2-212
+  @ONB2-212 @crud
   Scenario: TC ONB2-212 The job in the Drafts list should be able to be saved by changing one of the personal information
     And The User click on "Drafts" tab under the List of Onboardings headline
     And The User click on edit icon in the Actions section of first element of list
@@ -231,7 +231,7 @@ Feature: Onboarding Create Tests with Requester Role
     And The User Click on the "Save" button
     Then The User verify that the change has been saved
 
-  @ONB2-214
+  @ONB2-214 @crud
   Scenario: TC ONB2-214 The job in the Drafts list should be able to be saved by changing one of the Company Registration
     And The User click on "Drafts" tab under the List of Onboardings headline
     And The User click on edit icon in the Actions section of first element of list
@@ -239,7 +239,7 @@ Feature: Onboarding Create Tests with Requester Role
     And The User Click on the "Save" button
     Then The User verify that the change has been saved
 
-  @ONB2-219
+  @ONB2-219 @crud
   Scenario: TC ONB2-219 The job in the Drafts list should not be able to be changed once it has been completed without one of the personal details being changed and saved
     And The User click on "Drafts" tab under the List of Onboardings headline
     And The User click on edit icon in the Actions section of first element of list
@@ -247,7 +247,7 @@ Feature: Onboarding Create Tests with Requester Role
     And The User Click on the "Back" button
     Then The User verify that no changes have occured
 
-  @ONB2-215
+  @ONB2-215 @crud
   Scenario: TC ONB2-215 The job in the Drafts list should be able to be saved by changing one of the Resources
     And The User click on "Drafts" tab under the List of Onboardings headline
     And The User click on edit icon in the Actions section of first element of list
@@ -255,7 +255,7 @@ Feature: Onboarding Create Tests with Requester Role
     And The User Click on the "Save" button
     Then The User verify that the change has been saved
 
-  @ONB2-216
+  @ONB2-216 @crud
   Scenario: TC ONB2-216 The job in the Drafts list should be able to be saved by changing Complatetion Date at The Latest
     And The User click on "Drafts" tab under the List of Onboardings headline
     And The User click on edit icon in the Actions section of first element of list
@@ -263,7 +263,7 @@ Feature: Onboarding Create Tests with Requester Role
     And The User Click on the "Save" button
     Then The User verify that the change has been saved
 
-  @ONB2-218
+  @ONB2-218 @crud
   Scenario: TC ONB2-218 The job in the Drafts list should be able to be saved and complate
     And The User click on "Drafts" tab under the List of Onboardings headline
     And The User checked the FirstName of List first element

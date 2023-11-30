@@ -15,9 +15,6 @@ import static org.junit.Assert.assertTrue;
 public class OrderPage extends BasePage{
 
     ResourcesPage resourcesPage = new ResourcesPage();
-    @FindBy(css = "#Order_company")
-    public WebElement ddm1;
-
     @FindBy(css = "div[class='ant-form-item-control-input-content'] span textarea[id='Order_description']")
     public WebElement orderEnterDescriptionInfo;
     @FindBy(xpath = "(//span [@class='ant-input-data-count'])[1]")
@@ -29,8 +26,7 @@ public class OrderPage extends BasePage{
     @FindBy(css="#Order_priority")
     public WebElement priorityDdm;
 
-	@FindBy(xpath = "//h4 [@class ='ant-list-item-meta-title']")
-	public WebElement CommentDeleteConfirmationInfo;
+
 	@FindBy(xpath = "//span [@class='anticon anticon-delete']")
 	public WebElement deleteIcon;
 
@@ -58,14 +54,9 @@ public class OrderPage extends BasePage{
     }
 
 
-    public WebElement ddmBox(String ddmInfo) {
-        return Driver.get().findElement(By.cssSelector("[title='"+ddmInfo+"']"));
-    }
 
-    public WebElement boxNAme2(String boxNameInfo2) {
-        return Driver.get().findElement(By.xpath("//span[text()='" + boxNameInfo2 + "']"));
 
-    }
+
 
     public void headerConfirmation (String header) {
 
@@ -77,9 +68,7 @@ public class OrderPage extends BasePage{
 
     }
 
-    public WebElement clickDdm(String ddNAme){
-        return Driver.get().findElement(By.xpath("//span[text()='"+ ddNAme+"']"));
-    }
+
 
 
     public void theUserShouldBeRedirectedToTheNewOrderCreationPage() {

@@ -31,29 +31,20 @@ public class ResourcesPage extends BasePage {
     @FindBy(xpath = ("(//button[@type='button'])[5]"))
     public WebElement addResourcesDeleteLine;
 
-    //Resources > Category Name Title Resources Site
-    @FindBy(xpath = "//th[text()='Category Name']")
-    public WebElement categoryNameTitleResourcesSeit;//label[@title='Category Name']
+
 
     //Resources > Category Name Title New Resources Site
     @FindBy(xpath = "//label[@title='Category Name']")
     public WebElement categoryNameTitle;
 
-    //Resources >clickOnResources
-    @FindBy(xpath = "(//a[@href='resources'])[1]")
-    public WebElement clickOnResourcesCategory;
 
 
-    //Resources > Category Name Title
-    @FindBy(xpath = "//th[text()='Category Name']")
-    public WebElement categoryNameTitle2;
 
-    @FindBy(xpath = "(//li[@class='ant-menu-item ant-menu-item-only-child'])[7]")
-    public WebElement resourcesCategory;
 
-    //Resources >newResourcesButton
-    @FindBy(xpath = "//span[text()='New Resource']")
-    public WebElement newResourcesButton;
+
+
+
+
 
     //Resources >newResourcesPage
     @FindBy(xpath = "//section[@class='ant-layout css-14bavl3']")
@@ -68,9 +59,6 @@ public class ResourcesPage extends BasePage {
     @FindBy(xpath = "//div[@class='ant-select-selection-overflow']")
     public WebElement selectResponsiblePeople;
 
-    //Resources > page10]
-    @FindBy(xpath = "//span[@title='10 / page']")
-    public WebElement page10;
 
     //Resources >selectionTypeTitle
     @FindBy(xpath = ("//label[normalize-space()='Selection Type']"))
@@ -132,13 +120,9 @@ public class ResourcesPage extends BasePage {
     @FindBy(xpath = ("(//span[@class='ant-switch-inner'])[3]"))
     public WebElement autoAddtoOnboardingTitleSwitch;
 
-    //Resources >newResourcesNameTitle
-    @FindBy(xpath = ("//label[normalize-space()='Resource Name']"))
-    public WebElement newResourcesNameTitle;
 
-    //Resources >newResourcesResourcesTitle
-    @FindBy(xpath = ("//h2[text()='Resources']"))
-    public WebElement newResourcesResourcesTitle;
+
+
 
     //Resources >newResourcesContacts+Button
     @FindBy(xpath = ("(//button[@type='button'])[5]"))
@@ -148,41 +132,13 @@ public class ResourcesPage extends BasePage {
     @FindBy(xpath = ("//div[@class='ant-modal-content']"))
     public WebElement newResourcesCreateContactsPage;
 
-    //Resources >newResourcesCategoryNameTitle
-    @FindBy(xpath = ("//label[@title='Category Name']"))
-    public WebElement newResourcesCategoryNameTitle;
-
-    //Resources >newResourcesCompanyMessage
-    @FindBy(xpath = ("(//div[@class='ant-form-item-explain-error'])[1]"))
-    public WebElement newResourcesCompanyMessage;
-
-    //Resources >newResourcesCategoryNameMessage
-    @FindBy(xpath = ("(//div[@class='ant-form-item-explain-error'])[2]"))
-    public WebElement newResourcesCategoryNameMessage;
-
-    //Resources >newResourcesNameMessage
-    @FindBy(xpath = ("(//div[@class='ant-form-item-explain-error'])[3]"))
-    public WebElement newResourcesNameMessage;
-
-    //Resources >newResourcesContactsMessage
-    @FindBy(xpath = ("(//div[@class='ant-form-item-explain-error'])[4]"))
-    public WebElement newResourcesContactsMessage;
-
     //Resources >newResourcesAddResourcesButton
     @FindBy(xpath = ("//*[text()='Add resource']"))
     public WebElement addResourcesButton;
 
-    //Resources >newResourcesCreateContactsPageCancelButton
-    @FindBy(xpath = ("//span[normalize-space()='Cancel']"))
-    public WebElement newResourcesCreateContactsPageCancelButton;
-
-    //Resources >newResourcesCreateContactsPageXButton
+       //Resources >newResourcesCreateContactsPageXButton
     @FindBy(xpath = ("(//button[@type='button'])[9]"))
     public WebElement newResourcesCreateContactsPageXButton;
-
-    //Resources >newResourcesAddResourcesNewItem
-    @FindBy(xpath = ("(//div[@class='ant-form-item css-14bavl3'])[12]"))
-    public WebElement newResourcesAddResourcesNewItem;
 
     //Resources >listOfResourcesTitleText
     @FindBy(xpath = "//div[@class='ant-card-head-title']")
@@ -200,43 +156,15 @@ public class ResourcesPage extends BasePage {
     @FindBy(xpath = "(//tr[@class='ant-table-row ant-table-row-level-0'])[1]")
     public WebElement searchBoxFirstLine;
 
-    // email
-    @FindBy(id = "email")
-    public WebElement emailFidan;
 
-    @FindBy(xpath = "(//div[@class='ant-form-item-control-input-content'])[1]")
-    public WebElement emailInput;
 
-    @FindBy(xpath = "(//div[@class='ant-form-item-control-input-content'])[2]")
-    public WebElement passwordInput;
 
-    @FindBy(xpath = "//aside[@class='ant-layout-sider ant-layout-sider-dark ant-layout-sider-has-trigger']")
-    public WebElement daschboardNavigationMenu;
-
-    @FindBy(id = "root")
-    public WebElement daschboardPage;
-
-    @FindBy(xpath = "//div[@class='ant-layout-sider-children']")
-    public WebElement daschboardNavigationMenu2;
-
-    @FindBy(xpath = "//button[@type='submit']")
-    public WebElement signInButton;
-
-    // password]
-    @FindBy(id = "password")
-    public WebElement passwordFidan;
-
-    // signIn]
-    @FindBy(xpath = "//button[@type='submit']")
-    public WebElement signIn;
 
     //Sites/Resources > listOf_]
     @FindBy(xpath = "//div[@class='ant-card-head-title']")
     public WebElement listOf_;
 
-    //Sites/Resources > company_]
-    @FindBy(xpath = "//th[normalize-space()='Company']")
-    public WebElement company_;
+
 
     //Sites/Resources > createdBy-]
     @FindBy(xpath = "//th[text()='Created By']")//th[normalize-space()='Created By']
@@ -246,54 +174,10 @@ public class ResourcesPage extends BasePage {
     @FindBy(xpath = "//th[text()='Created At']")//th[normalize-space()='Created At']
     public WebElement createdAt;
 
-    //Sites/Resources > columns]
-    @FindBy(xpath = "//thead[@class='ant-table-thead']") //td[@class='ant-table-cell'
-    public WebElement columns;
-
     //Sites/Resources > searchBoxButton]
     @FindBy(xpath = "(//button[@type='button'])[1]")
     public WebElement searchBoxButton;
 
-    //Sites/Resources > editButton]
-    @FindBy(xpath = "(//div[@class='ant-col css-14bavl3'])[1]")
-    public WebElement editButton;
-
-    //Sites/Resources > deleteButton]
-    @FindBy(xpath = "(//span[@class='anticon anticon-delete'])[1]")
-    //(//div[@class='ant-col css-14bavl3'])[2] //(//button[@type='button'])[4]
-    public WebElement deleteButton;
-
-    //Sites/Resources > total_
-    @FindBy(xpath = "//li[@class='ant-pagination-total-text']")
-    public WebElement total_;
-
-    //Sites/Resources > total_1Page]
-    @FindBy(xpath = "//a[normalize-space()='1']")
-    public WebElement total_1Page;
-
-    //Sites/Resources > total_2Page]
-    @FindBy(xpath = "//a[normalize-space()='2']")
-    public WebElement total_2Page;
-
-    //Sites/Resources > page20]
-    @FindBy(xpath = "//span[@title='20 / page']")
-    public WebElement page20;
-
-    //Sites/Resources > new_Title]
-    @FindBy(xpath = "//div[@class='ant-card-head-title']")
-    public WebElement new_Title;
-
-    //Sites/Resources > new_Company+Button]
-    @FindBy(xpath = "(//button[@type='button'])[1]")
-    public WebElement new_CompanyButton;
-
-    //Sites/Resources > saveButton]
-    @FindBy(xpath = "//span[@aria-label='save']")
-    public WebElement saveButton;
-
-    //Sites/Resources > message]
-    @FindBy(xpath = "//div[@class='go3958317564']")
-    public WebElement message;
 
     //Sites/Resources > selectTheCompany]
     @FindBy(xpath = "//input[@id='resource_company']")
@@ -307,17 +191,12 @@ public class ResourcesPage extends BasePage {
     @FindBy(xpath = "//div[@class='ant-popconfirm-inner-content']")
     public WebElement deletePopconfirm;
 
-    //Sites/Resources > newResorceDeletePopconfirm]
-    @FindBy(xpath = "//div[text()='Delete Resource']")
-    public WebElement newResorceDeletePopconfirm;
 
     //Sites/Resources > new_BackButton]
     @FindBy(xpath = "//button[@class='ant-btn css-14bavl3 ant-btn-default ant-btn-lg']")
     public WebElement new_BackButton;
 
-    //Sites/Resources > new_CompanyTitle]
-    @FindBy(xpath = "//span[normalize-space()='Company']")
-    public WebElement new_Company;
+
 
     //New Resources > resourceDeletButton]
     @FindBy(xpath = "(//button[@type='button'])[6]")//span[text()='Delete']
@@ -327,25 +206,12 @@ public class ResourcesPage extends BasePage {
     @FindBy(xpath = "//button[@class='ant-btn css-14bavl3 ant-btn-default ant-btn-sm']")
     public WebElement deleteButtonCancel;
 
-    //Sites/Resources > new_CreateButton]
-    @FindBy(xpath = "//button[@type='submit']")
-    public WebElement new_CreateButton;//span[text()='Create']
+
 
     //Sites/Resources > new_CreateButton2
     @FindBy(xpath = "//span[text()='Create']")
     public WebElement new_CreateButton2;
 
-    //Sites/Resources > new_CreateErrorMesage]
-    @FindBy(xpath = "//div[@class='go3958317564']")
-    public WebElement new_CreateErrorMesage;
-
-    //Sites/Resources > createContactAlert2]
-    @FindBy(xpath = "//div[text()='Create Contact']")
-    public WebElement createContactAlert2;
-
-    //Sites/Resources > createContactAlert1]
-    @FindBy(xpath = "//div[@class='ant-tooltip css-14bavl3 ant-tooltip-placement-top']")
-    public WebElement createContactAlert1;
 
     //Sites/Resources > searchBoxText
     @FindBy(xpath = "//input[@placeholder='Search by site...']")
@@ -475,20 +341,6 @@ public class ResourcesPage extends BasePage {
         BrowserUtils.verifyElementDisplayed(button);
 
     }
-
-    public void theUserShouldBeTheTitle(String arg0, String arg1, String arg2, String arg3) {
-
-        //        Assert.assertTrue(commonPage.listOf_Title.isDisplayed());
-        //        Assert.assertTrue(commonPage.createdAtTitle.isDisplayed());
-        //        Assert.assertTrue(commonPage.createdByTitle.isDisplayed());
-        //        Assert.assertTrue(resourcesPage.categoryNameTitle.isDisplayed());
-        // BrowserUtils.waitForVisibility(commonPage.listOf_Title,20);
-
-        //   String actualResultlistOf_Title = commonPage.listOf_Title.getText();
-        String expectedResult = arg0;
-        //  Assert.assertEquals(expectedResult,actualResultlistOf_Title);
-    }
-
     public void theUserClicksOnTheSearchByNameSearchBox(String placeHolder ) {
 
         BrowserUtils.verifyElementDisplayed(boxName(placeHolder));
@@ -507,11 +359,6 @@ public class ResourcesPage extends BasePage {
         resourcesLink.click();
     }
 
-    public void theUserShouldBeSeenTheTitle(String arg0) {
-        getSectionName(arg0);
-        BrowserUtils.waitFor(2);
-        BrowserUtils.waitForVisibility(categoryNameTitle, 1);
-    }
 
     public void theUserShouldBeSeenTheSelectionTypeTitle() {
         BrowserUtils.waitForVisibility(selectionTypeTitle, 1);
@@ -557,16 +404,8 @@ public class ResourcesPage extends BasePage {
         BrowserUtils.verifyElementDisplayed(autoAddTitle);
     }
 
-    public void theUserShouldBeSeenTheResourcesTitle() {
-        BrowserUtils.verifyElementDisplayed(resourcesTitle);
-    }
-
     public void theUserShouldBeTheSeenRecourcesNameTitle() {
         BrowserUtils.verifyElementDisplayed(resourcesNameTitle);
-    }
-
-    public void theUserShouldBeSeenTheContactsTitle() {
-        BrowserUtils.verifyElementDisplayed(newResourcescontactsTitle);
     }
 
     public void theUserHoversOverTheButtonNextToTheContactsTitleTheCreateContactAlertAppears() {
@@ -579,9 +418,7 @@ public class ResourcesPage extends BasePage {
             System.out.println("Create Contact Alert could not be displayed");
         }
     }
-    public void theUserShouldBeSeenTheCreateContactPage() {
-        BrowserUtils.verifyElementDisplayed(newResourcesCreateContactsPage);
-    }
+
     public void theUserClicksTheXButton() {
        newResourcesCreateContactsPageXButton.click();
     }
@@ -618,10 +455,7 @@ public class ResourcesPage extends BasePage {
 
         BrowserUtils.waitFor(2);
     }
-    public void theUserShouldSeeTheMessage(String arg0) {
-        Assert.assertTrue(message.getText().contains("Resource successfully created"));
 
-    }
     public void theUserShouldBeTheEnteredInformationInAList() {
         BrowserUtils.verifyElementDisplayed(searchBoxFirstLine);
     }
@@ -666,31 +500,7 @@ public class ResourcesPage extends BasePage {
     public void theUserClicksOnTheResourcesResourceCancelButton() {
         deleteButtonCancel.click();
     }
-    public void userEntersValidInformationOnTheNewResourcePage() {
-        BrowserUtils.clickWithJS(selectTheCompany);
-        selectTheCompany.sendKeys("Test Techno Consultant", Keys.ENTER);
-        BrowserUtils.waitFor(2);
-        WebElement startBox = boxName("Enter category name");
-        actions.click(startBox).
-                sendKeys("Telefon").
-                sendKeys(Keys.TAB).
-                sendKeys(Keys.ENTER).
-                sendKeys(Keys.TAB).
-                sendKeys(Keys.ENTER).
-                sendKeys(Keys.TAB).
-                sendKeys(Keys.ENTER).
-                sendKeys(Keys.TAB).
-                sendKeys("Apple").
-                sendKeys(Keys.TAB).
-                sendKeys(Keys.TAB).
-                sendKeys("nokia@gmail.com - nokia", Keys.ENTER).
-                sendKeys(Keys.TAB).
-                sendKeys(Keys.TAB).
-                sendKeys(Keys.TAB).
-                sendKeys(Keys.TAB).
-                perform();
-        BrowserUtils.waitFor(2);
-    }
+
     public void theUserShouldBeTheStringTitle(String arg0, String arg1, String arg2, String arg3) {
         assertTrue(listOf_.isDisplayed());
         assertTrue(categoryNameTitle.isDisplayed());
