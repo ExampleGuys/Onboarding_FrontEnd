@@ -2,7 +2,7 @@ Feature: Offboarding Tests
 
   Background: pre-steps
     Given The user goes to staging url
-    And The user enters with user "employeeTester" and user "employeePassword"
+    And The user enters with user "" and user ""
     And The User click on the "Offboardings" section in the Navigation Menu
 
   @ONMYC-560

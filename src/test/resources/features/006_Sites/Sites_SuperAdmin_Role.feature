@@ -3,7 +3,7 @@ Feature: Sites Tests
 
   Background: pre-steps
     Given The user goes to staging url
-    And The user enters valid login credentials
+    And The user enters with user "superAdminUser" and user "superAdmin_password"
     And The User click on the "Sites" section in the Navigation Menu
 
 
@@ -81,7 +81,7 @@ Feature: Sites Tests
 
   @ONB2-268  #>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
   Scenario:TC: ONB2-268 Verify that the "Edit" button is visible and active on the "Sites" page.
-    And The user clicks on the Edit button
+    And The user click on the "Edit" button.
 
   @ONB2-205
   Scenario:TC: Bug ONB2-205 Verify that the "Search by Site" search box is visible and active on the "Sites" page. //Search box Test

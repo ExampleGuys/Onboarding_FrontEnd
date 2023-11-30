@@ -3,7 +3,7 @@ Feature: Users
 
   Background: pre-steps
     Given The user goes to staging url
-    And The user enters valid login credentials
+    And The user enters with user "superAdminUser" and user "superAdmin_password"
     And The user click on "Users" at the navigation menu
 
   @ONB2-14

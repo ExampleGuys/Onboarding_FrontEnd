@@ -78,7 +78,7 @@ public class OnboardingPage extends BasePage {
     @FindBy(xpath = "//h4[@class='ant-list-item-meta-title']")
     public WebElement addedCommentList;
 
-    @FindBy(id = "onboarding_employee_personalTitle")
+    @FindBy(id = "onboarding_personTitle")
     public WebElement personalTitle;
 
     @FindBy(id = "onboarding_employee_firstName")
@@ -93,7 +93,7 @@ public class OnboardingPage extends BasePage {
     @FindBy(id = "onboarding_birthDate")
     public WebElement personalBirthDate;
 
-    @FindBy(xpath = "//input[@id='onboarding_employee_address']")
+    @FindBy(xpath = "//input[@id='onboarding_address']")
     public WebElement selectCompanyAddress;
 
     @FindBy(id = "onboarding_firstWorkingDay")
@@ -172,6 +172,7 @@ public class OnboardingPage extends BasePage {
     }
 
     public void assertionFirstRowOOnboardingList() {
+        BrowserUtils.waitForVisibility(firstRowinTheListOfOnboardingTable,20);
         BrowserUtils.verifyElementDisplayed(firstRowinTheListOfOnboardingTable);
     }
 
@@ -296,7 +297,7 @@ public class OnboardingPage extends BasePage {
     public void enterFirstNameLastNameEmail() {
         boxName("Enter first name").sendKeys(BrowserUtils.fakeName());
         boxName("Enter last name").sendKeys(BrowserUtils.fakeLastName());
-       boxName("Enter personal email").sendKeys(BrowserUtils.fakeEmailAdress());
+       boxName("Enter private email").sendKeys(BrowserUtils.fakeEmailAdress());
     }
 
     public void selectBirthDate() {
@@ -310,7 +311,7 @@ public class OnboardingPage extends BasePage {
 
     public void fillsCompanyRegistrationArea() {
         selectCompanyAddress.click();
-        WebElement adress = Driver.get().findElement(By.xpath("//div[@title='Avcilar']"));
+        WebElement adress = Driver.get().findElement(By.xpath("//div[@title='Istanbul']"));
         adress.click();
         boxName("Select first working day").click();
         LocalDate today = LocalDate.now();
@@ -330,14 +331,11 @@ public class OnboardingPage extends BasePage {
     }
 
     public void fillsAResourcesArea() {
-        WebElement deleteIcon = Driver.get().findElement(By.xpath("(//span[@aria-label='delete'])[1]"));
-        List<WebElement> countDeleteIcon = Driver.get().findElements(By.xpath("//span[@aria-label='delete']"));
-
-        for (int i = 0; i < countDeleteIcon.size(); i++) {
-            deleteIcon.click();
-            WebElement deleteButton = Driver.get().findElement(By.xpath("//button//span[text()='Delete']"));
-            BrowserUtils.clickWithJS(deleteButton);
-        }
+        clickButton("Add resource");
+        clickButton("Select Resource");
+        globalDropdownElementPicker("Phone");
+        boxName("Select Resource Item");
+        globalDropdownElementPicker("Iphone");
 
     }
 
