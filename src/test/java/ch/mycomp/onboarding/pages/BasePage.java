@@ -46,13 +46,6 @@ public class BasePage {
     @FindBy(xpath = "(//button//span[@aria-label='edit'])[1]")
     public WebElement editIconForFirstRow;
 
-    @FindBy(xpath = "//button[@type='button']//span[text()='Delete']")
-    public WebElement deleteButtonAntPopOver;
-
-    @FindBy(id = "resource_company")
-    public WebElement globalInputCompanyDropdown;
-
-
     Faker faker=new Faker();
     Actions actions = new Actions(Driver.get());
     String fakeContactName = faker.name().fullName();

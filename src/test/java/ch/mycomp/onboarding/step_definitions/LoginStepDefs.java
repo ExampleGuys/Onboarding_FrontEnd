@@ -43,11 +43,7 @@ public class LoginStepDefs extends ObjectIndex {
     }
 
 
-    @Then("The user enters with user email and user password")
-    public void theUserEntersWithUserEmailAndUserPassword() {
-        loginPage.login();
 
-    }
     @Then("The user enters with user {string} and user {string}")
     public void theUserEntersWithUserAndUser(String email, String password) {
         loginPage.login(email,password);

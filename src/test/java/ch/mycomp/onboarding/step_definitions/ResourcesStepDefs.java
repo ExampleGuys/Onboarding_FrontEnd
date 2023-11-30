@@ -22,10 +22,6 @@ public class ResourcesStepDefs extends ObjectIndex {
 
     }
 
-    @When("The user enters valid login credentials")
-    public void theUserEntersValidLogonCredentials() {
-        loginPage.login();
-    }
 
 
     @Then("The user clicks on the {string} category")
