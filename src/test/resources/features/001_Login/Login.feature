@@ -65,12 +65,12 @@ Feature: Login Screen Test
     Examples:
 
       | Email          | Password            | warningMessage                                |
-      | superAdminUser | wrongPassword       | Credentials did not match                     |
-      | superAdminUser | emptyPassword       | Please fill out all required fields correctly.|
+      | superAdminUser | wrongPassword       | Credentials didn't match                      |
+      | superAdminUser | emptyPassword       | Please fill out all required fields correctly |
       | inValidEmail   | superAdmin_password | Email must be a valid email                   |
       | inValidEmail   | wrongPassword       | Email must be a valid email                   |
-      | incorrectEmail | superAdmin_password | Credentials did not match                     |
-      | emptyEmail     | emptyPassword       | Please fill out all required fields correctly.|
+      | incorrectEmail | superAdmin_password | Credentials didn't match                      |
+      | emptyEmail     | emptyPassword       | Please fill out all required fields correctly |
 
 
   @ONB-339
