@@ -10,6 +10,8 @@ public class ObjectIndex {
 
     LoginPage loginPage = new LoginPage();
 
+    CompaniesPage companiesPage =new CompaniesPage();
+
     OrderPage orderPage = new OrderPage();
 
     OnboardingPage onboardingPage = new OnboardingPage();

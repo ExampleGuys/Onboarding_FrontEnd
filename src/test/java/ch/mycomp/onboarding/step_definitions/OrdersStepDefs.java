@@ -27,7 +27,7 @@ public class OrdersStepDefs extends ObjectIndex {
 
     }
 
-    @And("The user click on the {string} button.")
+    @And("The user click on the {string} button")
     public void theUserClickOnTheButton(String buttonName) {
        contactsPage.clickButton(buttonName);
     }
