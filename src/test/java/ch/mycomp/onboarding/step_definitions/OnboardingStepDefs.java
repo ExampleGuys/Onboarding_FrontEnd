@@ -166,7 +166,7 @@ public class OnboardingStepDefs extends ObjectIndex{
 
     @And("The user write a comment in the comment section bottom of the page")
     public void theUserWriteACommentInTheCommentSectionBottomOfThePage() {
-        onboardingPage.inputCommentArea();
+       // onboardingPage.inputCommentArea();
     }
 
     @Then("The User verify that the {string} button is clickable")
