@@ -24,7 +24,7 @@ public class CompaniesStepDefs extends ObjectIndex{
 
     @Then("The user verify that created company is visible")
     public void theUserVerifyThatCreatedCompanyIsVisible() {
-        companiesPage.theUserVerifyThatCreatedCompanyIsVisible();
+        companiesPage.theUserVerifyThatCreatedUnitIsVisible();
     }
 
     @And("The user click on first element of table")

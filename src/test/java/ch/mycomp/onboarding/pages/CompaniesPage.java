@@ -28,7 +28,7 @@ public class CompaniesPage extends BasePage{
         BrowserUtils.assertContains(toastMessageText(),message);
     }
 
-    public void theUserVerifyThatCreatedCompanyIsVisible() {
+    public void theUserVerifyThatCreatedUnitIsVisible() {
         assertTrue(tableElements.size()>1);
 
     }
