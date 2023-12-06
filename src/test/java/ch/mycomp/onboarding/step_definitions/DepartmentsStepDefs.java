@@ -14,4 +14,6 @@ public class DepartmentsStepDefs extends ObjectIndex{
     public void theUserVerifyThatCreatedDepartmentIsVisible() {
        companiesPage.theUserVerifyThatCreatedUnitIsVisible();
     }
+
+
 }

@@ -38,7 +38,7 @@ public class CompaniesPage extends BasePage{
     }
 
     public void theUserUpdateDataToField(String boxName) {
-        boxName(boxName).sendKeys("Hello");
+        boxName(boxName).sendKeys("HELLO");
         BrowserUtils.waitFor(2);
     }
 
