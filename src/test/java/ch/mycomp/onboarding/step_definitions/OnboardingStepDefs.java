@@ -349,4 +349,18 @@ public class OnboardingStepDefs extends ObjectIndex{
     }
 
 
+    @And("The user fills all required fields in onboarding create form")
+    public void theUserFillsAllRequiredFieldsInOnboardingCreateForm() {
+        onboardingPage.entersPersonalInformation();
+        onboardingPage.entersCompanyRegistrationArea();
+        onboardingPage.selectResouce();
+        onboardingPage.selectCompletionDateAtLatest();
+
+
+    }
+
+    @Then("The user verify that created onboarding is visible")
+    public void theUserVerifyThatCreatedOnboardingIsVisible() {
+       companiesPage.theUserVerifyThatCreatedUnitIsVisible();
+    }
 }

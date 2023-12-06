@@ -1,5 +1,5 @@
 @crud
-Feature: Departments Create Test with Admin Role
+Feature: Departments Test with Admin Role
 
   Background: pre-steps
     Given The user goes to staging url

@@ -1,5 +1,5 @@
 @crud
-Feature: Companies Create Tests with SuperAdmin Role
+Feature: Companies Tests with SuperAdmin Role
 
   Background: pre-steps
     Given The user goes to staging url

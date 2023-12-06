@@ -1,5 +1,5 @@
 @crud
-  Feature: Departments Create Test with SuperAdmin Role
+  Feature: Departments Test with SuperAdmin Role
 
     Background: pre-steps
       Given The user goes to staging url
