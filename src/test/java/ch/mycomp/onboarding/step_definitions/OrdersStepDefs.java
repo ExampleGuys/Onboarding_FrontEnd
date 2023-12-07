@@ -186,4 +186,31 @@ public class OrdersStepDefs extends ObjectIndex {
         orderPage.theUserSelectTheEmployeeFromDdm();
 
     }
+
+    @And("The user determine the Employee which user to order for")
+    public void theUserDetermineTheEmployeeWhichUserToOrderFor() {
+        orderPage.clickButton("Users");
+        companiesPage.theUserClickOnFirstElementOfCompaniesTable();
+        offboardingPage.determineOnboardingEmployee();
+        orderPage.clickButton("Cancel");
+    }
+
+    @And("The user fills all required fields in order create form")
+    public void theUserFillsAllRequiredFieldsInOrderCreateForm() {
+        orderPage.enterName_Description();
+        offboardingPage.selectEmployee();
+        orderPage.selectResouce();
+        orderPage.selectPriority();
+        orderPage.selectPrefferedDeliveryDate();
+        orderPage.selectSite();
+        orderPage.enterReasonForRequest();
+        orderPage.selectProcess();
+
+    }
+
+
+    @Then("The user verify that created order is visible")
+    public void theUserVerifyThatCreatedOrderIsVisible() {
+        companiesPage.theUserVerifyThatCreatedUnitIsVisible();
+    }
 }

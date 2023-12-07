@@ -12,7 +12,7 @@ import java.time.format.DateTimeFormatter;
 
 public class OffboardingPage extends BasePage{
     public String selectEmployee;
-    @FindBy(id = "offboarding_employee")
+    @FindBy(xpath = "(//input[@class='ant-select-selection-search-input'])[2]")
     public WebElement employeeDDM;
     public void selectEmployee() {
         employeeDDM.sendKeys(selectEmployee);
@@ -28,13 +28,13 @@ public class OffboardingPage extends BasePage{
         BrowserUtils.clickWithJS(workingDay);
     }
 
-    @FindBy(id = "onboarding_firstName")
+    @FindBy(xpath = "//input[@placeholder='Enter first name']")
     public WebElement draftFirstName;
-    @FindBy(id = "onboarding_middleName")
+    @FindBy(xpath = "//input[@placeholder='Enter middle name']")
     public WebElement draftMiddleName;
-    @FindBy(id = "onboarding_lastName")
+    @FindBy(xpath = "//input[@placeholder='Enter last name']")
     public WebElement draftLastName;
-    @FindBy(id = "onboarding_privateEmail")
+    @FindBy(xpath = "//input[@placeholder='Enter private email']")
     public WebElement draftPrivateEmail;
 
     public void determineOnboardingEmployee() {
