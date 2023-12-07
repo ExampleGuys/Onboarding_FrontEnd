@@ -28,7 +28,7 @@ public class CompaniesPage extends BasePage{
         BrowserUtils.assertContains(toastMessageText(),message);
     }
 
-    public void theUserVerifyThatCreatedCompanyIsVisible() {
+    public void theUserVerifyThatCreatedUnitIsVisible() {
         assertTrue(tableElements.size()>1);
 
     }
@@ -38,7 +38,7 @@ public class CompaniesPage extends BasePage{
     }
 
     public void theUserUpdateDataToField(String boxName) {
-        boxName(boxName).sendKeys("Hello");
+        boxName(boxName).sendKeys("HELLO");
         BrowserUtils.waitFor(2);
     }
 

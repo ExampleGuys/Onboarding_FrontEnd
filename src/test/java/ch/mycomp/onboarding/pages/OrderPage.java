@@ -9,6 +9,9 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -245,5 +248,67 @@ public class OrderPage extends BasePage{
     public void theUserShouldBeAbleToChooseAQuantityUnderTheResourceOnTheEditOrderPage() {
         resourcesDdm.sendKeys("Apple");
         Assert.assertTrue(resourcesDdm.isEnabled());
+    }
+
+    @FindBy(id="order_forEmployee")
+    public WebElement forEmployee;
+    public void enterName_Description() {
+        boxName("Enter name").sendKeys(faker.name().firstName());
+        boxName("Enter description").sendKeys(faker.lorem().fixedString(200));
+        forEmployee.click();
+
+    }
+
+    @FindBy(id = "order_priority")
+    public WebElement priorityDDM;
+    public void selectPriority() {
+        priorityDDM.click();
+        String[] priorityList = {"Highest", "High", "Normal", "Low", "Lowest"};
+        int random = (int) (Math.random() * priorityList.length);
+        String randomTitle = priorityList[random];
+        WebElement priority = Driver.get().findElement(By.xpath("//div[@title='" + randomTitle + "']"));
+        priority.click();
+    }
+
+    public void selectPrefferedDeliveryDate() {
+        boxName("Select preferred delivery date").click();
+        LocalDate today = LocalDate.now();
+        LocalDate Day = today.plusWeeks(1);
+        String deliveryDay = Day.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        WebElement preferredDeliveryDay = Driver.get().findElement(By.xpath("//td[@title='" + deliveryDay + "']"));
+        BrowserUtils.clickWithJS(preferredDeliveryDay);
+    }
+
+    @FindBy(id="order_site")
+    public WebElement orderSite;
+    public void selectSite() {
+        globalSelectDropdownTargetElement(orderSite, "Amsterdam");
+    }
+
+    public void enterReasonForRequest() {
+        boxName("Enter reason for request").sendKeys(faker.lorem().fixedString(200));
+    }
+    @FindBy(id="order_orderItems_0_resource")
+    public WebElement resourceDDM;
+
+    @FindBy(id = "order_orderItems_0_resourceItems")
+    public WebElement resourceItem;
+    public void selectResouce() {
+        clickButton("Add resource");
+        globalSelectDropdownTargetElement(resourceDDM,"Phone");
+        globalSelectDropdownTargetElement(resourceItem,"Samsung");
+        boxName("Enter quantity").sendKeys("1");
+
+    }
+    @FindBy(id="order_lineManagers")
+    public WebElement lineManagerDDM;
+
+    @FindBy(id="order_contact")
+    public WebElement contactDDM;
+    public void selectProcess() {
+        lineManagerDDM.click();
+       globalSelectDropdownTargetElement(lineManagerDDM,"linemenager_test@yopmail.com | LineMenagerTest MyComp");
+       contactDDM.click();
+       globalSelectDropdownTargetElement(contactDDM,"Contact_Test");
     }
 }

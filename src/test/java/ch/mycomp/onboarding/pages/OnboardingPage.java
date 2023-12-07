@@ -4,6 +4,7 @@ import ch.mycomp.onboarding.utilities.BrowserUtils;
 import ch.mycomp.onboarding.utilities.Driver;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -302,14 +303,6 @@ public class OnboardingPage extends BasePage {
         workingDay.click();
     }
 
-    public void selectCompletionDateAtLatest() {
-        boxName("Select completion date").click();
-        LocalDate today = LocalDate.now();
-        LocalDate complationDay = today.plusWeeks(1);
-        String resourceCompDate = complationDay.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-        WebElement compDateAtLatest = Driver.get().findElement(By.xpath("(//tbody//tr//td[@title='" + resourceCompDate + "'])[2]"));
-        compDateAtLatest.click();
-    }
 
     public void fillsAResourcesArea() {
         clickButton("Add resource");
@@ -417,5 +410,64 @@ public class OnboardingPage extends BasePage {
 
     public void assertionForEditIcon() {
         BrowserUtils.verifyElementDisplayed(editIconForFirstRow);
+    }
+
+    public void entersPersonalInformation() {
+        boxName("Enter first name").sendKeys(faker.name().firstName());
+        boxName("Enter middle name").sendKeys(faker.name().firstName());
+        boxName("Enter last name").sendKeys(faker.name().lastName());
+        boxName("Enter private email").sendKeys(faker.internet().emailAddress());
+        selectPersonalTitle();
+        selectBirthDate();
+    }
+    @FindBy(id = "onboarding_site")
+    public WebElement site;
+
+    @FindBy(id="onboarding_department")
+    public WebElement department;
+
+    @FindBy(id = "onboarding_resources_0_resource")
+    public WebElement resourceDDM;
+
+    @FindBy(id = "onboarding_resources_0_resourceItems")
+    public WebElement resourceItem;
+    @FindBy(xpath = "//a[@class='ant-picker-today-btn']")
+    public WebElement selectCompletionDateToday;
+
+
+    public void entersCompanyRegistrationArea() {
+      selectFirstWorkingDay();
+      globalSelectDropdownTargetElement(site, "Amsterdam");
+      globalSelectDropdownTargetElement(department,"IT_Test");
+
+    }
+
+    public void selectFirstWorkingDay(){
+        boxName("Select first working day").click();
+        LocalDate today = LocalDate.now();
+        LocalDate firstWorkDay = today.plusWeeks(1);
+        String personalFirstWorkDay = firstWorkDay.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        WebElement workingDay = Driver.get().findElement(By.xpath("//td[@title='" + personalFirstWorkDay + "']"));
+        BrowserUtils.clickWithJS(workingDay);
+    }
+
+    public void selectResouce() {
+        clickButton("Add resource");
+        globalSelectDropdownTargetElement(resourceDDM,"Phone");
+        globalSelectDropdownTargetElement(resourceItem,"Samsung");
+        boxName("Enter quantity").sendKeys("1");
+
+    }
+
+
+
+    public void selectCompletionDateAtLatest() {
+        boxName("Select completion date").click();
+        LocalDate today = LocalDate.now();
+        LocalDate complDay = today.plusWeeks(1);
+        String completeDate = complDay.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        WebElement comp_date = Driver.get().findElement(By.xpath("(//tr//td[@title='" + completeDate + "'])[2]"));
+        BrowserUtils.clickWithJS(comp_date);
+
     }
 }
