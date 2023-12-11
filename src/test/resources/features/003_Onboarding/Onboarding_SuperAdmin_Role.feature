@@ -1,27 +1,42 @@
-@regression
-Feature: Onboarding Create Tests with SuperAdmin Role
+@regression @crud
+Feature: Onboarding Create Tests with Super Admin Role
 
   Background: pre-steps
     Given The user goes to staging url
     And The user enters with user "superAdminUser" and user "superAdmin_password"
     And The User click on the "Onboardings" section in the Navigation Menu
 
-  @ONB2-299
-  Scenario: TC ONB2-299 The user should be able to create a new resource category in the "Resources" section when making a new onboarding
-    And The user click on the "New Onboarding" button top right corner of the page
-    And The User "Add resource" button in the Resources Section
-    And The User click on plus + button near to "Category" title
-    Then The User verify that the modal is opened
+  @ONMYC-828
+  Scenario: TC ONMYC-828 New Onboarding should be creatable
+    And The user click on the "Create" button top right corner of the page
+    And The user selects a Company from company dropdown "Automation_Test" for create onboarding
+    And The user fills all required fields in onboarding create form
+    And The user click on the "Save & Start Process" button
+    And The user click on "Confirm" button
+    Then The user verify that the toast message is "Onboarding successfully created"
 
-  @ONB2-300
-  Scenario: TC ONB2-300 The user should be able to create a new resource in the "Resources" section when making a new onboarding
-    And The user click on the "New Onboarding" button top right corner of the page
-    And The User "Add resource" button in the Resources Section
-    And The User click on plus + button near to "Category" title
-    Then The User verify that the modal is opened
+  @ONMYC-829
+  Scenario: TC ONMYC-829 Created Onboarding should be visible
+    Then The user verify that created onboarding is visible
 
-  @ONB2-322
-  Scenario: TC ONB2-322 The search box in the onboarding listing page should filter properly
-    And The user click on the "Search" button top right corner of the page
-    And The user enter an email in the Filter Modal and click on "OK" button
-    Then The user verify that results according to the email address entered are filtered
+  @ONMYC-832
+  Scenario: TC ONMYC-832 New Onboarding in DRAFT status should be creatable
+    And The user click on the "Create" button top right corner of the page
+    And The user selects a Company from company dropdown "Automation_Test" for create onboarding
+    And The user fills all required fields in onboarding create form
+    And The user click on the "Save" button
+    Then The user verify that the toast message is "Onboarding successfully created"
+
+  @ONMYC-831
+  Scenario: TC ONMYC-831 Drafted Onboarding should be updated
+    And The user click on "Draft" button
+    And The user click on first element of table
+    And The user update data to "Enter first name" field
+    And The user click on the "Save" button
+    Then The user verify that the toast message is "Onboarding successfully updated"
+
+  @ONMYC-830
+  Scenario: TC ONMYC-830 Created onboarding should be deleted
+    And The User click on Delete icon in the first element of table
+    And The user click on the "Delete" button
+    Then The user verify that the toast message is "Onboarding successfully deleted"

@@ -17,7 +17,7 @@ Feature: Login Screen Test
   Scenario: TC ONB2-247 Password text field should be clickable on the Sign In page
     Then The user verify that the Password text field should be clickable
 
-  @ONB2-251 @crud
+  @ONB2-251
   Scenario Outline: TC ONB2-251 The user should log in with the correct credentials.
     And The user enters with user "<email>" and user "<password>"
     Then The user verify that sign in successfully
@@ -28,6 +28,7 @@ Feature: Login Screen Test
       | adminUser         | admin_password      |
       | employeeUser      | employeePassword    |
       | lineMenagerUser   | lineMenagerPassword |
+      | supplier          | supplier_password   |
 
   @ONB2-332
   Scenario: TC ONB2-332 The forget password link should be clickable on Sign In page
@@ -58,7 +59,7 @@ Feature: Login Screen Test
     And The user click on forgot password link in the sign in page
     Then The user verify that the Forgot Password page is open
 
-  @ONB-398 @crud
+  @ONB-398
   Scenario Outline: TC ONB2-398 The User should NOT log in unmatched credentials, invalid email and wrong password
     Then The user enters with user "<Email>", user "<Password>", and "<warningMessage>" and verify that con not login
 

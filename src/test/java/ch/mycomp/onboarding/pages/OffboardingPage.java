@@ -3,6 +3,7 @@ package ch.mycomp.onboarding.pages;
 import ch.mycomp.onboarding.utilities.BrowserUtils;
 import ch.mycomp.onboarding.utilities.Driver;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -12,11 +13,11 @@ import java.time.format.DateTimeFormatter;
 
 public class OffboardingPage extends BasePage{
     public String selectEmployee;
-    @FindBy(xpath = "(//input[@class='ant-select-selection-search-input'])[2]")
+    @FindBy(id="offboarding_employee")
     public WebElement employeeDDM;
     public void selectEmployee() {
-        employeeDDM.sendKeys(selectEmployee);
-        globalSelectDropdownTargetElement(employeeDDM,selectEmployee);
+        BrowserUtils.waitFor(2);
+       globalSelectDropdownTargetElement(employeeDDM,selectEmployee);
     }
 
     public void selectLastWorkingDay() {
@@ -54,5 +55,28 @@ public class OffboardingPage extends BasePage{
 
     selectEmployee = email+" | "+firstName+" "+middleName+" "+lastName;
         System.out.println(selectEmployee);
+    }
+
+    @FindBy(xpath = "//input[@aria-label='Select all']")
+    public WebElement approveAllResourceCheckButton;
+    public void setOnboardingStatusToCompleted() {
+        BrowserUtils.clickElement(checkCircleForFirstRow,20);
+        BrowserUtils.clickWithJS(approveAllResourceCheckButton);
+        BrowserUtils.waitFor(5);
+        clickButton("Save");
+        BrowserUtils.waitForVisibility(message,20);
+        BrowserUtils.clickElement(firstElementNameOfTable,20);
+        clickButton("Save & Complete");
+        clickButton("Confirm");
+        BrowserUtils.waitFor(3);
+        BrowserUtils.waitForVisibility(message,20);
+
+
+    }
+    @FindBy(id="offboarding_company")
+    public WebElement companyDDM;
+    public void selectCompany(String companyName) {
+        globalSelectDropdownTargetElement(companyDDM,companyName);
+
     }
 }

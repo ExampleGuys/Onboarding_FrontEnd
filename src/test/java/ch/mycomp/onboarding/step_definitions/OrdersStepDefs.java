@@ -195,16 +195,17 @@ public class OrdersStepDefs extends ObjectIndex {
         orderPage.clickButton("Cancel");
     }
 
-    @And("The user fills all required fields in order create form")
+    @And("The user fills all required fields in order create form for Admin Role")
     public void theUserFillsAllRequiredFieldsInOrderCreateForm() {
         orderPage.enterName_Description();
-        offboardingPage.selectEmployee();
+        orderPage.selectEmployee();
         orderPage.selectResouce();
         orderPage.selectPriority();
         orderPage.selectPrefferedDeliveryDate();
         orderPage.selectSite();
         orderPage.enterReasonForRequest();
-        orderPage.selectProcess();
+        orderPage.selectProcessForAdmin();
+
 
     }
 
@@ -212,5 +213,38 @@ public class OrdersStepDefs extends ObjectIndex {
     @Then("The user verify that created order is visible")
     public void theUserVerifyThatCreatedOrderIsVisible() {
         companiesPage.theUserVerifyThatCreatedUnitIsVisible();
+    }
+
+    @And("The user fills all required fields in order create form for Line Menager")
+    public void theUserFillsAllRequiredFieldsInOrderCreateFormForLineMenager() {
+        orderPage.enterName_Description();
+        orderPage.selectEmployee();
+        orderPage.selectResouce();
+        orderPage.selectPriority();
+        orderPage.selectPrefferedDeliveryDate();
+        orderPage.enterReasonForRequest();
+        orderPage.selectProcessforLM();
+    }
+
+    @And("The user fills all required fields in order create form for Employee")
+    public void theUserFillsAllRequiredFieldsInOrderCreateFormForEmployee() {
+        orderPage.enterName_Description();
+        orderPage.selectResouce();
+        orderPage.selectPriority();
+        orderPage.selectPrefferedDeliveryDate();
+        orderPage.enterReasonForRequest();
+    }
+
+    @And("The user fills all required fields in order create form for superAdmin Role")
+    public void theUserFillsAllRequiredFieldsInOrderCreateFormForSuperAdminRole() {
+        orderPage.selectCompany();
+        orderPage.enterName_Description();
+        orderPage.selectEmployee();
+        orderPage.selectResouce();
+        orderPage.selectPriority();
+        orderPage.selectPrefferedDeliveryDate();
+        orderPage.selectSite();
+        orderPage.enterReasonForRequest();
+        orderPage.selectProcessForAdmin();
     }
 }
