@@ -438,6 +438,7 @@ public class OnboardingPage extends BasePage {
     public void entersCompanyRegistrationArea() {
       selectFirstWorkingDay();
       globalSelectDropdownTargetElement(site, "Amsterdam");
+      //BrowserUtils.waitFor(10);
       globalSelectDropdownTargetElement(department,"IT_Test");
 
     }
@@ -468,6 +469,13 @@ public class OnboardingPage extends BasePage {
         String completeDate = complDay.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         WebElement comp_date = Driver.get().findElement(By.xpath("(//tr//td[@title='" + completeDate + "'])[2]"));
         BrowserUtils.clickWithJS(comp_date);
+
+    }
+
+    @FindBy(id="onboarding_company")
+    public WebElement companyDDM;
+    public void selectCompany(String companyName) {
+        globalSelectDropdownTargetElement(companyDDM,companyName);
 
     }
 }

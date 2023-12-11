@@ -363,4 +363,9 @@ public class OnboardingStepDefs extends ObjectIndex{
     public void theUserVerifyThatCreatedOnboardingIsVisible() {
        companiesPage.theUserVerifyThatCreatedUnitIsVisible();
     }
+
+    @And("The user selects a Company from company dropdown {string} for create onboarding")
+    public void theUserSelectsACompanyFromCompanyDropdownForCreateOnboarding(String companyName) {
+        onboardingPage.selectCompany(companyName);
+    }
 }

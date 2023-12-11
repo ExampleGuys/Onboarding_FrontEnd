@@ -10,7 +10,7 @@ Feature: Onboarding Tests with Admin Role
   Scenario: TC ONMYC-828 New Onboarding should be creatable
     And The user click on the "Create" button top right corner of the page
     And The user fills all required fields in onboarding create form
-    And The user click on the "Save & Complete" button
+    And The user click on the "Save & Start Process" button
     And The user click on "Confirm" button
     Then The user verify that the toast message is "Onboarding successfully created"
 
@@ -27,7 +27,7 @@ Feature: Onboarding Tests with Admin Role
 
   @ONMYC-831
   Scenario: TC ONMYC-831 Drafted Onboarding should be updated
-    And The user click on "Drafts" button
+    And The user click on "Draft" button
     And The user click on first element of table
     And The user update data to "Enter first name" field
     And The user click on the "Save" button
@@ -38,5 +38,4 @@ Feature: Onboarding Tests with Admin Role
     And The User click on Delete icon in the first element of table
     And The user click on the "Delete" button
     Then The user verify that the toast message is "Onboarding successfully deleted"
-
 

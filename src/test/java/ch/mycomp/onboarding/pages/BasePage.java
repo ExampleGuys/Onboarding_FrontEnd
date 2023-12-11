@@ -46,6 +46,11 @@ public class BasePage {
     @FindBy(xpath = "(//button//span[@aria-label='edit'])[1]")
     public WebElement editIconForFirstRow;
 
+    @FindBy(xpath = "(//button//span[@aria-label='check-circle'])[1]")
+    public WebElement checkCircleForFirstRow;
+    @FindBy(xpath = "(//tr[@class='ant-table-row ant-table-row-level-0'])[1]")
+    public WebElement firstElementNameOfTable;
+
     Faker faker=new Faker();
     Actions actions = new Actions(Driver.get());
     String fakeContactName = faker.name().fullName();
@@ -174,6 +179,7 @@ public class BasePage {
      */
     public void globalDropdownElementPicker(String targetElement) {
         WebElement element = Driver.get().findElement(By.xpath(" //div[@title='" + targetElement + "']//div[1]"));
+        BrowserUtils.waitForVisibility(element,20);
         BrowserUtils.clickElement(element,20);
     }
 

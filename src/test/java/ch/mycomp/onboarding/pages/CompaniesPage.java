@@ -14,8 +14,7 @@ public class CompaniesPage extends BasePage{
     @FindBy(xpath = "//tbody//tr")
     public List<WebElement> tableElements;
 
-    @FindBy(xpath = "(//tr[@class='ant-table-row ant-table-row-level-0'])[1]")
-    public WebElement firstElementNameOfTable;
+
 
     @FindBy(xpath = "//span[@aria-label='delete'][1]")
     public WebElement deleteIconFirstElementOfTable;
@@ -24,8 +23,9 @@ public class CompaniesPage extends BasePage{
         BrowserUtils.waitFor(2);
     }
 
-    public void theUserVerifyThatNewCompanyCreated(String message) {
-        BrowserUtils.assertContains(toastMessageText(),message);
+    public void theUserVerifyThatNewCompanyCreated(String Message) {
+        BrowserUtils.waitForVisibility(message,20);
+        BrowserUtils.assertContains(toastMessageText(),Message);
     }
 
     public void theUserVerifyThatCreatedUnitIsVisible() {
@@ -34,6 +34,7 @@ public class CompaniesPage extends BasePage{
     }
 
     public void theUserClickOnFirstElementOfCompaniesTable() {
+       BrowserUtils.waitFor(3);
        BrowserUtils.clickElement(firstElementNameOfTable,20);
     }
 

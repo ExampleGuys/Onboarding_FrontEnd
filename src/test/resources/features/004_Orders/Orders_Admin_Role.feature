@@ -8,10 +8,8 @@ Feature: Order Tests with Admin Role
 
   @ONMYC-835
   Scenario: ONMYC-835 New Order should be creatable
-    And The user determine the Employee which user to order for
-    And The user click on "Orders" at the navigation menu
     And The user click on the "Create" button top right corner of the page
-    And The user fills all required fields in order create form
+    And The user fills all required fields in order create form for Admin Role
     And The user click on the "Create" button on the modal
     Then The user verify that the toast message is "Order successfully created"
 

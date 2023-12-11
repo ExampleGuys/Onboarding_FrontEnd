@@ -255,7 +255,7 @@ public class OrderPage extends BasePage{
     public void enterName_Description() {
         boxName("Enter name").sendKeys(faker.name().firstName());
         boxName("Enter description").sendKeys(faker.lorem().fixedString(200));
-        forEmployee.click();
+
 
     }
 
@@ -276,7 +276,7 @@ public class OrderPage extends BasePage{
         LocalDate Day = today.plusWeeks(1);
         String deliveryDay = Day.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         WebElement preferredDeliveryDay = Driver.get().findElement(By.xpath("//td[@title='" + deliveryDay + "']"));
-        BrowserUtils.clickWithJS(preferredDeliveryDay);
+        BrowserUtils.clickElement(preferredDeliveryDay,20);
     }
 
     @FindBy(id="order_site")
@@ -303,12 +303,29 @@ public class OrderPage extends BasePage{
     @FindBy(id="order_lineManagers")
     public WebElement lineManagerDDM;
 
-    @FindBy(id="order_contact")
-    public WebElement contactDDM;
-    public void selectProcess() {
+    @FindBy(id="order_supplier")
+    public WebElement supplierDDM;
+    public void selectProcessForAdmin() {
         lineManagerDDM.click();
        globalSelectDropdownTargetElement(lineManagerDDM,"linemenager_test@yopmail.com | LineMenagerTest MyComp");
-       contactDDM.click();
-       globalSelectDropdownTargetElement(contactDDM,"Contact_Test");
+       supplierDDM.click();
+       globalSelectDropdownTargetElement(supplierDDM,"supplier_test@yopmail.com | Supplier Test Mycomp");
+    }
+    @FindBy(id="order_forEmployee")
+    public WebElement employeeDDM;
+    public void selectEmployee() {
+        forEmployee.click();
+        globalSelectDropdownTargetElement(employeeDDM,"employee_test@yopmail.com | EmployeeTester MyComp");
+    }
+
+
+    public void selectProcessforLM() {
+        supplierDDM.click();
+        globalSelectDropdownTargetElement(supplierDDM,"supplier_test@yopmail.com | Supplier Test Mycomp");
+    }
+    @FindBy(id="order_company")
+    public WebElement companyDDM;
+    public void selectCompany() {
+        globalSelectDropdownTargetElement(companyDDM,"Automation_Test");
     }
 }
