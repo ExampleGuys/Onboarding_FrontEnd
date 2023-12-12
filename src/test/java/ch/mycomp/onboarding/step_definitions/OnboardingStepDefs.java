@@ -368,4 +368,14 @@ public class OnboardingStepDefs extends ObjectIndex{
     public void theUserSelectsACompanyFromCompanyDropdownForCreateOnboarding(String companyName) {
         onboardingPage.selectCompany(companyName);
     }
+
+    @And("The user click on {string} at the navigation menu")
+    public void theUserClickOnAtTheNavigationMenu(String buttonName) {
+        onboardingPage.clickButton(buttonName);
+    }
+
+    @And("The user click on {string} button")
+    public void theUserClickOnButton(String buttonName) {
+        onboardingPage.clickButton(buttonName);
+    }
 }

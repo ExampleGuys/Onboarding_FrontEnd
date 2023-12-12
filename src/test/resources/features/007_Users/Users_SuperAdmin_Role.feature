@@ -1,14 +1,14 @@
 @crud
-Feature: Users tests wit Line Menager Role
+Feature: Users tests wit Super Admin Role
   Background: pre-steps
     Given The user goes to staging url
-    And The user enters with user "lineMenagerUser" and user "lineMenagerPassword"
+    And The user enters with user "superAdminUser" and user "superAdmin_password"
     And The user click on "Users" at the navigation menu
 
   @ONMYC-841
   Scenario: TC ONMYC-841 New Users should be creatable
     And The user click on the "Create" button top right corner of the page
-    And The user fills all required fields in User create form for Line Menager Role
+    And The user fills all required fields in User create form for SuperAdmin Role
     And The user click on the "Create" button on the modal
     Then The user verify that the toast message is "User successfully created"
 
