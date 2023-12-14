@@ -543,4 +543,21 @@ public class ResourcesPage extends BasePage {
         BrowserUtils.verifyElementClickable(deleteIconResourcesSection);
 
     }
+
+/////////////////////////////////////////////////////////////////////////////
+
+    public void enterCategoryName() {
+        boxName("Enter category name").sendKeys(faker.commerce().material());
+    }
+
+    public void enterResourceName() {
+        boxName("Enter resource name").sendKeys(faker.book().author());
+    }
+    @FindBy(xpath ="//*[@class='ant-select-selection-overflow']")
+    public WebElement resourceSupplierDDM;
+    public void selectSupplier() {
+        globalSelectDropdownTargetElement(resourceSupplierDDM,"supplier_test@yopmail.com | Supplier Test Mycomp");
+       boxName("Enter resource name").click();
+       BrowserUtils.waitFor(2);
+    }
 }
