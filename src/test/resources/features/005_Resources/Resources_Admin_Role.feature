@@ -22,3 +22,9 @@ Feature: Resources Test with Admin Role
     And The user update data to "Enter category name" field
     And The user click on the "Save" button
     Then The user verify that the toast message is "Resource successfully updated"
+
+  @ONMYC-900
+  Scenario: TC ONMYC-900 Created Resource should be deleted
+    And The User click on Delete icon in the first element of table
+    And The user click on the "Delete" button
+    Then The user verify that the toast message is "Resource successfully deleted"
