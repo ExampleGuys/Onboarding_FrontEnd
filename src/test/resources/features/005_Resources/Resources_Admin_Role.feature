@@ -15,3 +15,10 @@ Feature: Resources Test with Admin Role
   @ONMYC-898
     Scenario: TC ONMYC-898 Created Resource should be visible
     Then The user verify that created resource is visible
+
+  @ONMYC-899
+    Scenario: TC ONMYC-899 Created Resource should be update
+    And The user click on first element of table
+    And The user update data to "Enter category name" field
+    And The user click on the "Save" button
+    Then The user verify that the toast message is "Resource successfully updated"
