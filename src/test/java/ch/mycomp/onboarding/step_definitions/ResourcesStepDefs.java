@@ -544,5 +544,10 @@ public class ResourcesStepDefs extends ObjectIndex {
         resourcesPage.selectSupplier();
 
     }
+
+    @Then("The user verify that created resource is visible")
+    public void theUserVerifyThatCreatedResourceIsVisible() {
+        companiesPage.theUserVerifyThatCreatedUnitIsVisible();
+    }
 }
 
