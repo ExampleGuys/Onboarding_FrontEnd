@@ -535,5 +535,14 @@ public class ResourcesStepDefs extends ObjectIndex {
         resourcesPage.theUserVerifyThatDeleteIconIsClickable();
 
     }
+    ///////////////////////////////////////////////////////////////////////////
+    @And("The user fills all required field in Resources create form for a Admin role")
+    public void theUserFillsAllRequiredFieldInResourcesCreateFormForAAdminRole() {
+        resourcesPage.enterCategoryName();
+        resourcesPage.clickButton("Add resource");
+        resourcesPage.enterResourceName();
+        resourcesPage.selectSupplier();
+
+    }
 }
 
