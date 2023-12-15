@@ -560,4 +560,10 @@ public class ResourcesPage extends BasePage {
        boxName("Enter resource name").click();
        BrowserUtils.waitFor(2);
     }
+    @FindBy(id="resource_company")
+    public WebElement companyDDM;
+    public void selectCompany(String companyName) {
+        globalSelectDropdownTargetElement(companyDDM,companyName);
+
+    }
 }

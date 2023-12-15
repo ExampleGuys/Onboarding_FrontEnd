@@ -1,3 +1,4 @@
+@crud
 Feature: Resources Test with Admin Role
 
   Background: pre-steps
