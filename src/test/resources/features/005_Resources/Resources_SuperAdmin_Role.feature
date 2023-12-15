@@ -10,3 +10,7 @@ Feature: Resources Test with Super Admin Role
     And The user fills all required field in Resources create form for a SuperAdmin role
     And The user click on the "Create" button on the modal
     Then The user verify that the toast message is "Resource successfully created"
+
+   @ONMYC-908
+  Scenario: TC ONMYC-908 Created Resource should be visible
+    Then The user verify that created resource is visible
