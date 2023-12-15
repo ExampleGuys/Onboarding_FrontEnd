@@ -549,5 +549,14 @@ public class ResourcesStepDefs extends ObjectIndex {
     public void theUserVerifyThatCreatedResourceIsVisible() {
         companiesPage.theUserVerifyThatCreatedUnitIsVisible();
     }
+
+    @And("The user fills all required field in Resources create form for a SuperAdmin role")
+    public void theUserFillsAllRequiredFieldInResourcesCreateFormForASuperAdminRole() {
+        resourcesPage.selectCompany("Automation_Test");
+        resourcesPage.enterCategoryName();
+        resourcesPage.clickButton("Add resource");
+        resourcesPage.enterResourceName();
+        resourcesPage.selectSupplier();
+    }
 }
 
