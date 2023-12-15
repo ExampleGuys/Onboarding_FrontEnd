@@ -30,6 +30,7 @@ public class ObjectIndex {
     RegisterPage registerPage = new RegisterPage();
     Actions actions = new Actions(Driver.get());
 
+    PracticePage practicePage = new PracticePage();
     Faker faker = new Faker();
 
 

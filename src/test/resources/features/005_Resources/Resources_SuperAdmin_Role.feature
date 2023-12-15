@@ -1,3 +1,4 @@
+@crud
 Feature: Resources Test with Super Admin Role
   Background: pre-steps
     Given The user goes to staging url
