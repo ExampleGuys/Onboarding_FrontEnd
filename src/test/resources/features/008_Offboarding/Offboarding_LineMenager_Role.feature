@@ -1,4 +1,4 @@
-@crud
+
 Feature: Offboarding Tests with Line Menager Role
 
   Background: pre-steps

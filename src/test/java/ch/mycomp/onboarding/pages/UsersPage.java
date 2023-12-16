@@ -1,6 +1,7 @@
 package ch.mycomp.onboarding.pages;
 
 import ch.mycomp.onboarding.utilities.BrowserUtils;
+import ch.mycomp.onboarding.utilities.ConfigurationReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -37,11 +38,11 @@ public class UsersPage extends BasePage {
     }
 
     public void selectDepartment() {
-        globalSelectDropdownTargetElement(userDepartmentDDM,"IT_Test");
+        globalSelectDropdownTargetElement(userDepartmentDDM, ConfigurationReader.get("departmentDDM"));
     }
 
     public void selectSite() {
-       globalSelectDropdownTargetElement(userSiteDDM,"Amsterdam");
+       globalSelectDropdownTargetElement(userSiteDDM,ConfigurationReader.get("siteDDM"));
     }
 
     public void enterPrivateEmail() {

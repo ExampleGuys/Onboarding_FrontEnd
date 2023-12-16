@@ -542,6 +542,7 @@ public class ResourcesStepDefs extends ObjectIndex {
         resourcesPage.clickButton("Add resource");
         resourcesPage.enterResourceName();
         resourcesPage.selectSupplier();
+        resourcesPage.enterResourcePrice();
 
     }
 
@@ -557,6 +558,7 @@ public class ResourcesStepDefs extends ObjectIndex {
         resourcesPage.clickButton("Add resource");
         resourcesPage.enterResourceName();
         resourcesPage.selectSupplier();
+        resourcesPage.enterResourcePrice();
     }
 }
 
