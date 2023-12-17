@@ -1,6 +1,7 @@
 package ch.mycomp.onboarding.pages;
 
 import ch.mycomp.onboarding.utilities.BrowserUtils;
+import ch.mycomp.onboarding.utilities.ConfigurationReader;
 import ch.mycomp.onboarding.utilities.Driver;
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -454,8 +455,8 @@ public class OnboardingPage extends BasePage {
 
     public void selectResouce() {
         clickButton("Add resource");
-        globalSelectDropdownTargetElement(resourceDDM,"Phone");
-        globalSelectDropdownTargetElement(resourceItem,"Samsung");
+        globalSelectDropdownTargetElement(resourceDDM, ConfigurationReader.get("resourceDDM"));
+        globalSelectDropdownTargetElement(resourceItem,ConfigurationReader.get("resourceItemDDM"));
         boxName("Enter quantity").sendKeys("1");
 
     }

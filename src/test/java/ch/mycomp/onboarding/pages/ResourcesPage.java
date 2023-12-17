@@ -556,7 +556,7 @@ public class ResourcesPage extends BasePage {
     @FindBy(xpath ="//*[@class='ant-select-selection-overflow']")
     public WebElement resourceSupplierDDM;
     public void selectSupplier() {
-        globalSelectDropdownTargetElement(resourceSupplierDDM,"supplier_test@yopmail.com | Supplier Test Mycomp");
+        globalSelectDropdownTargetElement(resourceSupplierDDM,ConfigurationReader.get("supplierDDM"));
        boxName("Enter resource name").click();
        BrowserUtils.waitFor(2);
     }
@@ -565,5 +565,9 @@ public class ResourcesPage extends BasePage {
     public void selectCompany(String companyName) {
         globalSelectDropdownTargetElement(companyDDM,companyName);
 
+    }
+
+    public void enterResourcePrice() {
+        boxName("Enter price").sendKeys("900");
     }
 }

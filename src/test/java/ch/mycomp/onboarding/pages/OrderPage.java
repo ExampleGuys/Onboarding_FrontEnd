@@ -1,6 +1,7 @@
 package ch.mycomp.onboarding.pages;
 
 import ch.mycomp.onboarding.utilities.BrowserUtils;
+import ch.mycomp.onboarding.utilities.ConfigurationReader;
 import ch.mycomp.onboarding.utilities.Driver;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
@@ -295,8 +296,8 @@ public class OrderPage extends BasePage{
     public WebElement resourceItem;
     public void selectResouce() {
         clickButton("Add resource");
-        globalSelectDropdownTargetElement(resourceDDM,"Phone");
-        globalSelectDropdownTargetElement(resourceItem,"Samsung");
+        globalSelectDropdownTargetElement(resourceDDM,ConfigurationReader.get("resourceDDM"));
+        globalSelectDropdownTargetElement(resourceItem,ConfigurationReader.get("resourceItemDDM"));
         boxName("Enter quantity").sendKeys("1");
 
     }
@@ -307,21 +308,21 @@ public class OrderPage extends BasePage{
     public WebElement supplierDDM;
     public void selectProcessForAdmin() {
         lineManagerDDM.click();
-       globalSelectDropdownTargetElement(lineManagerDDM,"linemenager_test@yopmail.com | LineMenagerTest MyComp");
+       globalSelectDropdownTargetElement(lineManagerDDM,ConfigurationReader.get("lineManagerDDM"));
        supplierDDM.click();
-       globalSelectDropdownTargetElement(supplierDDM,"supplier_test@yopmail.com | Supplier Test Mycomp");
+       globalSelectDropdownTargetElement(supplierDDM,ConfigurationReader.get("supplierDDM"));
     }
     @FindBy(id="order_forEmployee")
     public WebElement employeeDDM;
     public void selectEmployee() {
         forEmployee.click();
-        globalSelectDropdownTargetElement(employeeDDM,"employee_test@yopmail.com | EmployeeTester MyComp");
+        globalSelectDropdownTargetElement(employeeDDM, ConfigurationReader.get("employeeDDM"));
     }
 
 
     public void selectProcessforLM() {
         supplierDDM.click();
-        globalSelectDropdownTargetElement(supplierDDM,"supplier_test@yopmail.com | Supplier Test Mycomp");
+        globalSelectDropdownTargetElement(supplierDDM,ConfigurationReader.get("supplierDDM"));
     }
     @FindBy(id="order_company")
     public WebElement companyDDM;
