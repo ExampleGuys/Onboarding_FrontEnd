@@ -1,5 +1,6 @@
 package ch.mycomp.onboarding.step_definitions;
 
+import ch.mycomp.onboarding.utilities.BrowserUtils;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 
@@ -19,6 +20,7 @@ public class CompaniesStepDefs extends ObjectIndex{
 
     @And("The user click on the {string} button on the modal")
     public void theUserClickOnTheButtonOnTheModal(String buttonName) {
+        BrowserUtils.waitFor(2);
         companiesPage.clickButtonOnModal(buttonName);
     }
 

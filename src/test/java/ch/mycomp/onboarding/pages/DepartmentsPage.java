@@ -14,4 +14,7 @@ public class DepartmentsPage extends BasePage{
     }
 
 
+    public void enterDepartmentName(String departmentName, String boxname) {
+        boxName(boxname).sendKeys(departmentName);
+    }
 }

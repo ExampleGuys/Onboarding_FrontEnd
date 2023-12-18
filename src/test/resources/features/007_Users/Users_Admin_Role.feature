@@ -28,3 +28,5 @@ Feature: Users tests wit Admin Role
     And The User click on Delete icon in the first element of table
     And The user click on the "Delete" button
     Then The user verify that the toast message is "User successfully deleted"
+
+

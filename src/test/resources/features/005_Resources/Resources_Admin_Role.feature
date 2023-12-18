@@ -29,3 +29,5 @@ Feature: Resources Test with Admin Role
     And The User click on Delete icon in the first element of table
     And The user click on the "Delete" button
     Then The user verify that the toast message is "Resource successfully deleted"
+
+  Scenario Outline: The user create all resourcess
