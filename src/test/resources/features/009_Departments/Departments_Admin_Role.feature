@@ -31,3 +31,26 @@ Feature: Departments Test with Admin Role
     Then The user verify that the toast message is "Department successfully deleted"
 
 
+  Scenario Outline: The user create all departments
+    And The user click on the "Create" button top right corner of the page
+    And The user enter "<Department Name>" to "Enter department name" field for Admin Role
+    And The user click on the "Create" button on the modal
+    Then The user verify that the toast message is "Department successfully created"
+
+    Examples:
+    |Department Name       |
+    |Sales                 |
+    |Marketing             |
+    |Human Resources       |
+    |Finance               |
+    |Customer Support      |
+    |IT                    |
+    |Research and Development|
+    |Operations              |
+    |Legal                   |
+    |Procurement             |
+
+
+
+
+

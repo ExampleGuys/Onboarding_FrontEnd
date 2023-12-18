@@ -16,5 +16,9 @@ public class DepartmentsStepDefs extends ObjectIndex{
     }
 
 
+    @And("The user enter {string} to {string} field for Admin Role")
+    public void theUserEnterDataToFieldForAdminRole(String departmentName, String boxname) {
+        departmentsPage.enterDepartmentName(departmentName,boxname);
 
+    }
 }

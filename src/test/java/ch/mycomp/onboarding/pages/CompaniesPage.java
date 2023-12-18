@@ -24,8 +24,7 @@ public class CompaniesPage extends BasePage{
     }
 
     public void theUserVerifyThatNewCompanyCreated(String Message) {
-        BrowserUtils.waitForVisibility(message,30);
-        BrowserUtils.assertContains(toastMessageText(),Message);
+       BrowserUtils.assertContains(toastMessageText(),Message);
     }
 
     public void theUserVerifyThatCreatedUnitIsVisible() {
