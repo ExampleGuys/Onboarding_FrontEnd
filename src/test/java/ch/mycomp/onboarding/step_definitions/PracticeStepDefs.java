@@ -13,4 +13,17 @@ public class PracticeStepDefs extends ObjectIndex{
     public void theUserVerifyThatAllCeratedElementsIsDeleted() {
         practicePage.verifyAllElementsDeleted();
     }
+
+       @And("The user enter {string} to {string} field for Admin Role to create a supplier")
+    public void theUserEnterToFieldForAdminRoleToCreateASupplier(String email, String boxName) {
+        practicePage.enterEmailforSupplier(email,boxName);
+    }
+
+    @And("The user fills all required fields in User create form select a {string} role create all suppliers")
+    public void theUserFillsAllRequiredFieldsInUserCreateFormSelectARoleCreateAllSuppliers(String roleName) {
+        usersPage.enterFirstMiddleLastName();
+        usersPage.selectRole(roleName);
+        usersPage.selectSite();
+        usersPage.enterPassword();
+    }
 }
