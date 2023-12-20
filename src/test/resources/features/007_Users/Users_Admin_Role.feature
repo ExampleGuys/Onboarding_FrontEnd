@@ -8,7 +8,7 @@ Feature: Users tests wit Admin Role
   @ONMYC-841
   Scenario: TC ONMYC-841 New Users should be creatable
     And The user click on the "Create" button top right corner of the page
-    And The user fills all required fields in User create form for Admin Role
+    And The user fills all required fields in User create form select a "Line Manager" role
     And The user click on the "Create" button on the modal
     Then The user verify that the toast message is "User successfully created"
 
@@ -28,5 +28,13 @@ Feature: Users tests wit Admin Role
     And The User click on Delete icon in the first element of table
     And The user click on the "Delete" button
     Then The user verify that the toast message is "User successfully deleted"
+
+
+  @ONMYC-947
+  Scenario: TC ONMYC-947 The supplier should be creatable with Admin Role
+    And The user click on the "Create" button top right corner of the page
+    And The user fills all required fields in User create form select a "Supplier" role
+    And The user click on the "Create" button on the modal
+    Then The user verify that the toast message is "User successfully created"
 
 
