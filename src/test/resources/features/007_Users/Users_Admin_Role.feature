@@ -38,3 +38,10 @@ Feature: Users tests wit Admin Role
     Then The user verify that the toast message is "User successfully created"
 
 
+  @ONMYC-948
+  Scenario: TC ONMYC-948 Created supplier role should updated with Admin Role
+    And The user click on first element of table
+    And The user update data to "Enter first name" field
+    And The user click on the "Save" button
+    Then The user verify that the toast message is "User successfully updated"
+
