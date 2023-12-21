@@ -18,12 +18,23 @@ public class PracticeStepDefs extends ObjectIndex{
     public void theUserEnterToFieldForAdminRoleToCreateASupplier(String email, String boxName) {
         practicePage.enterEmailforSupplier(email,boxName);
     }
+    @And("The user enter {string} in in the {string} field")
+    public void theUserEnterInInTheField(String value, String boxName) {
+        practicePage.enterValueInTheField(value,boxName);
+    }
 
-    @And("The user fills all required fields in User create form select a {string} role create all suppliers")
-    public void theUserFillsAllRequiredFieldsInUserCreateFormSelectARoleCreateAllSuppliers(String roleName) {
-        usersPage.enterFirstMiddleLastName();
+    @And("The user select role as a {string}")
+    public void theUserSelectRoleAsASupplier(String roleName) {
         usersPage.selectRole(roleName);
-        usersPage.selectSite();
+    }
+
+    @And("The user select a site as a {string}")
+    public void theUserSelectASiteAsA(String siteName) {
+        usersPage.selectSite(siteName);
+    }
+
+    @And("The user enter password")
+    public void theUserEnterPassword() {
         usersPage.enterPassword();
     }
 }

@@ -41,8 +41,8 @@ public class UsersPage extends BasePage {
         globalSelectDropdownTargetElement(userDepartmentDDM, ConfigurationReader.get("departmentDDM"));
     }
 
-    public void selectSite() {
-       globalSelectDropdownTargetElement(userSiteDDM,ConfigurationReader.get("siteDDM"));
+    public void selectSite(String siteName) {
+       globalSelectDropdownTargetElement(userSiteDDM,siteName);
     }
 
     public void enterPrivateEmail() {

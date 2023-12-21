@@ -58,41 +58,45 @@ Feature: Practice test cases
     And The user enters with user "adminUser" and user "admin_password"
     And The user click on "Users" at the navigation menu
     And The user click on the "Create" button top right corner of the page
-    And The user fills all required fields in User create form select a "Supplier" role create all suppliers
+    And The user enter "<First Name>" in in the "Enter first name" field
+    And The user enter "<Last Name>" in in the "Enter last name" field
+    And The user select role as a "Supplier"
+    And The user select a site as a "Amsterdam"
+    And The user enter password
     And The user enter "<email>" to "Enter private email" field for Admin Role to create a supplier
     And The user click on the "Create" button on the modal
     Then The user verify that the toast message is "User successfully created"
 
     Examples:
-      | email                                      |
-      | AUTO_company.apartment@yopmail.com         |
-      | AUTO_accommodation.discount@yopmail.com    |
-      | AUTO_accommodation.assistance@yopmail.com  |
-      | AUTO_rent.subsidy@yopmail.com              |
-      | AUTO_temporary.residence@yopmail.com       |
-      | AUTO_company.car@yopmail.com               |
-      | AUTO_car.rentaldiscount@yopmail.com        |
-      | AUTO_fuel.card@yopmail.com                 |
-      | AUTO_shuttle.service@yopmail.com           |
-      | AUTO_public.transitpass@yopmail.com        |
-      | AUTO_mercedes.benz@yopmail.com             |
-      | AUTO_bmw.car@yopmail.com                   |
-      | AUTO_audi.car@yopmail.com                  |
-      | AUTO_toyota.camry@yopmail.com              |
-      | AUTO_honda.accord@yopmail.com              |
-      | AUTO_iphone.15promax@yopmail.com           |
-      | AUTO_iphone.15pro@yopmail.com              |
-      | AUTO_samsung.galaxys21@yopmail.com         |
-      | AUTO_samsung.galaxynote20ultra@yopmail.com |
-      | AUTO_samsung.galaxyzfold@yopmail.com       |
-      | AUTO_mailbox.access@yopmail.com            |
-      | AUTO_high.performance@yopmail.com          |
-      | AUTO_graphics.optimized@yopmail.com        |
-      | AUTO_macbook.pro@yopmail.com               |
-      | AUTO_macbook.air@yopmail.com               |
-      | AUTO_dual.use@yopmail.com                  |
-      | AUTO_sodexo.card@yopmail.com               |
-      | AUTO_multinet.card@yopmail.com             |
-      | AUTO_setcard.card@yopmail.com              |
-      | AUTO_ticket.card@yopmail.com               |
+      | First Name | Last Name | email                                      |
+      | SUPPLIER   | TEST      | AUTO_company.apartment@yopmail.com         |
+      | SUPPLIER   | TEST      | AUTO_accommodation.discount@yopmail.com    |
+      | SUPPLIER   | TEST      | AUTO_accommodation.assistance@yopmail.com  |
+      | SUPPLIER   | TEST      | AUTO_rent.subsidy@yopmail.com              |
+      | SUPPLIER   | TEST      | AUTO_temporary.residence@yopmail.com       |
+      | SUPPLIER   | TEST      | AUTO_company.car@yopmail.com               |
+      | SUPPLIER   | TEST      | AUTO_car.rentaldiscount@yopmail.com        |
+      | SUPPLIER   | TEST      | AUTO_fuel.card@yopmail.com                 |
+      | SUPPLIER   | TEST      | AUTO_shuttle.service@yopmail.com           |
+      | SUPPLIER   | TEST      | AUTO_public.transitpass@yopmail.com        |
+      | SUPPLIER   | TEST      | AUTO_mercedes.benz@yopmail.com             |
+      | SUPPLIER   | TEST      | AUTO_bmw.car@yopmail.com                   |
+      | SUPPLIER   | TEST      | AUTO_audi.car@yopmail.com                  |
+      | SUPPLIER   | TEST      | AUTO_toyota.camry@yopmail.com              |
+      | SUPPLIER   | TEST      | AUTO_honda.accord@yopmail.com              |
+      | SUPPLIER   | TEST      | AUTO_iphone.15promax@yopmail.com           |
+      | SUPPLIER   | TEST      | AUTO_iphone.15pro@yopmail.com              |
+      | SUPPLIER   | TEST      | AUTO_samsung.galaxys21@yopmail.com         |
+      | SUPPLIER   | TEST      | AUTO_samsung.galaxynote20ultra@yopmail.com |
+      | SUPPLIER   | TEST      | AUTO_samsung.galaxyzfold@yopmail.com       |
+      | SUPPLIER   | TEST      | AUTO_mailbox.access@yopmail.com            |
+      | SUPPLIER   | TEST      | AUTO_high.performance@yopmail.com          |
+      | SUPPLIER   | TEST      | AUTO_graphics.optimized@yopmail.com        |
+      | SUPPLIER   | TEST      | AUTO_macbook.pro@yopmail.com               |
+      | SUPPLIER   | TEST      | AUTO_macbook.air@yopmail.com               |
+      | SUPPLIER   | TEST      | AUTO_dual.use@yopmail.com                  |
+      | SUPPLIER   | TEST      | AUTO_sodexo.card@yopmail.com               |
+      | SUPPLIER   | TEST      | AUTO_multinet.card@yopmail.com             |
+      | SUPPLIER   | TEST      | AUTO_setcard.card@yopmail.com              |
+      | SUPPLIER   | TEST      | AUTO_ticket.card@yopmail.com               |
 
