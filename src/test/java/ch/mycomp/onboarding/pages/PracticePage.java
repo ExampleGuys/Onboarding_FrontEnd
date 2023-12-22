@@ -34,4 +34,12 @@ public class PracticePage extends BasePage{
     public void verifyAllElementsDeleted() {
      Assert.assertTrue(noData.isDisplayed());
     }
+
+    public void enterEmailforSupplier(String email, String boxName) {
+        boxName(boxName).sendKeys(email);
+    }
+
+    public void enterValueInTheField(String value, String boxname) {
+        boxName(boxname).sendKeys(value);
+    }
 }

@@ -18,7 +18,7 @@ public class UsersStepDefs extends ObjectIndex {
         usersPage.enterFirstMiddleLastName();
         usersPage.selectRole("Line Manager");
         usersPage.selectDepartment();
-        usersPage.selectSite();
+      //  usersPage.selectSite();
         usersPage.enterPrivateEmail();
         usersPage.enterPassword();
     }
@@ -32,7 +32,7 @@ public class UsersStepDefs extends ObjectIndex {
     public void theUserFillsAllRequiredFieldsInUserCreateFormForLineMenagerRole() {
         usersPage.enterFirstMiddleLastName();
         usersPage.selectRole("Employee");
-        usersPage.selectSite();
+     //   usersPage.selectSite();
         usersPage.enterPrivateEmail();
         usersPage.enterPassword();
     }
@@ -42,7 +42,16 @@ public class UsersStepDefs extends ObjectIndex {
         usersPage.selectCompany();
         usersPage.enterFirstMiddleLastName();
         usersPage.selectRole("Admin");
-        usersPage.selectSite();
+      //  usersPage.selectSite();
+        usersPage.enterPrivateEmail();
+        usersPage.enterPassword();
+    }
+
+    @And("The user fills all required fields in User create form select a {string} role")
+    public void theUserFillsAllRequiredFieldsInUserCreateFormSelectARole(String roleName) {
+        usersPage.enterFirstMiddleLastName();
+        usersPage.selectRole(roleName);
+      //  usersPage.selectSite();
         usersPage.enterPrivateEmail();
         usersPage.enterPassword();
     }
