@@ -349,15 +349,7 @@ public class OnboardingStepDefs extends ObjectIndex{
     }
 
 
-    @And("The user fills all required fields in onboarding create form")
-    public void theUserFillsAllRequiredFieldsInOnboardingCreateForm() {
-        onboardingPage.entersPersonalInformation();
-        onboardingPage.entersCompanyRegistrationArea();
-        onboardingPage.selectResouce();
-        onboardingPage.selectCompletionDateAtLatest();
 
-
-    }
 
     @Then("The user verify that created onboarding is visible")
     public void theUserVerifyThatCreatedOnboardingIsVisible() {
@@ -377,5 +369,47 @@ public class OnboardingStepDefs extends ObjectIndex{
     @And("The user click on {string} button")
     public void theUserClickOnButton(String buttonName) {
         onboardingPage.clickButton(buttonName);
+    }
+
+    @And("The user enter {string} in to {string} field")
+    public void theUserEnterInToField(String fieldName, String boxName) {
+        onboardingPage.theUserEnterInToField(fieldName,boxName);
+    }
+
+    @And("The user select Person Title")
+    public void theUserSelectPersonTitle() {
+        onboardingPage.selectPersonalTitle();
+    }
+
+    @And("The user select Birth Date")
+    public void theUserSelectBirthDate() {
+        onboardingPage.selectBirthDate();
+    }
+
+    @And("The user select First Working Day")
+    public void theUserSelectFirstWorkingDay() {
+        onboardingPage.selectFirstWorkingDay();
+    }
+
+    @And("The user select department as a {string}")
+    public void theUserSelectDepartmentAsA(String departmentName) {
+        onboardingPage.selectDepartment(departmentName);
+    }
+
+    @And("The user select Resource as a {string}")
+    public void theUserSelectResorceAsA(String resourceName) {
+        onboardingPage.selectResource(resourceName);
+    }
+
+
+    @And("The user select Resource Item as a {string}")
+    public void theUserSelectResourceItemAsA(String resourceItem) {
+        onboardingPage.selectResourceItem(resourceItem);
+    }
+
+
+    @And("The user select site as a {string}")
+    public void theUserSelectSiteAsA(String siteName) {
+        onboardingPage.selectSite(siteName);
     }
 }
