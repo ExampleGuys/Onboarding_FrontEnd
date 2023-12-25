@@ -3,7 +3,7 @@ Feature: Offboarding Tests with Line Menager Role
 
   Background: pre-steps
     Given The user goes to staging url
-    And The user enters with user "lineMenagerUser" and user "lineMenagerPassword"
+    And The user enters with user "lineManagerUser" and user "lineManagerPassword"
 
    @ONMYC-801 ### ==== > SUPPLIER ONAYI GEREKTIGI ICIN SORUNLU (offboarding olmamis completed onboard olmasi lazim)
   Scenario: TC ONMYC-801 New Offboarding should be creatable

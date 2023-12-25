@@ -3,7 +3,7 @@ Feature: Order Tests with Line Menager Role
 
   Background: pre-steps
     Given The user goes to staging url
-    And The user enters with user "lineMenagerUser" and user "lineMenagerPassword"
+    And The user enters with user "lineManagerUser" and user "lineManagerPassword"
     And The user click on "Orders" at the navigation menu
 
   @ONMYC-835
