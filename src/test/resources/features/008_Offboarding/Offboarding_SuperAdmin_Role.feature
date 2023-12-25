@@ -10,7 +10,19 @@ Feature: Offboarding Tests with Super Admin Role
     And The user click on "Onboardings" at the navigation menu
     And The user click on the "Create" button top right corner of the page
     And The user selects a Company from company dropdown "Automation_Test" for create onboarding
-    And The user fills all required fields in onboarding create form
+    And The user enter "firstName" in to "Enter first name" field
+    And The user enter "middleName" in to "Enter middle name" field
+    And The user enter "lastName" in to "Enter last name" field
+    And The user enter "privateEmail" in to "Enter private email" field
+    And The user select Person Title
+    And The user select Birth Date
+    And The user select First Working Day
+    And The user select site as a "Amsterdam"
+    And The user select department as a "IT_Test"
+    And The user click on "Add resource" button
+    And The user select Resource as a "Phone"
+    And The user select Resource Item as a "Samsung"
+    And The User select a Completion Date at The Latest
     And The user click on the "Save & Start Process" button
     And The user click on "Confirm" button
     And The user wait for data synchronizing
@@ -34,7 +46,19 @@ Feature: Offboarding Tests with Super Admin Role
     And The user click on "Onboardings" at the navigation menu
     And The user click on the "Create" button top right corner of the page
     And The user selects a Company from company dropdown "Automation_Test" for create onboarding
-    And The user fills all required fields in onboarding create form
+    And The user enter "firstName" in to "Enter first name" field
+    And The user enter "middleName" in to "Enter middle name" field
+    And The user enter "lastName" in to "Enter last name" field
+    And The user enter "privateEmail" in to "Enter private email" field
+    And The user select Person Title
+    And The user select Birth Date
+    And The user select First Working Day
+    And The user select site as a "Amsterdam"
+    And The user select department as a "IT_Test"
+    And The user click on "Add resource" button
+    And The user select Resource as a "Phone"
+    And The user select Resource Item as a "Samsung"
+    And The User select a Completion Date at The Latest
     And The user click on the "Save & Start Process" button
     And The user click on "Confirm" button
     And The user wait for data synchronizing

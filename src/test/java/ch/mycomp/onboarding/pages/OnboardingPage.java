@@ -12,6 +12,7 @@ import org.openqa.selenium.support.FindBy;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Objects;
 
 import static org.junit.Assert.*;
 
@@ -440,7 +441,7 @@ public class OnboardingPage extends BasePage {
       selectFirstWorkingDay();
       globalSelectDropdownTargetElement(site, "Amsterdam");
       //BrowserUtils.waitFor(10);
-      globalSelectDropdownTargetElement(department,"IT_Test");
+
 
     }
 
@@ -453,10 +454,10 @@ public class OnboardingPage extends BasePage {
         BrowserUtils.clickWithJS(workingDay);
     }
 
-    public void selectResouce() {
+    public void selectResoucasdae() {
         clickButton("Add resource");
-        globalSelectDropdownTargetElement(resourceDDM, ConfigurationReader.get("resourceDDM"));
-        globalSelectDropdownTargetElement(resourceItem,ConfigurationReader.get("resourceItemDDM"));
+
+
         boxName("Enter quantity").sendKeys("1");
 
     }
@@ -478,5 +479,47 @@ public class OnboardingPage extends BasePage {
     public void selectCompany(String companyName) {
         globalSelectDropdownTargetElement(companyDDM,companyName);
 
+    }
+
+    public void theUserEnterInToField(String fieldName, String boxName) {
+
+        switch (fieldName){
+            case "firstName":
+            case "middleName":
+                boxName(boxName).sendKeys(faker.name().firstName());
+                break;
+            case "lastName":
+                boxName(boxName).sendKeys(faker.name().lastName());
+                break;
+            case "privateEmail":
+                boxName(boxName).sendKeys(faker.internet().emailAddress());
+                break;
+            case "orderName":
+                boxName(boxName).sendKeys(faker.commerce().productName());
+                break;
+
+
+
+        }
+
+
+
+    }
+
+    public void selectDepartment(String departmentName) {
+        globalSelectDropdownTargetElement(department,departmentName);
+    }
+
+    public void selectResource(String resourceName) {
+        globalSelectDropdownTargetElement(resourceDDM, resourceName);
+
+    }
+
+    public void selectResourceItem(String resourceItemName) {
+        globalSelectDropdownTargetElement(resourceItem,resourceItemName);
+    }
+
+    public void selectSite(String siteName) {
+        globalSelectDropdownTargetElement(site,siteName);
     }
 }

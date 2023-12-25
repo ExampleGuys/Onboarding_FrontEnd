@@ -23,20 +23,21 @@ Feature: Login Screen Test
     Then The user verify that sign in successfully
 
     Examples:
-      | email             | password            |
-      | superAdminUser    | superAdmin_password |
-      | adminUser         | admin_password      |
-      | employeeUser      | employeePassword    |
-      | lineMenagerUser   | lineMenagerPassword |
-      | supplier          | supplier_password   |
+      | email           | password            |
+      | superAdminUser  | superAdmin_password |
+      | adminUser       | admin_password      |
+      | employeeUser    | employeePassword    |
+      | lineMenagerUser | lineMenagerPassword |
+      | supplier        | supplier_password   |
+      | approverUser    | approver_password   |
 
   @ONB2-332
   Scenario: TC ONB2-332 The forget password link should be clickable on Sign In page
-   Then The user verify that the forget password link should be clickable
+    Then The user verify that the forget password link should be clickable
 
   @ONB2-311
   Scenario: TC ONB2-311 There should be a forgot password link on the login screen
-   Then The user verify that the forget password link should be visible
+    Then The user verify that the forget password link should be visible
 
   @ONB2-293
   Scenario: TC-ONB2-293 The password entered should be in encrypted form at the login page

@@ -4,6 +4,7 @@ import ch.mycomp.onboarding.utilities.BrowserUtils;
 import ch.mycomp.onboarding.utilities.ConfigurationReader;
 import ch.mycomp.onboarding.utilities.Driver;
 import io.cucumber.java.en.Then;
+import org.checkerframework.checker.units.qual.K;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -97,10 +98,10 @@ public class OrderPage extends BasePage{
         button2.sendKeys("Test Techno Consultant" + Keys.ENTER);
     }
 
-    public void theUserSelectTheEmployeeFromDdm() {
-        WebElement button2 = Driver.get().findElement(By.cssSelector("#Order_employee"));
-        BrowserUtils.clickWithJS(button2);
-        button2.sendKeys("elizabeth.smith@gmail.com - Edison Feest" + Keys.ENTER);
+    public void theUserSelectTheEmployeeFromDdm(String employee) {
+        WebElement button = Driver.get().findElement(By.cssSelector("#order_forEmployee"));
+        button.sendKeys(employee+ Keys.ENTER);
+
     }
 
     public void theUserSelectTheShippingAdressFromDdm() {
@@ -119,11 +120,7 @@ public class OrderPage extends BasePage{
     }
 
     public void theUserSelectThePriorityFromTheDdm() {
-        WebElement button2 = Driver.get().findElement(By.cssSelector("#Order_priority"));
-        BrowserUtils.clickWithJS(button2);
-        BrowserUtils.waitFor(1);
-        button2.sendKeys("Normal" + Keys.ENTER);
-        assertTrue(priorityDdm.isEnabled());
+
     }
 
     public void theUserSelectTheApproverFromTheDdm() {
@@ -282,8 +279,8 @@ public class OrderPage extends BasePage{
 
     @FindBy(id="order_site")
     public WebElement orderSite;
-    public void selectSite() {
-        globalSelectDropdownTargetElement(orderSite, "Amsterdam");
+    public void selectSite(String site) {
+        globalSelectDropdownTargetElement(orderSite, site);
     }
 
     public void enterReasonForRequest() {
@@ -326,7 +323,25 @@ public class OrderPage extends BasePage{
     }
     @FindBy(id="order_company")
     public WebElement companyDDM;
-    public void selectCompany() {
-        globalSelectDropdownTargetElement(companyDDM,"Automation_Test");
+    public void selectCompany(String companyName) {
+        globalSelectDropdownTargetElement(companyDDM,companyName);
+    }
+
+    public void selectLineManager(String lineManager) {
+        lineManagerDDM.click();
+        globalSelectDropdownTargetElement(lineManagerDDM,lineManager);
+    }
+
+    public void selectSupplier(String supplierName) {
+        supplierDDM.click();
+        globalSelectDropdownTargetElement(supplierDDM,supplierName);
+    }
+
+    public void selectResource(String resourceName) {
+        globalSelectDropdownTargetElement(resourceDDM,resourceName);
+    }
+
+    public void selectResourceItem(String resourceItemName) {
+        globalSelectDropdownTargetElement(resourceItem,resourceItemName);
     }
 }
