@@ -485,8 +485,6 @@ public class OnboardingPage extends BasePage {
 
         switch (fieldName){
             case "firstName":
-                boxName(boxName).sendKeys(faker.name().firstName());
-                break;
             case "middleName":
                 boxName(boxName).sendKeys(faker.name().firstName());
                 break;
@@ -495,6 +493,13 @@ public class OnboardingPage extends BasePage {
                 break;
             case "privateEmail":
                 boxName(boxName).sendKeys(faker.internet().emailAddress());
+                break;
+            case "orderName":
+                boxName(boxName).sendKeys(faker.commerce().productName());
+                break;
+
+
+
         }
 
 

@@ -546,12 +546,12 @@ public class ResourcesPage extends BasePage {
 
 /////////////////////////////////////////////////////////////////////////////
 
-    public void enterCategoryName() {
-        boxName("Enter category name").sendKeys(faker.commerce().material());
+    public void enterCategoryName(String boxname) {
+        boxName(boxname).sendKeys(faker.commerce().productName());
     }
 
-    public void enterResourceName() {
-        boxName("Enter resource name").sendKeys(faker.book().author());
+    public void enterResourceName(String boxName) {
+        boxName(boxName).sendKeys(faker.commerce().material());
     }
     @FindBy(xpath ="//*[@class='ant-select-selection-overflow']")
     public WebElement resourceSupplierDDM;

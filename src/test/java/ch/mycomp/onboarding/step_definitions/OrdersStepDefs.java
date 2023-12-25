@@ -69,9 +69,9 @@ public class OrdersStepDefs extends ObjectIndex {
 
     }
 
-    @And("The user select the priority from the ddm")
-    public void theUserSelectThePriorityFromTheDdm() {
-        orderPage.theUserSelectThePriorityFromTheDdm();
+    @And("The user select the priority")
+    public void theUserSelectThePriority() {
+        orderPage.selectPriority();
 
     }
 
@@ -181,9 +181,9 @@ public class OrdersStepDefs extends ObjectIndex {
 
     }
 
-    @And("The user select the employee from ddm")
-    public void theUserSelectTheEmployeeFromDdm() {
-        orderPage.theUserSelectTheEmployeeFromDdm();
+    @And("The user select employee as a {string} from ddm")
+    public void theUserSelectTheEmployeeFromDdm(String employee) {
+        orderPage.theUserSelectTheEmployeeFromDdm(employee);
 
     }
 
@@ -200,9 +200,9 @@ public class OrdersStepDefs extends ObjectIndex {
         orderPage.enterName_Description();
         orderPage.selectEmployee();
         orderPage.selectResouce();
-        orderPage.selectPriority();
+
         orderPage.selectPrefferedDeliveryDate();
-        orderPage.selectSite();
+       // orderPage.selectSite();
         orderPage.enterReasonForRequest();
         orderPage.selectProcessForAdmin();
 
@@ -215,36 +215,45 @@ public class OrdersStepDefs extends ObjectIndex {
         companiesPage.theUserVerifyThatCreatedUnitIsVisible();
     }
 
-    @And("The user fills all required fields in order create form for Line Menager")
-    public void theUserFillsAllRequiredFieldsInOrderCreateFormForLineMenager() {
-        orderPage.enterName_Description();
-        orderPage.selectEmployee();
-        orderPage.selectResouce();
-        orderPage.selectPriority();
+
+    @And("The user select Preffered Delivery Date")
+    public void theUserSelectPrefferedDeliveryDate() {
         orderPage.selectPrefferedDeliveryDate();
-        orderPage.enterReasonForRequest();
-        orderPage.selectProcessforLM();
+
     }
 
-    @And("The user fills all required fields in order create form for Employee")
-    public void theUserFillsAllRequiredFieldsInOrderCreateFormForEmployee() {
-        orderPage.enterName_Description();
-        orderPage.selectResouce();
-        orderPage.selectPriority();
-        orderPage.selectPrefferedDeliveryDate();
+    @And("The user select a shipping site as a {string}")
+    public void theUserSelectAShippingSiteAsA(String site) {
+        orderPage.selectSite(site);
+    }
+
+    @And("The user enter a Reason for Request")
+    public void theUserEnterAReasonForRequest() {
         orderPage.enterReasonForRequest();
     }
 
-    @And("The user fills all required fields in order create form for superAdmin Role")
-    public void theUserFillsAllRequiredFieldsInOrderCreateFormForSuperAdminRole() {
-        orderPage.selectCompany();
-        orderPage.enterName_Description();
-        orderPage.selectEmployee();
-        orderPage.selectResouce();
-        orderPage.selectPriority();
-        orderPage.selectPrefferedDeliveryDate();
-        orderPage.selectSite();
-        orderPage.enterReasonForRequest();
-        orderPage.selectProcessForAdmin();
+    @And("The user select a Line Manager as a {string}")
+    public void theUserSelectALineManagerAsA(String lineManager) {
+        orderPage.selectLineManager(lineManager);
+    }
+
+    @And("The user select a Supplier as a {string}")
+    public void theUserSelectASupplierAsA(String supplierName) {
+        orderPage.selectSupplier(supplierName);
+    }
+
+    @And("The user select Resource as a {string} in the order modal")
+    public void theUserSelectResourceAsAInTheOrderModal(String resourceName) {
+        orderPage.selectResource(resourceName);
+    }
+
+    @And("The user select Resource Item as a {string} in the order modal")
+    public void theUserSelectResourceItemAsAInTheOrderModal(String resourceItemName) {
+        orderPage.selectResourceItem(resourceItemName);
+    }
+
+    @And("The user selects a Company from company dropdown {string} for create order")
+    public void theUserSelectsACompanyFromCompanyDropdownForCreateOrder(String companyName) {
+        orderPage.selectCompany(companyName);
     }
 }

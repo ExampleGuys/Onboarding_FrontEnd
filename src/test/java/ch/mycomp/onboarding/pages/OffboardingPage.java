@@ -62,13 +62,13 @@ public class OffboardingPage extends BasePage{
     public void setOnboardingStatusToCompleted() {
         BrowserUtils.clickElement(checkCircleForFirstRow,20);
         BrowserUtils.clickWithJS(approveAllResourceCheckButton);
-        BrowserUtils.waitFor(5);
+        BrowserUtils.waitFor(2);
         clickButton("Save");
-        BrowserUtils.waitForVisibility(message,20);
+        BrowserUtils.waitFor(3);
         BrowserUtils.clickElement(firstElementNameOfTable,20);
         clickButton("Save & Complete");
         clickButton("Confirm");
-        BrowserUtils.waitFor(3);
+
         BrowserUtils.waitForVisibility(message,20);
 
 
