@@ -2,12 +2,9 @@ package ch.mycomp.onboarding.pages;
 
 import ch.mycomp.onboarding.utilities.BrowserUtils;
 import ch.mycomp.onboarding.utilities.ConfigurationReader;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import static ch.mycomp.onboarding.utilities.Driver.driver;
 
 public class UsersPage extends BasePage {
 
