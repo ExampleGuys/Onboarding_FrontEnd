@@ -37,4 +37,20 @@ public class PracticeStepDefs extends ObjectIndex{
     public void theUserEnterPassword() {
         usersPage.enterPassword();
     }
+
+      @And("The user select {string} and {string} in the supplier dropdown")
+    public void theUserSelectAndInTheSupplierDropdown(String supplierEmail, String supplierName) {
+        practicePage.selectSupplierInfo(supplierEmail,supplierName);
+    }
+
+
+    @And("The user add resource {string} in the {string} field")
+    public void theUserAddResourceInTheField(String value, String boxname) {
+        practicePage.addResourceInTheField(value,boxname);
+    }
+
+    @And("The user add supplier {string} and {string} in the supplier dropdown")
+    public void theUserAddSupplierAndInTheSupplierDropdown(String supplierEmail, String supplierName) {
+        practicePage.addSupplierInTheField(supplierEmail,supplierName);
+    }
 }
