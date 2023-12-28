@@ -3,7 +3,7 @@ Feature: Onboarding Create Tests with Line Menager
 
   Background: pre-steps
     Given The user goes to staging url
-    And The user enters with user "lineMenagerUser" and user "lineMenagerPassword"
+    And The user enters with user "lineManagerUser" and user "lineManagerPassword"
     And The User click on the "Onboardings" section in the Navigation Menu
 
   @ONMYC-828
