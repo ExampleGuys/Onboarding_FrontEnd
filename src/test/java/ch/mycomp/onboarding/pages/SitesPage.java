@@ -1,6 +1,10 @@
 package ch.mycomp.onboarding.pages;
 
 
+import com.google.j2objc.annotations.Weak;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
 public class SitesPage extends BasePage {
 
     public void theUserEnterSiteNameInInTheField(String boxName) {
@@ -25,5 +29,11 @@ public class SitesPage extends BasePage {
 
     public void theUserEnterStreetNumberInTheField(String boxName) {
         boxName(boxName).sendKeys(faker.address().streetAddressNumber());
+    }
+
+    @FindBy(id = "site_company")
+    WebElement companyDDM;
+    public void selectCompany(String companyName) {
+        globalSelectDropdownTargetElement(companyDDM,companyName);
     }
 }

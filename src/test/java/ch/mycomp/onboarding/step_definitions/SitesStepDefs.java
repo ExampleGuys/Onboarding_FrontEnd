@@ -33,4 +33,9 @@ public class SitesStepDefs extends ObjectIndex {
     public void theUserEnterStreetNumberInTheField(String boxName) {
         sitesPage.theUserEnterStreetNumberInTheField(boxName);
     }
+
+    @And("The user select a Company from company dropdown {string} for create site")
+    public void theUserSelectACompanyFromCompanyDropdownForCreateSite(String companyName) {
+        sitesPage.selectCompany(companyName);
+    }
 }
