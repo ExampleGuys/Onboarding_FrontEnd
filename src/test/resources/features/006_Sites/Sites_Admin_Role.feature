@@ -2,7 +2,7 @@
 Feature: Sites tests with Line Menager Role
   Background: pre-steps
     Given The user goes to staging url
-    And The user enters with user "lineManagerUser" and user "lineManagerPassword"
+    And The user enters with user "adminUser" and user "admin_password"
     And The user click on "Sites" at the navigation menu
 
   @ONMYC-982

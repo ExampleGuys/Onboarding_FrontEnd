@@ -25,7 +25,7 @@ public class ObjectIndex {
     UsersPage usersPage = new UsersPage();
 
     OffboardingPage offboardingPage = new OffboardingPage();
-    RegisterPage registerPage = new RegisterPage();
+
     Actions actions = new Actions(Driver.get());
 
     PracticePage practicePage = new PracticePage();

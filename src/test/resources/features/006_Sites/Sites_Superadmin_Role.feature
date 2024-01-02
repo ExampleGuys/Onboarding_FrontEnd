@@ -2,12 +2,13 @@
 Feature: Sites tests with Line Menager Role
   Background: pre-steps
     Given The user goes to staging url
-    And The user enters with user "lineManagerUser" and user "lineManagerPassword"
+    And The user enters with user "superAdminUser" and user "superAdmin_password"
     And The user click on "Sites" at the navigation menu
 
   @ONMYC-982
   Scenario: User should be able to create sites as Line Manager
     And The user click on the "Create" button top right corner of the page
+    And The user select a Company from company dropdown "Automation_Test" for create site
     And The user enter site name in in the "Enter name" field
     And The user enter country name in the "Enter country" field
     And The user enter city name in the "Enter city" field
