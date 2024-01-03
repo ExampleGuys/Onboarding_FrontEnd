@@ -1,5 +1,3 @@
-@regression
-
 Feature: Login Screen Test
 
   Background:

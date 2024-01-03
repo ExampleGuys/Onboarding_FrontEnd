@@ -8,8 +8,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
+import java.util.Random;
 
-public class PracticePage extends BasePage{
+public class PracticePage extends BasePage {
 
     @FindBy(xpath = "(//span[@aria-label='delete'])[1]")
     WebElement deleteIconFirstElement;
@@ -37,7 +38,7 @@ public class PracticePage extends BasePage{
 
 
     public void verifyAllElementsDeleted() {
-     Assert.assertTrue(noData.isDisplayed());
+        Assert.assertTrue(noData.isDisplayed());
     }
 
     public void enterEmailforSupplier(String email, String boxName) {
@@ -48,25 +49,67 @@ public class PracticePage extends BasePage{
         boxName(boxname).sendKeys(value);
     }
 
-    public void selectSupplierInfo(String supplierEmail,String supplierName) {
+    public void selectSupplierInfo(String supplierEmail, String supplierName) {
         supplierDDM.click();
-        globalSelectDropdownTargetElement(supplierDDM,supplierEmail+" | "+supplierName);
+        globalSelectDropdownTargetElement(supplierDDM, supplierEmail + " | " + supplierName);
 
     }
 
 
     public void addResourceInTheField(String value, String boxname) {
-    int count = 1;
-    WebElement resourceName = Driver.get().findElement(By.id("resource_items_"+count+"_name"));
-    resourceName.sendKeys(value);
-
-
+        int count = 1;
+        WebElement resourceName = Driver.get().findElement(By.id("resource_items_" + count + "_name"));
+        resourceName.sendKeys(value);
     }
-
 
     public void addSupplierInTheField(String supplierEmail, String supplierName) {
         int count = 1;
-        WebElement supplier = Driver.get().findElement(By.xpath("//*[@id='resource_items_"+count+"_suppliers']"));
-      globalSelectDropdownTargetElement(supplier,supplierEmail+" | "+supplierName);
+        WebElement supplier = Driver.get().findElement(By.xpath("//*[@id='resource_items_" + count + "_suppliers']"));
+        globalSelectDropdownTargetElement(supplier, supplierEmail + " | " + supplierName);
+    }
+
+    public void addNewField(String value, String boxName) {
+        boxName(boxName).sendKeys(value);
+
+    }
+
+    public void enterCompanyCode(String boxName) {
+        String code = "";
+        String[] letters = new String[]{"A", "B", "C", "D", "E", "F", "G", "H","I", "J"};
+        Random random = new Random();
+        for (int i = 0; i < 3; i++) {
+            code += letters[random.nextInt(letters.length)];
+        }
+
+        boxName(boxName).sendKeys(code);
+    }
+
+    @FindBy(id = "user_company")
+    WebElement companyDDM;
+
+    public void selectCompany(String companyName) {
+        globalSelectDropdownTargetElement(companyDDM, companyName);
+    }
+
+    @FindBy(id="user_site")
+    WebElement siteDDM;
+    public void selectSite(String siteName) {
+        globalSelectDropdownTargetElement(siteDDM,siteName);
+    }
+    @FindBy(id="resource_company")
+    WebElement resourceCompanyDDM;
+    public void selectCompanyResourcePage(String companyName) {
+        globalSelectDropdownTargetElement(resourceCompanyDDM,companyName);
+    }
+
+    public void selectSupplierResourcePage(String supplier) {
+        supplierDDM.click();
+        globalSelectDropdownTargetElement(supplierDDM,supplier);
+    }
+
+        @FindBy(id="onboarding_company")
+        WebElement onboardingCompanyDDM;
+    public void selectCompanyOnboardingPage(String companyName) {
+        globalSelectDropdownTargetElement(onboardingCompanyDDM,companyName);
     }
 }
