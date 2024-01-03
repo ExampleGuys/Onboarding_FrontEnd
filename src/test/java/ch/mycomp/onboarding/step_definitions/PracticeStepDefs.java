@@ -73,4 +73,34 @@ public class PracticeStepDefs extends ObjectIndex{
     public void theUserEnterDepartmentNameToField(String departmentName, String boxName) {
         practicePage.addNewField(departmentName,boxName);
     }
+
+    @And("The user enter company code in to {string} field")
+    public void theUserEnterCompanyCodeInToField(String boxName) {
+        practicePage.enterCompanyCode(boxName);
+    }
+
+    @And("The user select a Company from company dropdown {string} in the create user page")
+    public void theUserSelectACompanyFromCompanyDropdownInTheCreateUserPage(String companyName) {
+        practicePage.selectCompany(companyName);
+    }
+
+    @And("The user select site as a {string} in the create user page")
+    public void theUserSelectSiteAsAInTheCreateUserPage(String siteName) {
+        practicePage.selectSite(siteName);
+    }
+
+    @And("The user select a Company from company dropdown {string} in the create resource page")
+    public void theUserSelectACompanyFromCompanyDropdownInTheCreateResourcePage(String companyName) {
+        practicePage.selectCompanyResourcePage(companyName);
+    }
+
+    @And("The user select a Supplier as a {string} in the create resource page")
+    public void theUserSelectASupplierAsAInTheCreateResourcePage(String supplier) {
+        practicePage.selectSupplierResourcePage(supplier);
+    }
+
+    @And("The user select a Company from company dropdown {string} in the create onboarding page")
+    public void theUserSelectACompanyFromCompanyDropdownInTheCreateOnboardingPage(String companyName) {
+        practicePage.selectCompanyOnboardingPage(companyName);
+    }
 }
