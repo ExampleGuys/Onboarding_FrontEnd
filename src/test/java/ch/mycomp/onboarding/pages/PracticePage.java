@@ -59,14 +59,15 @@ public class PracticePage extends BasePage{
     int count = 1;
     WebElement resourceName = Driver.get().findElement(By.id("resource_items_"+count+"_name"));
     resourceName.sendKeys(value);
-
-
     }
-
-
     public void addSupplierInTheField(String supplierEmail, String supplierName) {
         int count = 1;
         WebElement supplier = Driver.get().findElement(By.xpath("//*[@id='resource_items_"+count+"_suppliers']"));
       globalSelectDropdownTargetElement(supplier,supplierEmail+" | "+supplierName);
+    }
+
+    public void addNewField(String value, String boxName) {
+        boxName(boxName).sendKeys(value);
+
     }
 }

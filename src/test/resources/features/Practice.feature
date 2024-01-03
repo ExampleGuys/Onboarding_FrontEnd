@@ -145,3 +145,34 @@ Feature: Practice test cases
       | Accommodation Service | Accommodation Assistance | auto_accommodation.assistance@yopmail.com | Supplier Test | 1500   |
       | Accommodation Service | Rent Subsidy             | auto_rent.subsidy@yopmail.com             | Supplier Test | 1200   |
       | Accommodation Service | Temporary Residence      | auto_temporary.residence@yopmail.com      | Supplier Test | 5000   |
+
+
+
+  @ONMYC-990
+  Scenario: TC ONMYC-990 User actions test from scratch in automation
+    Given The user goes to staging url
+    And The user enters with user "superAdminUser" and user "superAdmin_password"
+    And The user click on "Companies" at the navigation menu
+    And The user click on the "Create" button top right corner of the page
+    And The user enter company name "New Company" to "Enter name" field
+    And The user enter company code "NWCMP" to "Enter code" field
+    And The user click on the "Create" button on the modal
+    Then The user verify that the toast message is "Company successfully created"
+    And The user click on "Sites" at the navigation menu
+    And The user click on the "Create" button top right corner of the page
+    And The user select a Company from company dropdown "New Company" for create site
+    And The user enter site name "Zurih" in the "Enter name" field
+    And The user enter country name in the "Enter country" field
+    And The user enter city name in the "Enter city" field
+    And The user enter zip code in the "Enter zip code" field
+    And The user enter street name in the "Enter street" field
+    And The user enter street number in the "Enter street number" field
+    And The user click on the "Create" button on the modal
+    Then The user verify that the toast message is "Site successfully created"
+    And The user click on "Departments" at the navigation menu
+    And The user click on the "Create" button top right corner of the page
+    And The user select a Company from company dropdown "New Company"
+    And The user enter department name "IT" to "Enter department name" field
+    And The user click on the "Create" button on the modal
+    Then The user verify that the toast message is "Department successfully created"
+    And The user click on "Users" at the navigation menu

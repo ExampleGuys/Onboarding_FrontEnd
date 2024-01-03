@@ -53,4 +53,24 @@ public class PracticeStepDefs extends ObjectIndex{
     public void theUserAddSupplierAndInTheSupplierDropdown(String supplierEmail, String supplierName) {
         practicePage.addSupplierInTheField(supplierEmail,supplierName);
     }
+
+    @And("The user enter company name {string} to {string} field")
+    public void theUserEnterToField(String companyName, String boxName) {
+        practicePage.addNewField(companyName,boxName);
+    }
+
+    @And("The user enter company code {string} to {string} field")
+    public void theUserEnterCompanyCodeToField(String companyCode, String boxName) {
+        practicePage.addNewField(companyCode,boxName);
+    }
+
+    @And("The user enter site name {string} in the {string} field")
+    public void theUserEnterSiteNameInTheField(String siteName, String boxName) {
+        practicePage.addNewField(siteName,boxName);
+    }
+
+    @And("The user enter department name {string} to {string} field")
+    public void theUserEnterDepartmentNameToField(String departmentName, String boxName) {
+        practicePage.addNewField(departmentName,boxName);
+    }
 }
