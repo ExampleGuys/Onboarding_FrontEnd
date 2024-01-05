@@ -57,13 +57,13 @@ public class OffboardingPage extends BasePage{
         System.out.println(selectEmployee);
     }
 
-    @FindBy(xpath = "//input[@aria-label='Select all']")
-    public WebElement approveAllResourceCheckButton;
+    @FindBy(xpath = "(//*[text()='Not Started'])[1]")
+    public WebElement resourcesStatus;
     public void setOnboardingStatusToCompleted() {
         BrowserUtils.clickElement(checkCircleForFirstRow,20);
-        BrowserUtils.clickWithJS(approveAllResourceCheckButton);
+        globalSelectDropdownTargetElement(resourcesStatus,"Completed");
         BrowserUtils.waitFor(2);
-        clickButton("Save");
+        clickButton("Cancel");
         BrowserUtils.waitFor(3);
         BrowserUtils.clickElement(firstElementNameOfTable,20);
         clickButton("Save & Complete");

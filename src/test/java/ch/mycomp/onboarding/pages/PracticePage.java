@@ -112,4 +112,15 @@ public class PracticePage extends BasePage {
     public void selectCompanyOnboardingPage(String companyName) {
         globalSelectDropdownTargetElement(onboardingCompanyDDM,companyName);
     }
+
+    @FindBy(xpath = "//tbody/tr[2]/td[6]/span")
+    WebElement roleNameInTable;
+    public void theUserVerifyThatLastCreatedUsersRoleIs(String roleName) {
+        Assert.assertEquals(roleName,roleNameInTable.getText());
+    }
+
+    public void theUserUpgradeTheRoleTo(String actualRole, String upgradeRole) {
+        WebElement roleDDM = Driver.get().findElement(By.xpath(" //div/span[text()='" +actualRole + "']"));
+        //div/span[text()='Employee']
+    }
 }

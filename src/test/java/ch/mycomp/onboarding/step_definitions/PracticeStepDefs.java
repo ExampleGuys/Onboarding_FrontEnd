@@ -103,4 +103,14 @@ public class PracticeStepDefs extends ObjectIndex{
     public void theUserSelectACompanyFromCompanyDropdownInTheCreateOnboardingPage(String companyName) {
         practicePage.selectCompanyOnboardingPage(companyName);
     }
+
+    @Then("The user verify that last created users role is {string}")
+    public void theUserVerifyThatLastCreatedUsersRoleIs(String roleName) {
+        practicePage.theUserVerifyThatLastCreatedUsersRoleIs(roleName);
+    }
+
+    @And("The user upgrade the {string} role to {string}")
+    public void theUserUpgradeTheRoleTo(String actualRole, String UpgradeRole) {
+        practicePage.theUserUpgradeTheRoleTo(actualRole,UpgradeRole);
+    }
 }
