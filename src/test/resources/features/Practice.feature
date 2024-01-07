@@ -218,6 +218,13 @@ Feature: Practice test cases
     And The user click on first element of table
     And The user click on the "Approve" button
     And The user click on the "Save" button
+    And The user set onboarding status to completed
+    And The user click on "Users" at the navigation menu
+    And The user click on first element of table
+    And The user upgrade the "Employee" role to "Admin"
+    And The user click on the "Save" button
+    Then The user verify that last created users role is "Admin"
+
 
 
 
