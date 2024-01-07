@@ -121,6 +121,8 @@ public class PracticePage extends BasePage {
 
     public void theUserUpgradeTheRoleTo(String actualRole, String upgradeRole) {
         WebElement roleDDM = Driver.get().findElement(By.xpath(" //div/span[text()='" +actualRole + "']"));
-        //div/span[text()='Employee']
+        roleDDM.click();
+        WebElement newRole = Driver.get().findElement(By.xpath(" //div/div[text()='" +upgradeRole + "']"));
+        newRole.click();
     }
 }

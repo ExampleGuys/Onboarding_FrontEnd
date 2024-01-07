@@ -186,7 +186,7 @@ Feature: Practice test cases
     And The user enter password
     And The user click on the "Create" button on the modal
     Then The user verify that the toast message is "User successfully created"
-    And The user click on "Resources" at the navigation menu
+    And The user click on "Resource Templates" at the navigation menu
     And The user click on the "Create" button top right corner of the page
     And The user select a Company from company dropdown "New Company" in the create resource page
     And The user enter "TestResource" in in the "Enter category name" field

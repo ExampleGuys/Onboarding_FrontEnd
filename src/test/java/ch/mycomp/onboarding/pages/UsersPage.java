@@ -21,7 +21,7 @@ public class UsersPage extends BasePage {
     @FindBy(id="user_site")
     public WebElement userSiteDDM;
 
-    @FindBy(xpath = "(//span[@aria-label='barcode'])[1]")
+    @FindBy(xpath = "(//span[@aria-label='barcode'])[2]")
     public WebElement generatePassword;
     
    public void enterFirstMiddleLastName() {
