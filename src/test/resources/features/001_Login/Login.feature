@@ -13,7 +13,7 @@ Feature: Login Screen Test
       | superAdminUser  | superAdmin_password |
       | adminUser       | admin_password      |
       | employeeUser    | employeePassword    |
-      | lineMenagerUser | lineMenagerPassword |
+      | lineManagerUser | lineManagerPassword |
       | supplier        | supplier_password   |
       | approverUser    | approver_password   |
 
