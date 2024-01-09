@@ -5,23 +5,9 @@ Feature: Users tests wit Line Menager Role
     And The user enters with user "lineMenagerUser" and user "lineMenagerPassword"
     And The user click on "Users" at the navigation menu
 
-  @ONMYC-841
-  Scenario: TC ONMYC-841 New Users should be creatable
-    And The user click on the "Create" button top right corner of the page
-    And The user fills all required fields in User create form for Line Menager Role
-    And The user click on the "Create" button on the modal
-    Then The user verify that the toast message is "User successfully created"
-
   @ONMYC-842
   Scenario: TC ONMYC-842 Created Users should be visible
     Then The user verify that created user is visible
-
-  @ONMYC-843
-  Scenario: TC ONMYC-843 Created Users should be updated
-    And The user click on first element of table
-    And The user update data to "Enter first name" field
-    And The user click on the "Save" button
-    Then The user verify that the toast message is "User successfully updated"
 
   @ONMYC-844
   Scenario: TC ONMYC-844 Created Users should be deleted

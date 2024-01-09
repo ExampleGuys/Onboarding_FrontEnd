@@ -41,8 +41,8 @@ public class UsersStepDefs extends ObjectIndex {
     public void theUserFillsAllRequiredFieldsInUserCreateFormForSuperAdminRole() {
         usersPage.selectCompany();
         usersPage.enterFirstMiddleLastName();
-        usersPage.selectRole("Admin");
-
+        usersPage.selectRole("Supplier");
+        usersPage.selectSite("Amsterdam");
         usersPage.enterPrivateEmail();
         usersPage.enterPassword();
     }
@@ -51,7 +51,7 @@ public class UsersStepDefs extends ObjectIndex {
     public void theUserFillsAllRequiredFieldsInUserCreateFormSelectARole(String roleName) {
         usersPage.enterFirstMiddleLastName();
         usersPage.selectRole(roleName);
-
+        usersPage.selectSite("Amsterdam");
         usersPage.enterPrivateEmail();
         usersPage.enterPassword();
     }
