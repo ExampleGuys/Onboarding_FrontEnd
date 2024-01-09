@@ -43,5 +43,10 @@ public class ResourcesStepDefs extends ObjectIndex {
     public void theUserEnterResourceItemNameInTheField(String boxName) {
         resourcesPage.enterResourceName(boxName);
     }
+
+    @And("The user selects a Company from company dropdown {string} for create resources")
+    public void theUserSelectsACompanyFromCompanyDropdownForCreateResources(String companyName) {
+        resourcesPage.selectCompany(companyName);
+    }
 }
 
