@@ -19,6 +19,7 @@ Feature: Offboarding Tests with Super Admin Role
     And The user select First Working Day
     And The user select site as a "Amsterdam"
     And The user select department as a "IT_Test"
+    And The user click on "New Resources" button
     And The user click on "Add resource" button
     And The user select Resource as a "Phone"
     And The user select Resource Item as a "Samsung"
