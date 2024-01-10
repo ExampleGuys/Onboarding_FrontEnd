@@ -4,7 +4,7 @@ Feature: Resources Test with Admin Role
   Background: pre-steps
     Given The user goes to staging url
     And The user enters with user "adminUser" and user "admin_password"
-    And The user click on "Resources" at the navigation menu
+    And The user click on "Resource Templates" at the navigation menu
 
   @ONMYC-897
    Scenario: TC ONMYC-897 New Resource should be creatable
@@ -12,8 +12,8 @@ Feature: Resources Test with Admin Role
     And The user enter resource name in the "Enter category name" field
     And The user click on the "Add resource" button
     And The user enter resource item name in the "Enter resource name" field
-
-    And The user fills all required field in Resources create form for a Admin role
+    And The user select a Supplier as a "supplier_test@yopmail.com | Supplier Test" in the create resource page
+    And The user enter "1000" in in the "Enter price" field
     And The user click on the "Create" button on the modal
     Then The user verify that the toast message is "Resource successfully created"
 

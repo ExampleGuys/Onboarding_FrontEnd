@@ -37,25 +37,23 @@ public class UsersStepDefs extends ObjectIndex {
         usersPage.enterPassword();
     }
 
-
+    @And("The user fills all required fields in User create form for SuperAdmin Role")
+    public void theUserFillsAllRequiredFieldsInUserCreateFormForSuperAdminRole() {
+        usersPage.selectCompany();
+        usersPage.enterFirstMiddleLastName();
+        usersPage.selectRole("Supplier");
+        usersPage.selectSite("Amsterdam");
+        usersPage.enterPrivateEmail();
+        usersPage.enterPassword();
+    }
 
     @And("The user fills all required fields in User create form select a {string} role")
     public void theUserFillsAllRequiredFieldsInUserCreateFormSelectARole(String roleName) {
         usersPage.enterFirstMiddleLastName();
         usersPage.selectRole(roleName);
-
+        usersPage.selectSite("Amsterdam");
         usersPage.enterPrivateEmail();
         usersPage.enterPassword();
-    }
-
-    @And("The user select a Company from company dropdown {string} in the user page")
-    public void theUserSelectACompanyFromCompanyDropdownInTheUserPage(String companyName) {
-        usersPage.selectCompany(companyName);
-    }
-
-    @And("The user select site as a {string} in the user page")
-    public void theUserSelectSiteAsAInTheUserPage(String siteName) {
-        usersPage.selectSite(siteName);
     }
 }
 
