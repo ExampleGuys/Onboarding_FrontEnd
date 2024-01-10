@@ -39,10 +39,10 @@ public class OnboardingPage extends BasePage {
     @FindBy(id="onboarding_department")
     public WebElement department;
 
-    @FindBy(id = "onboarding_resources_0_resource")
+    @FindBy(id = "onboarding_resources_0_resourceTemplate")
     public WebElement resourceDDM;
 
-    @FindBy(id = "onboarding_resources_0_resourceItems")
+    @FindBy(id = "onboarding_resources_0_resourceTemplateItems")
     public WebElement resourceItem;
 
     public void selectFirstWorkingDay(){

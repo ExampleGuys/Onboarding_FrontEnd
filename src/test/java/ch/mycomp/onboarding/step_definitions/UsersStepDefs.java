@@ -39,7 +39,7 @@ public class UsersStepDefs extends ObjectIndex {
 
     @And("The user fills all required fields in User create form for SuperAdmin Role")
     public void theUserFillsAllRequiredFieldsInUserCreateFormForSuperAdminRole() {
-        usersPage.selectCompany();
+       // usersPage.selectCompany();
         usersPage.enterFirstMiddleLastName();
         usersPage.selectRole("Supplier");
         usersPage.selectSite("Amsterdam");
