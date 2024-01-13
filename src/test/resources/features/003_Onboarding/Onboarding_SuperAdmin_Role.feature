@@ -7,7 +7,7 @@ Feature: Onboarding Create Tests with Super Admin Role
     And The User click on the "Onboardings" section in the Navigation Menu
 
   @ONMYC-828
-  Scenario: TC ONMYC-828 New Onboarding should be creatable
+  Scenario: TC ONMYC-828 New Onboarding should be creatable with new resource
     And The user click on the "Create" button top right corner of the page
     And The user selects a Company from company dropdown "Automation_Test" for create onboarding
     And The user enter "firstName" in to "Enter first name" field
@@ -19,6 +19,7 @@ Feature: Onboarding Create Tests with Super Admin Role
     And The user select First Working Day
     And The user select site as a "Amsterdam"
     And The user select department as a "IT_Test"
+    And The user click on "New Resources" button
     And The user click on "Add resource" button
     And The user select Resource as a "Phone"
     And The user select Resource Item as a "Samsung"
@@ -32,7 +33,7 @@ Feature: Onboarding Create Tests with Super Admin Role
     Then The user verify that created onboarding is visible
 
   @ONMYC-832
-  Scenario: TC ONMYC-832 New Onboarding in DRAFT status should be creatable
+  Scenario: TC ONMYC-832 New Onboarding in DRAFT status should be creatable with new resource
     And The user click on the "Create" button top right corner of the page
     And The user selects a Company from company dropdown "Automation_Test" for create onboarding
     And The user enter "firstName" in to "Enter first name" field
@@ -44,6 +45,7 @@ Feature: Onboarding Create Tests with Super Admin Role
     And The user select First Working Day
     And The user select site as a "Amsterdam"
     And The user select department as a "IT_Test"
+    And The user click on "New Resources" button
     And The user click on "Add resource" button
     And The user select Resource as a "Phone"
     And The user select Resource Item as a "Samsung"

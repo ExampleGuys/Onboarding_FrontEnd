@@ -4,11 +4,14 @@ import ch.mycomp.onboarding.utilities.BrowserUtils;
 import ch.mycomp.onboarding.utilities.Driver;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 import java.util.Random;
+
+import static ch.mycomp.onboarding.utilities.Driver.driver;
 
 public class PracticePage extends BasePage {
 
@@ -49,8 +52,14 @@ public class PracticePage extends BasePage {
         boxName(boxname).sendKeys(value);
     }
 
+    @FindBy(xpath = "//*[text()='supplier_test@yopmail.com | Supplier Test']")
+    WebElement firstElementOfList;
     public void selectSupplierInfo(String supplierEmail, String supplierName) {
         supplierDDM.click();
+        while (!firstElementOfList.isDisplayed()){
+            driver.findElement(By.xpath("//body")).sendKeys(Keys.ARROW_DOWN);
+        }
+        BrowserUtils.waitFor(5);
         globalSelectDropdownTargetElement(supplierDDM, supplierEmail + " | " + supplierName);
 
     }

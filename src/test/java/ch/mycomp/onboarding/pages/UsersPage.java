@@ -51,8 +51,10 @@ public class UsersPage extends BasePage {
        BrowserUtils.clickElement(generatePassword,20);
     }
 
-    public void selectCompany() {
-       globalSelectDropdownTargetElement(usercompanyDDM,"Automation_Test");
+    @FindBy(id="user_company")
+    WebElement companyDDM;
+    public void selectCompany(String companyName) {
+        globalSelectDropdownTargetElement(companyDDM,companyName);
     }
 }
 

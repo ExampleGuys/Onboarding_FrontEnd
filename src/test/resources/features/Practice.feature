@@ -172,7 +172,7 @@ Feature: Practice test cases
     And The user click on "Departments" at the navigation menu
     And The user click on the "Create" button top right corner of the page
     And The user select a Company from company dropdown "New Company"
-    And The user enter department name "IT" to "Enter department name" field
+    And The user enter department name "IT_" to "Enter department name" field
     And The user click on the "Create" button on the modal
     Then The user verify that the toast message is "Department successfully created"
     And The user click on "Users" at the navigation menu
@@ -207,7 +207,8 @@ Feature: Practice test cases
     And The user select Birth Date
     And The user select First Working Day
     And The user select site as a "Zurih"
-    And The user select department as a "IT"
+    And The user select department as a "IT_"
+    And The user click on "New Resources" button
     And The user click on "Add resource" button
     And The user select Resource as a "TestResource"
     And The user select Resource Item as a "Test Resource Item"
