@@ -8,7 +8,7 @@ Feature: Order Tests with Admin Role
 
   @ONMYC-835
   Scenario: ONMYC-835 New Order should be creatable
-    And The user click on the "Create" button top right corner of the page
+    And The user click on the "Create Order" button top right corner of the page
     And The user enter "orderName" in to "Enter name" field
     And The user select employee as a "employee_test@yopmail.com | Employee Test" from ddm
     And The user click on "Add resource" button
