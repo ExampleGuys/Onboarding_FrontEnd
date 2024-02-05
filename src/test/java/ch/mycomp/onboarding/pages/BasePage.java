@@ -120,7 +120,7 @@ public class BasePage {
         BrowserUtils.clickWithJS(button);
     }
     public void clickButtonOnModal(String buttonName) {
-        WebElement button = Driver.get().findElement(By.xpath("(//span[text()='" + buttonName + "'])[2]"));
+        WebElement button = Driver.get().findElement(By.xpath("(//span[text()='" + buttonName + "'])[1]"));
         BrowserUtils.clickElement(button,20);
     }
 

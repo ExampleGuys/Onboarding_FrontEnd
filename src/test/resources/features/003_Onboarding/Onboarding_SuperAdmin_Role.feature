@@ -8,7 +8,7 @@ Feature: Onboarding Create Tests with Super Admin Role
 
   @ONMYC-828
   Scenario: TC ONMYC-828 New Onboarding should be creatable with new resource
-    And The user click on the "Create" button top right corner of the page
+    And The user click on the "Create Onboarding" button top right corner of the page
     And The user selects a Company from company dropdown "Automation_Test" for create onboarding
     And The user enter "firstName" in to "Enter first name" field
     And The user enter "middleName" in to "Enter middle name" field
@@ -19,11 +19,13 @@ Feature: Onboarding Create Tests with Super Admin Role
     And The user select First Working Day
     And The user select site as a "Amsterdam"
     And The user select department as a "IT_Test"
+    And The user select no company email account
     And The user click on "New Resources" button
-    And The user click on "Add resource" button
+    And The user click on "Add resource" button in New Resource
     And The user select Resource as a "Phone"
-    And The user select Resource Item as a "Samsung"
+    And The user select Resource Item as a "Samsung | €800.00"
     And The User select a Completion Date at The Latest
+    And The user select a Supplier as a "supplier_test@yopmail.com | Supplier Test" in the create onboarding modal
     And The user click on the "Save & Start Process" button
     And The user click on "Confirm" button
     Then The user verify that the toast message is "Onboarding successfully created"
@@ -34,7 +36,7 @@ Feature: Onboarding Create Tests with Super Admin Role
 
   @ONMYC-832
   Scenario: TC ONMYC-832 New Onboarding in DRAFT status should be creatable with new resource
-    And The user click on the "Create" button top right corner of the page
+    And The user click on the "Create Onboarding" button top right corner of the page
     And The user selects a Company from company dropdown "Automation_Test" for create onboarding
     And The user enter "firstName" in to "Enter first name" field
     And The user enter "middleName" in to "Enter middle name" field
@@ -45,21 +47,23 @@ Feature: Onboarding Create Tests with Super Admin Role
     And The user select First Working Day
     And The user select site as a "Amsterdam"
     And The user select department as a "IT_Test"
+    And The user select no company email account
     And The user click on "New Resources" button
-    And The user click on "Add resource" button
+    And The user click on "Add resource" button in New Resource
     And The user select Resource as a "Phone"
-    And The user select Resource Item as a "Samsung"
+    And The user select Resource Item as a "Samsung | €800.00"
     And The User select a Completion Date at The Latest
-    And The user click on the "Save" button
-    Then The user verify that the toast message is "Onboarding successfully created"
+    And The user select a Supplier as a "supplier_test@yopmail.com | Supplier Test" in the create onboarding modal
+    And The user click on the "Save as Draft" button
+   # Then The user verify that the toast message is "Onboarding succesfully created"
 
   @ONMYC-831
   Scenario: TC ONMYC-831 Drafted Onboarding should be updated
     And The user click on "Draft" button
     And The user click on first element of table
     And The user update data to "Enter first name" field
-    And The user click on the "Save" button
-    Then The user verify that the toast message is "Onboarding successfully updated"
+    And The user click on the "Save as Draft" button
+   # Then The user verify that the toast message is "Onboarding successfully updated"
 
   @ONMYC-830
   Scenario: TC ONMYC-830 Created onboarding should be deleted

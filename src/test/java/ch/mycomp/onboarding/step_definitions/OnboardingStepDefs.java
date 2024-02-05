@@ -88,4 +88,19 @@ public class OnboardingStepDefs extends ObjectIndex{
     public void theUserSelectSiteAsA(String siteName) {
         onboardingPage.selectSite(siteName);
     }
+
+    @And("The user select a Supplier as a {string} in the create onboarding modal")
+    public void theUserSelectASupplierAsAInTheCreateOnboardingModal(String supplierName) {
+        onboardingPage.selectSupplier(supplierName);
+    }
+
+    @And("The user select no company email account")
+    public void theUserSelectNoCompanyEmailAccount() {
+        onboardingPage.selectNoCompanyEmailAccount();
+    }
+
+    @And("The user click on {string} button in New Resource")
+    public void theUserClickOnButtonInNewResource(String buttonName) {
+        onboardingPage.clickAddResourceButton(buttonName);
+    }
 }

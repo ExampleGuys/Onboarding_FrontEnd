@@ -50,10 +50,10 @@ public class OrderPage extends BasePage {
         boxName("Enter reason for request").sendKeys(faker.lorem().fixedString(200));
     }
 
-    @FindBy(id = "order_orderItems_0_resource")
+    @FindBy(id = "order_orderItems_0_resourceTemplate")
     public WebElement resourceDDM;
 
-    @FindBy(id = "order_orderItems_0_resourceItems")
+    @FindBy(id = "order_orderItems_0_resourceTemplateItems")
     public WebElement resourceItem;
 
     @FindBy(id = "order_lineManagers")

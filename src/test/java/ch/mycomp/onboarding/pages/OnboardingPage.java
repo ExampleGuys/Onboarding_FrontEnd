@@ -111,4 +111,22 @@ public class OnboardingPage extends BasePage {
     public void selectSite(String siteName) {
         globalSelectDropdownTargetElement(site,siteName);
     }
+
+    @FindBy(id="onboarding_serviceProvider")
+    WebElement supplier;
+    public void selectSupplier(String supplierName) {
+        supplier.click();
+        globalSelectDropdownTargetElement(supplier,supplierName);
+
+    }
+    @FindBy(xpath = "(//input[@class='ant-radio-input'])[2]")
+    public WebElement noCompanyEmailRadioButton;
+    public void selectNoCompanyEmailAccount() {
+        noCompanyEmailRadioButton.click();
+    }
+
+    public void clickAddResourceButton(String buttonName) {
+        WebElement button = Driver.get().findElement(By.xpath("(//span[text()='" + buttonName + "'])[2]"));
+        BrowserUtils.clickWithJS(button);
+    }
 }
