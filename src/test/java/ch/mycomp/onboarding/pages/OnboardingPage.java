@@ -124,4 +124,9 @@ public class OnboardingPage extends BasePage {
     public void selectNoCompanyEmailAccount() {
         noCompanyEmailRadioButton.click();
     }
+
+    public void clickAddResourceButton(String buttonName) {
+        WebElement button = Driver.get().findElement(By.xpath("(//span[text()='" + buttonName + "'])[2]"));
+        BrowserUtils.clickWithJS(button);
+    }
 }

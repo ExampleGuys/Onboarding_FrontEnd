@@ -98,4 +98,9 @@ public class OnboardingStepDefs extends ObjectIndex{
     public void theUserSelectNoCompanyEmailAccount() {
         onboardingPage.selectNoCompanyEmailAccount();
     }
+
+    @And("The user click on {string} button in New Resource")
+    public void theUserClickOnButtonInNewResource(String buttonName) {
+        onboardingPage.clickAddResourceButton(buttonName);
+    }
 }
