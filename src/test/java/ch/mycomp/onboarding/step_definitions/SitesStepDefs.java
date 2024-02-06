@@ -9,9 +9,9 @@ public class SitesStepDefs extends ObjectIndex {
            sitesPage.theUserEnterSiteNameInInTheField(boxName);
     }
 
-        @And("The user enter country name in the {string} field")
-        public void theUserEnterCountryNameInTheField(String boxName) {
-            sitesPage.theUserEnterCountryNameInTheField(boxName);
+        @And("The user select country as a {string}")
+        public void theUserSelectCountryAsA(String boxName) {
+            sitesPage.theUserSelectCountryAsA(boxName);
         }
 
         @And("The user enter city name in the {string} field")
@@ -38,4 +38,5 @@ public class SitesStepDefs extends ObjectIndex {
     public void theUserSelectACompanyFromCompanyDropdownForCreateSite(String companyName) {
         sitesPage.selectCompany(companyName);
     }
+
 }
