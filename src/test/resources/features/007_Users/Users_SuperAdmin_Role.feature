@@ -7,15 +7,16 @@ Feature: Users tests wit Super Admin Role
 
   @ONMYC-841
   Scenario: TC ONMYC-841 New Users should be creatable
-    And The user click on the "Create" button top right corner of the page
+    And The user click on the "Create User" button top right corner of the page
     And The user select a Company from company dropdown "Automation_Test" in the user page
+    And The user click on the "Create User" button top right corner of the page
     And The user enter "firstName" in to "Enter first name" field
     And The user enter "middleName" in to "Enter middle name" field
     And The user enter "lastName" in to "Enter last name" field
     And The user enter "privateEmail" in to "Enter private email" field
     And The user select role as a "Supplier"
-    And The user select site as a "Amsterdam" in the user page
-    And The user enter password
+    And The user select site as a "Amsterdam" in the create user page
+    And The user click on generate password button
     And The user click on the "Create" button on the modal
     Then The user verify that the toast message is "User successfully created"
 

@@ -47,8 +47,11 @@ public class UsersPage extends BasePage {
         
     }
 
-    public void enterPassword() {
+    public void clickGeneratePassword() {
        BrowserUtils.clickElement(generatePassword,20);
+    }
+    public void enterPassword() {
+        BrowserUtils.clickElement(generatePassword,20);
     }
 
     @FindBy(id="user_company")

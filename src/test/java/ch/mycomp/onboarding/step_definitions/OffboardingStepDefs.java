@@ -26,13 +26,9 @@ public class OffboardingStepDefs extends ObjectIndex {
         offboardingPage.determineOnboardingEmployee();
     }
 
-    @And("The user wait for data synchronizing")
-    public void theUserWaitForDataSynchronizing() {
-        BrowserUtils.waitForVisibility(offboardingPage.message,20);
-    }
-
     @And("The user set onboarding status to completed")
     public void theUserSetOnboardingStatusToCompleted() {
+        companiesPage.theUserClickOnFirstElementOfCompaniesTable();
         offboardingPage.setOnboardingStatusToCompleted();
     }
 
@@ -42,4 +38,9 @@ public class OffboardingStepDefs extends ObjectIndex {
     }
 
 
+    @And("The user set offboarding status to completed")
+    public void theUserSetOffboardingStatusToCompleted() {
+        companiesPage.theUserClickOnFirstElementOfCompaniesTable();
+        offboardingPage.setOffboardingStatusToCompleted();
+    }
 }

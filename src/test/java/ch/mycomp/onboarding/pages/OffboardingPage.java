@@ -59,19 +59,41 @@ public class OffboardingPage extends BasePage{
 
     @FindBy(xpath = "(//*[text()='Not Started'])[1]")
     public WebElement resourcesStatus;
+    @FindBy(xpath = "(//*[@aria-label='close'])[1]")
+    WebElement closeIcon;
+    @FindBy(xpath = "(//button//span[text()='OK'])[2]")
+    WebElement okButton;
+    @FindBy(xpath = "(//div//span[@class='ant-radio-button'])[3]")
+    WebElement completedRadioButton;
     public void setOnboardingStatusToCompleted() {
+        clickButton("Approve");
+        clickButton("Save");
         BrowserUtils.clickElement(checkCircleForFirstRow,20);
         globalSelectDropdownTargetElement(resourcesStatus,"Completed");
         BrowserUtils.waitFor(2);
-        clickButton("Cancel");
-        BrowserUtils.waitFor(3);
+        BrowserUtils.clickElement(okButton,20);
+        BrowserUtils.waitFor(2);
+        BrowserUtils.clickElement(closeIcon,20);
+        BrowserUtils.waitFor(4);
         BrowserUtils.clickElement(firstElementNameOfTable,20);
-        clickButton("Save & Complete");
-        clickButton("Confirm");
+        BrowserUtils.waitFor(3);
+        clickButton("Completed");
+        clickButton("Save");
+            }
 
-        BrowserUtils.waitForVisibility(message,20);
-
-
+    public void setOffboardingStatusToCompleted() {
+        clickButton("Approve");
+        clickButton("Save");
+        BrowserUtils.clickElement(checkCircleForFirstRow,20);
+        globalSelectDropdownTargetElement(resourcesStatus,"Completed");
+        BrowserUtils.waitFor(2);
+        BrowserUtils.clickElement(okButton,20);
+        BrowserUtils.waitFor(2);
+        BrowserUtils.clickElement(closeIcon,20);
+        BrowserUtils.waitFor(2);
+        BrowserUtils.clickElement(firstElementNameOfTable,20);
+        clickButton("Completed");
+        clickButton("Save");
     }
     @FindBy(id="offboarding_company")
     public WebElement companyDDM;

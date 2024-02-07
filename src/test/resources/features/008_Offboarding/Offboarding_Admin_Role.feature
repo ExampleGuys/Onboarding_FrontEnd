@@ -8,7 +8,7 @@ Feature: Offboarding Tests with Admin Role
   @ONMYC-801
   Scenario: TC ONMYC-801 New Offboarding should be creatable
     And The user click on "Onboardings" at the navigation menu
-    And The user click on the "Create" button top right corner of the page
+    And The user click on the "Create Onboarding" button top right corner of the page
     And The user enter "firstName" in to "Enter first name" field
     And The user enter "middleName" in to "Enter middle name" field
     And The user enter "lastName" in to "Enter last name" field
@@ -18,32 +18,36 @@ Feature: Offboarding Tests with Admin Role
     And The user select First Working Day
     And The user select site as a "Amsterdam"
     And The user select department as a "IT_Test"
+    And The user select no company email account
     And The user click on "New Resources" button
-    And The user click on "Add resource" button
+    And The user click on "Add resource" button in New Resource
     And The user select Resource as a "Phone"
-    And The user select Resource Item as a "Samsung"
+    And The user select Resource Item as a "Samsung | €800.00"
     And The User select a Completion Date at The Latest
+    And The user select a Supplier as a "supplier_test@yopmail.com | Supplier Test" in the create onboarding modal
     And The user click on the "Save & Start Process" button
     And The user click on "Confirm" button
-    And The user wait for data synchronizing
+    Then The user verify that the toast message is "Onboarding successfully created"
     And The user set onboarding status to completed
     And The user determine the Employee which is offboarding
     And The user click on "Offboardings" at the navigation menu
-    And The user click on the "Create" button top right corner of the page
+    And The user click on the "Create Offboarding" button top right corner of the page
     And The user fills all required fields in offboarding create form
-    And The user click on the "Save & Complete" button
+    And The user click on the "Save & Start Process" button
     And The user click on "Confirm" button
-    Then The user verify that the toast message is "Offboarding successfully created"
+    And The user set offboarding status to completed
+
 
   @ONMYC-755
   Scenario: TC ONMYC-755Created Offboarding should be visible
     And The user click on "Offboardings" at the navigation menu
     Then The user verify that created offboarding is visible
 
+
   @ONMYC-833
   Scenario: TC ONMYC-833 New Offboarding in DRAFT status should be creatable
     And The user click on "Onboardings" at the navigation menu
-    And The user click on the "Create" button top right corner of the page
+    And The user click on the "Create Onboarding" button top right corner of the page
     And The user enter "firstName" in to "Enter first name" field
     And The user enter "middleName" in to "Enter middle name" field
     And The user enter "lastName" in to "Enter last name" field
@@ -59,7 +63,6 @@ Feature: Offboarding Tests with Admin Role
     And The User select a Completion Date at The Latest
     And The user click on the "Save & Start Process" button
     And The user click on "Confirm" button
-    And The user wait for data synchronizing
     And The user set onboarding status to completed
     And The user determine the Employee which is offboarding
     And The user click on "Offboardings" at the navigation menu
