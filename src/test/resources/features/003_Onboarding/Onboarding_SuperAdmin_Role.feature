@@ -19,6 +19,7 @@ Feature: Onboarding Create Tests with Super Admin Role
     And The user select First Working Day
     And The user select site as a "Amsterdam"
     And The user select department as a "IT_Test"
+    And The user select job function as a "Test Specialist"
     And The user select no company email account
     And The user click on "New Resources" button
     And The user click on "Add resource" button in New Resource
