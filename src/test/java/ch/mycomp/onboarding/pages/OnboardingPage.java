@@ -129,4 +129,11 @@ public class OnboardingPage extends BasePage {
         WebElement button = Driver.get().findElement(By.xpath("(//span[text()='" + buttonName + "'])[2]"));
         BrowserUtils.clickWithJS(button);
     }
+
+    @FindBy(id = "onboarding_jobFunction")
+    WebElement jobFunctionElement;
+
+    public void theUserSelectJobFunctionAsA(String jobFunction) {
+        globalSelectDropdownTargetElement(jobFunctionElement,jobFunction);
+    }
 }

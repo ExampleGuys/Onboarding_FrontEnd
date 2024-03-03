@@ -103,4 +103,9 @@ public class OnboardingStepDefs extends ObjectIndex{
     public void theUserClickOnButtonInNewResource(String buttonName) {
         onboardingPage.clickAddResourceButton(buttonName);
     }
+
+    @And("The user select job function as a {string}")
+    public void theUserSelectJobFunctionAsA(String jobFunction) {
+        onboardingPage.theUserSelectJobFunctionAsA(jobFunction);
+    }
 }
