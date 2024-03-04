@@ -88,4 +88,11 @@ public class OrderPage extends BasePage {
     public void selectResourceItem(String resourceItemName) {
         globalSelectDropdownTargetElement(resourceItem, resourceItemName);
     }
+
+    @FindBy(xpath = "//input[@value='NEW_INVESTMENT']")
+    WebElement radioButtonNewInwestment;
+    public void theUserSelectInvestmentTypeAsANewInvestment() {
+        BrowserUtils.clickElement(radioButtonNewInwestment,20);
+
+    }
 }

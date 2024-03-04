@@ -16,7 +16,7 @@ public class CompaniesPage extends BasePage{
 
 
 
-    @FindBy(xpath = "//span[@aria-label='delete'][1]")
+    @FindBy(xpath = "(//span[@aria-label='delete'])[2]")
     public WebElement deleteIconFirstElementOfTable;
     public void theUserEnterDataToField(String boxName) {
         boxName(boxName).sendKeys(faker.company().name());
