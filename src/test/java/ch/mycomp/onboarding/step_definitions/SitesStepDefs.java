@@ -2,6 +2,7 @@ package ch.mycomp.onboarding.step_definitions;
 
 
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Then;
 
 public class SitesStepDefs extends ObjectIndex {
     @And("The user enter site name in in the {string} field")
@@ -39,4 +40,13 @@ public class SitesStepDefs extends ObjectIndex {
         sitesPage.selectCompany(companyName);
     }
 
+    @And("The user select site group as a {string} in the site group ddm")
+    public void theUserSelectSiteGroupInTheSiteGroupDdm(String siteGroup) {
+        sitesPage.theUserSelectSiteGroupInTheSiteGroupDdm(siteGroup);
+    }
+
+    @Then("The user verify that created site is visible")
+    public void theUserVerifyThatCreatedSiteIsVisible() {
+        companiesPage.theUserVerifyThatCreatedUnitIsVisible();
+    }
 }

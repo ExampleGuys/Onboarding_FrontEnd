@@ -83,4 +83,9 @@ public class OrdersStepDefs extends ObjectIndex {
     public void theUserSelectsACompanyFromCompanyDropdownForCreateOrder(String companyName) {
         orderPage.selectCompany(companyName);
     }
+
+    @And("The user select investment type as a new investment")
+    public void theUserSelectInvestmentTypeAsANewInvestment() {
+        orderPage.theUserSelectInvestmentTypeAsANewInvestment();
+    }
 }

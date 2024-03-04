@@ -39,4 +39,10 @@ public class SitesPage extends BasePage {
     public void selectCompany(String companyName) {
         globalSelectDropdownTargetElement(companyDDM,companyName);
     }
+
+    @FindBy(id = "site_group")
+    WebElement siteGroupDDM;
+    public void theUserSelectSiteGroupInTheSiteGroupDdm(String siteGroup) {
+        globalSelectDropdownTargetElement(siteGroupDDM,siteGroup);
+    }
 }
