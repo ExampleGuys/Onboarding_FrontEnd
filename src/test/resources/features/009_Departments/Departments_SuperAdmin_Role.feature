@@ -11,6 +11,7 @@
       And The user click on the "Create Department" button top right corner of the page
       And The user select a Company from company dropdown "Automation_Test"
       And The user enter data to "Enter department name" field
+      And The user select site as a "Amsterdam" in the department page
       And The user click on the "Create" button on the modal
       Then The user verify that the toast message is "Department successfully created"
 

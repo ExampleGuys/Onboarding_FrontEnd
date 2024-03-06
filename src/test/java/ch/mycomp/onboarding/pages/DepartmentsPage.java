@@ -17,4 +17,9 @@ public class DepartmentsPage extends BasePage{
     public void enterDepartmentName(String departmentName, String boxname) {
         boxName(boxname).sendKeys(departmentName);
     }
+    @FindBy(id = "department_site")
+    WebElement siteNameElement;
+    public void theUserSelectSiteAsAInTheDepartmentPage(String siteName) {
+        globalSelectDropdownTargetElement(siteNameElement,siteName);
+    }
 }

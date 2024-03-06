@@ -21,4 +21,9 @@ public class DepartmentsStepDefs extends ObjectIndex{
         departmentsPage.enterDepartmentName(departmentName,boxname);
 
     }
+
+    @And("The user select site as a {string} in the department page")
+    public void theUserSelectSiteAsAInTheDepartmentPage(String siteName) {
+        departmentsPage.theUserSelectSiteAsAInTheDepartmentPage(siteName);
+    }
 }
